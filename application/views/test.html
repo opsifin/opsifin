@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Akademik 2000i</title>
+<script language="javascript" src="{{ base_url }}assets/js/jquery1.8.js"></script>
+<link rel="stylesheet" href="{{ base_url }}assets/css/bgstretcher.css" />
+<link rel="stylesheet" href="{{ base_url }}assets/css/style.css" />
+<script language="javascript" src="{{ base_url }}assets/js/bgstretcher.js"></script>
+</head>
+<body>
+<div class="auto" id="AppTitle" style="width:344px; top:40px; position:relative;">
+	<img src="{{ base_url }}assets/img/akademik.png"/>
+</div>
+<div class="auto" style="width:800px; position:relative; top:70px; color:#FFFFFF; text-align:justify;">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam viverra dui eu
+    ullamcorper. Vestibulum id mi eros. Aenean non placerat erat. Suspendisse eu leo elit.
+    Pellentesque elit velit, luctus vitae fermentum quis, cursus non ipsum. Suspendisse justo
+    dolor, porta quis pharetra molestie, auctor quis metus. Vestibulum id ligula massa. Etiam
+    rhoncus fringilla magna sit amet vulputate. Nullam quis est vitae est facilisis accumsan non
+    vitae mi. Donec non enim at dolor iaculis ultrices. Pellentesque interdum vulputate egestas.</p>
+  <p>Mauris sagittis nisl non nibh commodo consequat. Cras pulvinar consectetur erat ut
+accumsan. Vestibulum quis semper arcu. Curabitur enim est, dapibus at rhoncus eu,
+fermentum eget mauris. Etiam aliquet elementum dignissim. Maecenas eget lacus pharetra
+dolor blandit malesuada. Ut pellentesque tortor at metus tristique viverra.  </p>
+</div>
+<div class="auto" id="logindiv" style="width:513px; position:relative; top:100px; display:none;  text-align:justify;">
+	<div style="height:67px; background-image: url({{ base_url }}assets/img/toplogin.png)"><img id="imglogin" src="{{ base_url }}assets/img/keuanganlogin.png"/></div>
+    <div style="background-image: url({{ base_url }}assets/img/bglogin.png)">
+    <form action="" method="post" id="formlogin" name="formlogin">
+      <table border="0" align="center">
+        <tr>
+          <td nowrap="nowrap">Username :</td>
+          <td nowrap="nowrap"><input name="txt_username" type="text" id="txt_username" size="16" /></td>          
+          <td nowrap="nowrap">Password :</td>
+          <td nowrap="nowrap"><input name="txt_password" type="text" id="txt_password" size="15" /></td>
+          <td nowrap="nowrap"><input type="submit" name="button" id="button" value="Login" /></td>
+        </tr>
+      </table>
+     </form>
+    </div>
+  <div style="height:40px; background-image:url({{ base_url }}assets/img/bottomlogin.png)"></div>    
+</div>
+<div class="auto" style="width:800px; height:180px; position:relative; top:120px; color:#FFFFFF; text-align:justify;">
+  <div class="left" style="padding-left:20px;padding-right:4px;"><a href="javascript:void(0);" onclick="loginicon('{{ base_url }}assets/img/datainduklogin.png','{{ base_url }}index.php/datainduk/home')"><img src="{{ base_url }}assets/img/icon_datainduk.png" border="0" /></a></div>
+  <div class="left" style="padding-right:4px"><a href="javascript:void(0);" onclick="loginicon('{{ base_url }}assets/img/perpuslogin.png','{{ base_url }}index.php/perpustakaan/home')"><img src="{{ base_url }}assets/img/icon_perpustakaan.png" border="0" /></a></div>
+  <div class="left" style="padding-right:4px"><a href="javascript:void(0);" onclick="loginicon('{{ base_url }}assets/img/kepegawaianlogin.png','{{ base_url }}index.php/kepegawaian/home')"><img src="{{ base_url }}assets/img/icon_kepegawaian.png" border="0" /></a></div>
+  <div class="left" style="padding-right:4px"><a href="javascript:void(0);" onclick="loginicon('{{ base_url }}assets/img/nilailogin.png','{{ base_url }}index.php/nilai/home')"><img src="{{ base_url }}assets/img/icon_nilai.png" border="0" /></a></div>
+  <div class="left" style="padding-right:10px"><a href="javascript:void(0);" onclick="loginicon('{{ base_url }}assets/img/keuanganlogin.png','{{ base_url }}index.php/keuangan/home')"><img src="{{ base_url }}assets/img/icon_keuangan.png" border="0" /></a></div>
+</div>
+<div class="auto" style="width:800px; position:relative; top:140px; color:#FFFFFF; text-align: center;">
+Copyright&copy;2012, Kementrian Pendidikan Nasional.<br />
+Powered By : PT. John Doe
+</div>
+<script language="javascript" src="{{ base_url }}assets/js/bgstrecth.js"></script>
+<script language="javascript">	
+	function loginicon(src, action) {
+		$("#imglogin").attr("src",src);
+		$("#txt_username").focus();
+		
+		document.getElementById("logindiv").className="auto fade-out";
+		$("#logindiv").hide();
+			
+		document.getElementById("logindiv").className="auto fade-in";
+		$("#logindiv").show();
+		
+		
+		$("#formlogin").attr("action",action);
+	}
+</script>
+</body>
+</html>
