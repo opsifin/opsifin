@@ -21,6 +21,5 @@ class Approval extends CI_Controller {
 		}
 	}
         
-        function 
-	
+       
 }
