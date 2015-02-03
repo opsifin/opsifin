@@ -1,0 +1,243 @@
+@charset "utf-8";
+@font-face {
+	font-family: 'opensans';
+	src: url('../font/opensans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+body {
+	margin:0;
+	background:#CCCCCC;
+	font-family: 'opensans';
+	font-size: 13px;
+	line-height:22px;
+}
+
+#container {
+	position:absolute;
+	left:0px;
+	right:0px;
+	top:30px;	
+	margin:auto;
+	width:1215px;
+	box-shadow: 5px 5px 5px #888888;
+	background:#FFFFFF;
+	background:url(../img/bgcontent.png) repeat-y left #FFFFFF;	
+}
+
+
+/* Set Header Style*/
+#header {
+	height:267px;
+	background:url(../img/bgtop.png);
+	position:relative;
+	top:0px;
+	width:100%;
+}
+	#header #topleft {
+		float:left;
+		position:relative;
+		left:0px;
+	}
+	#header #topright {
+		float:right;
+		position:relative;
+		right:0px;
+		top:0px;
+	}
+	
+/* Set Content Style*/	
+#content {
+	top:0px;
+	position:relative;
+	width:100%;	
+}
+	#content #leftcolumn {
+		clear:both;
+		width:250px;
+		position:relative;		
+		float:left;
+		bottom:0px;
+		top:0px;
+	}
+	#content #maincontent {
+		position: relative;
+		top:0px;
+		float: left;	
+		max-width: 930px;
+		margin-left:20px;
+		margin-right: 0px;
+		text-align:justify;
+		padding-top:15px;	
+	}
+
+.copyright {
+	width:100%;
+	clear:both;
+	text-align: left;
+	background:none;
+	position: relative;
+	margin-left:267px;
+	top:0px;
+	float:left;
+	font-size:11px;
+	margin-top:50px;
+	color: #666666; 
+}
+.left_content {
+	 margin-left:16px;
+	 margin-right:15px;
+	 margin-top:20px;
+	 border-radius: 10px 10px 10px 10px;
+	 width:auto;
+	 background-color:#0397B4;
+	 padding:2px 5px 5px 5px;
+	 color:#333333;	
+	 text-align:justify;
+	 font-size:12px;
+}
+.left_content h3 {
+	text-transform: capitalize;
+	color: #FFFFFF;
+	font-size:16px;
+	border-bottom: dashed 1px  #FFFFFF;
+	width:85%;
+	font-weight:normal;
+	background:url(../img/arrowbullet.png) no-repeat left 2px;
+	padding-left:27px;
+	padding-bottom:10px;
+	
+}
+.tick_data {
+	width:500px;
+	background:url(../img/edit.png) no-repeat center;
+	padding: 10px;
+	border:none;
+	
+	
+}
+.delete_data {
+	width:500px;
+	background:url(../img/del.png) no-repeat center;
+	padding: 10px;
+	border:none;	
+	
+}
+.title {
+	text-transform:capitalize;
+	font-size:18px;
+	border-bottom:dashed 1px #003399;
+	color: #005D8C;
+	text-shadow: 0 -1px 1px #cccccc;
+	font-weight:bold;
+	padding-bottom:5px;
+	background:url(../img/point_title.png) left no-repeat;
+	padding-left:30px;
+	margin-bottom:10px;
+	
+}
+label {
+	text-transform:capitalize;
+	text-shadow: 0 -1px 1px #cccccc ;
+	color:#333333;
+	padding-left:2px;
+	display:inline-block;
+	width:130px;
+	vertical-align:top;
+	padding-top:5px;
+}
+label:after {
+	content:' :';
+}
+input[type='text']{
+	border: solid 1px #999999;
+	background: #ECEDE4;
+	height:25px;
+	padding-left:10px;
+	color: #333333;
+	font-size:11px;
+	font-family:'opensans';
+	border-radius: 3px;
+	margin-bottom:5px;
+	margin-top:3px;
+}
+textarea {
+	border: solid 1px #999999;
+	background: #ECEDE4;
+	padding-left:10px;
+	color: #333333;
+	font-size:11px;
+	font-family:'opensans';
+	border-radius: 3px;
+	height:80px;
+	width:350px;
+	margin-bottom: 5px;
+	margin-top:5px;
+}
+select {
+	border: solid 1px #999999;
+	background: #ECEDE4;
+	height:27px;
+	padding-left:5px;
+	color: #333333;
+	font-size:11px;
+	font-family:'opensans';
+	border-radius: 5px;
+	margin-bottom:5px;
+	margin-top:3px;
+}
+form {
+	padding:10px;
+
+}
+fieldset {
+	border: solid 1px #999999;
+	border-radius: 10px;
+}
+legend {
+	border-radius: 5px;
+	text-shadow: 0 -1px 1px #cccccc ;
+	font-style:italic;
+	text-transform:capitalize;
+	font-size:10px;
+	padding:5px;
+}
+.button {
+	border: solid 1px #333333;
+	background-color:#666666;
+	color:#FFFFFF;
+	text-transform:uppercase;
+	font-size:12px;
+	height:25px;
+	margin-top:15px;
+	padding-left:10px;
+	padding-right:10px;
+	border-radius: 5px;
+}
+.submit_div {
+	margin-left:135px;
+}
+.app_icon {
+	position: absolute;
+	z-index:1;
+	margin-top:200px;
+	margin-left:10px;
+}
+h5 {
+	font-size:15px;
+	text-transform:capitalize;
+	font-weight:normal;
+	margin-bottom:5px;
+	color: #009999;
+	
+	padding-bottom:5px;
+	padding-left:0px;
+	
+	
+}
+h5:before {
+content: '\00BB   ';
+}
+
+/* CSS Document */
+
