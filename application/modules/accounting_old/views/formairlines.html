@@ -1,0 +1,63 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / airlines form entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/airlines/dataList">list data</a></li>
+        <li class="seltab"><a href="#">form entry</a></li>
+        <!--<li><a href="{{ base_url }}index.php/ticketing/airlines/formitem">Set Charge Items</a></li>-->
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/airlines/save" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id" id="id" value="{{ edit.id_airlines }}" />
+ 
+<label for="nama_airlines">Airlines Name</label>
+<input name="nama_airlines" type="text" id="nama_airlines" value="{{ edit.nama_airlines }}" size="30" required /> *
+<br/>
+
+<label for="alamat" class="top">Full Address</label>
+<textarea name="alamat" cols="50" rows="4" id="alamat" type="text">{{ edit.alamat }}</textarea>
+<br/>
+
+<label for="kontak_person">Contact Person</label>
+<input name="kontak_person" type="text" id="kontak_person" value="{{ edit.kontak_person }}" size="25"  />
+<br/>
+
+<label for="telp">Phone Number</label>
+<input name="telp" type="text" id="telp" value="{{ edit.telp }}" size="20"  />
+<br/>
+
+<label for="email">Email</label>
+<input name="email" type="text" id="email" value="{{ edit.email }}" size="30"  />
+<br/>
+
+<label for="number_code">Ticket Number Code</label>
+<input name="number_code" type="text" id="number_code" value="{{ edit.number_code }}" size="5" />
+<br/>
+<!--
+<label for="email">Item Charge Count</label>
+<select name="total_itemcharge">
+    {% for i in 1..10 %}
+    <option value="{{ i }}" {% if edit.total_itemcharge == i %} selected="selected" {% endif %}>{{ i }}</option>   
+    {% endfor %}
+</select>
+<br/>
+-->
+<label for="keterangan">Remarks</label>
+<input name="keterangan" type="text" id="keterangan" value="{{ edit.keterangan }}" size="40" />
+<br/>
+
+<label for="photo">Airlines Logo</label>
+<input name="logo" id="logo" type="file" size="45" /> *) size 104 x 90px
+<br />
+
+
+<div class="submit_div">
+<input type="submit" class="button" value="Save" />
+ <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/form'" />
+</div>
+</form>
+{% endblock %}

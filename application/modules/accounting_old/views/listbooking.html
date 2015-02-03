@@ -1,0 +1,69 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / booking list</div>
+
+<div class="tabmenu">
+	<ul class="ultab">    	
+    	<li><a href="{{ base_url }}index.php/ticketing/booking/form">booking form</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/booking/formPassenger">passenger form</a></li>  
+      <li class="seltab"><a href="#">booking list</a></li>     
+  </ul>
+</div>
+
+<form action="" method="post">
+<label for="find">Search</label>
+<input name="find" type="text" id="find" size="40" value="{{ find }}" required /> *
+<br/>
+
+<label for="by">By</label>
+<select name="by">
+	<option value="a.booking_number" {% if by == 'a.booking_number' %} selected="selected" {% endif %}>Booking Number</option>
+    <option value="d.nama_lengkap" {% if by == 'd.nama_lengkap' %} selected="selected" {% endif %}>Customer Name</option>
+</select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/booking/dataList'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  <th nowrap="nowrap">No Order</th>
+  <th nowrap="nowrap">PRN</th>
+  <th nowrap="nowrap">Booking Date</th>
+  <th nowrap="nowrap">Name</th>
+    <th nowrap="nowrap">ID Number</th>
+    <th nowrap="nowrap">Flight Number</th>
+    <th nowrap="nowrap"> Passenger</th>
+    <th nowrap="nowrap">Total</th>
+    <th nowrap="nowrap">Process</th>
+</tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td><strong>{{ data.booking_number }}</strong></td>
+    <td><strong>{{ data.prn }}</strong></td>
+    <td>{{ data.tanggal_booking }}</td>
+    <td nowrap="nowrap">{{ data.title }} {{ data.nama_lengkap }}</td>
+    <td>{{ data.no_identitas }}</td>
+    <td nowrap="nowrap">
+    &bull; {{ data.airlines_pergi }} - <strong>{{ data.flight_pergi }}</strong>
+    {% if data.flight_pulang !='' %}
+    <br/> &bull; {{ data.airlines_pulang }} - <strong>{{ data.flight_pulang }}</strong>
+    {% endif %}    </td>
+    <td>
+    Adult : {{ data.total_dewasa }}<br />
+	Kid : {{ data.total_anak }}<br />
+    Baby : {{ data.total_bayi }}    </td>
+    <td>{{ data.total_trans }}</td>
+    <td><a href="{{ base_url }}index.php/ticketing/booking/form/?id={{ data.id_booking|trim }}" class="tick_data" title="Edit Data"></a><a href="javascript:void(0)" onclick="deleteThis('{{ base_url }}index.php/ticketing/booking/delete/?id={{ data.id_booking|trim }}')" class="delete_data"  title="Delete Data"></a></td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+
+{% endblock %}

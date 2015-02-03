@@ -1,0 +1,40 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / customer settings form</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/customer/dataListSettings">list data</a></li>
+        <li class="seltab"><a href="#">form entry</a></li>
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/customer/savesetting" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_setting }}" />
+ 
+<label for="nama_setting">Settings Name</label>
+<input name="nama_setting" type="text" id="nama_setting" value="{{ edit.nama_setting }}" size="30" required /> *
+<br/>
+
+<label for="days">Limit Day(s)</label>
+<input name="days" type="text" id="days" value="{{ edit.days }}" size="5" required /> *
+<br/>
+
+<label for="gabung">Summary Invoice</label>
+<select name="gabung" id="gabung">
+	<option value="Y">Yes</option>
+	<option value="N">No</option>
+</select>
+<br/>
+
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<input type="hidden" name="type" id="type" value="1" />
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/jenisvendor/form'" />
+</div>
+</form>
+{% endblock %}

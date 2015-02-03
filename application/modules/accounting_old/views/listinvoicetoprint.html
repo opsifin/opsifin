@@ -1,0 +1,115 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / Invoice To Print List</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li class="seltab"><a href="#">invoice to print</a></li>
+    	<li><a href="{{ base_url }}index.php/ticketing/invoiceprint/dataListHasPrint">printed invoice</a></li>         
+	</ul>
+</div>
+
+<form action="" method="post">
+<label for="id_customer">Customer </label>
+	<input type="hidden" name="id_customer" id="id_customer" value="{{ id_customer }}" />
+	<input name="nama_lengkap" type="text" id="nama_lengkap" value="{{ nama_lengkap }}" size="30" onclick="loadCustomer();" readonly="readonly" required/> <input type="button" name="button2" id="button2" value="..." class="btn" onclick="loadCustomer()"/> *
+<br/>
+
+<label for="date">Date From</label>
+  <input name="start_date" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ start_date }}" /> To: <input name="end_date" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ end_date }}" /> Optional
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="view invoice" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/invoice/dataListIssued'" />
+</div>
+</form>
+{% if id_customer !='' %}<br />
+
+<h3>invoice list ({{ nama_lengkap }})</h3>
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  <th nowrap="nowrap">Invoice No./Date</th>
+  <th nowrap="nowrap">Customer</th>
+  <th nowrap="nowrap">Supplier</th>
+  <th nowrap="nowrap">Created Date</th>
+  <th nowrap="nowrap">Due Date</th>
+  <th nowrap="nowrap">Airlines</th>
+  <th nowrap="nowrap">Total</th>
+    <th nowrap="nowrap">Select</th>
+    </tr>
+</thead>
+<tbody>
+{% set i = 0 %}
+{% for data in data %}
+{% set i = loop.index %}
+  <tr>
+    <td nowrap="nowrap"><strong>{{ data.invoice_number }}</strong><br />
+    {{ data.invoice_date }}</td>
+    <td nowrap="nowrap">{{ data.nama_lengkap }}</td>
+    <td nowrap="nowrap">{{ data.nama_vendor }}</td>
+    <td nowrap="nowrap">{{ data.invoice_date }}</td>
+    <td nowrap="nowrap">{{ data.due_date }}</td>
+    <td nowrap="nowrap">{{ data.nama_airlines }}</td>
+    <td nowrap="nowrap">{{ data.sell }}</td>
+    <td><input type="checkbox" value="{{ data.id_invoice }}" name="id_invoice{{ i }}" id="id_invoice{{ i }}" /></td>
+  </tr>
+{% endfor %}
+</table>
+<input type="hidden" name="jumlah" value="{{ i }}" id="jumlah" />
+<input type="hidden" name="id_invoice" id="id_invoice" value="0" />
+<input type="button" class="btn" value="print selected" onclick="selectInvoice();" /> 
+{% endif %}
+<script language="javascript">
+
+function selectInvoice(){
+	var jumlah = elm("jumlah").value;
+	var selected = false;
+	var selectedId = "";
+	var getId = "";
+	var y = 0;
+	for(x=1; x<=jumlah; x++){
+		if(elm("id_invoice" + x).checked){
+			y++;
+			selected = true;
+			selectedId+=elm("id_invoice" + x).value+",";
+		}
+	}
+	if(selected) {
+		if(confirm("You only able to print once, do you want to continue?")){
+			getId = selectedId.substring(0, selectedId.length - 1);
+			elm("id_invoice").value = getId;
+			
+			if (parseFloat(y) > 1) {
+				cari("{{ base_url }}index.php/ticketing/invoiceprint/printMultiInvoice/?id="+getId+"&id_customer="+elm("id_customer").value);
+			}
+			else {	
+				cari("{{ base_url }}index.php/ticketing/invoiceprint/printSingleInvoice/?id="+getId);
+			}		
+			
+			setTimeout(function(){
+				window.location = "{{ base_url }}index.php/ticketing/invoiceprint/dataListToPrint";
+			}, 1000);
+		
+		}
+		else
+			return false;
+	}
+	else
+		alert("Please select at least 1 invoice");
+}
+
+function loadCustomer(){
+	obj.id='id_customer';
+	obj.nama='nama_lengkap';
+	cari('{{ base_url }}index.php/ticketing/customer/cari');	
+}
+function setData(id, nama){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+
+</script>
+{% endblock %}

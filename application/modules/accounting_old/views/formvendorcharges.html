@@ -1,0 +1,78 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / Supplier Item Charges </div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/vendor/dataListCharges">list data</a></li>
+        <li class="seltab"><a href="#">form entry</a></li>
+    </ul>
+</div>
+
+<form action="" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id" id="id" value="{{ edit.id_flight }}" />
+
+<label for="id_customer">Vedor</label>
+	<input type="hidden" name="id_vendor" id="id_vendor" value="{{ edit.id_vendor }}" />
+        <input name="nama_vendor" type="text" id="nama_vendor" value="{{ edit.nama_vendor }}" size="30" onclick="loadVendor();" readonly="readonly" required/> <input type="button" name="button2" id="button2" value="..." class="btn" onclick="loadVendor()"/> *
+<br/>
+
+<label for="tanggal_topup">Total Item</label>
+	<input name="total_item" id="total_item" type="text" size="5"  value="{{ total_item }}" required />
+  * <br/>
+
+
+<div class="submit_div">
+<input type="submit" class="button" value="Process" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/form'" />
+</div>
+</form>
+
+{% if edit.id_vendor !='' %}
+<h3>Item Charges</h3>
+<form action="{{ base_url }}index.php/ticketing/vendor/saveCharges" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id_vendor" id="id_vendor" value="{{ edit.id_vendor }}" />
+<table cellspacing="1" class="datagrid">
+  <thead>
+    <tr>
+      <th nowrap="nowrap">No. </th>
+      <th nowrap="nowrap">Item Name</th>
+      <th nowrap="nowrap">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+  {% set x = 0 %}
+  {% for i in 1..total_item %}
+  {% set x = i %}
+  <tr>
+    <td nowrap="nowrap">{{ x }}.</td>
+    <td nowrap="nowrap">
+    <select name="id_item{{ x }}" id="id_item{{ x }}">
+      {% for item in item %}
+    <option value="{{ item.id_item }}" {% if item.id_item == edit.id_item %} selected="selected" {% endif %}>{{ item.nama_item }}: {{ item.nilai_charge}}</option>
+    {% endfor %}
+    </select></td>
+    <td><input name="keterangan{{ x }}" type="text" id="keterangan{{ x }}" style="width:98%;"/></td>
+  </tr>
+  {% endfor %}
+</table>
+<input type="hidden" name="jumlah" value="{{ x }}" id="jumlah" />
+<input type="submit" class="button" value="Save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/vendor/listdataCharges'" />
+
+</form>
+{% endif %}
+
+<script language="javascript">
+function loadVendor(){
+	obj.id='id_vendor';
+	obj.nama='nama_vendor';
+	cari('{{ base_url }}index.php/ticketing/vendor/cari');	
+}
+function setData(id, nama){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+</script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / jenis vendor</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li class="seltab"><a href="#">list data</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/jenisvendor/form">form entry</a></li>
+    </ul>
+</div>
+
+<form action="" method="post">
+<label for="find">Search</label>
+<input name="find" type="text" id="find" size="40" value="{{ find }}" required /> *
+<br/>
+
+<label for="by">By</label>
+<select name="by">
+	<option value="nama_jenis" {% if by == 'nama_jenis' %} selected="selected" {% endif %}>Name</option>    
+    <option value="keterangan" {% if by == 'keterangan' %} selected="selected" {% endif %}>Description</option>
+</select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/airport/datalist'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  	<th nowrap="nowrap">Name</th>
+    <th nowrap="nowrap">Description</th>
+    <th nowrap="nowrap">Process</th>
+</tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td nowrap="nowrap">{{ data.nama_jenis }}</td> 
+    <td>{{ data.keterangan }}</td>
+    <td><a href="{{ base_url }}index.php/ticketing/jenisvendor/form/?id={{ data.id_jenis|trim }}" class="tick_data" title="Edit Data"></a><a href="javascript:void(0)" onclick="deleteThis('{{ base_url }}index.php/ticketing/jenisvendor/delete/?id={{ data.id_jenis|trim }}')" class="delete_data"  title="Delete Data"></a></td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+
+{% endblock %}

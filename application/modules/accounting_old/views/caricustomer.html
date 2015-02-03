@@ -1,0 +1,57 @@
+{% extends "popup.html" %}
+{% block content %}
+
+<div class="judul">customers data list</div>
+
+
+<form action="{{ base_url }}index.php/ticketing/customer/cari/{{ page }}/{{ find }}/{{ by }}" method="post">
+<label for="find">Search</label>
+<input name="find" type="text" id="find" size="40" value="{{ find }}" required /> *
+<br/>
+
+<label for="by">By</label>
+<select name="by">
+	<option value="nama_lengkap" {% if by == 'nama_lengkap' %} selected="selected" {% endif %}>Name</option>
+    <option value="alamat_lengkap" {% if by == 'alamat_lengkap' %} selected="selected" {% endif %}>Address</option>
+</select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/customer/datalist'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  	<th nowrap="nowrap">Name</th>
+    <th nowrap="nowrap">ID Number</th>
+    <th nowrap="nowrap">Address</th>
+    <th nowrap="nowrap">Email</th>
+    <th nowrap="nowrap">Type</th>
+    <th nowrap="nowrap">Description</th>
+    <th nowrap="nowrap">Select</th>
+</tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td nowrap="nowrap">{{ data.title }} {{ data.nama_lengkap }}</td>
+    <td>{{ data.no_identitas }}</td>
+    <td>{{ data.alamat_lengkap }}<br />
+      <strong>Phone:</strong> {{ data.telp1 }}/{{ data.telp2 }}</td>
+    <td>{{ data.email }}</td>
+    <td>{{ data.jenis }}</td>
+    <td>{{ data.keterangan }}</td>
+    <td><a href="javascript:none" class="select_data" onclick="selectThis('{{ data.id_customer }}','{{ data.title }} {{ data.nama_lengkap }}')"></a></td>
+   </tr>
+{% endfor %}
+</table>
+<script language="javascript">
+	function selectThis(id, nama){
+		parent.window.setData(id, nama);		
+	}
+</script>
+{{ links|raw }}
+
+{% endblock %}

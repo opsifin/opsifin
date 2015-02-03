@@ -1,0 +1,52 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / Stock Ticket</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/stockticket/dataList">stock transaction list</a></li>
+        <li class="seltab"><a href="#">stock entry</a></li>
+    </ul>
+</div>
+
+
+
+<form action="{{ base_url }}index.php/ticketing/stockticket/save" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id" id="id" value="{{ edit.id_flight }}" />
+
+<label for="id_customer">Vendor</label>
+	<input type="hidden" name="id_vendor" id="id_vendor" value="{{ edit.id_vendor }}" />
+        <input name="nama_vendor" type="text" id="nama_vendor" value="{{ edit.nama_vendor }}" size="30" onclick="loadVendor();" readonly="readonly" required/> <input type="button" name="button2" id="button2" value="..." class="btn" onclick="loadVendor()"/> *
+<br/>
+
+<label for="tanggal_topup">Stock Date</label>
+	<input name="tanggal_stock" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.tanggal_stock }}" required /> *
+<br/>
+
+<label for="tanggal_topup">Ticket Number </label>
+  <input name="prefix" id="prefix" type="text" size="8"  value="{{ edit.prefix }}" required />  <input name="mulai" id="mulai" type="text" size="5"  value="{{ edit.mulai }}" required /> to <input name="hingga" id="hingga" type="text" size="5"  value="{{ edit.hingga }}" required />
+  <br/>
+
+<!--
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<br/>
+-->
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/form'" />
+</div>
+</form>
+<script language="javascript">
+function loadVendor(){
+	obj.id='id_vendor';
+	obj.nama='nama_vendor';
+	cari('{{ base_url }}index.php/ticketing/vendor/cari');	
+}
+function setData(id, nama){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+</script>
+{% endblock %}

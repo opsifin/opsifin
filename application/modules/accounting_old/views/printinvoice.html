@@ -1,0 +1,136 @@
+{% extends "popup.html" %}
+{% block content %}
+<table width="300" border="0" align="right" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td width="80" nowrap="nowrap">Invoice No :</td>
+    <td >{{ edit.invoice_number }}</td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap">Date :</td>
+    <td>{{ edit.invoice_date }}</td>
+  </tr>
+  <tr>
+    <td nowrap="nowrap">Due Date :</td>
+    <td>{{ edit.due_date }}</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<p align="center" class="printTitle">I N V O I C E S</p>
+<table border="0" cellspacing="5">
+  <tr>
+    <td><table width="300" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="80" nowrap="nowrap">To :</td>
+        <td >{{ edit.nama_lengkap }}</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap" valign="top">Address :</td>
+        <td><em>{{ edit.alamat_lengkap }}<br />
+          Phone : {{ edit.telp1 }}</em></td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Email :</td>
+        <td>{{ edit.email }}</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Id Number :</td>
+        <td>{{ edit.no_identitas }}</td>
+      </tr>
+    </table></td>
+    <td valign="top"><table width="300" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="80" nowrap="nowrap">Customer :</td>
+        <td >{{ edit.id_customer }}</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap" valign="top">Cust Ref :</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Res :</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Page :</td>
+        <td>1</td>
+      </tr>
+    </table></td>
+    <td valign="top"><table width="300" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="80" nowrap="nowrap">Attn :</td>
+        <td >&nbsp;</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap" valign="top">Remark :</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td nowrap="nowrap">Operator :</td>
+        <td>{{ log.userName}}</td>
+      </tr>
+      
+    </table></td>
+  </tr>
+</table>
+<p>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="reportTable1">
+  <tr>
+    <td><strong>Name of Passenger</strong></td>
+    <td><strong>Routing</strong></td>
+    <td><strong>Class</strong></td>
+    <td><strong>Ticket No</strong></td>
+    <td><strong>Fare</strong></td>
+    <td><strong>Tax</strong></td>
+    <td><strong>Sell Price</strong></td>
+  </tr>
+  <tr style="height:250px;">
+    <td valign="top">
+        {% for pass in passenger %}
+        <div>{{ pass.nama_lengkap }}</div>
+        {% endfor %}
+    </td>
+    <td valign="top">{{ edit.route }}</td>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">{{ edit.ticket_number }}</td>
+    <td valign="top">
+        {% for pass in passenger %}        
+        <div> {{ pass.base_fare|number_format(2, '.', ',') }}</div>
+        {% endfor %} 
+    </td>
+    <td valign="top">
+    	{% for pass in passenger %}        
+        <div> {{ pass.pajak|number_format(2, '.', ',') }}</div>
+        {% endfor %}
+        <div style="margin-top:10px">Vat</div>
+    </td>
+    <td valign="top">    	
+   		{% for pass in passenger %}
+        <div> {{ pass.sell_price|number_format(2, '.', ',') }}</div>
+        {% endfor %}
+        <div style="margin-top:10px">{{ edit.currency }}</div>
+    </td>
+  </tr>
+  
+  <tr>
+    <td>&nbsp;</td>
+    <td><strong>TOTAL</strong></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><strong>{{ edit.total_sell_price|number_format(2, '.', ',') }}</strong></td>
+  </tr>
+</table>
+<div style="text-transform:capitalize; font-size:14px;"><em><strong>{{ terbilang }}</strong></em><span style="text-transform:uppercase"> {{ edit.currency }}</span></div>
+<br />
+Exchange rate used as of date of payment and cheque should be crossed and named PT. Golden NusaJaya Tours &amp; Travel<br /><br />
+
+&bull; BANK TRANSFER TO THE FOLLOWING ACCOUNTS : ACC NO. BCA IDR 369 301 997 1 (TN. ABANG BRANCH)<br />
+&bull; ACC NO. CITIBANK USD 3 000099 868 ( LANDMARK BLD)<br />
+<br />
+</p>
+<script language="javascript">
+	print(document);
+</script>
+{% endblock %}

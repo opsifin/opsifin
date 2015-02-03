@@ -1,0 +1,38 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / pricing policy by airlines form entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/airlines/dataListPricing">list data</a></li>
+        <li class="seltab"><a href="#">form pricing policy</a></li>
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/airlines/savePolicy" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_airlines }}" />
+ 
+<label for="nama_airlines">Airlines Name</label>
+<input name="nama_airlines" type="text" id="nama_airlines" value="{{ edit.nama_airlines }}" size="30" readonly="readonly"/> 
+<br/>
+
+<label for="currency">Currency</label>
+<select id="currency" name="currency">
+    {% for curr in currency %}
+    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="pricing_policy">Pricing Policy</label>
+<input name="pricing_policy" type="text" id="pricing_policy" value="{{ edit.pricing_policy }}" size="25" required/> *
+<br/>
+
+
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/formPolicy'" />
+</div>
+</form>
+{% endblock %}

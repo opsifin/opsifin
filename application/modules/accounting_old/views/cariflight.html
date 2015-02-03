@@ -1,0 +1,72 @@
+{% extends "popup.html" %}
+{% block content %}
+
+<div class="judul">flight data list</div>
+
+
+<form action="" method="post">
+<label for="from">From</label>
+<select id="from" name="from">
+    {% for port in airport %}
+    <option value="{{ port.id_airport }}" {% if port.id_airport ==from %} selected="selected" {% endif %}>{{ port.nama_airport }} ({{ port.inisial }}) - {{ port.kota }}, {{ port.nama_country }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="tujuan_airport">To</label>
+<select id="to" name="to">
+    {% for port in airport %}
+    <option value="{{ port.id_airport }}" {% if port.id_airport == to %} selected="selected" {% endif %}>{{ port.nama_airport }} ({{ port.inisial }}) - {{ port.kota }}, {{ port.nama_country }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="date_flight">Flight Date</label>
+	<input name="tanggal" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.tanggal }}" />
+*<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/flight/datalist'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  	<th nowrap="nowrap">Flight</th>
+    <th nowrap="nowrap">From</th>
+    <th nowrap="nowrap">To</th>
+    <th nowrap="nowrap">Description</th>
+    <th nowrap="nowrap">Dep. Time</th>
+    <th nowrap="nowrap">Arr. Time</th>
+    <th nowrap="nowrap">Process</th>
+</tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td align="center" nowrap="nowrap">
+    	{% if data.logo !='' %}
+    		<img src="{{ base_url }}assets/upload/logo_airlines/{{ data.logo }}" class="logoan" height="40" />
+        {% endif %}
+        
+    	<br />
+    	{{ data.nama_airlines }}<br />
+<strong>{{ data.nomor_flight }}</strong></td>    
+    <td nowrap="nowrap">{{ data.airportfrom }} (<strong>{{ data.inisialfrom }}</strong>) <br /> {{ data.kotafrom }}, {{ data.negarafrom }}</td>
+   	<td nowrap="nowrap">{{ data.airportto }} (<strong>{{ data.inisialto }}</strong>) <br />{{ data.kotato }}, {{ data.negarato }}</td>
+    <td nowrap="nowrap">{{ data.keterangan }}</td>
+    <td>{{ data.tanggal_flight }}</td>
+    <td>{{ data.tanggal_arrive }}</td>
+    <td><a href="javascript:none" class="select_data" onclick="selectThis('{{ data.id_flight }}','{{ data.nama_airlines }} ({{ data.nomor_flight }})', '{{ data.inisialfrom }} {{ data.airportfrom }} --> {{ data.inisialto }} {{ data.airportto }}')"></a></td></tr>
+  </tr>
+{% endfor %}
+</table>
+<script language="javascript">
+	function selectThis(id, nomor, nama){
+		parent.window.setFlight(id, nomor, nama);		
+	}
+</script>
+{{ links|raw }}
+
+{% endblock %}

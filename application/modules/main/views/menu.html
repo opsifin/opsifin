@@ -1,0 +1,155 @@
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+<ul class="nav navbar-nav side-nav">
+    <li>
+        <!-- CHANGE By Dwi
+        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+        -->
+        <a href="{{ base_url }}index.php/main/home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+    </li>
+      
+    
+    <li>
+        <a href="javascript:;" data-toggle="collapse" data-target="#configchild"><i class="fa fa-fw fa-gear"></i> Configuration <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="configchild" class="collapse">
+        	<li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-plus-circle"></i> COA <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="demo" class="collapse" style="list-style-type:none; margin-left:10px;">
+                    <li>
+                        <a href="{{ base_url }}index.php/main/coatype/form"><i class="fa fa-fw fa-cubes"></i> COA Type</a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url }}index.php/main/coagroup/form"><i class="fa fa-fw fa-cubes"></i> COA Group</a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url }}index.php/main/coa/form"><i class="fa fa-fw fa-cube"></i> COA</a>
+                    </li>
+                </ul>
+            </li>
+    
+            <li>
+                <a href="{{ base_url }}index.php/main/company/form"><i class="fa fa-fw fa-bank"></i> Company Settings</a>
+            </li>
+            <li>
+                <a href="{{ base_url }}index.php/main/coa/setbalance"><i class="fa fa-fw fa-cube"></i> COA Balance</a>
+            </li>
+            <li>
+            
+            
+               <!-- <a href="{{ base_url }}index.php/main/coasettings/form"><i class="fa fa-fw fa-cube"></i> COA Settings</a>-->
+            
+            
+            	<a href="javascript:;" data-toggle="collapse" data-target="#settingchild"><i class="fa fa-fw fa-gear"></i>  COA Settings <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="settingchild" class="collapse" style="list-style-type:none; margin-left:10px;">
+                    <li>
+                        <a href="{{ base_url }}index.php/main/coasettings/formlcc"><i class="fa fa-fw fa-cube"></i> LCC Ticketing</a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url }}index.php/main/coasettings/formbsp"><i class="fa fa-fw fa-cube"></i> BSP Ticketing</a>
+                    </li>
+                    <li>
+                    	<a href="{{ base_url }}index.php/main/coasettings/formhotel"><i class="fa fa-fw fa-cube"></i> Hotel</a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url }}index.php/main/coasettings/formdocument"><i class="fa fa-fw fa-cube"></i> Document</a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url }}index.php/main/coasettings/formtour"><i class="fa fa-fw fa-cube"></i> Tour</a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url }}index.php/main/coasettings/formothers"><i class="fa fa-fw fa-cube"></i> Others</a>
+                    </li>            
+                </ul>
+        
+            
+            
+            
+            </li>
+            <li>
+                <a href="{{ base_url }}index.php/main/currency/form"><i class="fa fa-fw fa-bitcoin"></i> Currency</a>
+            </li>            
+        </ul>
+    </li>
+    
+    <li>
+        <a href="javascript:;" data-toggle="collapse" data-target="#accountchild"><i class="fa fa-fw fa-bar-chart-o"></i> Accounting <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="accountchild" class="collapse">
+            <li>
+                <a href="{{ base_url }}index.php/main/jurnal/form"><i class="fa fa-fw fa-cube"></i> Journal</a>
+            </li>
+            
+            <li>
+                <a href="{{ base_url }}index.php/main/pv/form"><i class="fa fa-fw fa-bookmark-o"></i> Payment Voucher</a>
+            </li>
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/accounting/rv/form"><i class="fa fa-fw fa-bookmark-o"></i> Receipt Voucher</a>
+            </li>
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/accounting/approval/form"><i class="fa fa-fw fa-hand-o-down"></i> PV/RV Approval</a>
+            </li>
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/accounting/credit_note/form"><i class="fa fa-fw fa-cube"></i> Credit Note</a>
+            </li>
+            
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/accounting/debit_note/form"><i class="fa fa-fw fa-cube"></i> Debit Note</a>
+            </li>
+            
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/accounting/refund/form"><i class="fa fa-fw fa-cube"></i> Refund</a>
+            </li>
+            
+            
+        </ul>
+    </li>
+    
+     <li>
+        <a href="javascript:;" data-toggle="collapse" data-target="#cashierchild"><i class="fa fa-fw fa-money"></i> Cashier <i class="fa fa-fw fa-caret-down"></i></a>
+        <ul id="cashierchild" class="collapse">
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/cashier/sales_counter/form"><i class="fa fa-fw fa-tasks"></i> Sales Counter</a>
+            </li>
+            
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/cashier/cheque_bg/form"><i class="fa fa-fw fa-ticket"></i> Cheque/BG</a>
+            </li>
+            
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/cashier/credit_card/form"><i class="fa fa-fw fa-credit-card"></i> Credit Card</a>
+            </li>
+            
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/cashier/cash_advance/form"><i class="fa fa-fw fa-bitcoin"></i> Cash Advance</a>
+            </li>
+            
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/cashier/dp_customer/form"><i class="fa fa-fw fa-arrow-circle-left"></i> DP From Customer</a>
+            </li>
+            
+            <li>
+                <!-- Update Link By dwi Wahyudi -->
+                <a href="{{ base_url }}index.php/cashier/dp_supplier/form"><i class="fa fa-fw fa-arrow-circle-right"></i> DP To Supplier</a>
+            </li>
+        </ul>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="{{ base_url }}index.php/main/logout"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
+    </li>
+</ul>
+</div>
+<!-- /.navbar-collapse -->

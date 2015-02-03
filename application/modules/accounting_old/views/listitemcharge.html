@@ -1,0 +1,55 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / Charge Items data list</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li class="seltab"><a href="#">list data</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/itemcharge/form">form entry</a></li>
+    </ul>
+</div>
+
+<form action="" method="post">
+<label for="find">Search</label>
+<input name="find" type="text" id="find" size="40" value="{{ find }}" required /> *
+<br/>
+
+<label for="by">By</label>
+<select name="by">
+	<option value="nama_item" {% if by == 'nama_item' %} selected="selected" {% endif %}>Item Name</option>
+    <option value="keterangan" {% if by == 'keterangan' %} selected="selected" {% endif %}>Description</option>
+</select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/datalist'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  	<th nowrap="nowrap">Item Name </th>
+    <th nowrap="nowrap">Value</th>
+    <th nowrap="nowrap">Currency</th>
+    <th nowrap="nowrap">%/Currency</th>
+    <th nowrap="nowrap">Description</th>    
+    <th nowrap="nowrap">Process</th>
+</tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td>{{ data.nama_item}}</td>
+    <td>{{ data.nilai_charge }}</td>
+    <td>{{ data.currency }}</td>
+    <td>{{ data.persen_idr }}</td>
+    <td>{{ data.keterangan }}</td>
+    <td><a href="{{ base_url }}index.php/ticketing/itemcharge/form/?id={{ data.id_item|trim }}" class="tick_data" title="Edit Data"></a><a href="javascript:void(0)" onclick="deleteThis('{{ base_url }}index.php/ticketing/itemcharge/delete/?id={{ data.id_item|trim }}')" class="delete_data"  title="Delete Data"></a></td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+
+{% endblock %}

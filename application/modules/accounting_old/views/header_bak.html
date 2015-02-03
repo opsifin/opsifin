@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>TravelPro - Travel Assistance Systems - Version 1.0</title>
+<meta name = "viewport" content = "user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+
+<link rel="shortcut icon" href="{{ base_url }}assets/images/icon.ico" type="image/x-icon"/>
+<link href="{{ base_url }}assets/css/style.css" rel="stylesheet" type="text/css">
+<link href="{{ base_url }}assets/css/menuset.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ base_url }}assets/js/jquery1.8.js"></script>
+<script type="text/javascript" src="{{ base_url }}assets/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+<link rel="stylesheet" type="text/css" href="{{ base_url }}assets/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+<script type="text/javascript" src="{{ base_url }}assets/js/accordion.js"></script>
+<script type="text/javascript" src="{{ base_url }}assets/js/script.js"></script>
+<script type="text/javascript">
+function elm(obj){return document.getElementById(obj);}
+
+ddaccordion.init({
+	headerclass: "expandable", //Shared CSS class name of headers group that are expandable
+	contentclass: "categoryitems", //Shared CSS class name of contents group
+	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+
+ddaccordion.init({ //2nd level headers initialization
+	headerclass: "subexpandable", //Shared CSS class name of sub headers group that are expandable
+	contentclass: "subcategoryitems", //Shared CSS class name of sub contents group
+	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click" or "mouseover
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["opensubheader", "closedsubheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["none", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+</script>
+</head>
+
+<body>
+<div id="container">
+	<!-- Header start Here -->
+	<div id="header">
+    	<div id="topheader">
+        	<div class="rightnav">
+                <div>
+                <img src="{{ base_url }}assets/images/homshortcut.png" align="texttop"> <a href="{{ base_url }}">Home</a>
+                <img src="{{ base_url }}assets/images/logoutshortcut.png" align="texttop"> <a href="{{ base_url }}index.php/main/logout">Logout</a>                </div>
+            </div>
+        </div>
+        <div id="logoheader">
+        	<img src="{{ base_url }}assets/images/toplogo.png" id="logoimg">
+        </div>    
+    </div>    
+    <!-- Header end Here -->
+    
+    <!-- Navigation start Here -->
+    {% include 'menu.html' %}
+    <!-- Navigation end Here -->
+    
+    <!-- Content start Here -->
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+     <!-- Content end Here -->
+  
+</div>
+
+<iframe width="150" height="189" name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" src="{{ base_url }}assets/datepicker/ipopeng.htm" scrolling="no" frameborder="0" style="z-index:1000; position:absolute; top:-500px; left:-500px;"></iframe>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Document COA Setting 
+      </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-gear"></i><a href="#"> Configuration</a>
+            </li>
+
+            <li class="active">
+                 <i class="fa fa-gear"></i> Documeny COA Setting
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/main/coasettings/savedocument" method="post" name="form1">
+
+<table border="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><div align="right"><strong>TRANSACTION JOURNAL</strong></div></td>
+  </tr>
+  <tr>
+        <td><div class="form-group width250">
+                <label>Document  Price</label>
+                <select name="price_d"  id="price_d" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.price_d == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>Transaction Cost </label>
+                <select name="cost_d"  id="cost_d" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.cost_d == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>Payment</label> 
+                <select name="payment_d"  id="payment_d" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.payment_d == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                
+              
+                </select>
+            </div>            </td>
+        <td width="5">&nbsp;</td>
+        <td><div class="form-group width250">
+                <label>&nbsp;</label>
+                <select name="price_c"  id="price_c" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.price_c == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>&nbsp;</label>
+                <select name="cost_c"  id="cost_c" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.cost_c == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>&nbsp;</label>
+                <select name="payment_c"  id="payment_c" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.payment_c == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                
+              
+              </select>
+            </div>            </td>
+    </tr>
+</table>
+
+
+
+
+<input type="submit" class="btn btn-default" value="Save">
+</form>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / vendor form entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/vendor/dataList">list data</a></li>
+        <li class="seltab"><a href="#">form entry</a></li>
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/vendor/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_vendor }}" />
+
+<label for="kode_vendor">Code</label>
+<input name="kode_vendor" type="text" id="kode_vendor" value="{{ edit.kode_vendor }}" size="10" required /> *
+<br/>
+
+<label for="nama_vendor">Vendor Name</label>
+<input name="nama_vendor" type="text" id="nama_vendor" value="{{ edit.nama_vendor }}" size="30" required /> *
+<br/>
+ 
+<label for="id_jenis">Vendor Type</label>
+<select id="id_jenis" name="id_jenis">
+    {% for count in jenis %}
+    <option value="{{ count.id_jenis }}" {% if count.id_jenis == edit.id_jenis %} selected="selected" {% endif %}>{{ count.nama_jenis }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="id_airlines">Direct Airlines</label>
+<select id="id_airlines" name="id_airlines">
+    <option value="">Select if Direct Airlines</option>
+    {% for count in airlines %}
+    <option value="{{ count.id_airlines }}" {% if count.id_airlines == edit.id_airlines %} selected="selected" {% endif %}>{{ count.nama_airlines }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="registered_name">Registered Name</label>
+<input name="registered_name" type="text" id="registered_name" value="{{ edit.registered_name }}" size="30" required /> *
+<br/>
+
+<label for="phone_office">Phone Office</label>
+<input name="phone_office1" type="text" id="phone_office1" value="{{ edit.phone_office1 }}" size="10" required /> or <input name="phone_office2" type="text" id="phone_office2" value="{{ edit.phone_office2 }}" size="10" /> 
+<br/>
+
+<label for="phone_cell">Cell Phone</label>
+<input name="phone_cell1" type="text" id="phone_cell1" value="{{ edit.phone_cell1 }}" size="10" required /> or <input name="phone_cell2" type="text" id="phone_cell2" value="{{ edit.phone_cell2 }}" size="10" /> 
+<br/>
+
+<label for="fax">Fax</label>
+<input name="fax1" type="text" id="fax1" value="{{ edit.fax1 }}" size="10" required /> or <input name="fax2" type="text" id="fax2" value="{{ edit.fax2 }}" size="10" /> 
+<br/>
+
+<label for="email">Email</label>
+<input name="email1" type="text" id="email1" value="{{ edit.email1 }}" size="15" required /> or <input name="email2" type="text" id="email2" value="{{ edit.email2 }}" size="15" /> 
+<br/>
+
+<label for="establish_date">Establish Date</label>
+  <input name="establish_date" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.establish_date }}"  required /> *
+<br/>
+
+<label for="country">Country</label>
+<select id="id_country" name="id_country">
+	<option value="">Select</option>
+    {% for curr in currency %}
+    <option value="{{ curr.id_country }}" {% if curr.id_country  == edit.id_country %} selected="selected" {% endif %}>{{ curr.nama_country }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="city">City</label>
+<input name="city" type="text" id="city" value="{{ edit.city }}" size="30" required /> *
+<br/>
+
+<label for="street">Street Address</label>
+<input name="street" type="text" id="street" value="{{ edit.street }}" size="40" /> 
+<br/>
+
+<label for="city">Zip Code</label>
+<input name="zip_code" type="text" id="zip_code" value="{{ edit.zip_code }}" size="5" /> 
+<br/>
+
+<label for="remarks">Remarks</label>
+<input name="remarks" type="text" id="remarks" value="{{ edit.remarks }}" size="40" /> 
+<br/>
+
+<label for="critical_balance">Critical Balance</label>
+<input name="critical_balance" type="text" id="critical_balance" value="{{ edit.critical_balance }}" size="30" /> 
+<br/>
+
+
+<!--
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<input type="hidden" name="type" id="type" value="1" />
+<br/>
+-->
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/jenisvendor/form'" />
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / report booking by airlines by period</div>
+
+<label for="id_airlines">Airlines Name </label>
+<select id="id_airlines" name="id_airlines">
+    <option value="">All Airlines</option>
+    {% for lines in airlines %}
+    <option value="{{ lines.id_airlines }}" {% if lines.id_airlines == edit.id_airlines %} selected="selected" {% endif %} style="background-image:url('{{ base_url }}/assets/upload/logo_airlines/{{ lines.logo }}')" >{{ lines.nama_airlines }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="order_date">Date From</label>
+  <input name="date1" id="date1" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.date1 }}" /> 
+<br/>
+
+<label for="order_date">Date From</label>
+  <input name="date2" id="date2" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.date2 }}" /> 
+<br/>
+
+<div class="submit_div">
+<input type="button" class="btn" value="view report" onclick="viewReport();" />
+</div>
+
+<script language="javascript">
+function loadCustomer(){
+	obj.id='id_customer';
+	obj.nama='nama_customer';
+	cari('{{ base_url }}index.php/ticketing/customer/cari');	
+}
+function viewReport(){
+	var id_airlines = jQuery("#id_airlines").val();
+	var date1 = elm('date1').value;
+	var date2 = elm('date2').value;	
+	cari('{{ base_url }}index.php/ticketing/Bookingreport/airlinesReport/?idAirlines='+id_airlines+'&date1='+date1+'&date2='+date2);	
+}
+function setData(id, nama){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+function setFlight(id, nomor, nama){
+	elm(obj.id).value = id;
+	elm(obj.nomor).value = nomor;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+</script>
+{% endblock %}

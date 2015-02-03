@@ -1,0 +1,228 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Accounting - Payment Voucher</h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-gear"></i> Accounting
+            </li>
+            <li class="active">
+                 <i class="fa fa-gear"></i> Payment Voucher
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/main/pv/save" method="post" name="form1">
+<input id="id" name="id" type="hidden" value="{{ edit.id_pv }}" />
+<table border="0">
+  
+  <tr>
+    <td valign="top">
+    <div class="form-group width150">
+        <label>PV Number</label>
+        <input class="form-control" id="no_pv" name="no_pv" type="text" value="{{ pv_number }}" />
+      </div>
+        <div class="form-group width150">
+          <label>PV Date</label>
+          <input class="form-control" id="tanggal_pv"  onfocus="gfPop.fPopCalendar(this);" name="tanggal_pv" type="text" value="{{ edit.tanggal_pv }}" />
+        </div>
+      <div class="form-group width200">
+          <label>Invoice Type </label>
+          <select class="form-control" name="invoice_type" id="invoice_type">
+            <option value="tiket" {% if edit.invoice_type =='tiket' %} selected="selected" {% endif %}>Ticket</option>
+            <option value="hotel" {% if edit.invoice_type =='hotel' %} selected="selected" {% endif %}>Hotel</option>
+            <option value="tour" {% if edit.invoice_type =='tour' %} selected="selected" {% endif %}>Tour</option>
+            <option value="dokumen" {% if edit.invoice_type =='dokumen' %} selected="selected" {% endif %}>Document</option>
+            <option value="others" {% if edit.invoice_type =='others' %} selected="selected" {% endif %}>Others</option>
+          </select>
+        </div>
+      <div class="form-group width200">
+          <label>Invoice Number</label>
+          <input class="form-control" id="invoice_no" name="invoice_no" type="text" value="{{ edit.invoice_no }}" placeholder="Click to select" onclick="loadInvoice()" />
+       		<input type="hidden" name="id_invoice" id="id_invoice" />
+        </div>
+      <div class="form-group width250">
+          <label> Total</label>
+          <input class="form-control" id="invoice_balance" name="invoice_balance" type="text" value="{{ edit.invoice_balance }}" />
+      </div>
+      <div class="form-group width150">
+        <label>Payment Method</label>
+       <select class="form-control" name="pay_method" id="pay_method">
+            <option value="CC" {% if edit.pay_method =='CC' %} selected="selected" {% endif %}>Credit Card</option>
+            <option value="Cheque" {% if edit.pay_method =='Cheque' %} selected="selected" {% endif %}>Cheque</option>
+            <option value="BG" {% if edit.pay_method =='BG' %} selected="selected" {% endif %}>Bank of Giro</option>
+            <option value="Cash" {% if edit.pay_method =='Cash' %} selected="selected" {% endif %}>Cash</option>
+          </select>
+      </div>
+      
+      </td>
+    <td width="50" valign="top">&nbsp;</td>
+      <td valign="top"><div class="form-group width100">
+            <label>Discount</label>
+            <input class="form-control width100" id="discount" name="discount" type="text" value="{{ edit.discount }}" placeholder="%" />
+          </div>
+          
+           <div class="form-group width250">
+              <label>Paid Ammount</label>
+              <input class="form-control" id="paid_ammount" name="paid_ammount" type="text" value="{{ edit.paid_ammount }}" />
+        </div>
+            
+        <div class="form-group width250">
+              <label>Keep Comm</label>
+              <input class="form-control" id="commission" name="commission" type="text" value="{{ edit.commission }}" />
+            </div>
+            
+          <div class="form-group width100">
+              <label>Currency </label>
+              <select id="currency" name="currency" class="form-control" onchange="getRates()">
+                    <option value="">Select</option>
+                    {% for curr in currency %}
+                    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+           
+            
+          <div class="form-group width200">
+              <label>Convert Ammount (Rp)</label>
+              <input class="form-control" id="convert_ammount" name="convert_ammount" type="text" value="{{ edit.convert_ammount }}"  />
+            </div>
+            
+            <div class="form-group width150">
+                <label>Agent Type</label>
+               <input class="form-control" id="agent_type" name="agent_type" type="text" value="{{ edit.agent_type }}" readonly="readonly" />
+              </div>
+            <input type="hidden" name="currency_balance" id="currency_balance" />
+         </td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+<input type="submit" class="btn btn-default" value="Save">
+</form>
+
+<ol class="breadcrumb margin100">
+   	 <li class="active">
+        <i class="fa fa-cubes"></i> Paymen Voucher List</li>
+</ol>
+
+<div class="table-responsive">
+   <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+              	<th nowrap="nowrap">PV Number</th>
+                <th nowrap="nowrap">Invoice Type</th>
+                <th nowrap="nowrap">Invoice Number</th>
+                <th nowrap="nowrap">
+                  Total</th>
+                <th nowrap="nowrap">
+                 Pay Method</th>
+                <th nowrap="nowrap">
+                  Discount (%)</th>
+                <th nowrap="nowrap">
+                Pay Ammount</th>
+                <th nowrap="nowrap">
+                Currency</th>
+                <th nowrap="nowrap">Process</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        	{% for data in data %}
+            <tr>
+              	<td>{{ data.no_pv }}</td>
+                <td>{{ data.invoice_type }}</td>
+                <td>{{ data.invoice_no }}</td>
+                <td>{{ data.invoice_balance }}</td>
+                <td>{{ data.pay_method }}</td>
+                <td>{{ data.discount }}</td>
+                <td>{{ data.paid_ammount }}</td>
+                <td>{{ data.currency }}</td>
+                <td><a href="{{ base_url }}index.php/main/pv/form/?id={{ data.id_pv|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/main/pv/delete/?id={{ data.id_pv|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+            </tr> 
+            {% endfor %}           
+    </table>
+    
+  {{links|raw}}
+</div>
+<script language="javascript">
+function loadInvoice(){
+	obj.id='id_invoice';
+	obj.nama='invoice_no';
+	obj.total='invoice_balance';
+	obj.agent_type='agent_type';
+	cari('{{ base_url }}index.php/main/invoice/cariInvoice');	
+}
+
+function loadCustomer(){
+	obj.id='id_customer';
+	obj.nama='nama_lengkap';
+	cari('{{ base_url }}index.php/ticketing/customer/cari');	
+}
+function loadFlightPergi(){
+	obj.id='id_flightpergi';
+	obj.nomor='nomor_flightpergi';
+	obj.nama='nama_flightpergi';
+	cari('{{ base_url }}index.php/ticketing/flight/cari');	
+}
+function loadFlightPulang(){
+	obj.id='id_flightpulang';
+	obj.nomor='nomor_flightpulang';
+	obj.nama='nama_flightpulang';
+	cari('{{ base_url }}index.php/ticketing/flight/cari');	
+}
+function setData(id, nama, total, agent_type){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	elm(obj.total).value = total;
+	elm(obj.agent_type).value = agent_type;
+	closeCari();
+}
+function setFlight(id, nomor, nama){
+	elm(obj.id).value = id;
+	elm(obj.nomor).value = nomor;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+
+
+function getRates()
+{	
+	var balance = 0;
+	
+	if(jQuery("#invoice_balance").val() !=''){
+		balance = parseFloat(jQuery("#invoice_balance").val());
+	}
+	
+	var dari = jQuery("#currency").val();
+	var ke = 'IDR';
+	
+	if(dari != 'IDR' && dari !='') {
+		jQuery("#convert_ammount").attr("readonly", false);
+		jQuery.post('{{ base_url }}index.php/main/pv/getCurrValue',{ 
+			from 		: dari,
+			to	 		: ke, 
+		},
+		function(result){
+			var convert = balance * parseFloat(result);
+			jQuery("#convert_ammount").val(convert);		
+			jQuery("#currency_balance").val(result);		
+		});
+	}
+	else
+		jQuery("#convert_ammount").attr("readonly", true);	
+	
+		//console.log("sapi");
+	
+}
+</script>
+
+{% endblock %}

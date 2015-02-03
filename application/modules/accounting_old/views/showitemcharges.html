@@ -1,0 +1,59 @@
+{% extends "popup.html" %}
+{% block content %}
+
+<div class="judul">booking / Charge Items data list by Airlines</div>
+
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  <th nowrap="nowrap">Value</th>
+    <th nowrap="nowrap">Sub Total</th>
+    <th nowrap="nowrap">Item Name </th>
+</tr>
+</thead>
+<tbody>
+{% set totalCharges = 0 %}
+{% for data in edit %}
+
+  <tr>
+    <td>
+    {% if data.persen_idr == '1' %}
+    {{ data.nilai }} %
+    {% else %}
+    {{ data.nilai|number_format(2,'.',',') }}
+    {% endif %}    </td>
+    <td>    
+    {% if data.persen_idr == '1' %}
+    	{% set valNilai = (harga * data.nilai)/100 %}
+    	{{ valNilai|number_format(2,'.',',') }}
+        
+        {% set totalCharges = valNilai + totalCharges %}
+    {% else %}
+    	{{ data.nilai|number_format(2,'.',',') }}
+        {% set totalCharges = data.nilai + totalCharges %}        
+    {% endif %}
+    </td>
+    <td>{{ data.nama_item}}</td>
+  </tr>
+{% endfor %}
+{% set All = totalCharges + harga %}
+ <tr>
+    <td>
+      <strong>TOTAL CHARGES</strong></td>
+    <td><strong>{{ totalCharges|number_format(2,'.',',') }}</strong></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+<p><strong>TOTAL : <br>{{ harga|number_format(2,'.',',') }} (Ticket Price) + {{ totalCharges|number_format(2,'.',',') }} (Charges) <br />
+ {{ All|number_format(2,'.',',') }}</strong></p>
+ 
+ <input type="button" class="btn" value="Get Total" onclick="getTotal('{{ All }}')" />
+
+ <script language="javascript">
+ function getTotal(All){
+ 	parent.window.getItemTotal(All);	
+ }
+ </script>
+{% endblock %}

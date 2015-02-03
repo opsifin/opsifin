@@ -1,0 +1,74 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Company 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-gear"></i><a href="#"> Configuration</a>
+            </li>
+
+            <li class="active">
+                 <i class="fa fa-bank"></i> Company
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/main/company/save" method="post" name="form1" data-toggle="validator" role="form">
+<input type="hidden" name="id" id="id" value="{{ edit.id_company }}" />
+
+
+<div class="form-group width200">
+    <label>Company Name</label>
+    <input class="form-control" id="nama_company" name="nama_company" type="text" value="{{ edit.nama_company }}" required>
+</div>
+
+<div class="form-group width300">
+    <label>Address</label>
+    <textarea name="alamat" rows="5" class="form-control" id="alamat" type="text" w>{{ edit.alamat }}</textarea>
+</div>
+
+<div class="form-group width100">
+    <label>Post Code</label>
+    <input class="form-control" id="kode_pos" name="kode_pos" type="text" value="{{ edit.kode_pos }}" required>
+</div>
+
+<div class="form-group width150">
+    <label>City</label>
+    <input class="form-control" id="kota" name="kota" type="text" value="{{ edit.kota }}" required>
+</div>
+
+<div class="form-group width100">
+    <label>Country</label>
+    <input class="form-control" id="negara" name="negara" type="text" value="{{ edit.negara }}" required>
+</div>
+
+<div class="form-group width150">
+    <label>Phone</label>
+    <input class="form-control" id="phone" name="phone" type="text" value="{{ edit.phone }}" required>
+</div>
+
+<div class="form-group width200">
+    <label>Email</label>
+    <input class="form-control" id="email" name="email" type="text" value="{{ edit.email }}" required>
+</div>
+
+<div class="form-group width200">
+    <label>Currency</label>
+    <select name="currency" class="form-control" id="currency">
+    {% for count in currency %}
+    	<option value="{{ count.currency }}" {% if edit.currency == count.currency %} selected="selected" {% endif %}>{{ count.currency }}</option>
+    {% endfor%}
+    </select>
+</div>
+
+<input type="submit" class="btn btn-default" value="Save">
+</form>
+{% endblock %}

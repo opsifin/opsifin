@@ -1,0 +1,46 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / airport form entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/airport/dataList">list data</a></li>
+        <li class="seltab"><a href="#">form entry</a></li>
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/airport/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_airport }}" />
+ 
+<label for="nama_airport">Airport Name</label>
+<input name="nama_airport" type="text" id="nama_airport" value="{{ edit.nama_airport }}" size="30" required /> *
+<br/>
+ 
+<label for="inisial">Airport Initial</label>
+<input name="inisial" type="text" id="inisial" value="{{ edit.inisial }}" size="10" required /> *
+<br/>
+
+<label for="kota">City Location</label>
+<input name="kota" type="text" id="kota" value="{{ edit.kota }}" size="30" required /> *
+<br/>
+
+<label for="id_country">Country Location</label>
+<select id="id_country" name="id_country">
+    {% for count in country %}
+    <option value="{{ count.id_country }}" {% if count.id_country == edit.id_country %} selected="selected" {% endif %}>{{ count.nama_country }} ({{ count.kode_country }})</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<br/>
+
+
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airport/form'" />
+</div>
+</form>
+{% endblock %}

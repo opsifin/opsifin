@@ -1,0 +1,222 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / passenger entry form</div>
+
+<div class="tabmenu">
+	<ul class="ultab">    	
+    	<li><a href="{{ base_url }}index.php/ticketing/booking/form">booking form</a></li>
+        <li class="seltab"><a href="#">passenger form</a></li> 
+        <li><a href="{{ base_url }}index.php/ticketing/booking/dataList">booking list</a></li>     
+    </ul>
+</div>
+<fieldset>
+<h3>select Booking Number</h3>
+<form action="{{ base_url }}index.php/ticketing/booking/getBookingId" method="post" name="form1">
+<label for="booking_number">No Order</label>
+<input name="booking_number" type="text" size="10" value="{{ edit.booking_number }}"  /> 
+<input type="submit" name="proses" value="process" class="btn" /><br/>
+</form>
+</fieldset>
+{% if edit.id_booking !='' %}
+
+<form action="{{ base_url }}index.php/ticketing/booking/savePassenger" method="post" name="form1">
+<input type="hidden" name="id_booking" id="id_booking" value="{{ edit.id_booking }}" />
+<input type="hidden" name="id_airlines" id="id_airlines" value="{{ edit.id_airlines }}" />
+{% set jumlah = 0 %}
+{% if edit.total_dewasa > 0%}
+<fieldset>
+<h3>Adult</h3>
+<table cellspacing="1" class="datagrid">
+  <thead>
+    <tr>
+      <th nowrap="nowrap">No. </th>
+      <th nowrap="nowrap">Title</th>
+      <th nowrap="nowrap">Name</th>
+      <th nowrap="nowrap">ID Number </th>
+      <th nowrap="nowrap">Phone</th>
+      <th nowrap="nowrap">Ticket Price</th>
+      <th nowrap="nowrap">Set Charge</th>
+      <th nowrap="nowrap">Sub Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+  {% set x = 0 %}
+  {% for i in 1..edit.total_dewasa %}
+  {% set x = i %}
+  
+  <tr>
+    <td nowrap="nowrap">{{ i }}.</td>
+    <td nowrap="nowrap"><select name="title{{ x }}" id="title{{ x }}">
+          <option value="Mr." {% if edit.title == 'Mr.' %} selected="selected" {% endif %}>
+          Mr.
+          </option>
+          <option value="Mrs." {% if edit.title == 'Mrs.' %} selected="selected" {% endif %}>
+          Mrs.
+          </option>
+          <option value="Madam." {% if edit.title == 'Madam.' %} selected="selected" {% endif %}>
+          Madam.
+          </option>
+          <option value="Sir." {% if edit.title == 'Sir.' %} selected="selected" {% endif %}>
+          Sir.
+          </option>
+          <option value="" {% if edit.title == '' %} selected="selected" {% endif %}>
+          None
+          </option>
+    </select></td>
+    <td><input name="nama_lengkap{{ x }}" type="text" id="nama_lengkap{{ x }}" value="{{ edit.nama_lengkap }}" size="25" required="required" /></td>
+    <td><input name="no_identitas{{ x }}" type="text" id="no_identitas{{ x }}" value="{{ edit.no_identitas }}" size="20" required="required" /></td>
+    <td><input name="telp{{ x }}" type="text" id="telp_dewasa{{ x }}" value="{{ edit.telp }}" size="15"  />
+        <input type="hidden" name="jenis{{ x }}" id="jenis{{ x }}" value="Adult" /></td>
+    <td><input name="harga_tiket{{ x }}" type="text" id="harga_tiket{{ x }}" value="{{ edit.harga_tiket }}" size="10" required="required" /></td>
+     <td><input type="button" name="button" id="button" value="Set Charges" class="btn" onclick="setPrice({{ x }})" /></td>
+    <td><input name="harga_nta{{ x }}" type="text" id="harga_nta{{ x }}" value="{{ edit.harga_nta }}" size="10" readonly="readonly" /></td>
+  </tr>
+  {% endfor %}
+</table>
+</fieldset>
+{% set jumlah = x %}
+{% endif %}
+
+
+{% if edit.total_anak > 0%}
+<fieldset>
+<h3>Kid</h3>
+<table cellspacing="1" class="datagrid">
+  <thead>
+    <tr>
+      <th nowrap="nowrap">No. </th>
+      <th nowrap="nowrap">Title</th>
+      <th nowrap="nowrap">Name</th>
+      <th nowrap="nowrap">ID Number </th>
+      <th nowrap="nowrap">Phone</th>
+      <th nowrap="nowrap">Ticket Price</th>
+      <th nowrap="nowrap">Set Charge</th>
+      <th nowrap="nowrap">Sub Total</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+  {% set y = x %}
+  {% set z = 0 %}
+  
+  {% for i in 1..edit.total_anak %}
+  {% set z = y + i %}
+  <tr>
+    <td nowrap="nowrap">{{ i }}.</td>
+    <td nowrap="nowrap"><select name="title{{ z }}" id="title{{ z }}">
+          <option value="Mr." {% if edit.title == 'Mr.' %} selected="selected" {% endif %}>
+          Mr.
+          </option>
+          <option value="Mrs." {% if edit.title == 'Mrs.' %} selected="selected" {% endif %}>
+          Mrs.
+          </option>
+          <option value="Madam." {% if edit.title == 'Madam.' %} selected="selected" {% endif %}>
+          Madam.
+          </option>
+          <option value="Sir." {% if edit.title == 'Sir.' %} selected="selected" {% endif %}>
+          Sir.
+          </option>
+          <option value="" {% if edit.title == '' %} selected="selected" {% endif %}>
+          None
+          </option>
+    </select></td>
+    <td><input name="nama_lengkap{{ z }}" type="text" id="nama_lengkap{{ z }}" value="{{ edit.nama_lengkap }}" size="25" required="required" /></td>
+    <td><input name="no_identitas{{ z }}" type="text" id="no_identitas{{ z }}" value="{{ edit.no_identitas }}" size="20" required="required" /></td>
+    <td><input name="telp{{ z }}" type="text" id="telp_dewasa{{ z }}" value="{{ edit.telp }}" size="15"  />
+        <input type="hidden" name="jenis{{ z }}" id="jenis{{ z }}" value="Kid" /></td>
+    <td><input name="harga_tiket{{ z }}" type="text" id="harga_tiket{{ z }}" value="{{ edit.harga_tiket }}" size="10" required="required" /></td>
+     <td><input type="button" name="button" id="button" value="Set Charges" class="btn" onclick="setPrice({{ z }})" /></td>
+    <td><input name="harga_nta{{ z }}" type="text" id="harga_nta{{ z }}" value="{{ edit.harga_nta }}" size="10" readonly="readonly" /></td>
+    </tr>
+  {% endfor %}
+</table>
+</fieldset>
+{% set jumlah = z %}
+{% endif %}
+
+{% if edit.total_bayi > 0%}
+<fieldset>
+<h3>Baby</h3>
+<table cellspacing="1" class="datagrid">
+  <thead>
+    <tr>
+      <th nowrap="nowrap">No. </th>
+      <th nowrap="nowrap">Title</th>
+      <th nowrap="nowrap">Name</th>
+      <th nowrap="nowrap">ID Number </th>
+      <th nowrap="nowrap">Phone</th>
+      <th nowrap="nowrap">Ticket Price</th>
+      <th nowrap="nowrap">Set Charge</th>
+      <th nowrap="nowrap">Sub Total</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+  {% set n = z %}
+  {% set w = 0 %}
+  {% for i in 1..edit.total_bayi %}
+  {% set w = n + i %}
+  <tr>
+    <td nowrap="nowrap">{{ i }}.</td>
+    <td nowrap="nowrap"><select name="title{{ w }}" id="title{{ w }}">
+          <option value="Mr." {% if edit.title == 'Mr.' %} selected="selected" {% endif %}>
+          Mr.
+          </option>
+          <option value="Mrs." {% if edit.title == 'Mrs.' %} selected="selected" {% endif %}>
+          Mrs.
+          </option>
+          <option value="Madam." {% if edit.title == 'Madam.' %} selected="selected" {% endif %}>
+          Madam.
+          </option>
+          <option value="Sir." {% if edit.title == 'Sir.' %} selected="selected" {% endif %}>
+          Sir.
+          </option>
+          <option value="" {% if edit.title == '' %} selected="selected" {% endif %}>
+          None
+          </option>
+    </select></td>
+    <td><input name="nama_lengkap{{ w }}" type="text" id="nama_lengkap{{ w }}" value="{{ edit.nama_lengkap }}" size="25" required="required" /></td>
+    <td><input name="no_identitas{{ w }}" type="text" id="no_identitas{{ w }}" value="{{ edit.no_identitas }}" size="20" required="required" /></td>
+    <td><input name="telp{{ w }}" type="text" id="telp_dewasa{{ w }}" value="{{ edit.telp }}" size="15"  />
+        <input type="hidden" name="jenis{{ w }}" id="jenis{{ w }}" value="Baby" /></td>
+    <td><input name="harga_tiket{{ w }}" type="text" id="harga_tiket{{ w }}" value="{{ edit.harga_tiket }}" size="10" required="required" /></td>
+    <td><input type="button" name="button" id="button" value="Set Charges" class="btn" onclick="setPrice({{ w }})" /></td>
+    <td><input name="harga_nta{{ w }}" type="text" id="harga_nta{{ w }}" value="{{ edit.harga_nta }}" size="10" readonly="readonly" /></td>
+    </tr>
+  {% endfor %}
+</table>
+</fieldset>
+{% set jumlah = w %}
+{% endif %}
+
+<input type="hidden" name="jumlah" id="jumlah" value="{{ jumlah }}" />
+<br/>
+
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/form'" />
+</form>
+<script type="text/javascript">
+var numRows = 0;
+function setPrice(num){
+	var tiketPrice = elm("harga_tiket" + num).value;
+	var idAirlines = elm("id_airlines").value;
+	numRows = num;
+	
+	if(tiketPrice == '') {
+		alert("Please fill the ticket price");
+		elm("harga_tiket" + num).selected;
+	}
+	else{
+		cari('{{ base_url }}index.php/ticketing/booking/hitungcharges/'+tiketPrice+'/'+idAirlines);		
+	}
+}
+
+function getItemTotal(total){
+	elm("harga_nta" + numRows).value = total;
+	closeCari();
+}
+</script>
+{% endif %}
+
+{% endblock %}

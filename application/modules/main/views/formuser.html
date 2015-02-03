@@ -1,0 +1,34 @@
+{% extends "header.html" %}
+{% block content %}
+<div id="judul">Utilitas / Pengolahan User / Form</div>
+<form action="" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id" id="id" value="{{ edit.id_user }}" />
+ 
+<label for="username">Username</label>
+<input name="username" type="text" id="username" value="{{ edit.username }}" size="20" required>
+* <br/>
+
+<label for="nama_lengkap">Nama Lengkap</label>
+<input name="nama_lengkap" type="text" id="nama_lengkap" value="{{ edit.nama_lengkap }}" size="50" required> *
+<br/>
+
+
+<label for="id_jabatan">Level / SKPD</label>
+<select name="id_jabatan" id="id_jabatan">
+  <option value="0"> = ADMINSTRATOR = </option>
+  {% for dataStruktur in struktur %}
+  <option value="{{ dataStruktur.id_jabatan }}" {% if edit.id_jabatan == dataStruktur.id_jabatan %} selected="selected" {% endif %}>{{ dataStruktur.nama_jabatan }}</option>
+  {% endfor %}
+</select> 
+<br/>
+
+<label for="password">Password</label>
+<input name="password" type="password" id="password" size="20" required>
+* <br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="simpan" /> <input name="Reset" type="reset" class="btn" value="Batal" onclick="window.location='{{ base_url }}index.php/main/user/datalist'" />
+</div>
+</form>
+
+{% endblock %}

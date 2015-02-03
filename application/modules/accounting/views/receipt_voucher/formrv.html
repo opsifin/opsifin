@@ -1,0 +1,163 @@
+{% extends "header.html" %}
+{% block content %}
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Receipt Voucher 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cube"></i><a href="#"> Accounting</a>
+            </li>
+
+            <li class="active">
+                        <i class="fa fa-cube"></i> Receipt Voucher 
+              </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/accounting/rv/save" method="post" name="form1">
+<input id="id" name="id" type="hidden" value="{{ edit.id_pv }}" />
+<table border="0">
+  
+  <tr>
+    <td valign="top">
+    <div class="form-group width150">
+        <label>Receipt Number</label>
+        <input class="form-control" id="no_pv" name="no_pv" type="text" value="{{ rv_number }}" />
+      </div>
+        <div class="form-group width150">
+          <label>Date</label>
+          <input class="form-control" id="tanggal_pv"  onfocus="gfPop.fPopCalendar(this);" name="tanggal_pv" type="text" value="{{ edit.tanggal_rv }}" />
+        </div>
+      <div class="form-group width200">
+          <label>Receipt Type </label>
+          <select class="form-control" name="invoice_type" id="invoice_type">
+            <option value="tiket" {% if edit.invoice_type =='tiket' %} selected="selected" {% endif %}>Ticket</option>
+            <option value="hotel" {% if edit.invoice_type =='hotel' %} selected="selected" {% endif %}>Hotel</option>
+            <option value="tour" {% if edit.invoice_type =='tour' %} selected="selected" {% endif %}>Tour</option>
+            <option value="dokumen" {% if edit.invoice_type =='dokumen' %} selected="selected" {% endif %}>Document</option>
+            <option value="others" {% if edit.invoice_type =='others' %} selected="selected" {% endif %}>Others</option>
+          </select>
+        </div>
+      <div class="form-group width200">
+          <label>Invoice Number</label>
+          <input class="form-control" id="invoice_no" name="invoice_no" type="text" value="{{ edit.invoice_no }}" placeholder="Click to select" onclick="loadInvoice()" />
+       		<input type="hidden" name="id_invoice" id="id_invoice" />
+        </div>
+      <div class="form-group width250">
+          <label> Total</label>
+          <input class="form-control" id="invoice_balance" name="invoice_balance" type="text" value="{{ edit.invoice_balance }}" />
+      </div>
+      <div class="form-group width150">
+        <label>Payment Method</label>
+       <select class="form-control" name="pay_method" id="pay_method">
+            <option value="CC" {% if edit.pay_method =='CC' %} selected="selected" {% endif %}>Credit Card</option>
+            <option value="Cheque" {% if edit.pay_method =='Cheque' %} selected="selected" {% endif %}>Cheque</option>
+            <option value="BG" {% if edit.pay_method =='BG' %} selected="selected" {% endif %}>Bank of Giro</option>
+            <option value="Cash" {% if edit.pay_method =='Cash' %} selected="selected" {% endif %}>Cash</option>
+          </select>
+      </div>
+      
+      </td>
+    <td width="50" valign="top">&nbsp;</td>
+      <td valign="top"><div class="form-group width100">
+            <label>Discount</label>
+            <input class="form-control width100" id="discount" name="discount" type="text" value="{{ edit.discount }}" placeholder="%" />
+          </div>
+          
+           <div class="form-group width250">
+              <label>Paid Ammount</label>
+              <input class="form-control" id="paid_ammount" name="paid_ammount" type="text" value="{{ edit.paid_ammount }}" />
+        </div>
+            
+        <div class="form-group width250">
+              <label>Keep Comm</label>
+              <input class="form-control" id="commission" name="commission" type="text" value="{{ edit.commission }}" />
+            </div>
+            
+          <div class="form-group width100">
+              <label>Currency </label>
+              <select id="currency" name="currency" class="form-control" onchange="getRates()">
+                    <option value="">Select</option>
+                    {% for curr in currency %}
+                    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
+                    {% endfor %}
+                </select>
+          </div>
+                  
+            
+          <div class="form-group width200">
+              <label>Convert Ammount (Rp)</label>
+              <input class="form-control" id="convert_ammount" name="convert_ammount" type="text" value="{{ edit.convert_ammount }}"  />
+            </div>
+            
+            <div class="form-group width150">
+                <label>Agent Type</label>
+               <input class="form-control" id="agent_type" name="agent_type" type="text" value="{{ edit.agent_type }}" readonly="readonly" />
+              </div>
+            <input type="hidden" name="currency_balance" id="currency_balance" />
+         </td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+<br>
+<br>
+    <div class="table-responsive">
+       <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Memo</th>
+                    <th>Debit</th>
+                    <th>Kredit</th>
+                    <th>Process</th>
+                </tr>
+            </thead>
+       </table>
+    </div>
+
+    <input type="submit" class="btn btn-default" value="Save">
+</form>
+<br>
+<br>
+<div class="table-responsive">
+   <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+              	<th nowrap="nowrap">RV Number</th>
+                <th nowrap="nowrap">Receipt Type</th>
+                <th nowrap="nowrap">Invoice Number</th>
+                <th nowrap="nowrap">Total</th>
+                <th nowrap="nowrap">Pay Method</th>
+                <th nowrap="nowrap">Discount (%)</th>
+                <th nowrap="nowrap">Pay Ammount</th>
+                <th nowrap="nowrap">Currency</th>
+                <th nowrap="nowrap">Process</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for data in data %}
+            <tr>
+              	<td>{{ data.no_pv }}</td>
+                <td>{{ data.invoice_type }}</td>
+                <td>{{ data.invoice_no }}</td>
+                <td>{{ data.invoice_balance }}</td>
+                <td>{{ data.pay_method }}</td>
+                <td>{{ data.discount }}</td>
+                <td>{{ data.paid_ammount }}</td>
+                <td>{{ data.currency }}</td>
+                <td><a href="{{ base_url }}index.php/main/pv/form/?id={{ data.id_pv|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/main/pv/delete/?id={{ data.id_pv|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+            </tr> 
+            {% endfor %}           
+    </table>
+    
+  {{links|raw}}
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / airlines data list</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li class="seltab"><a href="#">list data</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/airlines/form">form entry</a></li>
+        <!--<li><a href="{{ base_url }}index.php/ticketing/airlines/formitem">Set Charge Items</a></li>-->
+  </ul>
+</div>
+
+<form action="" method="post">
+<label for="find">Search</label>
+<input name="find" type="text" id="find" size="40" value="{{ find }}" required /> *
+<br/>
+
+<label for="by">By</label>
+<select name="by">
+	<option value="nama_airlines" {% if by == 'nama_airlines' %} selected="selected" {% endif %}>Name</option>
+    <option value="keterangan" {% if by == 'keterangan' %} selected="selected" {% endif %}>Description</option>
+</select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/datalist'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  	<th nowrap="nowrap">Airlines </th>
+    <th nowrap="nowrap">Address</th>
+    <th nowrap="nowrap">Contact Person</th>
+    <th nowrap="nowrap">Ticket Number Code</th>
+    <th nowrap="nowrap">Remarks</th>
+    <th nowrap="nowrap">Logo</th>
+    <th nowrap="nowrap">Process</th>
+</tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td>{{ data.nama_airlines }}</td>
+    <td>{{ data.alamat }}<br />
+      <strong>Phone:</strong> {{ data.telp }}, <strong>Email:</strong> {{ data.email }}</td>
+    <td>{{ data.kontak_person }}</td>
+    <td>{{ data.number_code }}</td>
+    <td>{{ data.keterangan }}</td>
+    <td>
+    	{% if data.logo !='' %}<br />
+   	  <img src="{{ base_url }}assets/upload/logo_airlines/{{ data.logo }}" class="logoan" height="60" /><br />
+        {% endif %}    </td>
+   
+    <td><a href="{{ base_url }}index.php/ticketing/airlines/form/?id={{ data.id_airlines|trim }}" class="tick_data" title="Edit Data"></a><a href="javascript:void(0)" onclick="deleteThis('{{ base_url }}index.php/ticketing/airlines/delete/?id={{ data.id_airlines|trim }}')" class="delete_data"  title="Delete Data"></a></td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+
+{% endblock %}

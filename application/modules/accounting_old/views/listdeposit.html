@@ -1,0 +1,52 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / airlines deposit data list</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li class="seltab"><a href="#">deposit list</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/deposit/form">deposit top up</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/deposit/topupHistory">top up history</a></li>
+    </ul>
+</div>
+
+<form action="" method="post">
+<label for="find">Search</label>
+<input name="find" type="text" id="find" size="40" value="{{ find }}" required /> *
+<br/>
+
+<label for="by">By</label>
+<select name="by">
+	<option value="nama_airlines" {% if by == 'nama_airlines' %} selected="selected" {% endif %}>Name</option>
+    <option value="keterangan" {% if by == 'keterangan' %} selected="selected" {% endif %}>Description</option>
+</select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/datalist'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  	<th nowrap="nowrap">Airlines </th>
+    <th nowrap="nowrap">Logo</th>
+    <th nowrap="nowrap">Last Topup</th>
+    <th nowrap="nowrap">Deposit Value</th>
+    </tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td>{{ data.nama_airlines }}</td>
+    <td> {% if data.logo !='' %} <img src="{{ base_url }}assets/upload/logo_airlines/{{ data.logo }}" class="logoan" height="60" /> {% endif %} </td>
+    <td>{{ data.last_topup }}</td>
+    <td>{{ data.deposit }}</td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+
+{% endblock %}

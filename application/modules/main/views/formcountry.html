@@ -1,0 +1,32 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">setup / country form entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/main/country/dataList">list data</a></li>
+        <li class="seltab"><a href="#">form entry</a></li>
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/main/country/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_country }}" />
+ 
+<label for="kode_country">Country Code</label>
+<input name="kode_country" type="text" id="kode_country" value="{{ edit.kode_country }}" size="5" maxlength="5" required /> *
+<br/>
+ 
+<label for="nama_country">Country Name</label>
+<input name="nama_country" type="text" id="inisial" value="{{ edit.nama_country }}" size="30" required /> *
+<br/>
+
+<label for="currency">Currency </label>
+<input name="currency" type="text" id="currency" value="{{ edit.currency }}"  size="5" maxlength="5" required /> *
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/main/country/form'" />
+</div>
+</form>
+{% endblock %}

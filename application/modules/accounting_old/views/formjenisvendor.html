@@ -1,0 +1,33 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / vensor type form entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/jenisvendor/dataList">list data</a></li>
+        <li class="seltab"><a href="#">form entry</a></li>
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/jenisvendor/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_jenis }}" />
+ 
+<label for="nama_jenis">Type Name</label>
+<input name="nama_jenis" type="text" id="nama_airport" value="{{ edit.nama_jenis }}" size="30" required /> *
+<br/>
+
+<label for="nama_jenis">Direct Vendor</label>
+<input type="checkbox" id="direct_airlines" name="direct_airlines" value="1" {% if edit.direct_airlines == '1' %} checked="checked" {% endif %} /> check it if direct vendor type
+<br/>
+
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<input type="hidden" name="type" id="type" value="1" />
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/jenisvendor/form'" />
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / Pricing Policy data list</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li class="seltab"><a href="#">pricing policy list</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/pricingpolicy/form">pricing policy entry</a></li>
+    </ul>	
+</div>
+
+<form action="" method="post">
+<label for="find">Search</label>
+<input name="find" type="text" id="find" size="40" value="{{ find }}" required /> *
+<br/>
+
+<label for="by">By</label>
+<select name="by">
+	<option value="nama_pricing" {% if by == 'nama_pricing' %} selected="selected" {% endif %}>Name</option>
+    <option value="keterangan" {% if by == 'keterangan' %} selected="selected" {% endif %}>Description</option>
+</select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/flight/datalist'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  <th rowspan="2" nowrap="nowrap">Code</th>
+  <th rowspan="2" nowrap="nowrap">Name</th>
+  <th rowspan="2" nowrap="nowrap">Description</th>
+  <th colspan="3" nowrap="nowrap">Stamp Amount</th>
+  <th rowspan="2" nowrap="nowrap">Process</th>
+</tr>
+<tr>
+  	<th nowrap="nowrap">Limit </th>
+    <th nowrap="nowrap">Lower </th>
+    <th nowrap="nowrap">Higher</th>
+    </tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td align="center">{{ data.kode_pricing }}</td>    
+    <td nowrap="nowrap">{{ data.nama_pricing }}</td>
+   	<td nowrap="nowrap">{{ data.keterangan }}</td>
+    <td>{{ data.stamp_limit|number_format(2, '.', ',') }}</td>
+    <td>{{ data.stamp_lower|number_format(2, '.', ',') }}</td>
+    <td>{{ data.stamp_higher|number_format(2, '.', ',') }}</td>
+    <td><a href="{{ base_url }}index.php/ticketing/pricingpolicy/form/?id={{ data.id_pricing|trim }}" class="tick_data" title="Edit Data"></a><a href="javascript:void(0)" onclick="deleteThis('{{ base_url }}index.php/ticketing/pricingpolicy/delete/?id={{ data.id_pricing|trim }}')" class="delete_data"  title="Delete Data"></a></td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / Issued form</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/issued/dataListBooking">booking list</a></li>
+    	<li class="seltab"><a href="">issued form</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/issued/dataList">issued list</a></li>       
+    </ul>
+</div>
+
+
+<form action="{{ base_url }}index.php/ticketing/issued/getBookingId" method="post" name="form1">
+<label for="booking_number">Order Number</label>
+<input name="booking_number" type="text" size="10" value="{{ edit.booking_number }}"  /> 
+<input type="submit" name="proses" value="process" class="btn" /><br/>
+</form>
+
+
+{% if edit.id_booking !='' %}
+<h3>Detail Issued</h3>
+<form action="{{ base_url }}index.php/ticketing/issued/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_issued }}" />
+<input type="hidden" name="id_booking" id="id_booking" value="{{ edit.id_booking }}" />
+
+<label for="issued_date">Issued Date</label>
+  <input name="date_issued" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.date_issued }}"  required /> Time <input type="text" size="1" maxlength="2" id="jam_issued" name="jam_issued" value="{{ edit.jam_issued }}" onkeyup="timeFormat(this, 24)" required /> : <input type="text" size="1" maxlength="2" id="menit_issued" name="menit_issued" value="{{ edit.menit_issued }}" onkeyup="timeFormat(this, 60)" required/> *
+<br/>
+
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<br/>
+
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/form'" />
+</div>
+</form>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>TravelPro - Travel Assistance Systems - Version 1.0</title>
+<meta name = "viewport" content = "user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<link rel="shortcut icon" href="{{ base_url }}assets/images/icon.ico" type="image/x-icon"/>
+<link href="{{ base_url }}assets/css/style.css" rel="stylesheet" type="text/css">
+<link href="{{ base_url }}assets/css/menuset.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ base_url }}assets/js/jquery1.8.js"></script>
+<script type="text/javascript" src="{{ base_url }}assets/js/accordion.js"></script>
+<script type="text/javascript" src="{{ base_url }}assets/js/script.js"></script>
+<script type="text/javascript">
+function elm(obj){return document.getElementById(obj);}
+</script>
+</head>
+
+<body style="margin:10px;">
+<div id="container">
+   {% block content %}{% endblock %}  
+</div>
+
+<iframe width="150" height="189" name="gToday:normal:agenda.js" id="gToday:normal:agenda.js" src="{{ base_url }}assets/datepicker/ipopeng.htm" scrolling="no" frameborder="0" style="z-index:1000; position:absolute; top:-500px; left:-500px;"></iframe>
+</body>
+</html>

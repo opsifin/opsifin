@@ -1,0 +1,61 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / down payment entry </div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/topup/dataList">down payment list</a></li>
+        <li class="seltab"><a href="#">down payment</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/topup/topupHistory">down payment history</a></li>
+    </ul>
+</div>
+
+
+
+<form action="{{ base_url }}index.php/ticketing/topup/save" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id" id="id" value="{{ edit.id_flight }}" />
+
+<label for="dp_number">DS Number</label>
+<input name="dp_number" type="text" id="dp_number" value="{{ dp_number }}" size="20" required /> *
+<br/>
+
+<label for="transc_number">Transc No</label>
+<input name="transc_number" type="text" id="transc_number" value="{{ edit.transc_number }}" size="20" required /> *
+<br/>
+
+<label for="id_vendor">Vendor Name</label>
+<select id="id_vendor" name="id_vendor">
+    {% for lines in vendor %}
+    	{% if lines.id_vendor !=3 and lines.id_vendor !=2 %}
+    <option value="{{ lines.id_vendor }}" {% if lines.id_vendor == edit.id_vendor %} selected="selected" {% endif %} >{{ lines.nama_vendor }}</option>
+    	{% endif %}
+    {% endfor %}
+</select>
+<br/>
+
+<label for="nilai_topup">Top up Value</label>
+<input name="nilai_topup" type="text" id="nilai_topup" value="{{ edit.nilai_topup }}" size="20" required /> *
+<br/>
+
+<label for="tanggal_topup">Top Up Date</label>
+	<input name="tanggal_topup" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.tanggal_topup }}" required /> *
+<br/>
+
+<label for="currency">Currency</label>
+<select id="currency" name="currency">
+    {% for curr in currency %}
+    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/form'" />
+</div>
+</form>
+{% endblock %}

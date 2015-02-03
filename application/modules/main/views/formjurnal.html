@@ -1,0 +1,152 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Journal 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cube"></i><a href="#"> Accounting</a>
+            </li>
+
+            <li class="active">
+                        <i class="fa fa-cube"></i> Journal Entry 
+              </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/main/jurnal/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ id_jurnal }}" />
+<input type="hidden" name="id_detail" id="id_detail" value="{{ edit_row.id }}" />
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+    <td>
+        <div class="form-group width150">
+            <label>Date</label>
+            <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+        </div>
+    </td>
+    <td>
+        <div class="form-group width150">
+            <label style="margin-left:20px;">Reff</label>
+            <input class="form-control" id="reff" name="reff" type="text" value="{{ main.reff }}" style="margin-left:20px;" required>
+        </div>
+    </td>
+</tr>
+</table><br />
+
+
+<div class="table-responsive">
+   <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+              	<th>Number</th>
+                <th>Memo</th>
+                <th>Debit</th>
+                <th>Kredit</th>
+                <th>Process</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        	
+            
+            
+            {% set deb = 0 %}
+            {% set kre = 0 %}
+            
+            {% for data in edit %}
+            {% if data.nilai <= 0 %}
+            	{% set kredit = data.nilai %}
+                {% set debit = '' %}
+                {% set kre = kre + kredit %}
+            {% else %}
+            	{% set debit = data.nilai %}
+                {% set kredit = '' %}
+                {% set deb = deb + debit %}
+			{% endif %}                        
+            <tr>
+              	<td>
+                	<select name="penjualan_tour"  id="penjualan_tour" class="form-control" disabled="disabled">
+                        {% for coa in coa %}
+                        <option value="{{ coa.nomor_acc }}" {% if data.nomor_acc == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                        {% endfor%}
+                    </select>                </td>
+                <td><input class="form-control" id="memo" name="memo" type="text" value="{{ data.memo }}" readonly="readonly"></td>
+                <td><input class="form-control" id="debit" name="debit" type="text" value="{{ debit }}" readonly="readonly"></td>
+                <td><input class="form-control" id="kredit" name="kredit" type="text" value="{{ kredit }}" readonly="readonly"></td>
+                <td>
+                	<a href="{{ base_url }}index.php/main/jurnal/form/{{ id_jurnal }}/{{ data.id }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/coa/form/delete/?id={{ data.id_acc|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a>                </td>
+            </tr>
+            
+            {% endfor %}
+        	  
+            <tr>
+              	<td>
+                	{% set debitEdit = '' %}
+                    {% set kreditEdit = '' %}
+                	{% if edit_row.id !='' %}
+                    	{% if edit_row.nilai <= 0 %}
+                        {% set kreditEdit = edit_row.nilai|abs %}
+                        {% else %}
+                    	{% set debitEdit = edit_row.nilai %}
+                        {% endif %}
+                    {% endif %}
+               	  <select name="nomor_acc"  id="nomor_acc" class="form-control">
+                        {% for coa in coa %}
+                        <option value="{{ coa.nomor_acc }}" {% if edit_row.nomor_acc == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                        {% endfor%}
+                    </select>                </td>
+                <td><input class="form-control" id="memo" name="memo" type="text" value="{{ edit_row.memo }}"></td>
+                <td><input class="form-control" id="debit" name="debit" type="text" value="{{ debitEdit }}"></td>
+                <td><input class="form-control" id="kredit" name="kredit" type="text" value="{{ kreditEdit }}"></td>
+                <td>
+               	  <input type="button" class="btn btn-default" value="Save Data" onclick="checkValue()">                </td>
+            </tr>
+            <tr>
+              	<td>&nbsp;</td>
+                <td><strong>TOTAL</strong></td>
+              <td><strong>{{ deb}}</strong><input type="hidden" name="total_debit" id="total_debit" value="{{ deb }}" /></td>
+              <td><strong>{{ kre}}</strong><input type="hidden" name="total_kredit" id="total_kredit" value="{{ kre }}" /></td>
+                <td>&nbsp;</td>
+            </tr>
+         </tbody>           
+    </table>
+    
+</div>
+ <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
+</form>
+<script language="javascript">
+function checkValue(num){
+	if(elm("debit").value !='' && elm("kredit").value !=''){
+		alert("Please fill only Debit or Credit");
+	}
+	else if(elm("debit").value =='' && elm("kredit").value ==''){
+		alert("Please fill only Debit or Credit");
+	}
+	else{
+		document.form1.submit();
+	}	
+}
+
+function saveAll(){
+	var nilai = parseFloat(elm("total_debit").value) + parseFloat(elm("total_kredit").value);
+	if(nilai == 0){
+		document.form1.action = "{{ base_url }}index.php/main/jurnal/saveall";
+		document.form1.submit();
+	}
+	else{
+		alert("The total is not balance, please check it");
+	}
+	
+}
+</script>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            COA Group
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cubes"></i><a href="#"> COA</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-cubes"></i> COA Group
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/main/coagroup/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_levelacc }}" />
+
+<div class="form-group width250">
+    <label>COA Class</label>
+    <select class="form-control" name="nama_group" id="nama_group">
+    	 {% for type in class %}
+        <option value="{{ type.nama_group }}" {% if type.nama_group == edit.nama_group %} selected="selected" {% endif %}>{{ type.nama_group }} </option>
+        {% endfor %}
+    </select>
+</div>
+
+<div class="form-group width200">
+    <label>Group Code</label>
+    <input class="form-control" id="kode_level" name="kode_level" type="text" value="{{ edit.kode_level }}" {% if edit.id_levelacc !='' %} readonly="readonly" {% endif %} required>
+</div>
+
+<div class="form-group width250">
+    <label>Group Name</label>
+    <input class="form-control" id="nama_level" name="nama_level" type="text" value="{{ edit.nama_level }}">
+</div>
+
+<div class="form-group width250">
+    <label>Parent Group</label>
+    <select class="form-control" name="parent_level" id="parent_level">
+        <option value="">--Parent--</option>
+        {% for type in level %}
+        <option value="{{ type.kode_level }}" {% if type.kode_level == edit.parent_level %} selected="selected" {% endif %}>{{ type.nama_level }} </option>
+        {% endfor %}
+    </select>
+    </select>
+</div>
+
+<input type="submit" class="btn btn-default" value="Save">
+<input type="reset" class="btn btn-default" value="Clear">
+
+</form>
+
+<ol class="breadcrumb margin100">
+   	 <li class="active">
+        <i class="fa fa-cubes"></i> COA Group List
+    </li>
+</ol>
+
+<div class="table-responsive">
+   <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+              	<th>Class</th>
+              	<th>Group Code</th>
+                <th>Group Name</th>
+                <th>Parent</th>
+                <th>Process</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        	{% for data in data %}
+            <tr>
+              	<td>{{ data.nama_group }}</td>
+              	<td>{{ data.kode_level }}</td>
+                <td>{{ data.nama_level }}</td>
+                <td>{{ data.nama_parent }}</td>
+                <td><a href="{{ base_url }}index.php/main/coagroup/form/?id={{ data.id_levelacc|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/main/coagroup/delete/?id={{ data.id_levelacc|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+            </tr> 
+            {% endfor %}           
+        <tr>
+                  
+        </tbody>
+    </table>
+    
+    {{links|raw}}
+</div>
+
+{% endblock %}

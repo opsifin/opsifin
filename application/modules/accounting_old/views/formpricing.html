@@ -1,0 +1,98 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / pricing policy form entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/pricingpolicy/dataList">pricing policy list</a></li>
+        <li class="seltab"><a href="#">pricing policy entry</a></li>      
+    	
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/pricingpolicy/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_pricing}}" />
+
+<h3>pricing policy info</h3>
+
+<label for="kode_pricing">Code</label>
+<input name="kode_pricing" type="text" id="kode_pricing" value="{{ edit.kode_pricing }}" size="20" required /> *
+<br/> 
+
+<label for="nama_pricing">Name</label>
+<input name="nama_pricing" type="text" id="nama_pricing" value="{{ edit.nama_pricing }}" size="30" required /> *
+<br/>
+
+
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<br/>
+
+<h3>ga domesctic</h3>
+
+<label for="dom_ga_precentage">Precentage</label>
+<input name="dom_ga_precentage" type="text" id="dom_ga_precentage" value="{{ edit.dom_ga_precentage }}" size="2" /> %
+<br/>
+
+<label for="dom_ga_minprofit">Min Profit</label>
+<input name="dom_ga_minprofit" type="text" id="dom_ga_minprofit" value="{{ edit.dom_ga_minprofit }}" size="30" />
+<br/>
+ 
+<label for="dom_ga_baseammount">Base Ammount </label>
+<input name="dom_ga_baseammount" type="text" id="dom_ga_baseammount" value="{{ edit.dom_ga_baseammount }}" size="30" />
+<br/>
+
+<h3>non ga domesctic</h3>
+
+<label for="dom_non_ga_baseammount">Base Ammount </label>
+<input name="dom_non_ga_baseammount" type="text" id="dom_non_ga_baseammount" value="{{ edit.dom_non_ga_baseammount }}" size="30" />
+<br/>
+
+<label for="dom_non_ga_minpublishfare">Min Publish Fare </label>
+<input name="dom_non_ga_minpublishfare" type="text" id="dom_non_ga_minpublishfare" value="{{ edit.dom_non_ga_minpublishfare }}" size="30" />
+<br/>
+
+<label for="dom_non_ga_merchantfee">Merchant Fee </label>
+<input name="dom_non_ga_merchantfee" type="text" id="dom_non_ga_merchantfee" value="{{ edit.dom_non_ga_merchantfee }}" size="30" />
+<br/>
+
+<label for="dom_non_ga_minprofit">Min Profit</label>
+<input name="dom_non_ga_minprofit" type="text" id="dom_non_ga_minprofit" value="{{ edit.dom_non_ga_minprofit }}" size="30" />
+<br/>
+
+<h3>ga international</h3>
+
+<label for="ix_ga_precentage">Precentage</label>
+<input name="ix_ga_precentage" type="text" id="ix_ga_precentage" value="{{ edit.ix_ga_precentage }}" size="2" /> %
+<br/>
+
+<label for="ix_ga_minprofit">Min Profit</label>
+<input name="ix_ga_minprofit" type="text" id="ix_ga_minprofit" value="{{ edit.ix_ga_minprofit }}" size="30" />
+<br/>
+
+<h3>non ga international</h3>
+
+<label for="ix_non_ga_baseammount">Base Ammount </label>
+<input name="ix_non_ga_baseammount" type="text" id="ix_non_ga_baseammount" value="{{ edit.ix_non_ga_baseammount }}" size="30" />
+<br/>
+
+<h3>Stamp Ammount</h3>
+
+<label for="stamp_limit">Limit </label>
+<input name="stamp_limit" type="text" id="stamp_limit" value="{{ edit.stamp_limit }}" size="30" />
+<br/>
+
+<label for="stamp_lower">Lower </label>
+<input name="stamp_lower" type="text" id="stamp_lower" value="{{ edit.stamp_lower }}" size="30" />
+<br/>
+
+<label for="stamp_higher">Higher </label>
+<input name="stamp_higher" type="text" id="stamp_higher" value="{{ edit.stamp_higher }}" size="30" />
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/pricingpolicy/form'" />
+</div>
+</form>
+{% endblock %}

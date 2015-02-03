@@ -1,0 +1,94 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            COA Type
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <!-- CHANGE By Dwi Wahyudi
+                <i class="fa fa-cubes"></i><a href="#"> COA</a>
+                -->
+                <i class="fa fa-cubes"></i><a href="#"> COA</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-cubes"></i> COA Type
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<!-- CHANGE By Dwi Wahyudi 
+<form action="{{ base_url }}index.php/main/coagroup/save" method="post" name="form1">
+-->
+<form action="{{ base_url }}index.php/main/coatype/save" method="post" name="form1" data-toggle="validator" role="form">
+
+<input type="hidden" name="id" id="id" value="{{ edit.id_groupacc }}" />
+ 
+<div class="form-group width200">
+    <label>Group Code</label>
+    <input class="form-control" id="kode_group" name="kode_group" type="text" value="{{ edit.kode_group }}" required>
+</div>
+
+<div class="form-group width250">
+    <label>Group Name</label>
+    <input class="form-control" id="nama_group" name="nama_group" type="text" value="{{ edit.nama_group }}" required>
+</div>
+
+<input type="submit" class="add-btn btn btn-default" value="Save">
+<input type="reset" class="btn btn-default" value="Clear">
+
+</form>
+
+<ol class="breadcrumb margin100">
+   	 <li class="active">
+        <i class="fa fa-cubes"></i> COA Type List
+    </li>
+</ol>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Process</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        	{% for data in xdata %}
+            <tr>
+                <td>{{ data.koddatae_group }}</td>
+                <td>{{ data.nama_group }}</td>
+                <!-- CHANGE BY DWI WAHYUDI -->
+                <td><a href="{{ base_url }}index.php/main/coatype/form/?id={{ data.id_groupacc|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/main/coatype/del/?id={{ data.id_groupacc|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+            </tr> 
+            {% endfor %}           
+        </tbody>
+    </table>
+    
+    {{links|raw}}
+</div>
+
+<script type='text/javascript'>
+    $("#__kode_group").on("blur", function(){
+        
+        $.ajax({
+                type: "GET",
+                url: "{{base_url}}main/coatype/check_kode_group/" + $(this).val(),
+                dataType: "json",
+                cache: false,
+                success: function(data) {
+                    log.console (data.jml);
+                }
+            });  
+        
+    });
+</script>
+{% endblock %}   

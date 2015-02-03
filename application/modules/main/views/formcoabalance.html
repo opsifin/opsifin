@@ -1,0 +1,57 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            COA 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cube"></i><a href="#"> COA</a>
+            </li>
+
+            <li class="active">
+                  <i class="fa fa-cube"></i> COA Balance
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<form action="{{ base_url }}index.php/main/coa/savebalance" method="post" name="form1">
+<div class="table-responsive">
+   <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+              	<th>Code</th>
+                <th>Name</th>
+                <th>Parent</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        	{% set x = 0 %}
+        	{% for data in data %}
+            {% set x = loop.index %}
+            <tr>
+              	<td>{{ data.nomor_acc }}</td>
+                <td>{{ data.nama_acc }}</td>
+                <td>{{ data.nama_parent }}</td>
+                <td width="150">
+                	<input class="form-control width100" name="balance{{ x }}" type="text" id="balance{{ x }}" value="{{ data.balance }}" {% if data.added == 1 %} readonly="readonly" {% endif %}/>
+                	<input type="hidden" name="id_company{{ x }}" id="id_company{{ x }}" value="{{ log.clientId }}" />
+                    <input type="hidden" name="nomor_acc{{ x }}" id="nomor_acc{{ x }}" value="{{ data.nomor_acc }}" />
+                    <input type="hidden" name="added{{ x }}" id="added{{ x }}" value="{{ data.added }}" />
+                </td>
+                
+            </tr> 
+            {% endfor %}           
+    </table>
+    <input type="hidden" name="jumlah" id="jumlah" value="{{ x }}" />
+</div>
+<input type="submit" class="btn btn-default" value="Save Balance"> <input type="button" class="btn btn-default" value="Reload COA" onclick="window.location='{{ base_url }}index.php/main/coa/reloadCOA'">
+</form>
+{% endblock %}

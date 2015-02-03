@@ -1,0 +1,18 @@
+<div id="printkop">
+	<img src="{{ base_url }}assets/images/client/{{ log.clientLogo|raw }}" id="logo" height="83" width="83"/>
+    <div id="textkop">
+    {{ log.clientName|raw }}<br>
+    {{ log.userSKPDnama|raw }}
+    </div>
+    <img src="{{ base_url }}assets/images/bigprint.png" id="bigprint" onClick="printIt();" />    
+</div>
+<div id="linekop"></div>
+<script language="javascript">
+function printIt(){
+	elm("bigprint").style.display='none';
+	print();
+	setTimeout(function(){
+		elm("bigprint").style.display='block';
+	}, 100);
+}
+</script>

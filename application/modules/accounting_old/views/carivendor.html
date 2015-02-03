@@ -1,0 +1,53 @@
+{% extends "popup.html" %}
+{% block content %}
+
+<div class="judul">vendor data list</div>
+
+
+<form action="{{ base_url }}index.php/ticketing/vendor/cari/{{ page }}/{{ find }}/{{ by }}" method="post">
+
+<label for="by">Filter By</label>
+    <select id="id_jenis" name="id_jenis">
+        <option value="">All Type</option>
+        {% for count in jenis %}
+        <option value="{{ count.id_jenis }}" {% if count.id_country == edit.id_jenis %} selected="selected" {% endif %}>{{ count.nama_jenis }}</option>
+        {% endfor %}
+    </select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/customer/datalist'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  	<th nowrap="nowrap">Code</th>
+    <th nowrap="nowrap">Vendor Name</th>
+    <th nowrap="nowrap">Vendor Type</th>
+    <th nowrap="nowrap">Direct Airlines</th>
+    <th nowrap="nowrap">Description</th>
+    <th nowrap="nowrap">Select</th>
+</tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td nowrap="nowrap">{{ data.kode_vendor }}</td> 
+   	<td nowrap="nowrap">{{ data.nama_vendor }}</td> 
+    <td nowrap="nowrap">{{ data.nama_jenis }}</td> 
+    <td nowrap="nowrap">{{ data.da }}</td> 
+    <td nowrap="nowrap">{{ data.keterangan }}</td>
+	<td><a href="javascript:none" class="select_data" onclick="selectThis('{{ data.id_vendor }}','{{ data.nama_vendor }}')"></a></td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+<script language="javascript">
+	function selectThis(id, nama){
+		parent.window.setData(id, nama);		
+	}
+</script>
+
+{% endblock %}

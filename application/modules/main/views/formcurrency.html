@@ -1,0 +1,75 @@
+{% extends "header.html" %}
+{% block content %}
+<!-- NEW FORM -->
+<!-- CREATE BY Dwi Wahyudi -->
+<!-- Created Date : 29 Jan 2015 -->
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Currency 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-gear"></i><a href="#"> Configuration</a>
+            </li>
+
+            <li class="active">
+                 <i class="fa fa-bank"></i> Currency
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/main/currency/save" method="post" name="form1" data-toggle="validator" role="form">
+<input type="hidden" name="id" id="id" value="{{ edit.id_company }}" />
+
+<div class="form-group width200">
+    <label>Currency</label>
+    <input class="form-control" id="currency" name="currency" type="text" value="{{ edit.currency }}" required>
+</div>
+
+<div class="form-group width250">
+    <label>Description</label>
+    <input class="form-control" id="desc" name="desc" type="text" value="{{ edit.desc }}" required>
+</div>
+
+
+<input type="submit" class="add-btn btn btn-default" value="Save">
+<input type="reset" class="btn btn-default" value="Clear">
+</form>
+
+<ol class="breadcrumb margin100">
+   	 <li class="active">
+        <i class="fa fa-cubes"></i> Currency List
+    </li>
+</ol>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Currency</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        	{% for data in data %}
+            <tr>
+                <td>{{ data.currency }}</td>
+                <td>{{ data.desc }}</td>
+                <!-- CHANGE BY DWI WAHYUDI -->
+                <td><a href="{{ base_url }}index.php/main/currency/form/?id={{ data.currency|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/main/currency/del/?id={{ data.currency|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+            </tr> 
+            {% endfor %}           
+        </tbody>
+    </table>
+    
+    {{links|raw}}
+</div>
+{% endblock %}

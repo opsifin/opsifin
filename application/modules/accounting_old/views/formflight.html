@@ -1,0 +1,63 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / flight data entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/flight/dataList">flight list</a></li>
+        <li class="seltab"><a href="#">flight entry</a></li>
+    </ul>
+</div>
+
+
+
+<form action="{{ base_url }}index.php/ticketing/flight/save" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id" id="id" value="{{ edit.id_flight }}" />
+
+<label for="nomor_flight">Flight Number</label>
+<input name="nomor_flight" type="text" id="nomor_flight" value="{{ edit.nomor_flight }}" size="10" required /> *
+<br/>
+
+<label for="id_airlines">Airlines Name </label>
+<select id="id_airlines" name="id_airlines">
+    {% for lines in airlines %}
+    <option value="{{ lines.id_airlines }}" {% if lines.id_airlines == edit.id_airlines %} selected="selected" {% endif %} style="background-image:url('{{ base_url }}/assets/upload/logo_airlines/{{ lines.logo }}')" >{{ lines.nama_airlines }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="dari_airport">From</label>
+<select id="dari_airport" name="dari_airport">
+    {% for port in airport %}
+    <option value="{{ port.id_airport }}" {% if port.id_airport == edit.dari_airport %} selected="selected" {% endif %}>{{ port.nama_airport }} ({{ port.inisial }}) - {{ port.kota }}, {{ port.nama_country }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="tujuan_airport">To</label>
+<select id="tujuan_airport" name="tujuan_airport">
+    {% for port in airport %}
+    <option value="{{ port.id_airport }}" {% if port.id_airport == edit.tujuan_airport %} selected="selected" {% endif %}>{{ port.nama_airport }} ({{ port.inisial }}) - {{ port.kota }}, {{ port.nama_country }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="tanggal_flight">Departure Time</label>
+	<input name="date_flight" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.date_flight }}" required /> Time <input type="text" size="1" maxlength="2" id="jam_flight" name="jam_flight" value="{{ edit.jam_flight }}" onkeyup="timeFormat(this, 24)" required /> : <input type="text" size="1" maxlength="2" id="menit_flight" name="menit_flight"  value="{{ edit.menit_flight }}" onkeyup="timeFormat(this, 60)" required/>
+*<br/>
+
+<label for="tanggal_arrive">Arrived Time</label>
+	<input name="date_arrive" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.date_arrive }}"  required /> Time <input type="text" size="1" maxlength="2" id="jam_arrive" name="jam_arrive" value="{{ edit.jam_arrive }}" onkeyup="timeFormat(this, 24)" required /> : <input type="text" size="1" maxlength="2" id="menit_arrive" name="menit_arrive" value="{{ edit.menit_arrive }}" onkeyup="timeFormat(this, 60)" required/>
+*<br/>
+
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<br/>
+
+
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/form'" />
+</div>
+</form>
+{% endblock %}

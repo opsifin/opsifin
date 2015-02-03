@@ -1,0 +1,76 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / Printed Invoice List</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/invoiceprint/dataListToPrint">invoice to print</a></li>
+    	<li class="seltab"><a href="#">printed invoice</a></li>         
+	</ul>
+</div>
+
+<form action="" method="post">
+<label for="id_customer">Customer </label>
+	<input type="hidden" name="id_customer" id="id_customer" value="{{ id_customer }}" />
+	<input name="nama_lengkap" type="text" id="nama_lengkap" value="{{ nama_lengkap }}" size="30" onclick="loadCustomer();" readonly="readonly" required/> <input type="button" name="button2" id="button2" value="..." class="btn" onclick="loadCustomer()"/> *
+<br/>
+
+<label for="date">Date From</label>
+  <input name="start_date" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ start_date }}" /> To: <input name="end_date" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ end_date }}" /> Optional
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="view invoice" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/invoice/dataListIssued'" />
+</div>
+</form>
+{% if id_customer !='' %}<br />
+
+<h3>invoice list ({{ nama_lengkap }})</h3>
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  <th nowrap="nowrap">Invoice No./Date</th>
+  <th nowrap="nowrap">Customer</th>
+  <th nowrap="nowrap">Supplier</th>
+  <th nowrap="nowrap">Created Date</th>
+  <th nowrap="nowrap">Due Date</th>
+  <th nowrap="nowrap">Publish Date</th>
+  <th nowrap="nowrap">Airlines</th>
+  <th nowrap="nowrap">Total</th>
+    </tr>
+</thead>
+<tbody>
+{% set i = 0 %}
+{% for data in data %}
+{% set i = loop.index %}
+  <tr>
+    <td nowrap="nowrap"><strong>{{ data.invoice_number }}</strong><br />
+    {{ data.invoice_date }}</td>
+    <td nowrap="nowrap">{{ data.nama_lengkap }}</td>
+    <td nowrap="nowrap">{{ data.nama_vendor }}</td>
+    <td nowrap="nowrap">{{ data.invoice_date }}</td>
+    <td nowrap="nowrap">{{ data.due_date }}</td>
+    <td nowrap="nowrap">{{ data.print_date }}</td>
+    <td nowrap="nowrap">{{ data.nama_airlines }}</td>
+    <td nowrap="nowrap">{{ data.sell }}</td>
+  </tr>
+{% endfor %}
+</table>
+{% endif %}
+<script language="javascript">
+
+
+function loadCustomer(){
+	obj.id='id_customer';
+	obj.nama='nama_lengkap';
+	cari('{{ base_url }}index.php/ticketing/customer/cari');	
+}
+function setData(id, nama){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / Invoice List</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li class="seltab"><a href="#">invoice list</a></li>
+    	<li><a href="{{ base_url }}index.php/ticketing/invoice/form">invoice form</a></li>             
+  </ul>
+</div>
+
+<form action="" method="post">
+<label for="find">Search</label>
+<input name="find" type="text" id="find" size="40" value="{{ find }}" required /> *
+<br/>
+
+<label for="by">By</label>
+<select name="by">
+	<option value="a.booking_number" {% if by == 'a.booking_number' %} selected="selected" {% endif %}>Booking Number</option>
+    <option value="d.nama_lengkap" {% if by == 'd.nama_lengkap' %} selected="selected" {% endif %}>Customer Name</option>
+</select>
+<br/>
+
+<div class="submit_div">
+<input type="submit" class="button" value="search" /> <input name="bersihkan" type="button" class="btn" value="clear search" onclick="window.location='{{ base_url }}index.php/ticketing/invoice/dataListIssued'" />
+</div>
+</form>
+
+<table cellspacing="1" class="datagrid">
+<thead>
+<tr>
+  <th nowrap="nowrap">Invoice No./Date</th>
+  <th nowrap="nowrap">Customer</th>
+  <th nowrap="nowrap">Supplier</th>
+  <th nowrap="nowrap">Airlines</th>
+    <th nowrap="nowrap">Base Fare</th>
+    </tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td nowrap="nowrap"><strong>{{ data.invoice_number }}</strong><br />
+    {{ data.invoice_date }}</td>
+    <td nowrap="nowrap">{{ data.nama_lengkap }}</td>
+    <td nowrap="nowrap">{{ data.nama_vendor }}</td>
+    <td nowrap="nowrap">{{ data.nama_airlines }}</td>
+    <td nowrap="nowrap">{{ data.base }}</td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+
+{% endblock %}

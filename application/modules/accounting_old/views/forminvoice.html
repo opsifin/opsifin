@@ -1,0 +1,264 @@
+{% extends "header.html" %}
+{% block content %}
+
+<script language="javascript"></script>
+
+
+<div class="judul">ticketing / invoice form</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/invoice/dataList">invoice list</a></li> 
+        <li class="seltab"><a href="#">invoice form</a></li>
+             
+  </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/invoice/saveInvoice" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_invoice }}" />
+<table width="100%" border="0">
+  <tr>
+    <td valign="top">
+
+{% set invoiceNumber = invoice_number %}
+{% if edit.id_invoice !='' %}
+	{% set invoiceNumber = edit.invoice_number %}
+{% endif %}
+<label for="invoice_number">Invoice Number</label>
+  <input name="invoice_number" type="text" size="15" value="{{ invoiceNumber }}"  required /> *
+<br/>
+
+<label for="transc_number">Book Code</label>
+<input name="book_code" type="text" id="book_code" value="{{ edit.book_code }}" size="20" required /> *
+<br/>
+
+<label for="tipe_flight">Flight Type</label>
+	<select name="flight_type" id="flight_type">
+    	<option id="D" {% if edit.flight_type == 'D' %} selected="selected" {% endif %}>Domestic</option>
+    	<option id="I" {% if edit.flight_type == 'I' %} selected="selected" {% endif %}>International</option>
+    </select>
+<br/>
+
+<label for="id_airport">Destination</label>
+<select id="id_airport" name="id_airport">
+    {% for port in airport %}
+    <option value="{{ port.id_airport }}" {% if port.id_airport == edit.id_airport %} selected="selected" {% endif %}>{{ port.inisial }} - {{ port.nama_airport }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="total_passenger">Total Passenger</label>
+ <select name="total_passenger">
+     {% for i in 1..9 %}
+    <option value="{{ i }}" {% if edit.total_passenger == i %} selected="selected" {% endif %}>{{ i }}</option>   
+    {% endfor %}
+</select>
+<br/>
+
+<label for="invoice_date">Invoice Date</label>
+  <input name="invoice_date" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.invoice_date }}"  required /> *
+<br/>
+
+<label for="due_date">Due Date</label>
+  <input name="due_date" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.due_date }}"  required /> *
+<br/>
+
+<label for="id_customer">Vendor</label>
+	<input type="hidden" name="id_vendor" id="id_vendor" value="{{ edit.id_vendor }}" />
+    <input name="nama_vendor" type="text" id="nama_vendor" value="{{ edit.nama_vendor }}" size="30" onclick="loadVendor();" readonly="readonly" required/> <input type="button" name="button2" id="button2" value="..." class="btn" onclick="loadVendor()"/> *
+<br/>
+
+<label for="id_customer">Customer </label>
+	<input type="hidden" name="id_customer" id="id_customer" value="{{ edit.id_customer }}" />
+	<input name="nama_lengkap" type="text" id="nama_lengkap" value="{{ edit.nama_lengkap }}" size="30" onclick="loadCustomer();" readonly="readonly" required/> <input type="button" name="button2" id="button2" value="..." class="btn" onclick="loadCustomer()"/> *
+<br/>
+
+
+
+<label for="id_airlines">Airlines Name </label>
+<select id="id_airlines" name="id_airlines">
+    {% for lines in airlines %}
+    <option value="{{ lines.id_airlines }}" {% if lines.id_airlines == edit.id_airlines %} selected="selected" {% endif %} style="background-image:url('{{ base_url }}/assets/upload/logo_airlines/{{ lines.logo }}')" >{{ lines.nama_airlines }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="keterangan" class="top">Route</label>
+ <input name="route1" type="text" size="2" value="{{ route[0] }}"/> - <input name="route2" type="text" size="2" value="{{ route[1] }}"/> - <input name="route3" type="text" size="2" value="{{ route[2] }}"/> - <input name="route4" type="text" size="2" value="{{ route[3] }}"/> - <input name="route5" type="text" size="2" value="{{ route[4] }}"/> - <input name="route6" type="text" size="2" value="{{ route[5] }}"/> - <input name="route7" type="text" size="2" value="{{ route[6] }}"/> - <input name="route8" type="text" size="2" value="{{ route[7] }}"/>
+<br/>
+</td>
+    <td valign="top">
+    
+<label for="currency">Currency</label>
+<select id="currency" name="currency">
+    {% for curr in currency %}
+    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="base_fare">Base Fare</label>
+  <input name="base_fare" type="text" size="15" value="{{ edit.base_fare }}" required/>
+<br/>
+
+<label for="base_fare">YQ (Fuel Surcharge)</label>
+  <input name="yq" type="text" size="15" value="{{ edit.yq }}" required/>
+<br/>
+
+
+<label for="komisi">Commissions</label>
+  <input name="komisi" type="text" size="15" value="{{ edit.komisi }}" required/>
+<br/>
+
+<label for="pajak">Country Tax</label>
+  <input name="tax" type="text" size="15" value="{{ edit.tax }}" required/>
+<br/>
+
+<label for="pajak">Others</label>
+  <input name="others" type="text" size="15" value="{{ edit.others }}" required/>
+<br/>
+
+
+<label for="remarks1">Remarks1</label>
+  <input name="remarks1" type="text" size="30" value="{{ edit.remarks1 }}" required/>
+<br/>
+
+<label for="remarks2">Remarks2</label>
+  <input name="remarks2" type="text" size="30" value="{{ edit.remarks2 }}" required/>
+<br/>
+
+<label for="remarks3">Remarks3</label>
+  <input name="remarks3" type="text" size="30" value="{{ edit.remarks3 }}" required/>
+<br/>
+
+<label for="remarks4">Remarks4</label>
+  <input name="remarks4" type="text" size="30" value="{{ edit.remarks4 }}" required/>
+<br/>
+    </td>
+  </tr>
+</table>
+<br />
+
+<div class="submit_div">
+<input type="submit" class="button" value="Continue to Passenger" />
+ <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/invoice/form'" />
+</div>
+</form>
+
+{% if edit.id_invoice !='' %}
+<h3>Detail Passenger</h3>
+<form action="{{ base_url }}index.php/ticketing/invoice/saveDetail" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id_invoice" id="id_invoice" value="{{ edit.id_invoice }}" />
+
+<table cellspacing="1" class="datagrid">
+   <thead>
+    <tr>
+      <th nowrap="nowrap" style="padding:0 3 3 0;">Title</th>
+      <th nowrap="nowrap" style="padding:0 3 3 0;">Name</th>      
+      <th nowrap="nowrap" style="padding:0 3 3 0;">Id Number</th>
+      <th nowrap="nowrap" style="padding:0 3 3 0;">Type</th>
+      <th nowrap="nowrap" style="padding:0 3 3 0;">Ticket Number</th>
+       <th nowrap="nowrap" style="padding:0 3 3 0;">Base Fare</th>
+        {% for item in item_charges %}
+        	{% set var = '%' %}
+             {% if item.persen_idr == 0 %}
+               {% set var = edit.currency %}
+             {% endif %}        
+        <th nowrap="nowrap" style="padding:0 3 3 0;">{{ item.nama_item }}<br>{{ item.nilai }} {{ var }}</th>
+        {% endfor %}  </tr>
+  </thead>
+  <tbody> 
+  {% set y = 0%}
+  {% for x in 1..edit.total_passenger %}
+  {% set y = x %}
+  <tr>
+    <td style="padding:0;"><select name="title{{ x }}" id="title{{ x }}" onchange="setType({{ x }})">
+        <option value="MR">MR</option>
+        <option value="MRS">MRS</option>
+        <option value="MS">MS</option>
+        <option value="Master">Master</option>
+        <option value="Miss">Miss</option>
+        <option value="Inf">Inf</option>
+      </select>    </td>
+    <td nowrap="nowrap" style="padding:0;"><input name="first_name{{ x }}" type="text" id="first_name{{ x }}" value="{{ detail.first_name }}" size="15" placeholder="First Name" required="required"/><input name="middle_name{{ x }}" type="text" id="middle_name{{ x }}" value="{{ detail.middle_name }}" placeholder="Middle Name"  size="15" /><input name="last_name{{ x }}" type="text" id="last_name{{ x }}" value="{{ detail.last_name }}" placeholder="Last Name"  size="15"/></td>
+    <td style="padding:0;"><input name="no_identitas{{ x }}" type="text" id="no_identitas{{ x }}" value="{{ detail.no_identitas }}" size="10" required/></td>
+    <td style="padding:0;">
+    <select name="jenis{{ x }}" id="jenis{{ x }}">
+    	<option value="Adult">Adult</option>
+        <option value="Child">Child</option>
+        <option value="Infant">Infant</option>
+    </select>    </td>
+    <td style="padding:0;"><input name="ticket_number{{ x }}" type="text" id="ticket_number{{ x }}" value="{{ edit.ticket_number }}"  size="10"/></td>
+    <td nowrap="nowrap" style="padding:0;"><input name="base_fare{{ x }}" type="text" id="base_fare{{ x }}" value="{{ edit.base_fare }}"  size="10"/></td>
+    {% set w = 0 %}
+     {% for item in item_charges %}
+     {% set w = loop.index %}
+     {% set nilai = 0 %}
+     {% if item.persen_idr == 1 %}
+     	{% set nilai = (edit.base_fare*item.nilai)/100 %}
+     {% else %}
+     	{% set nilai = item.nilai %}
+     {% endif %}
+     
+    <td style="padding:0;">
+    	<input type="hidden" name="id_item{{ w }}" id="id_item{{ w }}" value="{{ item.id_item }}" />
+    	<input name="nilai{{ w }}" type="text" id="nilai{{ w }}" value="{{ nilai }}" size="10" />    </td>
+    <input type="hidden" name="jumlah_item{{ x }}" id="jumlah_item{{ x }}" value="{{ w }}" />
+    {% endfor %}  </tr>
+  {% endfor %}
+  </table>
+<br>
+<input type="hidden" name="jumlah_passenger" id="jumlah_passenger" value="{{ y }}" />
+<input type="submit" class="button" value="Save Pasenger" />
+</form>
+
+{% endif %}
+<script language="javascript">
+function loadVendor(){
+	obj.id='id_vendor';
+	obj.nama='nama_vendor';
+	cari('{{ base_url }}index.php/ticketing/vendor/cari');	
+}
+
+function loadCustomer(){
+	obj.id='id_customer';
+	obj.nama='nama_lengkap';
+	cari('{{ base_url }}index.php/ticketing/customer/cari');	
+}
+function loadFlightPergi(){
+	obj.id='id_flightpergi';
+	obj.nomor='nomor_flightpergi';
+	obj.nama='nama_flightpergi';
+	cari('{{ base_url }}index.php/ticketing/flight/cari');	
+}
+function loadFlightPulang(){
+	obj.id='id_flightpulang';
+	obj.nomor='nomor_flightpulang';
+	obj.nama='nama_flightpulang';
+	cari('{{ base_url }}index.php/ticketing/flight/cari');	
+}
+function setData(id, nama){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+function setFlight(id, nomor, nama){
+	elm(obj.id).value = id;
+	elm(obj.nomor).value = nomor;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+function setType(obj){
+	var sel = $("#title"+obj).val();
+	if(sel == "MR" || sel == "MRS" || sel == "MS") {
+		$("#jenis"+obj).val("Adult");
+	}
+	else if(sel == "Master" || sel == "Miss" ) {
+		$("#jenis"+obj).val("Child");
+	}
+	else {
+		$("#jenis"+obj).val("Infant");
+	}
+}
+</script>
+{% endblock %}

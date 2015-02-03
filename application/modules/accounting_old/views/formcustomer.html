@@ -1,0 +1,105 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="judul">ticketing / customer form entry</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/customer/dataList">list data</a></li>
+        <li class="seltab"><a href="#">form entry</a></li>
+    </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/customer/save" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_customer }}" />
+ 
+<label for="title">Title</label>
+	<select name="title" id="title">    	
+        <option value="Mr." {% if edit.title == 'Mr.' %} selected="selected" {% endif %}>Mr.</option>
+        <option value="Mrs." {% if edit.title == 'Mrs.' %} selected="selected" {% endif %}>Mrs.</option>
+        <option value="Madam." {% if edit.title == 'Madam.' %} selected="selected" {% endif %}>Madam.</option>
+        <option value="Sir." {% if edit.title == 'Sir.' %} selected="selected" {% endif %}>Sir.</option>
+        <option value="" {% if edit.title == '' %} selected="selected" {% endif %}>None</option>
+    </select>
+<br/>
+
+<label for="no_identitas">ID Number</label>
+<input name="no_identitas" type="text" id="no_identitas" value="{{ edit.no_identitas }}" size="25" required /> *
+<br/>
+
+<label for="nama_lengkap">Full Name</label>
+<input name="nama_lengkap" type="text" id="nama_lengkap" value="{{ edit.nama_lengkap }}" size="30" required /> *
+<br/>
+
+<label for="tanggal_lahir">Date of Birth</label>
+<input name="tanggal_lahir" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.tanggal_lahir }}"  /> (optional)
+<br/>
+
+<label for="tempat_lahir">Place of birth</label>
+<input name="tempat_lahir" type="text" id="tempat_lahir" value="{{ edit.tempat_lahir }}" size="25" /> (optional)
+<br/>
+
+<label for="alamat_lengkap" class="top">Full Address</label>
+<textarea name="alamat_lengkap" cols="50" rows="4" id="alamat_lengkap" type="text">{{ edit.alamat_lengkap }}</textarea>
+<br/>
+
+<label for="email">Email</label>
+<input name="email" type="text" id="email" value="{{ edit.email }}" size="30"  />
+<br/>
+
+<label for="telp1">Phone</label>
+<input name="telp1" type="text" id="telp1" value="{{ edit.telp1 }}" size="20"  /> *
+<br/>
+
+<label for="telp2">Another Phone</label>
+<input name="telp2" type="text" id="telp" value="{{ edit.telp2 }}" size="20"  /> (optional)
+<br/>
+
+<label for="warga_negara">Citizenship</label>
+<input name="warga_negara" type="text" id="warga_negara" value="{{ edit.warga_negara }}" size="10" required /> *
+<br/>
+<!--
+<label for="telp1">Customer Type</label>
+<select name="jenis">
+    <option value="individual" {% if edit.jenis == 'individual' %} selected="selected" {% endif %}>Individual</option>
+    <option value="company" {% if edit.jenis == 'individual' %} selected="selected" {% endif %}>Company/Group</option>
+</select>
+<br/>
+->>
+
+
+<!--
+<label for="telp1">Pricing Policy (%)</label>
+<input name="pricing_policy" type="text" id="pricing_policy" value="{{ edit.pricing_policy }}" size="3" maxlength="3" onkeyup="timeFormat(this, 100)" placeholder='%' required  /> *
+<br/>
+-->
+<label for="telp1">Setting</label>
+<select name="id_setting">
+    {% for policy in setting %}
+    <option value="{{ policy.id_setting }}" {% if policy.id_setting == edit.id_setting %} selected="selected" {% endif %}>{{ policy.nama_setting }} ({{ policy.days }} days)</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="keterangan" class="top">Remarks</label>
+<input name="keterangan" type="text" id="keterangan" value="{{ edit.keterangan }}" size="40" />
+<br/>
+
+<label for="keterangan" class="top">Charge Item</label>
+ {% set i = 0%}
+ {% for item in charge %}
+ {% set i = loop.index %}
+ 
+ <input type="checkbox" value="{{ item.id_item }}" name="id_item{{ i }}" value="id_item{{ i }}" />{{ item.nama_item }} ({{item.nilai|number_format(2,'.',',')}} {% if item.persen_idr=='1'%} 
+ 																	%
+                                                                {% else %} 
+                                                                	{{ item.currency }} 
+                                                                {% endif %})&nbsp;
+ {% endfor %}
+<br/>
+<input type="hidden" name="jumlah_item" value="{{ i }}" />
+<div class="submit_div">
+<input type="submit" class="button" value="save" /> <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/customer/form'" />
+</div>
+</form>
+{% endblock %}

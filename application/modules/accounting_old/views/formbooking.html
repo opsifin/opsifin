@@ -1,0 +1,150 @@
+{% extends "header.html" %}
+{% block content %}
+
+<script language="javascript"></script>
+
+
+<div class="judul">ticketing / booking ticket</div>
+
+<div class="tabmenu">
+	<ul class="ultab">    	
+    	<li class="seltab"><a href="#">booking form</a></li>
+        <li><a href="{{ base_url }}index.php/ticketing/booking/formPassenger">passenger form</a></li>  
+        <li><a href="{{ base_url }}index.php/ticketing/booking/dataList">booking list</a></li>    
+    </ul>
+</div>
+
+
+
+<form action="{{ base_url }}index.php/ticketing/booking/save" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id" id="id" value="{{ edit.id_booking }}" />
+
+
+<label for="booking_number">No Order</label>
+  <input name="booking_number" type="text" size="10" value="{{ edit.booking_number }}"  {% if edit.id_booking !='' %} readonly="readonly" {% endif %}  required />  *
+<br/>
+
+<label for="prn">PRN</label>
+  <input name="prn" type="text" size="10" value="{{ edit.prn }}" required />  *
+<br/>
+
+<label for="tipe_flight">Flight Type</label>
+	<select name="tipe_flight" id="tipe_flight">
+    	<option id="D" {% if edit.tipe_flight == 'D' %} selected="selected" {% endif %}>Domestic</option>
+    	<option id="I" {% if edit.tipe_flight == 'I' %} selected="selected" {% endif %}>International</option>
+    </select>
+<br/>
+
+<label for="id_customer">Customer </label>
+	<input type="hidden" name="id_customer" id="id_customer" value="{{ edit.id_customer }}" />
+	<input name="nama_customer" type="text" id="nama_customer" value="{{ edit.nama }}" size="30" onclick="loadCustomer();" readonly="readonly" required/> <input type="button" name="button2" id="button2" value="..." class="btn" onclick="loadCustomer()"/> *
+<br/>
+
+<label for="id_flightpergi">Flight Away Number</label>
+	<input type="hidden" name="id_flightpergi" id="id_flightpergi" value="{{ edit.id_flightpergi }}"  />
+    <input name="nomor_flightpergi" type="text" id="nomor_flightpergi" value="{{ edit.nomor_flightpergi }}" size="15" readonly="readonly" required  onclick="loadFlightPergi();" /> 
+	<input name="nama_flightpergi" type="text" id="nama_flightpergi" value="{{ edit.nama_flightpergi }}"   onclick="loadFlightPergi();" size="40" required/>
+    <input type="button" name="button" id="button" value="..." class="btn"  onclick="loadFlightPergi();" />
+  *
+<br/>
+
+<label for="id_flightpergi">Flight Back Number</label>
+	<input type="hidden" name="id_flightpulang" id="id_flightpulang" value="{{ edit.id_flightpulang }}" />
+    <input name="nomor_flightpulang" type="text" id="nomor_flightpulang" value="{{ edit.nomor_flightpulang }}" size="15" readonly="readonly" required onclick="loadFlightPulang();" /> 
+	<input name="nama_flightpulang" type="text" id="nama_flightpulang" value="{{ edit.nama_flightpulang }}" size="40" readonly="readonly" onclick="loadFlightPulang();"/>
+    <input type="button" name="button" id="button" value="..." class="btn"  onclick="loadFlightPulang();"/> (optional)
+<br/>
+
+<label for="id_flightpergi">Booking Date</label>
+  <input name="date_booking" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.date_booking }}"  required /> Time <input type="text" size="1" maxlength="2" id="jam_booking" name="jam_booking" value="{{ edit.jam_booking }}" onkeyup="timeFormat(this, 24)" required /> : <input type="text" size="1" maxlength="2" id="menit_booking" name="menit_booking" value="{{ edit.menit_booking }}" onkeyup="timeFormat(this, 60)" required/>
+<br/>
+
+<label for="total_passenger">Total Passenger</label>
+	<select name="total_dewasa">
+		<option value="0">Adult</option>   
+        {% for i in 1..20 %}
+        <option value="{{ i }}" {% if edit.total_dewasa == i %} selected="selected" {% endif %}>{{ i }}</option>   
+        {% endfor %}
+    </select>
+	
+    <select name="total_anak">
+		<option value="0">Kid</option>   
+        {% for i in 1..20 %}
+        <option value="{{ i }}" {% if edit.total_anak == i %} selected="selected" {% endif %}>{{ i }}</option>   
+        {% endfor %}
+    </select>
+    
+    <select name="total_bayi">
+		<option value="0">Baby</option>   
+        {% for i in 1..20 %}
+        <option value="{{ i }}" {% if edit.total_bayi == i %} selected="selected" {% endif %}>{{ i }}</option>   
+        {% endfor %}
+    </select>
+<br/>
+
+<label for="id_airlines">Airlines Name </label>
+<select id="id_airlines" name="id_airlines">
+    {% for lines in airlines %}
+    <option value="{{ lines.id_airlines }}" {% if lines.id_airlines == edit.id_airlines %} selected="selected" {% endif %} style="background-image:url('{{ base_url }}/assets/upload/logo_airlines/{{ lines.logo }}')" >{{ lines.nama_airlines }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="prn">GA Airline</label>
+	<select name="ga" id="ga">
+    	<option value="1">Yes</option>
+        <option value="1">No</option>
+    </select>
+<br/>
+
+<!--
+<label for="id_flightpergi">Ticket Price (Away)</label>
+  <input name="hargapergi_dewasa" type="text" size="10" value="{{ edit.hargapergi_dewasa }}" placeholder="Adult" /> <input name="hargapergi_anak" type="text" size="10" value="{{ edit.hargapergi_anak }}" placeholder="Kid" /> <input name="hargapergi_bayi" type="text" size="10" value="{{ edit.hargapergi_bayi }}" placeholder="Baby" /> / Each
+<br/>
+
+<label for="id_flightpergi">Ticket Price (Back)</label>
+  <input name="hargapulang_dewasa" type="text" size="10" value="{{ edit.hargapulang_dewasa }}" placeholder="Adult" /> <input name="hargapulang_anak" type="text" size="10" value="{{ edit.hargapulang_anak }}" placeholder="Kid" /> <input name="hargapulang_bayi" type="text" size="10" value="{{ edit.hargapulang_bayi }}" placeholder="Baby" /> / Each (optional)
+<br/>
+-->
+<label for="keterangan" class="top">Description</label>
+<textarea name="keterangan" cols="50" rows="8" id="keterangan" type="text">{{ edit.keterangan }}</textarea>
+<br/>
+
+
+<div class="submit_div">
+<input type="submit" class="button" value="Save &amp; set passenger" />
+ <input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/airlines/form'" />
+</div>
+</form>
+
+<script language="javascript">
+function loadCustomer(){
+	obj.id='id_customer';
+	obj.nama='nama_customer';
+	cari('{{ base_url }}index.php/ticketing/customer/cari');	
+}
+function loadFlightPergi(){
+	obj.id='id_flightpergi';
+	obj.nomor='nomor_flightpergi';
+	obj.nama='nama_flightpergi';
+	cari('{{ base_url }}index.php/ticketing/flight/cari');	
+}
+function loadFlightPulang(){
+	obj.id='id_flightpulang';
+	obj.nomor='nomor_flightpulang';
+	obj.nama='nama_flightpulang';
+	cari('{{ base_url }}index.php/ticketing/flight/cari');	
+}
+function setData(id, nama){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+function setFlight(id, nomor, nama){
+	elm(obj.id).value = id;
+	elm(obj.nomor).value = nomor;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+</script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "header.html" %}
+{% block content %}
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            PV / RV Approval 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cube"></i><a href="#"> Accounting</a>
+            </li>
+
+            <li class="active">
+                        <i class="fa fa-cube"></i> PV / RV Approval 
+              </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <form action="{{ base_url }}index.php/accounting/approval/save" method="post" name="form1">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="payment"> Payment Voucher</label>
+            </div>
+            <div class="radio-inline">
+                <label><input type="radio"  name="v_type" value="receipt"> Receipt Voucher</label>
+            </div>      
+        </div>
+        <div class="form-group">
+            <div>
+                <label>Branch</label>
+                <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+        <div class="form-group">
+            <div>
+               <label>From</label>
+               <input type="date" name="from" id="datepicker">
+            </div>
+        </div>  
+        <div class="form-group">
+            <div>
+               <label>to</label>
+               <input type="date" name="to" id="datepicker">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="">
+                <label>Authorized</label>
+                <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+    </div>
+    </form>    
+</div>    
+
+    
+{% endblock %}

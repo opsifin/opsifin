@@ -1,0 +1,257 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Hotel COA Setting 
+      </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-gear"></i><a href="#"> Configuration</a>
+            </li>
+
+            <li class="active">
+                 <i class="fa fa-gear"></i> Hotel Ticketing COA Setting
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/main/coasettings/savehotel" method="post" name="form1">
+
+<table border="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><div align="right"><strong>TRANSACTION JOURNAL</strong></div></td>
+  </tr>
+  <tr>
+        <td>
+        
+            <div class="form-group width250">
+                <label>Hotel Deposit </label>
+                <select name="deposit_d"  id="deposit_d" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.deposit_d == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                
+              
+              </select>
+            </div>
+           
+            <div class="form-group width250">
+                <label>Ticket Price</label>
+                <select name="price_d"  id="price_d" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.price_d == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>Transaction Cost </label>
+                <select name="cost_d"  id="cost_d" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.cost_d == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>Commission</label>
+                <select name="commission_d"  id="commission_d" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.commission_d == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                
+              </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>Direct Discount</label>
+                <select name="discount_d"  id="discount_d" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.discount_d == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                
+              </select>
+            </div>
+            
+            </td>
+        <td width="5">&nbsp;</td>
+        <td>
+            <div class="form-group width250">
+                <label>&nbsp;</label>
+                <select name="deposit_c"  id="deposit_c" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.vat_c == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                
+              
+              </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>&nbsp;</label>
+                <select name="price_c"  id="price_c" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.deposit_c == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>&nbsp;</label>
+                <select name="cost_c"  id="cost_c" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.cost_c == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>&nbsp;</label>
+                <select name="commission_c"  id="commission_c" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.commission_c == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                
+              </select>
+            </div>
+            
+            <div class="form-group width250">
+                <label>&nbsp;</label>
+                <select name="discount_c"  id="discount_c" class="form-control">
+                    {% for coa in coa %}
+                    <option value="{{ coa.nomor_acc }}" {% if edit.discount_c == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+                    {% endfor%}
+                
+              </select>
+            </div>
+            
+            </td>
+    </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><div align="right"><strong>RETURN JOURNAL</strong></div></td>
+  </tr>
+  <tr>
+    <td><div class="form-group width250">
+        <label>Return Cost</label>
+        <select name="retcost_d"  id="retcost_d" class="form-control">
+          
+                    {% for coa in coa %}
+                    
+          <option value="{{ coa.nomor_acc }}" {% if edit.retcost_d == coa.nomor_acc %} selected="selected" {% endif %}>
+          {{ coa.nomor_acc }} - {{ coa.nama_acc }}
+          </option>
+          
+                    {% endfor%}
+                
+        
+        
+        </select>
+      </div>
+        <div class="form-group width250">
+          <label>Ticket Price</label>
+          <select name="retprice_d"  id="retprice_d" class="form-control">
+            
+                    {% for coa in coa %}
+                    
+            <option value="{{ coa.nomor_acc }}" {% if edit.retprice_d == coa.nomor_acc %} selected="selected" {% endif %}>
+            {{ coa.nomor_acc }} - {{ coa.nama_acc }}
+            </option>
+            
+                    {% endfor%}
+                
+          
+          </select>
+        </div>
+      <div class="form-group width250">
+          <label>Administration Fee </label>
+          <select name="retadmin_d"  id="retadmin_d" class="form-control">
+            
+                    {% for coa in coa %}
+                    
+            <option value="{{ coa.nomor_acc }}" {% if edit.retadmin_d == coa.nomor_acc %} selected="selected" {% endif %}>
+            {{ coa.nomor_acc }} - {{ coa.nama_acc }}
+            </option>
+            
+                    {% endfor%}
+                
+          
+          </select>
+        </div>
+     </td>
+    <td>&nbsp;</td>
+    <td><div class="form-group width250">
+        <label>&nbsp;</label>
+        <select name="retcost_c"  id="retcost_c" class="form-control">
+          
+                    {% for coa in coa %}
+                    
+          <option value="{{ coa.nomor_acc }}" {% if edit.retcost_c == coa.nomor_acc %} selected="selected" {% endif %}>
+          {{ coa.nomor_acc }} - {{ coa.nama_acc }}
+          </option>
+          
+                    {% endfor%}
+                
+        
+        
+        </select>
+      </div>
+        <div class="form-group width250">
+          <label>&nbsp;</label>
+          <select name="retprice_c"  id="retprice_c" class="form-control">
+            
+                    {% for coa in coa %}
+                    
+            <option value="{{ coa.nomor_acc }}" {% if edit.retprice_c == coa.nomor_acc %} selected="selected" {% endif %}>
+            {{ coa.nomor_acc }} - {{ coa.nama_acc }}
+            </option>
+            
+                    {% endfor%}
+                
+          
+          </select>
+        </div>
+      <div class="form-group width250">
+          <label>&nbsp;</label>
+          <select name="retadmin_c"  id="retadmin_c" class="form-control">
+            
+                    {% for coa in coa %}
+                    
+            <option value="{{ coa.nomor_acc }}" {% if edit.retadmin_c == coa.nomor_acc %} selected="selected" {% endif %}>
+            {{ coa.nomor_acc }} - {{ coa.nama_acc }}
+            </option>
+            
+                    {% endfor%}
+                
+          
+          </select>
+        </div>
+     </td>
+  </tr>
+</table>
+
+
+
+
+<input type="submit" class="btn btn-default" value="Save">
+</form>
+{% endblock %}

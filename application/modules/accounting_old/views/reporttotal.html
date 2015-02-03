@@ -1,0 +1,27 @@
+{% extends "popup.html" %}
+{% block content %}
+
+<div class="judul">ticketing / report total transaction by period</div>
+
+<table border="0" cellpadding="0" cellspacing="0" class="reportTable2">
+<thead>
+<tr>
+  <th nowrap="nowrap">No Order</th>
+  <th nowrap="nowrap">PRN</th>
+  <th nowrap="nowrap">Booking Date</th>
+  <th nowrap="nowrap">Total</th>
+    </tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td><strong>{{ data.booking_number }}</strong></td>
+    <td><strong>{{ data.prn }}</strong></td>
+    <td>{{ data.tanggal_booking }}</td>
+    <td>{{ data.total_trans }}</td>
+  </tr>
+{% endfor %}
+</table>
+{{ links|raw }}
+
+{% endblock %}

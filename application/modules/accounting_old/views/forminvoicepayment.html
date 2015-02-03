@@ -1,0 +1,181 @@
+{% extends "header.html" %}
+{% block content %}
+
+<script language="javascript"></script>
+
+
+<div class="judul">ticketing / payment form</div>
+
+<div class="tabmenu">
+	<ul class="ultab">
+    	<li><a href="{{ base_url }}index.php/ticketing/invoicepayment/dataList">invoice list</a></li> 
+        <li class="seltab"><a href="#">payment form</a></li>
+             
+  </ul>
+</div>
+
+<form action="{{ base_url }}index.php/ticketing/invoicepayment/getInvoiceByNumber" method="post" name="form1">
+<input type="hidden" name="id" id="id" value="{{ edit.id_invoice }}" />
+
+<label for="invoice_number">Invoice Number</label>
+  <input name="invoice_number" type="text" size="15" value="{{ edit.invoice_number }}" required /> * 
+<br/>
+<input type="submit" class="button" value="Process" />
+</form><br />
+
+
+{% if edit.id_invoice !='' %}
+<h3>Detail Invoice</h3>
+<form action="{{ base_url }}index.php/ticketing/invoicepayment/savePayment" method="post" name="form1" enctype="multipart/form-data">
+<input type="hidden" name="id_invoice" id="id_invoice" value="{{ edit.id_invoice }}" />
+<input type="hidden" name="curr" id="curr" value="{{ edit.currrency }}" />
+
+<label for="transc_number">Invoice Transc No</label>
+<input name="transc_number" type="text" id="transc_number" value="{{ edit.transc_number }}" size="20"  readonly="readonly" />
+<br/>
+
+<label for="transc_number">Book Code</label>
+<input name="book_code" type="text" id="book_code" value="{{ edit.book_code }}" size="20"  readonly="readonly" />
+<br/>
+
+<label for="tipe_flight">Flight Type</label>
+	<select name="flight_type" id="flight_type" disabled="disabled">
+    	<option id="D" {% if edit.flight_type == 'D' %} selected="selected" {% endif %}>Domestic</option>
+    	<option id="I" {% if edit.flight_type == 'I' %} selected="selected" {% endif %}>International</option>
+    </select>
+<br/>
+
+<label for="id_airport">Destination</label>
+<select id="id_airport" name="id_airport" disabled="disabled">
+    {% for port in airport %}
+    <option value="{{ port.id_airport }}" {% if port.id_airport == edit.id_airport %} selected="selected" {% endif %}>{{ port.inisial }} - {{ port.nama_airport }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="total_passenger">Total Passenger</label>
+ <select name="total_passenger" disabled="disabled">
+     {% for i in 1..20 %}
+    <option value="{{ i }}" {% if edit.total_passenger == i %} selected="selected" {% endif %}>{{ i }}</option>   
+    {% endfor %}
+</select>
+<br/>
+
+<label for="invoice_date">Invoice Date</label>
+  <input name="invoice_date" type="text" size="10" value="{{ edit.invoice_date }}" readonly="readonly" /> *
+<br/>
+
+<label for="due_date">Due Date</label>
+  <input name="due_date" type="text" size="10"  value="{{ edit.due_date }}"  readonly="readonly" /> *
+<br/>
+
+<label for="id_customer">Customer </label>
+	<input type="hidden" name="id_customer" id="id_customer" value="{{ edit.id_customer }}" />
+  <input name="nama_lengkap" type="text" id="nama_lengkap" value="{{ edit.nama_lengkap }}" size="30" readonly="readonly"/>
+<br/>
+
+<label for="id_customer">Vendor</label>
+	<input type="hidden" name="id_vendor" id="id_vendor" value="{{ edit.id_vendor }}" />
+  <input name="nama_vendor" type="text" id="nama_vendor" value="{{ edit.nama_vendor }}" size="30" readonly="readonly"/>
+<br/>
+
+
+<label for="currency">Currency</label>
+<select id="currency" name="currency" disabled="disabled">
+    {% for curr in currency %}
+    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
+    {% endfor %}
+</select>
+<br/>
+
+<label for="sell_price">Total Transaction</label>
+  <input name="sell_price" type="text" size="15" value="{{ edit.sell_price }}" readonly="readonly"/>
+<br/><br />
+
+<h3>Payment Entry</h3>
+
+<label for="payment_number">Payment Number</label>
+<input name="payment_number" type="text" id="payment_number" value="{{ payment_number }}" size="20" required/> *
+<br/>
+
+<label for="transc_number">Transc No</label>
+<input name="transc_number" type="text" id="transc_number" value="{{ data.transc_number }}" size="20"  required /> *
+<br/>
+
+<label for="total">Payment total</label>
+  <input name="besarnya" id="besarnya" type="text" size="30" value="{{ data.besarnya }}" required/> *
+<br/>
+
+<label for="tanggal_payment">Payment Date</label>
+  <input name="tanggal_payment" type="text" size="10" onfocus="gfPop.fPopCalendar(this);" value="{{ edit.tanggal_payment }}"  required /> *
+<br/>
+
+<input type="hidden" name="jumlah_passenger" id="jumlah_passenger" value="{{ y }}" />
+<div class="submit_div">
+	<input type="submit" class="button" value="Save Payment" />
+	<input name="Reset" type="reset" class="btn" value="cancel" onclick="window.location='{{ base_url }}index.php/ticketing/invoicepayment/dataList'" />
+</div>
+</form>
+<h3>Payment History</h3>
+<table cellspacing="1" class="datagrid">
+   <thead>
+    <tr>
+        <th nowrap="nowrap">Payment Number</td>
+        <th nowrap="nowrap">Transc Number</th>
+        <th nowrap="nowrap">Payment Date</th>
+        <th nowrap="nowrap">Total</th>
+  	</tr>
+  </thead>
+  
+  <tbody> 
+  {% set y = 0%}
+  {% for item in payment %}
+  {% set y = x %}
+  <tr>
+    <td>{{ item.payment_number }}</td>
+    <td>{{ item.transc_number }}</td>
+    <td>{{ item.tanggal_payment }}</td>
+    <td>{{ item.total }}</td>    
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<br>
+{% endif %}
+<script language="javascript">
+function loadVendor(){
+	obj.id='id_vendor';
+	obj.nama='nama_vendor';
+	cari('{{ base_url }}index.php/ticketing/vendor/cari');	
+}
+
+function loadCustomer(){
+	obj.id='id_customer';
+	obj.nama='nama_lengkap';
+	cari('{{ base_url }}index.php/ticketing/customer/cari');	
+}
+function loadFlightPergi(){
+	obj.id='id_flightpergi';
+	obj.nomor='nomor_flightpergi';
+	obj.nama='nama_flightpergi';
+	cari('{{ base_url }}index.php/ticketing/flight/cari');	
+}
+function loadFlightPulang(){
+	obj.id='id_flightpulang';
+	obj.nomor='nomor_flightpulang';
+	obj.nama='nama_flightpulang';
+	cari('{{ base_url }}index.php/ticketing/flight/cari');	
+}
+function setData(id, nama){
+	elm(obj.id).value = id;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+function setFlight(id, nomor, nama){
+	elm(obj.id).value = id;
+	elm(obj.nomor).value = nomor;
+	elm(obj.nama).value = nama;
+	closeCari();
+}
+</script>
+{% endblock %}

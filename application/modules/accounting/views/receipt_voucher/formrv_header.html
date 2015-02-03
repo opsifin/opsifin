@@ -1,0 +1,89 @@
+<form action="{{ base_url }}index.php/accounting/rv/save" method="post" name="form1">
+<input id="id" name="id" type="hidden" value="{{ edit.id_pv }}" />
+<table border="0">
+  
+  <tr>
+    <td valign="top">
+    <div class="form-group width150">
+        <label>PV Number</label>
+        <input class="form-control" id="no_pv" name="no_pv" type="text" value="{{ pv_number }}" />
+      </div>
+        <div class="form-group width150">
+          <label>PV Date</label>
+          <input class="form-control" id="tanggal_pv"  onfocus="gfPop.fPopCalendar(this);" name="tanggal_pv" type="text" value="{{ edit.tanggal_pv }}" />
+        </div>
+      <div class="form-group width200">
+          <label>Invoice Type </label>
+          <select class="form-control" name="invoice_type" id="invoice_type">
+            <option value="tiket" {% if edit.invoice_type =='tiket' %} selected="selected" {% endif %}>Ticket</option>
+            <option value="hotel" {% if edit.invoice_type =='hotel' %} selected="selected" {% endif %}>Hotel</option>
+            <option value="tour" {% if edit.invoice_type =='tour' %} selected="selected" {% endif %}>Tour</option>
+            <option value="dokumen" {% if edit.invoice_type =='dokumen' %} selected="selected" {% endif %}>Document</option>
+            <option value="others" {% if edit.invoice_type =='others' %} selected="selected" {% endif %}>Others</option>
+          </select>
+        </div>
+      <div class="form-group width200">
+          <label>Invoice Number</label>
+          <input class="form-control" id="invoice_no" name="invoice_no" type="text" value="{{ edit.invoice_no }}" placeholder="Click to select" onclick="loadInvoice()" />
+       		<input type="hidden" name="id_invoice" id="id_invoice" />
+        </div>
+      <div class="form-group width250">
+          <label> Total</label>
+          <input class="form-control" id="invoice_balance" name="invoice_balance" type="text" value="{{ edit.invoice_balance }}" />
+      </div>
+      <div class="form-group width150">
+        <label>Payment Method</label>
+       <select class="form-control" name="pay_method" id="pay_method">
+            <option value="CC" {% if edit.pay_method =='CC' %} selected="selected" {% endif %}>Credit Card</option>
+            <option value="Cheque" {% if edit.pay_method =='Cheque' %} selected="selected" {% endif %}>Cheque</option>
+            <option value="BG" {% if edit.pay_method =='BG' %} selected="selected" {% endif %}>Bank of Giro</option>
+            <option value="Cash" {% if edit.pay_method =='Cash' %} selected="selected" {% endif %}>Cash</option>
+          </select>
+      </div>
+      
+      </td>
+    <td width="50" valign="top">&nbsp;</td>
+      <td valign="top"><div class="form-group width100">
+            <label>Discount</label>
+            <input class="form-control width100" id="discount" name="discount" type="text" value="{{ edit.discount }}" placeholder="%" />
+          </div>
+          
+           <div class="form-group width250">
+              <label>Paid Ammount</label>
+              <input class="form-control" id="paid_ammount" name="paid_ammount" type="text" value="{{ edit.paid_ammount }}" />
+        </div>
+            
+        <div class="form-group width250">
+              <label>Keep Comm</label>
+              <input class="form-control" id="commission" name="commission" type="text" value="{{ edit.commission }}" />
+            </div>
+            
+          <div class="form-group width100">
+              <label>Currency </label>
+              <select id="currency" name="currency" class="form-control" onchange="getRates()">
+                    <option value="">Select</option>
+                    {% for curr in currency %}
+                    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+           
+            
+          <div class="form-group width200">
+              <label>Convert Ammount (Rp)</label>
+              <input class="form-control" id="convert_ammount" name="convert_ammount" type="text" value="{{ edit.convert_ammount }}"  />
+            </div>
+            
+            <div class="form-group width150">
+                <label>Agent Type</label>
+               <input class="form-control" id="agent_type" name="agent_type" type="text" value="{{ edit.agent_type }}" readonly="readonly" />
+              </div>
+            <input type="hidden" name="currency_balance" id="currency_balance" />
+         </td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+<input type="submit" class="btn btn-default" value="Save">
+</form>

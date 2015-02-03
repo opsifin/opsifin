@@ -1,0 +1,152 @@
+{% extends "header.html" %}
+{% block content %}
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+           DP From Customer
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-cube"></i><a href="#"> Cashier</a>
+            </li>
+
+            <li class="active">
+                        <i class="fa fa-cube"></i> DP From Customer
+              </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<form action="{{ base_url }}index.php/cashier/dp_customer/save" method="post" name="form1">
+<input id="id" name="id" type="hidden" value="{{ edit.id_dp_customer }}" />        
+<div class="row">    
+    <div class="col-lg-12">
+        <div class="form-group col-md-4">            
+                <label>DP No</label>
+                <input class="form-control" id="dp_number" name="dp_number" type="text" value="{{ edit.dp_number }}" required/>                
+               
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Transc No</label>
+                <input class="form-control" id="transaksi_no" name="transaksi_no" type="text" value="{{ edit.transaksi_no }}" required/>                
+            </div>    
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Date</label>
+                <input onfocus="gfPop.fPopCalendar(this);"  class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" type="text" value="{{ edit.tanggal_transaksi }}" required/>                
+            </div>    
+        </div>
+        
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Customer</label>
+                <input class="form-control" id="id_customer" name="id_customer" type="text" value="{{ edit.id_customer }}" required/>                
+            </div>    
+        </div>        
+        
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Contact Person</label>
+                <input class="form-control" id="cp" name="cp" type="text" value="{{ edit.cp }}" />                
+            </div>    
+        </div>
+         <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Amount</label>
+                <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.amount }}" required/>                
+            </div>    
+        </div>
+         <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Note</label>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12">
+                <textarea name="note" id="note">{{ edit.note }}</textarea> 
+            </div>    
+        </div>
+    </div>    
+</div>
+<br>
+<br>
+<div class="row">    
+    <div class="col-lg-12">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+              <thead>
+                  <tr>
+                       <th nowrap="nowrap">Ref ID</th>
+                       <th nowrap="nowrap">Reference No</th>
+                       <th nowrap="nowrap">Ccy</th>
+                       <th nowrap="nowrap">Amount</th>
+                       <th nowrap="nowrap">Name</th>
+                       <th nowrap="nowrap">Used Date</th>                       
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                       <td nowrap="nowrap">Ref ID</td>
+                       <td nowrap="nowrap">Reference No</td>
+                       <td nowrap="nowrap">Ccy</td>
+                       <td nowrap="nowrap">Amount</td>
+                       <td nowrap="nowrap">Name</td>
+                       <td nowrap="nowrap">Used Date</td>                       
+                  </tr>
+                  <tr>
+                       <td nowrap="nowrap">Ref ID</td>
+                       <td nowrap="nowrap">Reference No</td>
+                       <td nowrap="nowrap">Ccy</td>
+                       <td nowrap="nowrap">Amount</td>
+                       <td nowrap="nowrap">Name</td>
+                       <td nowrap="nowrap">Used Date</td>                       
+                  </tr>
+              </tbody>
+          </table>
+        </div>    
+    </div>    
+</div>
+<input type="submit" class="btn btn-default" value="Save">
+</form>  
+
+<br>
+<br>
+<div class="row">    
+    <div class="col-lg-12">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+               <thead>
+                   <tr>
+                       <th nowrap="nowrap">DP Number</th>
+                       <th nowrap="nowrap">Transac No</th>
+                       <th nowrap="nowrap">Date</th>
+                       <th nowrap="nowrap">Customer</th>
+                       <th nowrap="nowrap">Amount</th>
+                       <th nowrap="nowrap">Action</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   {% for data in data %}
+                   <tr>
+                       <td nowrap="nowrap">{{ data.dp_number }}</td>
+                       <td nowrap="nowrap">{{ data.traksasi_no }}</td>
+                       <td nowrap="nowrap">{{ data.tanggal_transaksi }}</td>
+                       <td nowrap="nowrap">{{ data.id_customer }}</td>
+                       <td nowrap="nowrap">{{ data.amount }}<td>
+                       <td nowrap="nowrap"><a href="{{ base_url }}index.php/cashier/dp_customer/form/?id={{ data.id_dp_customer|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/cashier/dp_customer/delete/?id={{ data.id_dp_customer|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+                   </tr>
+                   {% endfor %} 
+               </tbody>    
+          </table>
+        </div>    
+    </div>    
+</div>
+
+{% endblock %}

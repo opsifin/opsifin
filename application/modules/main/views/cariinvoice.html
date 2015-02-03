@@ -1,0 +1,52 @@
+{% extends "popup.html" %}
+{% block content %}
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+      View - Invoice List</h1>
+
+       
+    </div>
+</div>
+<!-- /.row -->
+
+<table cellspacing="1" class="table table-bordered table-hover table-striped" style=" font-size:12px">
+<thead>
+<tr>
+  <th nowrap="nowrap">Invoice No./Date</th>
+  <th nowrap="nowrap">Customer</th>
+  <th nowrap="nowrap">Supplier</th>
+  <th nowrap="nowrap">Airlines</th>
+    <th nowrap="nowrap">Base Fare</th>
+    <th nowrap="nowrap">Commission</th>
+    <th nowrap="nowrap">Tax</th>
+    <th nowrap="nowrap">Total</th>
+    <th nowrap="nowrap">Select</th>
+    </tr>
+</thead>
+<tbody>
+{% for data in data %}
+  <tr>
+    <td nowrap="nowrap"><strong>{{ data.invoice_number }}</strong><br />
+    {{ data.invoice_date }}</td>
+    <td nowrap="nowrap">{{ data.nama_lengkap }}</td>
+    <td nowrap="nowrap">{{ data.nama_vendor }}</td>
+    <td nowrap="nowrap">{{ data.nama_airlines }}</td>
+    <td nowrap="nowrap">{{ data.base }}</td>
+    <td nowrap="nowrap">{{ data.komi }}</td>
+    <td nowrap="nowrap">{{ data.paja }}</td>
+    <td nowrap="nowrap">{{ data.sell }}</td>
+    <td nowrap="nowrap"><a href="javascript:none" class="select_data" onclick="selectThis('{{ data.id_invoice }}','{{ data.invoice_number }}', '{{ data.sell_price }}', '{{ data.agent_type }}')"></a></td>
+    
+  </tr>
+{% endfor %}
+</table>
+<script language="javascript">
+	function selectThis(id, nama, total, agent_type){
+		parent.window.setData(id, nama, total, agent_type);		
+	}
+</script>
+{{ links|raw }}
+
+{% endblock %}

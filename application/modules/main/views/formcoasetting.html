@@ -1,0 +1,93 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Company 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-gear"></i><a href="#"> Configuration</a>
+            </li>
+
+            <li class="active">
+                 <i class="fa fa-bank"></i> COA Setting
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<form action="{{ base_url }}index.php/main/coasettings/save" method="post" name="form1">
+
+
+<div class="form-group width200">
+    <label>Ticket Sales</label>
+    <select name="penjualan_ticket"  id="penjualan_ticket" class="form-control">
+    	{% for coa in coa %}
+        <option value="{{ coa.nomor_acc }}" {% if edit.penjualan_ticket == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+        {% endfor%}
+    </select>
+</div>
+
+<div class="form-group width200">
+    <label>Tour Sales</label>
+    <select name="penjualan_tour"  id="penjualan_tour" class="form-control">
+    	{% for coa in coa %}
+        <option value="{{ coa.nomor_acc }}" {% if edit.penjualan_tour == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+        {% endfor%}
+    </select>
+</div>
+
+<div class="form-group width200">
+    <label>Document Sales</label>
+    <select name="penjualan_document"  id="penjualan_document" class="form-control">
+    	{% for coa in coa %}
+        <option value="{{ coa.nomor_acc }}" {% if edit.penjualan_document == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+        {% endfor%}
+    </select>
+</div>
+
+<div class="form-group width200">
+    <label>Hotel Sales</label>
+    <select name="penjualan_hotel"  id="penjualan_hotel" class="form-control">
+    	{% for coa in coa %}
+        <option value="{{ coa.nomor_acc }}" {% if edit.penjualan_hotel == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+        {% endfor%}
+    </select>
+</div>
+
+<div class="form-group width200">
+    <label>Other Sales</label>
+    <select name="penjualan_others"  id="penjualan_others" class="form-control">
+    	{% for coa in coa %}
+        <option value="{{ coa.nomor_acc }}" {% if edit.penjualan_others == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+        {% endfor%}
+    </select>
+</div>
+
+<div class="form-group width200">
+    <label>Tax</label>
+    <select name="pajak"  id="pajak" class="form-control">
+    	{% for coa in coa %}
+        <option value="{{ coa.nomor_acc }}" {% if edit.pajak == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+        {% endfor%}
+    </select>
+</div>
+
+<div class="form-group width200">
+    <label>Sales Discount</label>
+    <select name="diskon_penjualan"  id="diskon_penjualan" class="form-control">
+    	{% for coa in coa %}
+        <option value="{{ coa.nomor_acc }}" {% if edit.diskon_penjualan == coa.nomor_acc %} selected="selected" {% endif %}>{{ coa.nomor_acc }} - {{ coa.nama_acc }}</option>
+        {% endfor%}
+    </select>
+</div>
+
+
+<input type="submit" class="btn btn-default" value="Save">
+</form>
+{% endblock %}
