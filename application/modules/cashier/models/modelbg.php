@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class modelcc extends CI_Model {
+class modelbg extends CI_Model {
 	
 	public function __construct(){
             parent::__construct();
@@ -13,7 +13,7 @@ class modelcc extends CI_Model {
 		if (!empty($find)) 
 			$searchBy = "WHERE $by LIKE '%$find%'";
 				
-		$query = $this->db->query("select * from cc_transaction $searchBy order by id_cc desc limit $start, $limit");
+		$query = $this->db->query("select * from cheque_transaction $searchBy order by id_cheque desc limit $start, $limit");
 		$result = $query->result();
 		
 		return $result;	
@@ -25,7 +25,7 @@ class modelcc extends CI_Model {
 		if (!empty($find)) 
 			$searchBy = "WHERE $by LIKE '%$find%'";
 				
-		$query = $this->db->query("select * from cc_transaction $searchBy order by id_cc desc");
+		$query = $this->db->query("select * from cheque_transaction $searchBy order by id_cheque desc");
 		$result = $query->num_rows();
 		return $result;	
 	}
@@ -78,14 +78,14 @@ class modelcc extends CI_Model {
                 
 		if (!empty($params->id)) {
 			$this->db->where("id_cc", $params->id);
-			$valid = $this->db->update("cc_transaction");
+			$valid = $this->db->update("cheque_transaction");
                         
-			$valid = $this->logUpdate->addLog("update", "cc_transaction", $params);
+			$valid = $this->logUpdate->addLog("update", "cheque_transaction", $params);
 		}
 		else {
-			$valid = $this->db->insert('cc_transaction');
+			$valid = $this->db->insert('cheque_transaction');
 			
-                        $valid = $this->logUpdate->addLog("insert", "cc_transaction", $params);
+                        $valid = $this->logUpdate->addLog("insert", "cheque_transaction", $params);
                         
 			//$valid = $this->modelNumbertrans->updatePVNumber();
 			
@@ -101,11 +101,11 @@ class modelcc extends CI_Model {
 	{	
 		$log = $this->session->all_userdata();
 		$valid = false;		
-		$valid = $this->logUpdate->addLog("delete", "cc_transaction", array("id_cc" => $id));	
+		$valid = $this->logUpdate->addLog("delete", "cheque_transaction", array("id_cheque" => $id));	
 		
 		if ($valid){
-			$this->db->where('id_cc', $id);
-			$valid = $this->db->delete('cc_transaction');
+			$this->db->where('id_cheque', $id);
+			$valid = $this->db->delete('cheque_transaction');
 		}
 		
 		return $valid;		

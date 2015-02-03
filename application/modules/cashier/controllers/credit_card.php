@@ -14,7 +14,7 @@ class Credit_card extends CI_Controller {
 		$userLogged = $this->session->userdata('userLogged');
 		
 		if ($userLogged) {
-			 $edit = NULL;			
+			$edit = NULL;			
 			$idEdit = $this->input->get('id');
 			if (!empty($idEdit)) {
 				$q = $this->db->get_where("cc_transaction", array("id_cc" => $idEdit));

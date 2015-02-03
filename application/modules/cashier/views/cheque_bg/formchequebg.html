@@ -20,63 +20,81 @@
 </div>
 <!-- /.row -->
 <form action="{{ base_url }}index.php/cashier/cheque_bg/save" method="post" name="form1">
+<input id="id" name="id" type="hidden" value="{{ edit.id_cheque }}" />  
 <div class="row">    
     <div class="col-lg-12">
         <div class="form-group">
-            <div>
+            <div class="col-md-4">
                 <label>Branch</label>
+                <input class="form-control" id="id_cabang" name="id_cabang" type="text" value="{{ edit.id_cabang }}" required/>                
+            </div>    
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Reference No</label>
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
             </div>    
         </div>
         <div class="form-group">
-            <div>
-                <label>Chq/BG No</label>
+            <div class="col-md-4">
+                <label>Transaction No</label>
+                <input class="form-control" id="transaksi_no" name="transaksi_no" type="text" value="{{ edit.transaksi_no }}" required/>                
             </div>    
         </div>
+        <div class="clearfix"></div>
         <div class="form-group">
-            <div>
-                <label>Transc ID</label>
-            </div>    
-        </div>
-        <div class="form-group">
-            <div>
+            <div class="col-md-4">
                 <label>Date</label>
+                <input class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" type="text" value="{{ edit.tanggal_transaksi }}" required/>                
             </div>    
         </div>
+        <div class="clearfix"></div>
         <div class="form-group">
-            <div>
-                <label>Due Date</label>
+            <div class="col-md-4">
+                <label>Customer</label>
+                <input class="form-control" id="id_customer" name="id_customer" type="text" value="{{ edit.id_customer }}" required/>                
             </div>    
-        </div>
-        
+        </div>        
+        <div class="clearfix"></div>
         <div class="form-group">
-            <div>
-                <label>Reference Type</label>
-            </div>    
-        </div>
-        
-        <div class="form-group">
-            <div>
+            <div class="col-md-4">
                 <label>Contact Person</label>
+                <input class="form-control" id="cp" name="cp" type="text" value="{{ edit.cp }}" required/>                
             </div>    
         </div>
-        
+        <div class="clearfix"></div>
         <div class="form-group">
-            <div>
+            <div class="col-md-4">
                 <label>Bank Name</label>
+                <input class="form-control" id="bank_nama" name="bank_nama" type="text" value="{{ edit.bank_nama }}" required/>                
             </div>    
         </div>
-        
+        <div class="clearfix"></div>
         <div class="form-group">
-            <div>
+            <div class="col-md-4">
                 <label>Amount</label>
+                <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.amount }}" required/>                
             </div>    
         </div>
+       
         <div class="form-group">
-            <div>
-                <label>Note</label>
+            <div class="col-md-4">
+                <label>Charges</label>
+                <input class="form-control" id="charges" name="charges" type="text" value="{{ edit.charges }}" required/>                
             </div>    
         </div>
-    </div>    
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>Note</label>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12">
+                <textarea name="note" id="note">{{ edit.note }}</textarea> 
+            </div>  
+        </div>
+    </div>      
 </div>
 <br>
 <br>
@@ -119,6 +137,22 @@
                        <th nowrap="nowrap">CP</th>
                        <th nowrap="nowrap">Action</th>
                    </tr>
+               </thead>
+               <thead>
+                   {% for data in data %}
+                   <tr>
+                       <td nowrap="nowrap">{{ data.cabang_nama }}</td>
+                       <td nowrap="nowrap">{{ data.ref_no}}</td>
+                       <td nowrap="nowrap">{{ data.transaksi_no }}</td>                       
+                       <td nowrap="nowrap">{{ data.tanggal_transaksi}}</td>
+                       <td nowrap="nowrap">{{ data.customer_nama }}</td>
+                       <td nowrap="nowrap">{{ data.cp }}</td>
+                       <td nowrap="nowrap">{{ data.bank_nama }}</td>
+                       <td nowrap="nowrap">{{ data.amount }}</td>
+                       <td nowrap="nowrap">{{ data.charges }}</td>
+                       <td nowrap="nowrap"><a href="{{ base_url }}index.php/cashier/cheque_bg/form/?id={{ data.id_cheque|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/cashier/cheque_bg/delete/?id={{ data.id_cheque|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+                   </tr>
+                   {% endfor %} 
                </thead>
           </table>
         </div>    
