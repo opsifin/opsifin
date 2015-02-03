@@ -1,0 +1,118 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Home
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <form action="{{ base_url }}index.php/reports/refund_summary/save" method="post" name="form1">
+    </div>
+    <div class="form-group">
+            <div>
+                <label>Branch</label>
+                <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Department</label>
+                <select class="form-control" id="department">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Costumer</label>
+                <select class="form-control" id="costumer">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+        <label>By</label>
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="refund"> Refund Date</label>
+            </div>
+            <div class="radio-inline">
+                <label><input type="radio"  name="v_type" value="cs_date"> Cs Date</label>
+            </div>      
+        </div>
+    <div class="form-group">
+            <div>
+               <label>From</label>
+               <input type="date" name="from" id="datepicker">
+            </div>
+        </div>  
+        <div class="form-group">
+            <div>
+               <label>to</label>
+               <input type="date" name="to" id="datepicker">
+            </div>
+        </div>
+    <div class="form-group">
+            <div>
+                <label>View Option</label><br>
+                <label>User</label>
+                <select class="form-control" id="user">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>View Type</label>
+                <select class="form-control" id="view_type">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>report type</label>
+                <select class="form-control" id="report_type">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Sort By</label>
+                <select class="form-control" id="sort_by">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Air Line</label>
+                <select class="form-control" id="air_line">
+                    
+                </select>
+            </div>    
+        </div>
+    </div>
+ <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
+</div>    
+
+{% endblock %}
