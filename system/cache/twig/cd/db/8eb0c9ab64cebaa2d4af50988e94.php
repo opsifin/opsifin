@@ -50,8 +50,7 @@ class __TwigTemplate_cddb8eb0c9ab64cebaa2d4af50988e94 extends Twig_Template
 <!-- /.row -->
 <form action=\"";
         // line 23
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coa/savebalance\" method=\"post\" name=\"form1\">
 <div class=\"table-responsive\">
    <table class=\"table table-bordered table-hover table-striped\">
@@ -70,9 +69,8 @@ class __TwigTemplate_cddb8eb0c9ab64cebaa2d4af50988e94 extends Twig_Template
         $context["x"] = 0;
         // line 37
         echo "        \t";
-        if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($_data_);
+        $context['_seq'] = twig_ensure_traversable((isset($context["data"]) ? $context["data"] : null));
         $context['loop'] = array(
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -89,74 +87,57 @@ class __TwigTemplate_cddb8eb0c9ab64cebaa2d4af50988e94 extends Twig_Template
         foreach ($context['_seq'] as $context["_key"] => $context["data"]) {
             // line 38
             echo "            ";
-            if (isset($context["loop"])) { $_loop_ = $context["loop"]; } else { $_loop_ = null; }
-            $context["x"] = $this->getAttribute($_loop_, "index");
+            $context["x"] = $this->getAttribute((isset($context["loop"]) ? $context["loop"] : null), "index");
             // line 39
             echo "            <tr>
               \t<td>";
             // line 40
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "nomor_acc"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "nomor_acc"), "html", null, true);
             echo "</td>
                 <td>";
             // line 41
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "nama_acc"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "nama_acc"), "html", null, true);
             echo "</td>
                 <td>";
             // line 42
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "nama_parent"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "nama_parent"), "html", null, true);
             echo "</td>
                 <td width=\"150\">
                 \t<input class=\"form-control width100\" name=\"balance";
             // line 44
-            if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-            echo twig_escape_filter($this->env, $_x_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
             echo "\" type=\"text\" id=\"balance";
-            if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-            echo twig_escape_filter($this->env, $_x_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
             echo "\" value=\"";
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "balance"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "balance"), "html", null, true);
             echo "\" ";
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            if (($this->getAttribute($_data_, "added") == 1)) {
+            if (($this->getAttribute((isset($context["data"]) ? $context["data"] : null), "added") == 1)) {
                 echo " readonly=\"readonly\" ";
             }
             echo "/>
                 \t<input type=\"hidden\" name=\"id_company";
             // line 45
-            if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-            echo twig_escape_filter($this->env, $_x_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
             echo "\" id=\"id_company";
-            if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-            echo twig_escape_filter($this->env, $_x_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
             echo "\" value=\"";
-            if (isset($context["log"])) { $_log_ = $context["log"]; } else { $_log_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_log_, "clientId"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["log"]) ? $context["log"] : null), "clientId"), "html", null, true);
             echo "\" />
                     <input type=\"hidden\" name=\"nomor_acc";
             // line 46
-            if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-            echo twig_escape_filter($this->env, $_x_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
             echo "\" id=\"nomor_acc";
-            if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-            echo twig_escape_filter($this->env, $_x_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
             echo "\" value=\"";
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "nomor_acc"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "nomor_acc"), "html", null, true);
             echo "\" />
                     <input type=\"hidden\" name=\"added";
             // line 47
-            if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-            echo twig_escape_filter($this->env, $_x_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
             echo "\" id=\"added";
-            if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-            echo twig_escape_filter($this->env, $_x_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
             echo "\" value=\"";
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "added"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "added"), "html", null, true);
             echo "\" />
                 </td>
                 
@@ -179,14 +160,12 @@ class __TwigTemplate_cddb8eb0c9ab64cebaa2d4af50988e94 extends Twig_Template
     </table>
     <input type=\"hidden\" name=\"jumlah\" id=\"jumlah\" value=\"";
         // line 53
-        if (isset($context["x"])) { $_x_ = $context["x"]; } else { $_x_ = null; }
-        echo twig_escape_filter($this->env, $_x_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["x"]) ? $context["x"] : null), "html", null, true);
         echo "\" />
 </div>
 <input type=\"submit\" class=\"btn btn-default\" value=\"Save Balance\"> <input type=\"button\" class=\"btn btn-default\" value=\"Reload COA\" onclick=\"window.location='";
         // line 55
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coa/reloadCOA'\">
 </form>
 ";
@@ -204,6 +183,6 @@ class __TwigTemplate_cddb8eb0c9ab64cebaa2d4af50988e94 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  186 => 55,  180 => 53,  176 => 51,  150 => 47,  139 => 46,  128 => 45,  112 => 44,  106 => 42,  101 => 41,  96 => 40,  93 => 39,  89 => 38,  70 => 37,  68 => 36,  51 => 23,  29 => 3,  26 => 2,);
+        return array (  166 => 55,  161 => 53,  157 => 51,  134 => 47,  126 => 46,  118 => 45,  106 => 44,  101 => 42,  97 => 41,  93 => 40,  90 => 39,  87 => 38,  69 => 37,  67 => 36,  51 => 23,  29 => 3,  26 => 2,);
     }
 }

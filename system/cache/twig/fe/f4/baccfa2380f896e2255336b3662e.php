@@ -25,8 +25,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
         -->
         <a href=\"";
         // line 8
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/home\"><i class=\"fa fa-fw fa-dashboard\"></i> Dashboard</a>
     </li>
     
@@ -41,22 +40,19 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                     <li>
                         <a href=\"";
         // line 20
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coatype/form\"><i class=\"fa fa-fw fa-cubes\"></i> COA Type</a>
                     </li>
                     <li>
                         <a href=\"";
         // line 23
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coagroup/form\"><i class=\"fa fa-fw fa-cubes\"></i> COA Group</a>
                     </li>
                     <li>
                         <a href=\"";
         // line 26
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coa/form\"><i class=\"fa fa-fw fa-cube\"></i> COA</a>
                     </li>
                 </ul>
@@ -65,15 +61,13 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
             <li>
                 <a href=\"";
         // line 32
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/company/form\"><i class=\"fa fa-fw fa-bank\"></i> Company Settings</a>
             </li>
             <li>
                 <a href=\"";
         // line 35
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coa/setbalance\"><i class=\"fa fa-fw fa-cube\"></i> COA Balance</a>
             </li>
             <li>
@@ -81,8 +75,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
             
                <!-- <a href=\"";
         // line 40
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coasettings/form\"><i class=\"fa fa-fw fa-cube\"></i> COA Settings</a>-->
             
             
@@ -91,43 +84,37 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                     <li>
                         <a href=\"";
         // line 46
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coasettings/formlcc\"><i class=\"fa fa-fw fa-cube\"></i> LCC Ticketing</a>
                     </li>
                     <li>
                         <a href=\"";
         // line 49
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coasettings/formbsp\"><i class=\"fa fa-fw fa-cube\"></i> BSP Ticketing</a>
                     </li>
                     <li>
                     \t<a href=\"";
         // line 52
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coasettings/formhotel\"><i class=\"fa fa-fw fa-cube\"></i> Hotel</a>
                     </li>
                     <li>
                         <a href=\"";
         // line 55
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coasettings/formdocument\"><i class=\"fa fa-fw fa-cube\"></i> Document</a>
                     </li>
                     <li>
                         <a href=\"";
         // line 58
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coasettings/formtour\"><i class=\"fa fa-fw fa-cube\"></i> Tour</a>
                     </li>
                     <li>
                         <a href=\"";
         // line 61
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coasettings/formothers\"><i class=\"fa fa-fw fa-cube\"></i> Others</a>
                     </li>            
                 </ul>
@@ -139,8 +126,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
             <li>
                 <a href=\"";
         // line 70
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/currency/form\"><i class=\"fa fa-fw fa-bitcoin\"></i> Currency</a>
             </li>            
         </ul>
@@ -152,40 +138,35 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
             <li>
                 <a href=\"";
         // line 79
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/jurnal/form\"><i class=\"fa fa-fw fa-cube\"></i> Journal</a>
             </li>
             
             <li>
                 <a href=\"";
         // line 83
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/pv/form\"><i class=\"fa fa-fw fa-bookmark-o\"></i> Payment Voucher</a>
             </li>
             <li>
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 87
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/accounting/rv/form\"><i class=\"fa fa-fw fa-bookmark-o\"></i> Receipt Voucher</a>
             </li>
             <li>
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 91
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/accounting/approval/form\"><i class=\"fa fa-fw fa-hand-o-down\"></i> PV/RV Approval</a>
             </li>
             <li>
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 95
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/accounting/credit_note/form\"><i class=\"fa fa-fw fa-cube\"></i> Credit Note</a>
             </li>
             
@@ -193,8 +174,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 100
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/accounting/debit_note/form\"><i class=\"fa fa-fw fa-cube\"></i> Debit Note</a>
             </li>
             
@@ -202,8 +182,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 105
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/accounting/refund/form\"><i class=\"fa fa-fw fa-cube\"></i> Refund</a>
             </li>
             
@@ -218,8 +197,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 117
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/cashier/sales_counter/form\"><i class=\"fa fa-fw fa-tasks\"></i> Sales Counter</a>
             </li>
             
@@ -227,8 +205,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 122
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/cashier/cheque_bg/form\"><i class=\"fa fa-fw fa-ticket\"></i> Cheque/BG</a>
             </li>
             
@@ -236,8 +213,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 127
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/cashier/credit_card/form\"><i class=\"fa fa-fw fa-credit-card\"></i> Credit Card</a>
             </li>
             
@@ -245,8 +221,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 132
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/cashier/cash_advance/form\"><i class=\"fa fa-fw fa-bitcoin\"></i> Cash Advance</a>
             </li>
             
@@ -254,8 +229,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 137
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/cashier/dp_customer/form\"><i class=\"fa fa-fw fa-arrow-circle-left\"></i> DP From Customer</a>
             </li>
             
@@ -263,8 +237,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
                 <!-- Update Link By dwi Wahyudi -->
                 <a href=\"";
         // line 142
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/cashier/dp_supplier/form\"><i class=\"fa fa-fw fa-arrow-circle-right\"></i> DP To Supplier</a>
             </li>
         </ul>
@@ -277,8 +250,7 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
     <li>
         <a href=\"";
         // line 152
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/logout\"><i class=\"fa fa-fw fa-sign-out\"></i> Logout</a>
     </li>
 </ul>
@@ -298,6 +270,6 @@ class __TwigTemplate_fef4baccfa2380f896e2255336b3662e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  278 => 152,  264 => 142,  255 => 137,  246 => 132,  237 => 127,  228 => 122,  219 => 117,  203 => 105,  194 => 100,  185 => 95,  177 => 91,  169 => 87,  161 => 83,  153 => 79,  140 => 70,  127 => 61,  120 => 58,  106 => 52,  99 => 49,  92 => 46,  82 => 40,  66 => 32,  56 => 26,  49 => 23,  42 => 20,  17 => 1,  302 => 170,  292 => 191,  286 => 189,  281 => 188,  276 => 187,  269 => 184,  254 => 171,  252 => 170,  242 => 162,  240 => 161,  215 => 140,  170 => 99,  151 => 84,  132 => 69,  113 => 55,  95 => 40,  88 => 37,  83 => 36,  78 => 35,  73 => 35,  61 => 26,  54 => 23,  47 => 20,  40 => 17,  33 => 14,  18 => 1,  50 => 22,  29 => 3,  26 => 8,);
+        return array (  251 => 152,  238 => 142,  230 => 137,  222 => 132,  214 => 127,  206 => 122,  198 => 117,  183 => 105,  175 => 100,  167 => 95,  160 => 91,  153 => 87,  146 => 83,  127 => 70,  115 => 61,  109 => 58,  97 => 52,  91 => 49,  85 => 46,  53 => 26,  47 => 23,  41 => 20,  17 => 1,  282 => 170,  273 => 191,  268 => 189,  264 => 188,  260 => 187,  254 => 184,  239 => 171,  237 => 170,  227 => 162,  225 => 161,  201 => 140,  157 => 99,  139 => 79,  121 => 69,  103 => 55,  86 => 40,  80 => 37,  76 => 40,  72 => 35,  68 => 35,  57 => 26,  51 => 23,  45 => 20,  39 => 17,  33 => 14,  18 => 1,  271 => 161,  256 => 159,  252 => 158,  248 => 157,  244 => 156,  240 => 155,  236 => 154,  232 => 153,  228 => 152,  224 => 151,  221 => 150,  217 => 149,  187 => 121,  172 => 111,  168 => 110,  133 => 78,  120 => 68,  110 => 61,  101 => 55,  93 => 50,  79 => 39,  70 => 33,  62 => 32,  54 => 23,  50 => 22,  29 => 3,  26 => 8,);
     }
 }

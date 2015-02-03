@@ -17,7 +17,7 @@ class outstanding_transaction extends CI_Controller {
 				"log" => $log,
 				"base_url" => base_url(),
 			);
-			$this->twig->display("home", $content);
+			$this->twig->display("outstanding_transaction", $content);
 		}
 	}
 	

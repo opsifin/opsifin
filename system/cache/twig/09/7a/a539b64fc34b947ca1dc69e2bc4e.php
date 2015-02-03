@@ -54,28 +54,24 @@ class __TwigTemplate_097aa539b64fc34b947ca1dc69e2bc4e extends Twig_Template
 <!-- CHANGE By Dwi Wahyudi 
 <form action=\"";
         // line 27
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coagroup/save\" method=\"post\" name=\"form1\">
 -->
 <form action=\"";
         // line 29
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/coatype/save\" method=\"post\" name=\"form1\" data-toggle=\"validator\" role=\"form\">
 
 <input type=\"hidden\" name=\"id\" id=\"id\" value=\"";
         // line 31
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "id_groupacc"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "id_groupacc"), "html", null, true);
         echo "\" />
  
 <div class=\"form-group width200\">
     <label>Group Code</label>
     <input class=\"form-control\" id=\"kode_group\" name=\"kode_group\" type=\"text\" value=\"";
         // line 35
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "kode_group"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "kode_group"), "html", null, true);
         echo "\" required>
 </div>
 
@@ -83,8 +79,7 @@ class __TwigTemplate_097aa539b64fc34b947ca1dc69e2bc4e extends Twig_Template
     <label>Group Name</label>
     <input class=\"form-control\" id=\"nama_group\" name=\"nama_group\" type=\"text\" value=\"";
         // line 40
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "nama_group"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "nama_group"), "html", null, true);
         echo "\" required>
 </div>
 
@@ -112,36 +107,29 @@ class __TwigTemplate_097aa539b64fc34b947ca1dc69e2bc4e extends Twig_Template
         <tbody>
         \t";
         // line 65
-        if (isset($context["xdata"])) { $_xdata_ = $context["xdata"]; } else { $_xdata_ = null; }
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($_xdata_);
+        $context['_seq'] = twig_ensure_traversable((isset($context["xdata"]) ? $context["xdata"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["data"]) {
             // line 66
             echo "            <tr>
                 <td>";
             // line 67
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "koddatae_group"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "koddatae_group"), "html", null, true);
             echo "</td>
                 <td>";
             // line 68
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "nama_group"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "nama_group"), "html", null, true);
             echo "</td>
                 <!-- CHANGE BY DWI WAHYUDI -->
                 <td><a href=\"";
             // line 70
-            if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-            echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
             echo "index.php/main/coatype/form/?id=";
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, trim($this->getAttribute($_data_, "id_groupacc")), "html", null, true);
+            echo twig_escape_filter($this->env, trim($this->getAttribute((isset($context["data"]) ? $context["data"] : null), "id_groupacc")), "html", null, true);
             echo "\"><i class=\"fa fa-fw fa-pencil\"></i> Edit</a> <a href=\"javascript:void();\" onclick=\"deleteThis('";
-            if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-            echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
             echo "index.php/main/coatype/del/?id=";
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, trim($this->getAttribute($_data_, "id_groupacc")), "html", null, true);
+            echo twig_escape_filter($this->env, trim($this->getAttribute((isset($context["data"]) ? $context["data"] : null), "id_groupacc")), "html", null, true);
             echo "')\"><i class=\"fa fa-fw fa-trash-o\"></i> Delete</a></td>
             </tr> 
             ";
@@ -156,8 +144,7 @@ class __TwigTemplate_097aa539b64fc34b947ca1dc69e2bc4e extends Twig_Template
     
     ";
         // line 76
-        if (isset($context["links"])) { $_links_ = $context["links"]; } else { $_links_ = null; }
-        echo $_links_;
+        echo (isset($context["links"]) ? $context["links"] : null);
         echo "
 </div>
 
@@ -168,8 +155,7 @@ class __TwigTemplate_097aa539b64fc34b947ca1dc69e2bc4e extends Twig_Template
                 type: \"GET\",
                 url: \"";
         // line 84
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "main/coatype/check_kode_group/\" + \$(this).val(),
                 dataType: \"json\",
                 cache: false,
@@ -195,6 +181,6 @@ class __TwigTemplate_097aa539b64fc34b947ca1dc69e2bc4e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  169 => 84,  157 => 76,  151 => 72,  132 => 70,  126 => 68,  121 => 67,  118 => 66,  113 => 65,  84 => 40,  75 => 35,  67 => 31,  61 => 29,  55 => 27,  29 => 3,  26 => 2,);
+        return array (  156 => 84,  145 => 76,  139 => 72,  124 => 70,  119 => 68,  115 => 67,  112 => 66,  108 => 65,  80 => 40,  72 => 35,  65 => 31,  60 => 29,  55 => 27,  29 => 3,  26 => 2,);
     }
 }

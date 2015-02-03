@@ -4,8 +4,8 @@
  <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">
-            Home
+       <h1 class="page-header">
+            Outstanding Transaction 
         </h1>
 
         <ol class="breadcrumb">
@@ -21,3 +21,95 @@
 </div>
 <!-- /.row -->
 
+<div class="row">
+    <div class="col-lg-12">
+        <label>Outstanding Saldo</label><br>
+        <form action="{{ base_url }}index.php/reports/outstanding_transaction/save" method="post" name="form1">
+    </div>
+    <div class="form-group">
+            <div>
+                <label>Branch</label>
+                <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Type</label>
+                <select class="form-control" id="type">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+               <label>Date</label>
+               <input type="date" name="from" id="datepicker">
+            </div>
+        </div>  
+    <div class="form-group">
+            <div>
+                <label>View Option</label><br>
+                <label>Department</label>
+                <select class="form-control" id="department">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Status</label>
+                <select class="form-control" id="status">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Currency</label>
+                <select id="currency" name="currency" class="form-control" onchange="getRates()">
+                    <option value="">Select</option>
+                    {% for curr in currency %}
+                    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
+                    {% endfor %}
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>User</label>
+                <select class="form-control" id="user">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Dealer</label>
+                <select class="form-control" id="dealer">
+                    
+                </select>
+            </div>    
+        </div>
+    </div>
+    <div class="form-group">
+            <div>
+                <label>Costumer</label>
+                <select class="form-control" id="costumer">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Report Type</label>
+                <select class="form-control" id="report_type">
+                    
+                </select>
+            </div>    
+        </div>
+
+ <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">  
+
+    {% endblock %}

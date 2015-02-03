@@ -32,36 +32,31 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
 
     <link href=\"";
         // line 14
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/css/style.css\" rel=\"stylesheet\">
 
     <!-- Bootstrap Core CSS -->
     <link href=\"";
         // line 17
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/css/bootstrap.min.css\" rel=\"stylesheet\">
 
     <!-- Custom CSS -->
     <link href=\"";
         // line 20
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/css/sb-admin.css\" rel=\"stylesheet\">
 
     <!-- Morris Charts CSS -->
     <link href=\"";
         // line 23
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/css/plugins/morris.css\" rel=\"stylesheet\">
 
     <!-- Custom Fonts -->
     <link href=\"";
         // line 26
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/font-awesome-4.1.0/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -72,30 +67,25 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
     <![endif]-->
     <script src=\"";
         // line 34
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/js/jquery-1.11.0.js\"></script>
 \t<script type=\"text/javascript\" src=\"";
         // line 35
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/fancybox/source/jquery.fancybox.js?v=2.1.5\"></script>
     <script type=\"text/javascript\" src=\"";
         // line 36
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/js/script.js\"></script>
 \t<link rel=\"stylesheet\" type=\"text/css\" href=\"";
         // line 37
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/fancybox/source/jquery.fancybox.css?v=2.1.5\" media=\"screen\" />
 
 </head>
 <script src=\"";
         // line 40
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/js/script.js\"></script>
 
 
@@ -112,8 +102,7 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
         </button>
         <a class=\"navbar-brand\" href=\"#\"><img src=\"";
         // line 54
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets//images/opsimidlong.png\" id=\"logotop\"></a>
     </div>
     
@@ -131,8 +120,7 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
                             <div class=\"media-body\">
                                 <h5 class=\"media-heading\"><strong>";
         // line 69
-        if (isset($context["log"])) { $_log_ = $context["log"]; } else { $_log_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_log_, "userName"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["log"]) ? $context["log"] : null), "userName"), "html", null, true);
         echo "</strong>
                                 </h5>
                                 <p class=\"small text-muted\"><i class=\"fa fa-clock-o\"></i> Yesterday at 4:32 PM</p>
@@ -150,8 +138,7 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
                             <div class=\"media-body\">
                                 <h5 class=\"media-heading\"><strong>";
         // line 84
-        if (isset($context["log"])) { $_log_ = $context["log"]; } else { $_log_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_log_, "userName"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["log"]) ? $context["log"] : null), "userName"), "html", null, true);
         echo "</strong>
                                 </h5>
                                 <p class=\"small text-muted\"><i class=\"fa fa-clock-o\"></i> Yesterday at 4:32 PM</p>
@@ -169,8 +156,7 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
                             <div class=\"media-body\">
                                 <h5 class=\"media-heading\"><strong>";
         // line 99
-        if (isset($context["log"])) { $_log_ = $context["log"]; } else { $_log_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_log_, "userName"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["log"]) ? $context["log"] : null), "userName"), "html", null, true);
         echo "</strong>
                                 </h5>
                                 <p class=\"small text-muted\"><i class=\"fa fa-clock-o\"></i> Yesterday at 4:32 PM</p>
@@ -214,8 +200,7 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
         <li class=\"dropdown\">
             <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i> ";
         // line 140
-        if (isset($context["log"])) { $_log_ = $context["log"]; } else { $_log_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_log_, "userName"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["log"]) ? $context["log"] : null), "userName"), "html", null, true);
         echo " <b class=\"caret\"></b></a>
             <ul class=\"dropdown-menu\">
                 <li>
@@ -268,31 +253,26 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
     <!-- Bootstrap Core JavaScript -->
     <script src=\"";
         // line 184
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/js/bootstrap.min.js\"></script>
 
     <!-- Morris Charts JavaScript -->
     <script src=\"";
         // line 187
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/js/plugins/morris/raphael.min.js\"></script>
     <script src=\"";
         // line 188
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/js/plugins/morris/morris.min.js\"></script>
     <script src=\"";
         // line 189
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/js/plugins/morris/morris-data.js\"></script>
     
 <iframe width=\"150\" height=\"189\" name=\"gToday:normal:agenda.js\" id=\"gToday:normal:agenda.js\" src=\"";
         // line 191
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "assets/datepicker/ipopeng.htm\" scrolling=\"no\" frameborder=\"0\" style=\"z-index:1000; position:absolute; top:-500px; left:-500px;\"></iframe>
 
 </body>
@@ -317,6 +297,6 @@ class __TwigTemplate_75292b8082c250a1aeef5118379a0a1d extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  302 => 170,  292 => 191,  286 => 189,  281 => 188,  276 => 187,  269 => 184,  254 => 171,  252 => 170,  242 => 162,  240 => 161,  215 => 140,  170 => 99,  95 => 40,  88 => 37,  83 => 36,  78 => 35,  73 => 34,  54 => 23,  47 => 20,  40 => 17,  33 => 14,  18 => 1,  169 => 84,  157 => 76,  151 => 84,  132 => 69,  126 => 68,  121 => 67,  118 => 66,  113 => 54,  84 => 40,  75 => 35,  67 => 31,  61 => 26,  55 => 27,  29 => 3,  26 => 2,);
+        return array (  282 => 170,  273 => 191,  268 => 189,  264 => 188,  260 => 187,  254 => 184,  239 => 171,  237 => 170,  227 => 162,  225 => 161,  201 => 140,  157 => 99,  139 => 84,  121 => 69,  103 => 54,  86 => 40,  80 => 37,  76 => 36,  72 => 35,  68 => 34,  57 => 26,  51 => 23,  45 => 20,  39 => 17,  33 => 14,  18 => 1,  29 => 3,  26 => 2,);
     }
 }

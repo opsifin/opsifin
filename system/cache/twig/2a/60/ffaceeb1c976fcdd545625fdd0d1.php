@@ -49,8 +49,7 @@ class __TwigTemplate_2a60ffaceeb1c976fcdd545625fdd0d1 extends Twig_Template
 <!-- /.row -->
 <form action=\"";
         // line 22
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/accounting/credit_note/save\" method=\"post\" name=\"form1\">
 <div class=\"row\">    
     <div class=\"col-lg-12\">

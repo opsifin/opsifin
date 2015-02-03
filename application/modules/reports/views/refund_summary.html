@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Home
+            Refund Summary 
         </h1>
 
         <ol class="breadcrumb">
@@ -23,6 +23,7 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <label>Refund Summary</label><br>
         <form action="{{ base_url }}index.php/reports/refund_summary/save" method="post" name="form1">
     </div>
     <div class="form-group">
@@ -89,7 +90,7 @@
         </div>
     <div class="form-group">
             <div>
-                <label>report type</label>
+                <label>Report type</label>
                 <select class="form-control" id="report_type">
                     
                 </select>
@@ -112,7 +113,6 @@
             </div>    
         </div>
     </div>
- <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
-</div>    
-
+ <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">  
+</div>
 {% endblock %}

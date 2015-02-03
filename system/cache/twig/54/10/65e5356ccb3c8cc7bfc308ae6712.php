@@ -49,13 +49,11 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
 <!-- /.row -->
 <form action=\"";
         // line 22
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/cashier/dp_supplier/save\" method=\"post\" name=\"form1\">
 <input id=\"id\" name=\"id\" type=\"hidden\" value=\"";
         // line 23
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "id_dp_supplier"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "id_dp_supplier"), "html", null, true);
         echo "\" />    
 <div class=\"row\">    
     <div class=\"col-lg-12\">
@@ -63,8 +61,7 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
             <label>DS No</label>
             <input class=\"form-control\" id=\"ds_number\" name=\"ds_number\" type=\"text\" value=\"";
         // line 28
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "ds_number"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "ds_number"), "html", null, true);
         echo "\" required/>                
         </div>
         <div class=\"form-group col-md-4\">
@@ -72,8 +69,7 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
                 <label>Transc No</label>
                 <input class=\"form-control\" id=\"transaksi_no\" name=\"transaksi_no\" type=\"text\" value=\"";
         // line 33
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "transaksi_no"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "transaksi_no"), "html", null, true);
         echo "\" required/>
             </div>    
         </div>
@@ -82,8 +78,7 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
                 <label>Date</label>
                 <input onfocus=\"gfPop.fPopCalendar(this);\" class=\"form-control\" id=\"datepicker\" name=\"tanggal_transaksi\" type=\"date\" value=\"";
         // line 39
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "tanggal_transaksi"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "tanggal_transaksi"), "html", null, true);
         echo "\"  required />               
         </div>        
         <div class=\"form-group col-md-4\">
@@ -97,8 +92,7 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
             <label>Supplier</label>
             <input class=\"form-control\" id=\"kode_vendor\" name=\"kode_vendor\" type=\"text\" value=\"";
         // line 50
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "kode_vendor"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "kode_vendor"), "html", null, true);
         echo "\"  required />  
         </div>        
         <div class=\"clearfix\"></div>
@@ -106,8 +100,7 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
             <label>Contact Person</label>
             <input class=\"form-control\" id=\"cp\" name=\"cp\" type=\"text\" value=\"";
         // line 55
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "cp"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "cp"), "html", null, true);
         echo "\" /> 
         </div>
         <div class=\"clearfix\"></div>
@@ -116,8 +109,7 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
                 <label>LG No</label>
                 <input class=\"form-control\" id=\"lg_no\" name=\"lg_no\" type=\"text\" value=\"";
         // line 61
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "lg_no"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "lg_no"), "html", null, true);
         echo "\"  required /> 
             </div>    
         </div>
@@ -127,8 +119,7 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
                 <label>Amount</label>
                 <input class=\"form-control\" id=\"amount\" name=\"amount\" type=\"text\" value=\"";
         // line 68
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "amount"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "amount"), "html", null, true);
         echo "\" required /> 
             </div>    
         </div>
@@ -141,8 +132,7 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
             <div class=\"col-md-12\">
                 <textarea name=\"note\" id=\"note\">";
         // line 78
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "note"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "note"), "html", null, true);
         echo "</textarea> 
             </div>    
         </div>
@@ -177,9 +167,8 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
                   </tr>    
                   ";
         // line 110
-        if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($_data_);
+        $context['_seq'] = twig_ensure_traversable((isset($context["data"]) ? $context["data"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["data"]) {
             // line 111
             echo "                  <tr>
@@ -227,65 +216,52 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
                <tbody>
                   ";
         // line 149
-        if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($_data_);
+        $context['_seq'] = twig_ensure_traversable((isset($context["data"]) ? $context["data"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["data"]) {
             // line 150
             echo "                  <tr>
                     <td>";
             // line 151
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "ds_number"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "ds_number"), "html", null, true);
             echo "</td>
                     <td>";
             // line 152
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "transaksi_no"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "transaksi_no"), "html", null, true);
             echo "</td>
                     <td>";
             // line 153
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "tanggal_transaksi"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "tanggal_transaksi"), "html", null, true);
             echo "</td>
                     <td>";
             // line 154
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "kode_vendor"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "kode_vendor"), "html", null, true);
             echo "</td>
                     <td>";
             // line 155
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "cp"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "cp"), "html", null, true);
             echo "</td>
                     <td>";
             // line 156
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "lg_no"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "lg_no"), "html", null, true);
             echo "</td>
                     <td>";
             // line 157
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "amount"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "amount"), "html", null, true);
             echo "</td>
                     <td>";
             // line 158
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_data_, "note"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["data"]) ? $context["data"] : null), "note"), "html", null, true);
             echo "</td>
                     <td><a href=\"";
             // line 159
-            if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-            echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
             echo "index.php/cashier/dp_supplier/form/?id=";
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, trim($this->getAttribute($_data_, "id_dp_supplier")), "html", null, true);
+            echo twig_escape_filter($this->env, trim($this->getAttribute((isset($context["data"]) ? $context["data"] : null), "id_dp_supplier")), "html", null, true);
             echo "\"><i class=\"fa fa-fw fa-pencil\"></i> Edit</a> <a href=\"javascript:void();\" onclick=\"deleteThis('";
-            if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-            echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
             echo "index.php/cashier/dp_supplier/delete/?id=";
-            if (isset($context["data"])) { $_data_ = $context["data"]; } else { $_data_ = null; }
-            echo twig_escape_filter($this->env, trim($this->getAttribute($_data_, "id_dp_supplier")), "html", null, true);
+            echo twig_escape_filter($this->env, trim($this->getAttribute((isset($context["data"]) ? $context["data"] : null), "id_dp_supplier")), "html", null, true);
             echo "')\"><i class=\"fa fa-fw fa-trash-o\"></i> Delete</a></td>
                   </tr>  
                   ";
@@ -316,6 +292,6 @@ class __TwigTemplate_541065e5356ccb3c8cc7bfc308ae6712 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  295 => 161,  276 => 159,  271 => 158,  266 => 157,  261 => 156,  256 => 155,  251 => 154,  246 => 153,  241 => 152,  236 => 151,  233 => 150,  228 => 149,  198 => 121,  183 => 111,  178 => 110,  142 => 78,  128 => 68,  117 => 61,  107 => 55,  98 => 50,  83 => 39,  73 => 33,  64 => 28,  55 => 23,  50 => 22,  29 => 3,  26 => 2,);
+        return array (  271 => 161,  256 => 159,  252 => 158,  248 => 157,  244 => 156,  240 => 155,  236 => 154,  232 => 153,  228 => 152,  224 => 151,  221 => 150,  217 => 149,  187 => 121,  172 => 111,  168 => 110,  133 => 78,  120 => 68,  110 => 61,  101 => 55,  93 => 50,  79 => 39,  70 => 33,  62 => 28,  54 => 23,  50 => 22,  29 => 3,  26 => 2,);
     }
 }
