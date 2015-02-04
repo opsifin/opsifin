@@ -59,17 +59,17 @@
         </div>
     <div class="form-group width150">
         <label>Period</label>
-        <h5>MM/YYYY</h5>
+        <h6>MM/YYYY</h6>
         <input class="form-control" id="period" name="period" type="text" value="{{ period }}" />
       </div> 
     <div class="form-group">
-        <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="percent"> Show Percentage</label>
+        <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="percent"> Show Percentage</label>
             </div>
         </div>
     <div class="form-group">
-        <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="prev_month"> Show Prev Month</label>
+        <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="prev_month"> Show Prev Month</label>
             </div>
         </div>
     <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">

@@ -26,7 +26,7 @@
         <h4>Invoice</h4><br>
         <form action="{{ base_url }}index.php/reports/list_of_invoice/save" method="post" name="form1">
     </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Branch</label>
                 <select class="form-control" id="branch">
@@ -34,7 +34,7 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Report Type</label>
                 <select class="form-control" id="report_type">
@@ -42,7 +42,7 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Department</label>
                 <select class="form-control" id="department">
@@ -70,7 +70,7 @@
                 <label><input type="radio"  name="v_type" value="cute_date"> Cute Date</label>
             </div>      
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Printed/Not</label>
                 <select class="form-control" id="printed">
@@ -78,7 +78,7 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Status</label>
                 <select class="form-control" id="status">
@@ -86,7 +86,7 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>User</label>
                 <select class="form-control" id="user">
@@ -94,13 +94,23 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Costumer</label>
                 <select class="form-control" id="costumer">
                     
                 </select>
             </div>    
+        </div>
+    <div class="form-group">
+            <div class="checkbox-inline">
+                <label><input type="checkbox" name="v_type" value="without_costumer"> Without Costumer</label>
+            </div>
+        </div>
+    <div class="form-group">
+            <div class="checkbox-inline">
+                <label><input type="checkbox" name="v_type" value="add_invoice"> Incl. Additional Invoice</label>
+            </div>
         </div>
     <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
 {% endblock %}

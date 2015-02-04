@@ -27,17 +27,17 @@
         <form action="{{ base_url }}index.php/reports/list_of_cheque_bg/save" method="post" name="form1">
     </div>
 <div class="form-group">
-            <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="bg_cheque"> BG/Cheque</label>
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="bg_cheque"> BG/Cheque</label>
             </div>
-            <div class="radio-inline">
-                <label><input type="radio"  name="v_type" value="credit_card"> Credit Card</label>
+            <div class="checkbox-inline">
+                <label><input type="checkbox"  name="v_type" value="credit_card"> Credit Card</label>
             </div>
-            <div class="radio-inline">
-                <label><input type="radio"  name="v_type" value="transfer_da"> Transfer DA</label>
+            <div class="checkbox-inline">
+                <label><input type="checkbox"  name="v_type" value="transfer_da"> Transfer DA</label>
             </div>
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Branch</label>
                 <select class="form-control" id="branch">
@@ -46,8 +46,8 @@
             </div>    
         </div>
     <div class="form-group">
-            <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="by_date"> By Date</label>
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="by_date"> By Date</label>
             </div>
     </div>
     <div class="form-group">
@@ -62,7 +62,7 @@
                <input type="date" name="to" id="datepicker">
             </div>
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Type</label>
                 <select class="form-control" id="type">
@@ -70,7 +70,7 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>References</label>
                 <select class="form-control" id="references">
@@ -98,11 +98,11 @@
         </div>
     
     <div class="form-group">
-            <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="all"> All</label>
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="all"> All</label>
             </div>
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Criteria</label>
                 <select class="form-control" id="critera">
@@ -110,7 +110,7 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Bank Name</label>
                 <select class="form-control" id="bank_nama">
@@ -118,7 +118,7 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>User</label>
                 <select class="form-control" id="user">
@@ -126,7 +126,7 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group width150">
             <div>
                 <label>Currency</label>
                 <select id="currency" name="currency" class="form-control" onchange="getRates()">
