@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class modeldpsupplier extends CI_Model {
+class modelbgdetail extends CI_Model {
 	
 	public function __construct(){
             parent::__construct();
@@ -13,7 +13,7 @@ class modeldpsupplier extends CI_Model {
 		if (!empty($find)) 
 			$searchBy = "WHERE $by LIKE '%$find%'";
 				
-		$query = $this->db->query("select * from dp_supplier $searchBy order by id_dp_supplier desc limit $start, $limit");
+		$query = $this->db->query("select * from cheque_transaction_detail $searchBy order by id_cheque_detail desc limit $start, $limit");
 		$result = $query->result();
 		
 		return $result;	
@@ -25,7 +25,7 @@ class modeldpsupplier extends CI_Model {
 		if (!empty($find)) 
 			$searchBy = "WHERE $by LIKE '%$find%'";
 				
-		$query = $this->db->query("select * from dp_supplier $searchBy order by id_dp_supplier desc");
+		$query = $this->db->query("select * from cheque_transaction_detail $searchBy order by id_cheque_detail desc");
 		$result = $query->num_rows();
 		return $result;	
 	}
@@ -66,27 +66,24 @@ class modeldpsupplier extends CI_Model {
 		$log = $this->session->all_userdata();
 		$valid = false;
 		
-		$this->db->set("ds_number", $params->ds_number);
-		$this->db->set("transaksi_no", $params->transaksi_no);
-		$this->db->set("tanggal_transaksi", $params->tanggal_transaksi);
-		//$this->db->set("id_dept", $params->id_dept);
-		$this->db->set("kode_vendor", $params->kode_vendor);
-		$this->db->set("cp", $params->cp);
-		$this->db->set("lg_no", $params->lg_no);
-		$this->db->set("currency", $params->currency);
-		$this->db->set("amount", $params->amount);
-		$this->db->set("note", $params->note);
-                //print_r($params);
+		$this->db->set("id_cheque_detail", $params->id_cheque_detail );
+		$this->db->set("ref_id", $params->ref_id );
+		$this->db->set("ref_no", $params->ref_no );
+                $this->db->set("ccy", $params->ccy );
+		$this->db->set("amount", $params->amount );
+		$this->db->set("name", $params->name );
+                $this->db->set("used_data", $params->used_data );	
+                
 		if (!empty($params->id)) {
-			$this->db->where("id_dp_supplier", $params->id);
-			$valid = $this->db->update("dp_supplier");
-                        //echo $this->db->last_query();
-			$valid = $this->logUpdate->addLog("update", "dp_supplier", $params);
+			$this->db->where("id_cc", $params->id);
+			$valid = $this->db->update("cheque_transaction_detail");
+                        
+			$valid = $this->logUpdate->addLog("update", "cheque_transaction_detail", $params);
 		}
 		else {
-			$valid = $this->db->insert('dp_supplier');
-			//echo $this->db->last_query();
-                        $valid = $this->logUpdate->addLog("insert", "dp_supplier", $params);
+			$valid = $this->db->insert('cheque_transaction_detail');
+			
+                        $valid = $this->logUpdate->addLog("insert", "cheque_transaction_detail", $params);
                         
 			//$valid = $this->modelNumbertrans->updatePVNumber();
 			
@@ -102,11 +99,11 @@ class modeldpsupplier extends CI_Model {
 	{	
 		$log = $this->session->all_userdata();
 		$valid = false;		
-		$valid = $this->logUpdate->addLog("delete", "dp_supplier", array("id_dp_supplier" => $id));	
+		$valid = $this->logUpdate->addLog("delete", "cheque_transaction_detail", array("id_cheque-detail" => $id));	
 		
 		if ($valid){
-			$this->db->where('id_dp_supplier', $id);
-			$valid = $this->db->delete('dp_supplier');
+			$this->db->where('id_cheque_detail', $id);
+			$valid = $this->db->delete('cheque_transaction_detail');
 		}
 		
 		return $valid;		

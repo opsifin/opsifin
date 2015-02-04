@@ -91,24 +91,31 @@
                        <th nowrap="nowrap">Used Date</th>                       
                   </tr>
               </thead>
-              <tbody>
+              <tbody> 
                   <tr>
-                       <td nowrap="nowrap">Ref ID</td>
-                       <td nowrap="nowrap">Reference No</td>
-                       <td nowrap="nowrap">Ccy</td>
-                       <td nowrap="nowrap">Amount</td>
-                       <td nowrap="nowrap">Name</td>
-                       <td nowrap="nowrap">Used Date</td>                       
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ref_id" value="{{ editdetail.ref_id }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ref_no" value="{{ editdetail.ref_no}}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ccy" value="{{ editdetail.ccy }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_amount" value="{{ editdetail.amount }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_name" value="{{ editdetail.name }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" onfocus="gfPop.fPopCalendar(this);"  type="date" name="detail_used_date"  value="{{ editdetail.used_data }}"> </td>                       
+                       <td>
+                           <input id="iddetail" name="iddetail" type="hidden" value="{{ edit.id_cheque_detail }}" />
+                           <input type="submit" name="btnsavedetail" value="save">
+                       </td>
                   </tr>
+                  {% for data in detail %}
                   <tr>
-                       <td nowrap="nowrap">Ref ID</td>
-                       <td nowrap="nowrap">Reference No</td>
-                       <td nowrap="nowrap">Ccy</td>
-                       <td nowrap="nowrap">Amount</td>
-                       <td nowrap="nowrap">Name</td>
-                       <td nowrap="nowrap">Used Date</td>                       
-                  </tr>
-              </tbody>
+                       <td nowrap="nowrap">{{ data.ref_id }}</td>
+                       <td nowrap="nowrap">{{ data.ref_no }}</td>
+                       <td nowrap="nowrap">{{ data.ccy }}</td>
+                       <td nowrap="nowrap">{{ data.amount }}</td>
+                       <td nowrap="nowrap">{{ data.name }}</td>
+                       <td nowrap="nowrap">{{ data.used_date }}</td>  
+                       <td><a href="{{ base_url }}index.php/cashier/dp_supplier/form/?id={{ data.id_cheque|trim }}&detail={{ data.id_cheque_detail|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/cashier/dp_supplier/delete_detail/?id={{ data.id_cheque|trim }}')&detail={{ data.id_cheque_detail|trim }}"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+                  </tr> 
+                  {% endfor %} 
+              </tbody>  
           </table>
         </div>    
     </div>    

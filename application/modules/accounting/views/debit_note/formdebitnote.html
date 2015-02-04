@@ -37,7 +37,7 @@
         <div class="form-group">
             
                 <label>Date</label>
-                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+                <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="datepicker" name="tanggal_transaksi" type="date" value="{{ edit.tanggal_transaksi }}"  required />               
                
         </div>
         <div class="form-group">

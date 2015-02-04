@@ -22,63 +22,112 @@
 <form action="{{ base_url }}index.php/cashier/dp_supplier/save" method="post" name="form1">
 <input id="id" name="id" type="hidden" value="{{ edit.id_dp_supplier }}" />    
 <div class="row">    
-    <div class="col-lg-12">
-        <div class="form-group col-md-4">
-            <label>DS No</label>
-            <input class="form-control" id="ds_number" name="ds_number" type="text" value="{{ edit.ds_number }}" required/>                
-        </div>
-        <div class="form-group col-md-4">
-            <div>
+    <div class="col-lg-9">
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
+                <label>DS No</label>
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" id="ds_number" name="ds_number" type="text" value="{{ edit.ds_number }}" required/>                
+            </div>  
+            <div class="col-md-2">
                 <label>Transc No</label>
+            </div>
+            <div class="col-md-3">    
                 <input class="form-control" id="transaksi_no" name="transaksi_no" type="text" value="{{ edit.transaksi_no }}" required/>
-            </div>    
-        </div>
-        <div class="clearfix"></div>
-        <div class="form-group col-md-2">            
-                <label>Date</label>
-                <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="datepicker" name="tanggal_transaksi" type="date" value="{{ edit.tanggal_transaksi }}"  required />               
-        </div>        
-        <div class="form-group col-md-4">
-            <div>
+            </div> 
+        </div>       
+        <div class="clearfix"></div>    
+        <div class="form-group col-md-12">
+            <div class="col-md-3">            
+                    <label>Date</label>
+            </div>
+            <div class="col-md-4">
+                    <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="datepicker" name="tanggal_transaksi" type="date" value="{{ edit.tanggal_transaksi }}"  required />               
+            </div> 
+            <div class="col-md-2">
                 <label>Department</label>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
+                <label>Supplier</label>
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" id="kode_vendor" name="kode_vendor" type="text" value="{{ edit.kode_vendor }}"  required />  
             </div>    
-        </div>
+        </div>  
         <div class="clearfix"></div>
-        
-        <div class="form-group col-md-4">
-            <label>Supplier</label>
-            <input class="form-control" id="kode_vendor" name="kode_vendor" type="text" value="{{ edit.kode_vendor }}"  required />  
-        </div>        
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
+                <label>Contact Person</label>
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" id="cp" name="cp" type="text" value="{{ edit.cp }}" />
+            </div>
+        </div>              
         <div class="clearfix"></div>
-        <div class="form-group col-md-4">
-            <label>Contact Person</label>
-            <input class="form-control" id="cp" name="cp" type="text" value="{{ edit.cp }}" /> 
-        </div>
-        <div class="clearfix"></div>
-        <div class="form-group col-md-4">
-            <div>
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>LG No</label>
+            </div>    
+            <div class="col-md-6">
                 <input class="form-control" id="lg_no" name="lg_no" type="text" value="{{ edit.lg_no }}"  required /> 
             </div>    
         </div>
         <div class="clearfix"></div>
-        <div class="form-group col-md-4">
-            <div>
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>Amount</label>
+            </div>
+            <div class="col-md-2">
+                <input class="form-control" id="currency" name="currency" type="text" value="{{ edit.currency }}" required /> 
+            </div>  
+            <div class="col-md-4">
                 <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.amount }}" required /> 
             </div>    
         </div>
         <div class="clearfix"></div>
-        <div class="form-group">
-            <div class="col-md-4">
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>Note</label>
             </div>
-            <div class="clearfix"></div>
-            <div class="col-md-12">
-                <textarea name="note" id="note">{{ edit.note }}</textarea> 
+            <div class="col-md-6">
+                <textarea class="form-control" name="note" id="note">{{ edit.note }}</textarea> 
             </div>    
         </div>
-    </div>    
+        <div class="clearfix"></div>
+        
+    </div>  
+    <div class="col-lg-3 round">
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>Used Amount</label>
+                <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.used_amount }}" required/>                
+            </div>    
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>Clearing Out</label>
+                <input class="form-control" id="clearing_out" name="clearing_out" type="text" value="{{ edit.clearing_out }}"/>                
+            </div>    
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>Clearing In</label>
+                <input class="form-control" id="clearing_in" name="clearing_in" type="text" value="{{ edit.clearing_in }}"/>                
+            </div>    
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-8">
+                <label>Begin Balance</label>
+            </div>    
+            <div class="col-md-4">
+                <input class="form-control" id="is_balance" name="is_balance" type="checkbox" value="{{ edit.is_balance }}"/>                
+            </div>    
+        </div>
+    </div>   
 </div>
 <br>
 <br>
@@ -99,25 +148,28 @@
               </thead>
               <tbody> 
                   <tr>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>    
-                       <th nowrap="nowrap"></th>  
-                  </tr>    
-                  {% for data in data %}
-                  <tr>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>
-                       <th nowrap="nowrap"></th>    
-                       <th nowrap="nowrap"></th>  
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ref_id" value="{{ editdetail.ref_id }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ref_no" value="{{ editdetail.ref_no}}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ccy" value="{{ editdetail.ccy }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_amount" value="{{ editdetail.amount }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_name" value="{{ editdetail.name }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" onfocus="gfPop.fPopCalendar(this);"  type="date" name="detail_used_date"  value="{{ editdetail.used_data }}"> </td>                       
+                       <td>
+                           <input id="iddetail" name="iddetail" type="hidden" value="{{ edit.id_cheque_detail }}" />
+                           <input type="submit" name="btnsavedetail" value="save">
+                       </td>
                   </tr>
-                  {% endfor %}
+                  {% for data in detail %}
+                  <tr>
+                       <td nowrap="nowrap">{{ data.ref_id }}</td>
+                       <td nowrap="nowrap">{{ data.ref_no }}</td>
+                       <td nowrap="nowrap">{{ data.ccy }}</td>
+                       <td nowrap="nowrap">{{ data.amount }}</td>
+                       <td nowrap="nowrap">{{ data.name }}</td>
+                       <td nowrap="nowrap">{{ data.used_date }}</td>  
+                       <td><a href="{{ base_url }}index.php/cashier/dp_supplier/form/?id={{ data.id_cheque|trim }}&detail={{ data.id_cheque_detail|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/cashier/dp_supplier/delete_detail/?id={{ data.id_cheque|trim }}')&detail={{ data.id_cheque_detail|trim }}"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+                  </tr> 
+                  {% endfor %} 
               </tbody>    
           </table>
         </div>    

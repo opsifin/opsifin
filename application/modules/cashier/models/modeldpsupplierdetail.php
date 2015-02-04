@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class modeldpsupplier extends CI_Model {
+class modeldpsupplierdetail extends CI_Model {
 	
 	public function __construct(){
             parent::__construct();
@@ -13,7 +13,7 @@ class modeldpsupplier extends CI_Model {
 		if (!empty($find)) 
 			$searchBy = "WHERE $by LIKE '%$find%'";
 				
-		$query = $this->db->query("select * from dp_supplier $searchBy order by id_dp_supplier desc limit $start, $limit");
+		$query = $this->db->query("select * from dp_supplier_detail $searchBy order by id_dp_supplier_detail desc limit $start, $limit");
 		$result = $query->result();
 		
 		return $result;	
@@ -25,7 +25,7 @@ class modeldpsupplier extends CI_Model {
 		if (!empty($find)) 
 			$searchBy = "WHERE $by LIKE '%$find%'";
 				
-		$query = $this->db->query("select * from dp_supplier $searchBy order by id_dp_supplier desc");
+		$query = $this->db->query("select * from dp_supplier_detail $searchBy order by id_dp_supplier_detail desc");
 		$result = $query->num_rows();
 		return $result;	
 	}
@@ -79,14 +79,14 @@ class modeldpsupplier extends CI_Model {
                 //print_r($params);
 		if (!empty($params->id)) {
 			$this->db->where("id_dp_supplier", $params->id);
-			$valid = $this->db->update("dp_supplier");
+			$valid = $this->db->update("dp_supplier_detail");
                         //echo $this->db->last_query();
-			$valid = $this->logUpdate->addLog("update", "dp_supplier", $params);
+			$valid = $this->logUpdate->addLog("update", "dp_supplier_detail", $params);
 		}
 		else {
-			$valid = $this->db->insert('dp_supplier');
+			$valid = $this->db->insert('dp_supplier_detail');
 			//echo $this->db->last_query();
-                        $valid = $this->logUpdate->addLog("insert", "dp_supplier", $params);
+                        $valid = $this->logUpdate->addLog("insert", "dp_supplier_detail", $params);
                         
 			//$valid = $this->modelNumbertrans->updatePVNumber();
 			
@@ -102,11 +102,11 @@ class modeldpsupplier extends CI_Model {
 	{	
 		$log = $this->session->all_userdata();
 		$valid = false;		
-		$valid = $this->logUpdate->addLog("delete", "dp_supplier", array("id_dp_supplier" => $id));	
+		$valid = $this->logUpdate->addLog("delete", "dp_supplier_detail", array("id_dp_supplier_detail" => $id));	
 		
 		if ($valid){
-			$this->db->where('id_dp_supplier', $id);
-			$valid = $this->db->delete('dp_supplier');
+			$this->db->where('id_dp_supplier_detail', $id);
+			$valid = $this->db->delete('dp_supplier_detail');
 		}
 		
 		return $valid;		

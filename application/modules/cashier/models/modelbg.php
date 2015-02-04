@@ -66,44 +66,82 @@ class modelbg extends CI_Model {
 		$log = $this->session->all_userdata();
 		$valid = false;
 		
-		$this->db->set("id_cabang", $params->id_cabang );
-		$this->db->set("ref_no", $params->ref_no );
-		$this->db->set("transaksi_no", $params->transaksi_no );
-		$this->db->set("tanggal_transaksi", $params->tanggal_transaksi );		
-		$this->db->set("id_customer", $params->id_customer );
-		$this->db->set("cp", $params->cp );		
-		$this->db->set("nama_bank", $params->nama_bank );
-		$this->db->set("amount", $params->amount );
-		$this->db->set("note", $params->note );
+                $fields = array(
+                    "id_cabang"     => $params->id_cabang,
+                    "bg_prefix"         => $params->bg_prefix,
+                    "bg_no"         => $params->bg_no,
+                    "transaksi_no"  => $params->transaksi_no,
+                    "tanggal_transaksi" =>  $params->tanggal_transaksi,		
+                    "due_date"      => $params->due_date,
+                    "ref_prefix"      => $params->ref_prefix,
+                    "ref_type"      => $params->ref_type,
+                    "cp"            => $params->cp,		
+                    "bank_nama"     => $params->bank_nama,
+                    "currency"      => $params->currency,                    
+                    "amount"        => $params->amount,
+                    "note"          => $params->note,
+                );
                 
-		if (!empty($params->id)) {
-			$this->db->where("id_cc", $params->id);
-			$valid = $this->db->update("cheque_transaction");
-                        
+                if (!empty($params->id)) {
+			$this->db->where("id_cheque", $params->id);
+                        $this->db->set($fields);
+			$valid = $this->db->update("cheque_transaction");                        
 			$valid = $this->logUpdate->addLog("update", "cheque_transaction", $params);
+                        $idcheque= $params->id;
 		}
 		else {
-			$valid = $this->db->insert('cheque_transaction');
-			
+			$this->db->set($fields);
+                        $valid = $this->db->insert('cheque_transaction');			
                         $valid = $this->logUpdate->addLog("insert", "cheque_transaction", $params);
-                        
+                        $idcheque = $this->db->insert_db();
 			//$valid = $this->modelNumbertrans->updatePVNumber();
 			
 			//$this->db2->set("status", 1);
 			//$this->db2->where("id_invoice", $params->id_invoice);
 			//$this->db2->update("trans_ticketinvoice");
 		}
-		
-		return true;		
+                
+                $fields_detail = array(
+                    'id_cheque'     => $idcheque,
+                    "ref_id"        => $params->detail_ref_id,
+                    "ref_no"        => $params->detail_ref_no,
+                    "ccy"           => $params->detail_ccy,
+                    "amount"        => $params->detail_amount,		
+                    "name"          => $params->detail_name,
+                    "used_date"      => $params->detail_used_date,
+                );
+                // save cheque detail             
+                if (!empty($fields_detail['ref_id'])){
+                    if (!empty($params->iddetail)){
+                        $this->db->where("id_cheque_detail", $params->iddetail);
+                        $this->db->set($fields_detail);
+			$valid = $this->db->update("cheque_transaction_detail");                        
+			$valid = $this->logUpdate->addLog("update", "cheque_transaction_detail", $params);
+                    }
+                    else {
+                        $this->db->set($fields_detail);
+                        $valid = $this->db->insert('cheque_transaction_detail');			
+                        $valid = $this->logUpdate->addLog("insert", "cheque_transaction_detail", $params);
+                    }
+                }
+                
+		return $valid;		
 	}
         
         public function delete($id)
 	{	
 		$log = $this->session->all_userdata();
 		$valid = false;		
-		$valid = $this->logUpdate->addLog("delete", "cheque_transaction", array("id_cheque" => $id));	
 		
 		if ($valid){
+                        // delete child first
+                        $this->logUpdate->addLog("delete", "cheque_transaction_detail", array("id_cheque" => $id));
+                        
+                        $this->db->where('id_cheque', $id);
+                        $valid = $this->db->delete('cheque_transaction_detail');
+                        
+                        $valid = $this->logUpdate->addLog("delete", "cheque_transaction", array("id_cheque" => $id));	
+		
 			$this->db->where('id_cheque', $id);
 			$valid = $this->db->delete('cheque_transaction');
 		}

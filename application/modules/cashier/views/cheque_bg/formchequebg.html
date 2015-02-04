@@ -22,79 +22,136 @@
 <form action="{{ base_url }}index.php/cashier/cheque_bg/save" method="post" name="form1">
 <input id="id" name="id" type="hidden" value="{{ edit.id_cheque }}" />  
 <div class="row">    
-    <div class="col-lg-12">
-        <div class="form-group">
+    <div class="col-lg-6">
+        <div class="form-group col-md-12">
             <div class="col-md-4">
                 <label>Branch</label>
+            </div>
+            <div class="col-md-8">
                 <input class="form-control" id="id_cabang" name="id_cabang" type="text" value="{{ edit.id_cabang }}" required/>                
             </div>    
         </div>
         <div class="clearfix"></div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <div class="col-md-4">
-                <label>Reference No</label>
-                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+                <label>Chq / BG</label>
+            </div> 
+            <div class="col-md-3">
+                <input class="form-control" id="bg_prefix" name="bg_prefix" type="text" value="{{ edit.bg_prefix }}" required/>                
+            </div> 
+            <div class="col-md-5">
+                <input class="form-control" id="bg_no" name="bg_no" type="text" value="{{ edit.bg_no }}" required/>                
             </div>    
         </div>
-        <div class="form-group">
+        <div class="clearfix"></div>
+        <div class="form-group col-md-12">
             <div class="col-md-4">
                 <label>Transaction No</label>
+            </div>    
+            <div class="col-md-8">
                 <input class="form-control" id="transaksi_no" name="transaksi_no" type="text" value="{{ edit.transaksi_no }}" required/>                
             </div>    
         </div>
         <div class="clearfix"></div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <div class="col-md-4">
                 <label>Date</label>
-                <input class="form-control" id="tanggal_transaksi" name="tanggal_transaksi" type="text" value="{{ edit.tanggal_transaksi }}" required/>                
+            </div>    
+            <div class="col-md-4">
+                <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="datepicker" name="tanggal_transaksi" type="date" value="{{ edit.tanggal_transaksi }}"  required />               
             </div>    
         </div>
         <div class="clearfix"></div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <div class="col-md-4">
-                <label>Customer</label>
-                <input class="form-control" id="id_customer" name="id_customer" type="text" value="{{ edit.id_customer }}" required/>                
+                <label>Due Date</label>
+            </div>    
+            <div class="col-md-4">    
+                <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="datepicker" name="due_date" type="date" value="{{ edit.due_date }}"  required />               
+            </div>    
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group col-md-12">
+            <div class="col-md-4">
+                <label>Reference Type</label>
+            </div>
+            <div class="col-md-3">
+                <input class="form-control" id="ref_prefix" name="ref_prefix" type="text" value="{{ edit.ref_prefix }}" required/>                
+            </div> 
+            <div class="col-md-5">
+                <input class="form-control" id="ref_type" name="ref_type" type="text" value="{{ edit.ref_type }}" required/>                
             </div>    
         </div>        
         <div class="clearfix"></div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <div class="col-md-4">
                 <label>Contact Person</label>
+            </div>    
+            <div class="col-md-8">   
                 <input class="form-control" id="cp" name="cp" type="text" value="{{ edit.cp }}" required/>                
             </div>    
         </div>
         <div class="clearfix"></div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <div class="col-md-4">
                 <label>Bank Name</label>
+            </div>    
+            <div class="col-md-8">  
                 <input class="form-control" id="bank_nama" name="bank_nama" type="text" value="{{ edit.bank_nama }}" required/>                
             </div>    
         </div>
         <div class="clearfix"></div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <div class="col-md-4">
                 <label>Amount</label>
+            </div>
+            <div class="col-md-3">    
+                <input class="form-control" id="currency" name="currency" type="text" value="{{ edit.currency }}" required/>                
+            </div>
+            <div class="col-md-5">    
                 <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.amount }}" required/>                
             </div>    
-        </div>
-       
-        <div class="form-group">
-            <div class="col-md-4">
-                <label>Charges</label>
-                <input class="form-control" id="charges" name="charges" type="text" value="{{ edit.charges }}" required/>                
-            </div>    
-        </div>
+        </div>      
+        
         <div class="clearfix"></div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <div class="col-md-4">
                 <label>Note</label>
             </div>
-            <div class="clearfix"></div>
-            <div class="col-md-12">
-                <textarea name="note" id="note">{{ edit.note }}</textarea> 
+            <div class="col-md-8">
+                <textarea class="form-control" name="note" id="note">{{ edit.note }}</textarea> 
             </div>  
         </div>
-    </div>      
+    </div>   
+    
+    <div class="col-lg-3 round">
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>Used Amount</label>
+                <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.used_amount }}" required/>                
+            </div>    
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>Clearing Out</label>
+                <input class="form-control" id="clearing_out" name="clearing_out" type="text" value="{{ edit.clearing_out }}"/>                
+            </div>    
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>Clearing In</label>
+                <input class="form-control" id="clearing_in" name="clearing_in" type="text" value="{{ edit.clearing_in }}"/>                
+            </div>    
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-8">
+                <label>Begin Balance</label>
+            </div>    
+            <div class="col-md-4">
+                <input class="form-control" id="is_balance" name="is_balance" type="checkbox" value="{{ edit.is_balance }}"/>                
+            </div>    
+        </div>
+    </div>    
 </div>
 <br>
 <br>
@@ -110,9 +167,33 @@
                        <th nowrap="nowrap">Amount</th>
                        <th nowrap="nowrap">Name</th>
                        <th nowrap="nowrap">Used Date</th>                       
-                  </tr>     
-                      
+                  </tr> 
               </thead>
+              <tbody>
+                  <tr>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ref_id" value="{{ editdetail.ref_id }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ref_no" value="{{ editdetail.ref_no}}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_ccy" value="{{ editdetail.ccy }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_amount" value="{{ editdetail.amount }}"> </td>
+                       <td nowrap="nowrap"> <input class="form-control" type="text" name="detail_name" value="{{ editdetail.name }}"> </td>
+                       <td nowrap="nowrap"> <input onfocus="gfPop.fPopCalendar(this);"  type="date" name="detail_used_date"  value="{{ editdetail.used_data }}"> </td>                       
+                       <td>
+                           <input id="iddetail" name="iddetail" type="hidden" value="{{ edit.id_cheque_detail }}" />
+                           <input type="submit" name="btnsavedetail" value="save">
+                       </td>
+                  </tr>
+                  {% for data in detail %}
+                  <tr>
+                       <td nowrap="nowrap">{{ data.ref_id }}</td>
+                       <td nowrap="nowrap">{{ data.ref_no }}</td>
+                       <td nowrap="nowrap">{{ data.ccy }}</td>
+                       <td nowrap="nowrap">{{ data.amount }}</td>
+                       <td nowrap="nowrap">{{ data.name }}</td>
+                       <td nowrap="nowrap">{{ data.used_date }}</td>  
+                       <td><a href="{{ base_url }}index.php/cashier/cheque_bg/form/?id={{ data.id_cheque|trim }}&detail={{ data.id_cheque_detail|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/cashier/cheque_bg/delete_detail/?id={{ data.id_cheque|trim }}')&detail={{ data.id_cheque_detail|trim }}"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+                  </tr> 
+                  {% endfor %} 
+              </tbody>
           </table>
         </div>    
     </div>    
