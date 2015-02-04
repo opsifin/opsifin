@@ -22,50 +22,63 @@
 <form action="{{ base_url }}index.php/accounting/refund/save" method="post" name="form1">
 <div class="row">    
     <div class="col-lg-12">
-        <div class="form-group">
-            <div>
+        <div class="form-group col-md-4">
+            
                 <label>Branch</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
         </div>
-        <div class="form-group">
-            <div>
+        <div class="clearfix"></div>
+        <div class="form-group col-md-4">
+            
                 <label>Refund Number</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+               
         </div>
-        <div class="form-group">
-            <div>
+        <div class="form-group col-md-4">
+            
                 <label>Transc Number</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+               
         </div>
-        <div class="form-group">
-            <div>
+        <div class="clearfix"></div>
+        <div class="form-group col-md-4">
+            
                 <label>Collect Date</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+              
         </div>
-        <div class="form-group">
-            <div>
+        <div class="form-group col-md-4">
+            
                 <label>Date</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+                
         </div>
-        <div class="form-group">
-            <div>
+        <div class="clearfix"></div>
+        <div class="form-group col-md-4">
+            
                 <label>Department</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+                
         </div>
-        <div class="form-group">
-            <div>
+        <div class="clearfix"></div>
+        <div class="form-group col-md-4">
+            
                 <label>Type</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+             
         </div>
-        <div class="form-group">
-            <div>
+        <div class="clearfix"></div>
+        <div class="form-group col-md-4">
+            
                 <label>Customer Name</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+               
         </div>
-        <div class="form-group">
-            <div>
+        <div class="form-group col-md-4">
+            
                 <label>Contact Person</label>
-            </div>    
+                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+               
         </div>
     </div>    
 </div>
@@ -105,15 +118,33 @@
                <thead>
                    <tr>
                        <th nowrap="nowrap">Branch</th>
-                       <th nowrap="nowrap">CN Number</th>
+                       <th nowrap="nowrap">Refund Number</th>
+                       <th nowrap="nowrap">Transac Number</th>
+                        <th nowrap="nowrap">Collect Date</th>
                        <th nowrap="nowrap">Date</th>
+                        <th nowrap="nowrap">Dept</th>
                        <th nowrap="nowrap">Type</th>
-                       <th nowrap="nowrap">Dept</th>
                        <th nowrap="nowrap">Customer</th>
                        <th nowrap="nowrap">CP</th>
                        <th nowrap="nowrap">Action</th>
                    </tr>
                </thead>
+               <tbody>
+                   {% for data in data %}
+                   <tr>
+                       <td nowrap="nowrap">{{ data.cabang_nama }}</td>
+                       <td nowrap="nowrap">{{ data.refund_no }}</td>
+                       <td nowrap="nowrap">{{ data.transaksi_no }}</td>
+                       <td nowrap="nowrap">{{ data.collect_date }}</td>
+                       <td nowrap="nowrap">{{ data.date }}</td>
+                       <td nowrap="nowrap">{{ data.dept_nama }}</td>
+                       <td nowrap="nowrap">{{ data.refund_type }}</td>
+                       <td nowrap="nowrap">{{ data.customer_name }}</td>
+                       <td nowrap="nowrap">{{ data.cp }}</td>
+                       <td nowrap="nowrap"><a href="{{ base_url }}index.php/accounting/refund/form/?id={{ data.id_cc|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/accounting/refund/delete/?id={{ data.id_cc|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+                   </tr>
+                   {% endfor %} 
+               </tbody>
           </table>
         </div>    
     </div>    

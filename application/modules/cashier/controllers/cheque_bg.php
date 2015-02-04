@@ -6,7 +6,7 @@ class Cheque_bg extends CI_Controller {
         $this->load->library('twig');
 	$this->load->helper('url');
 	$this->load->library("pagination");
-        $this->load->model('modelcheque');
+        $this->load->model('modelbg');
     }
     
     public function form(){
@@ -31,10 +31,7 @@ class Cheque_bg extends CI_Controller {
 				"links" => $getRow["links"],
 			);
                         
-			$content = array (
-				"log" => $log,
-				"base_url" => base_url(),
-			);
+			
 			$this->twig->display("cheque_bg/formchequebg", $content);
 		}
 	}

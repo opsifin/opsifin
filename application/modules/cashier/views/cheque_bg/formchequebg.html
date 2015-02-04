@@ -138,7 +138,7 @@
                        <th nowrap="nowrap">Action</th>
                    </tr>
                </thead>
-               <thead>
+               <tbody>
                    {% for data in data %}
                    <tr>
                        <td nowrap="nowrap">{{ data.cabang_nama }}</td>
@@ -153,7 +153,7 @@
                        <td nowrap="nowrap"><a href="{{ base_url }}index.php/cashier/cheque_bg/form/?id={{ data.id_cheque|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/cashier/cheque_bg/delete/?id={{ data.id_cheque|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
                    </tr>
                    {% endfor %} 
-               </thead>
+               </tbody>
           </table>
         </div>    
     </div>    
