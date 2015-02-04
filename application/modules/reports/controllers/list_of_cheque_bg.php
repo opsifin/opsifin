@@ -17,7 +17,7 @@ class list_of_cheque_bg extends CI_Controller {
 				"log" => $log,
 				"base_url" => base_url(),
 			);
-			$this->twig->display("home", $content);
+			$this->twig->display("list_of_cheque_bg", $content);
 		}
 	}
 	

@@ -17,7 +17,7 @@ class bank_office_jurnal_summary extends CI_Controller {
 				"log" => $log,
 				"base_url" => base_url(),
 			);
-			$this->twig->display("home", $content);
+			$this->twig->display("bank_office_jurnal_summary", $content);
 		}
 	}
 	

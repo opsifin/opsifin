@@ -17,7 +17,7 @@ class sub_ledger extends CI_Controller {
 				"log" => $log,
 				"base_url" => base_url(),
 			);
-			$this->twig->display("home", $content);
+			$this->twig->display("sub_ledger", $content);
 		}
 	}
 	

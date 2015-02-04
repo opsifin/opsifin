@@ -17,7 +17,7 @@ class jurnal_memorial_summary extends CI_Controller {
 				"log" => $log,
 				"base_url" => base_url(),
 			);
-			$this->twig->display("home", $content);
+			$this->twig->display("jurnal_memorial_summary", $content);
 		}
 	}
 	

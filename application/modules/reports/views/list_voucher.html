@@ -1,0 +1,89 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            List Of Invoice 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <h4>Invoice</h4><br>
+        <form action="{{ base_url }}index.php/reports/list_of_invoice/save" method="post" name="form1">
+    </div>
+    <div class="form-group">
+            <div>
+                <label>Branch</label>
+                <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+    
+    <div class="form-group">
+            <div>
+                <label>Report Type</label>
+                <select class="form-control" id="report_type">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+               <label>From</label>
+               <input type="date" name="from" id="datepicker">
+            </div>
+        </div>  
+        <div class="form-group">
+            <div>
+               <label>to</label>
+               <input type="date" name="to" id="datepicker">
+            </div>
+        </div>
+    <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="invoce_date"> Invoice Date</label>
+            </div>      
+        </div>
+     <div class="form-group">
+            <div>
+                <label>Printed/Not</label>
+                <select class="form-control" id="printed">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Status</label>
+                <select class="form-control" id="status">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Costumer</label>
+                <select class="form-control" id="costumer">
+                    
+                </select>
+            </div>    
+        </div>
+
+<input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
+{% endblock %}

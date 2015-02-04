@@ -17,7 +17,7 @@ class balance_sheet_consolidation extends CI_Controller {
 				"log" => $log,
 				"base_url" => base_url(),
 			);
-			$this->twig->display("home", $content);
+			$this->twig->display("balance_sheet_consolidation", $content);
 		}
 	}
 	

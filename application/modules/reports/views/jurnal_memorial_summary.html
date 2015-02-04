@@ -1,0 +1,96 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Jurnal Memorial Summary
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-sm-9">
+        <h4>Jurnal Memorial Summary</h4><br>
+        <form action="{{ base_url }}index.php/reports/jurnal_memorial_summary/save" method="post" name="form1">
+    </div>
+    <div class="form-group width150">
+            <div>
+                <label>Branch</label>
+                <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group width150">
+        <label>JM No</label>
+        <input class="form-control" id="no_jm" name="no_jm" type="text" value="{{ jm_number }}" />
+      </div>
+    <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="all_ccy"> All Ccy</label>
+            </div>
+    <div class="form-group width150">
+            <div>
+                <label>From COA</label>
+                <select class="form-control" id="from_coa">
+                    
+                </select>
+            </div>    
+        </div>
+    
+    <div class="form-group width150">
+            <div>
+                <label>To COA</label>
+                <select class="form-control" id="to_coa">
+                    
+                </select>
+            </div>    
+        </div>
+     <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="by_date"> By Date</label>
+            </div>
+        </div>
+    <div class="form-group">
+            <div>
+               <label>From</label>
+               <input type="date" name="from" id="datepicker">
+            </div>
+        </div>  
+        <div class="form-group">
+            <div>
+               <label>to</label>
+               <input type="date" name="to" id="datepicker">
+            </div>
+        </div>
+         <div class="form-group width150">
+            <div>
+                <label>Status</label>
+                <select class="form-control" id="status">
+                    
+                </select>
+            </div>    
+        </div>
+         <div class="form-group width150">
+            <div>
+                <label>Sort</label>
+                <select class="form-control" id="sort">
+                    
+                </select>
+            </div>    
+        </div>
+         <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
+{% endblock %}

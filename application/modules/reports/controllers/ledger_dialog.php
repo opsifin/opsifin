@@ -17,7 +17,7 @@ class ledger_dialog extends CI_Controller {
 				"log" => $log,
 				"base_url" => base_url(),
 			);
-			$this->twig->display("home", $content);
+			$this->twig->display("ledger_dialog", $content);
 		}
 	}
 	

@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Refund Summary 
+            List Of Invoice 
         </h1>
 
         <ol class="breadcrumb">
@@ -23,13 +23,21 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h4>Refund Summary</h4><br>
-        <form action="{{ base_url }}index.php/reports/refund_summary/save" method="post" name="form1">
+        <h4>Invoice</h4><br>
+        <form action="{{ base_url }}index.php/reports/list_of_invoice/save" method="post" name="form1">
     </div>
     <div class="form-group">
             <div>
                 <label>Branch</label>
                 <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Report Type</label>
+                <select class="form-control" id="report_type">
                     
                 </select>
             </div>    
@@ -44,23 +52,6 @@
         </div>
     <div class="form-group">
             <div>
-                <label>Costumer</label>
-                <select class="form-control" id="costumer">
-                    
-                </select>
-            </div>    
-        </div>
-    <div class="form-group">
-        <label>By</label>
-            <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="refund"> Refund Date</label>
-            </div>
-            <div class="radio-inline">
-                <label><input type="radio"  name="v_type" value="cs_date"> Cs Date</label>
-            </div>      
-        </div>
-    <div class="form-group">
-            <div>
                <label>From</label>
                <input type="date" name="from" id="datepicker">
             </div>
@@ -71,9 +62,32 @@
                <input type="date" name="to" id="datepicker">
             </div>
         </div>
+     <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="invoce_date"> Invoice Date</label>
+            </div>
+            <div class="radio-inline">
+                <label><input type="radio"  name="v_type" value="cute_date"> Cute Date</label>
+            </div>      
+        </div>
     <div class="form-group">
             <div>
-                <label>View Option</label><br>
+                <label>Printed/Not</label>
+                <select class="form-control" id="printed">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
+                <label>Status</label>
+                <select class="form-control" id="status">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div>
                 <label>User</label>
                 <select class="form-control" id="user">
                     
@@ -82,37 +96,11 @@
         </div>
     <div class="form-group">
             <div>
-                <label>View Type</label>
-                <select class="form-control" id="view_type">
+                <label>Costumer</label>
+                <select class="form-control" id="costumer">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group">
-            <div>
-                <label>Report type</label>
-                <select class="form-control" id="report_type">
-                    
-                </select>
-            </div>    
-        </div>
-    <div class="form-group">
-            <div>
-                <label>Sort By</label>
-                <select class="form-control" id="sort_by">
-                    
-                </select>
-            </div>    
-        </div>
-    <div class="form-group">
-            <div>
-                <label>Air Line</label>
-                <select class="form-control" id="air_line">
-                    
-                </select>
-            </div>    
-        </div>
-    </div>
- <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">  
-</div>
+    <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
 {% endblock %}

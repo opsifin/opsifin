@@ -1,0 +1,70 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+           Gain Loss Forex
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <h4>Gain Loss Forex Dialog</h4><br>
+        <form action="{{ base_url }}index.php/reports/gain_loss_forex/save" method="post" name="form1">
+    </div>
+    <div class="form-group width150">
+            <div>
+                <label>Branch</label>
+                <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="all_curency"> All Curency</label>
+            </div>
+    <div class="form-group width150">
+            <div>
+                <label>From COA</label>
+                <select class="form-control" id="from_coa">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group width150">
+            <div>
+                <label>To COA</label>
+                <select class="form-control" id="to_coa">
+                    
+                </select>
+            </div>    
+        </div>
+        <div class="form-group">
+            <div>
+               <label>From</label>
+               <input type="date" name="from" id="datepicker">
+            </div>
+        </div>  
+        <div class="form-group">
+            <div>
+               <label>to</label>
+               <input type="date" name="to" id="datepicker">
+            </div>
+        </div>
+    
+    <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
+{% endblock %}

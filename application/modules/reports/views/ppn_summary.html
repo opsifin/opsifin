@@ -4,8 +4,8 @@
  <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-       <h1 class="page-header">
-            Outstanding Transaction 
+        <h1 class="page-header">
+            Refund Summary 
         </h1>
 
         <ol class="breadcrumb">
@@ -23,8 +23,8 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h4>Outstanding Saldo</h4><br>
-        <form action="{{ base_url }}index.php/reports/outstanding_transaction/save" method="post" name="form1">
+        <h4>PPN Summary</h4><br>
+        <form action="{{ base_url }}index.php/reports/ppn_summary/save" method="post" name="form1">
     </div>
     <div class="form-group">
             <div>
@@ -36,26 +36,31 @@
         </div>
     <div class="form-group">
             <div>
-                <label>Type</label>
-                <select class="form-control" id="type">
-                    
-                </select>
-            </div>    
-        </div>
-    <div class="form-group">
-            <div>
-               <label>Date</label>
-               <input type="date" name="from" id="datepicker">
-            </div>
-        </div>  
-    <div class="form-group">
-            <div>
-                <label>View Option</label><br>
                 <label>Department</label>
                 <select class="form-control" id="department">
                     
                 </select>
             </div>    
+        </div>
+    <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="invoice_date"> Invoice Date</label>
+            </div>
+            <div class="radio-inline">
+                <label><input type="radio"  name="v_type" value="tax_date"> Tax Date</label>
+            </div>      
+        </div>
+    <div class="form-group">
+            <div>
+               <label>From</label>
+               <input type="date" name="from" id="datepicker">
+            </div>
+        </div>  
+        <div class="form-group">
+            <div>
+               <label>to</label>
+               <input type="date" name="to" id="datepicker">
+            </div>
         </div>
     <div class="form-group">
             <div>
@@ -67,32 +72,30 @@
         </div>
     <div class="form-group">
             <div>
-                <label>Currency</label>
-                <select id="currency" name="currency" class="form-control" onchange="getRates()">
-                    <option value="">Select</option>
-                    {% for curr in currency %}
-                    <option value="{{ curr.currency }}" {% if curr.currency == edit.currency %} selected="selected" {% endif %}>{{ curr.currency }}</option>
-                    {% endfor %}
-                </select>
-            </div>    
-        </div>
-    <div class="form-group">
-            <div>
-                <label>User</label>
-                <select class="form-control" id="user">
+                <label>Type</label>
+                <select class="form-control" id="status">
                     
                 </select>
             </div>    
         </div>
     <div class="form-group">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="original_ccy"> Original Ccy</label>
+            </div>
+        </div>
+    <div class="form-group">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="Perodtype"> By PerodType</label>
+            </div>
+        </div>
+    <div class="form-group">
             <div>
-                <label>Dealer</label>
-                <select class="form-control" id="dealer">
+                <label>Rate</label>
+                <select class="form-control" id="rate">
                     
                 </select>
             </div>    
         </div>
-    </div>
     <div class="form-group">
             <div>
                 <label>Costumer</label>
@@ -101,15 +104,6 @@
                 </select>
             </div>    
         </div>
-    <div class="form-group">
-            <div>
-                <label>Report Type</label>
-                <select class="form-control" id="report_type">
-                    
-                </select>
-            </div>    
-        </div>
+    <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
 
- <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">  
-
-    {% endblock %}
+{% endblock %}

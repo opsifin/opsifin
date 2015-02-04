@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class gain_loss extends CI_Controller {	
+class gain_loss_forex extends CI_Controller {	
 	public function __construct()
 	{
 		parent::__construct();
@@ -17,7 +17,7 @@ class gain_loss extends CI_Controller {
 				"log" => $log,
 				"base_url" => base_url(),
 			);
-			$this->twig->display("home", $content);
+			$this->twig->display("gain_loss_forex", $content);
 		}
 	}
 	

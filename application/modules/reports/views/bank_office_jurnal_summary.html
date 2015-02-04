@@ -1,0 +1,108 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            List Of Cheque BG
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <h4>Jurnal Summary Dialog</h4><br>
+        <form action="{{ base_url }}index.php/reports/bank_office_jurnal_summary/save" method="post" name="form1">
+    </div>
+    <div class="form-group width150">
+            <div>
+                <label>Branch</label>
+                <select class="form-control" id="branch">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="summary"> Summary</label>
+            </div>
+        </div>
+    <div class="form-group width150">
+        <label>Jurnal No</label>
+        <input class="form-control" id="no_jutnal" name="no_jurnal" type="text" value="{{ jurnal_number }}" />
+      </div>
+    <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="all"> All</label>
+            </div>
+        </div>
+    <div class="form-group width150">
+            <div>
+                <label>Department</label>
+                <select class="form-control" id="department">
+                    
+                </select>
+            </div>    
+        </div>
+    <div class="form-group width150">
+        <label>Reference No</label><br>
+        <label>Invoice or Other</label>
+        <input class="form-control" id="no_jutnal" name="no_reference" type="text" value="{{ reference_number }}" />
+      </div>
+    <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="by_date"> By Date</label>
+            </div>
+        </div>
+    <div class="form-group">
+            <div>
+               <label>From</label>
+               <input type="date" name="from" id="datepicker">
+            </div>
+        </div>  
+        <div class="form-group">
+            <div>
+               <label>to</label>
+               <input type="date" name="to" id="datepicker">
+            </div>
+        </div>
+    <div class="form-group">
+        <label>Criteria</label>
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="criteria"> Posted & Unposted</label>
+            </div>
+        </div>
+    <div class="form-group width200">
+          <label>Criteria</label>
+          <select class="form-control" name="criteria" id="critera">
+            <option value="back_office_jurnal" {% if edit.invoice_type =='back_office_jurnal' %} selected="selected" {% endif %}>Back Office Jurnal</option>
+            <option value="cair" {% if edit.invoice_type =='cair' %} selected="selected" {% endif %}>Cair</option>
+            <option value="cash_req_sett" {% if edit.invoice_type =='cash_req_sett' %} selected="selected" {% endif %}>Cash Req Settlment Cancellation</option>
+            <option value="cash_req_sett_cancel" {% if edit.invoice_type =='cash_req_sett_cancel' %} selected="selected" {% endif %}>Cash Request Cancellation</option>
+            <option value="cash_req_cancel" {% if edit.invoice_type =='cash_req_cancel' %} selected="selected" {% endif %}>Cash Request Payment</option>
+          </select>
+        </div>
+    
+    <div class="form-group">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="criteria"> Select All Criteria</label>
+            </div>
+        <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="criteria"> Unselect All Criteria</label>
+            </div>
+        </div>
+    
+<input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
+{% endblock %}
