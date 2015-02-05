@@ -69,10 +69,10 @@ class __TwigTemplate_e2cfdc813f666c99379ea858adc56fe9 extends Twig_Template
       </div>
         <div class=\"form-group width150\">
           <label>Date</label>
-          <input class=\"form-control\" id=\"tanggal_pv\"  onfocus=\"gfPop.fPopCalendar(this);\" name=\"tanggal_pv\" type=\"text\" value=\"";
+          <input onfocus=\"gfPop.fPopCalendar(this);\" class=\"form-control\" id=\"datepicker\" name=\"tanggal_transaksi\" type=\"date\" value=\"";
         // line 35
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "tanggal_rv"), "html", null, true);
-        echo "\" />
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "tanggal_transaksi"), "html", null, true);
+        echo "\"  required />               
         </div>
       <div class=\"form-group width200\">
           <label>Receipt Type </label>

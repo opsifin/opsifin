@@ -57,50 +57,56 @@ class __TwigTemplate_2ffbf9d22d8405887e16753c99db9e6a extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/summary_of_sales/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group\">
-            <div>
+        <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
-            </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
+            </div>  
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
         </div>
-    <div class=\"form-group\">
-            <div>
-                <label>Branch</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    
-    <div class=\"form-group\">
-            <div>
-                <label>Department</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Department</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"department\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div>
-                <label>Product Code</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Product Code</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"product_code\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-        <label>Report Type</label><br>
+    <div class=\"form-group col-lg-12\">
+        <h4>Report Type</h4>
             <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"dialy_sales\"> Daily Sales By Currency</label>
-            </div>      
+                <label><input type=\"checkbox\" name=\"v_type\" value=\"without_costumer\"> Daily Sales By Currency</label>
+            </div>
         </div>
-    
 <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }

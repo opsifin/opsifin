@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            List Of Invoice 
+            List Voucher
         </h1>
 
         <ol class="breadcrumb">
@@ -23,67 +23,79 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h4>Invoice</h4><br>
-        <form action="{{ base_url }}index.php/reports/list_of_invoice/save" method="post" name="form1">
+        <h4>Voucher</h4><br>
+        <form action="{{ base_url }}index.php/reports/list_voucher/save" method="post" name="form1">
     </div>
-    <div class="form-group">
-            <div>
-                <label>Branch</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Branch</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="branch">
                     
                 </select>
             </div>    
         </div>
-    
-    <div class="form-group">
-            <div>
-                <label>Report Type</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Report Type</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="report_type">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group">
-            <div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
                <label>From</label>
+       </div>
+       <div class="col-md-3">
                <input type="date" name="from" id="datepicker">
             </div>
-        </div>  
-        <div class="form-group">
-            <div>
-               <label>to</label>
+        <div class="col-md-2">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="invoce_date"> Inv. Date</label>
+            </div>
+        </div>
+    </div>
+        <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>to</label>
+        </div>
+            <div class="col-md-3">
                <input type="date" name="to" id="datepicker">
             </div>
         </div>
-    <div class="form-group">
-            <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="invoce_date"> Invoice Date</label>
-            </div>      
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Printed/Not</label>
         </div>
-     <div class="form-group">
-            <div>
-                <label>Printed/Not</label>
-                <select class="form-control" id="printed">
+            <div class="col-md-3">
+                <select class="form-control" id="printed_not">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group">
-            <div>
-                <label>Status</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Status</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="status">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group">
-            <div>
-                <label>Costumer</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Costumer</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="costumer">
                     
                 </select>
             </div>    
         </div>
-
 <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
 {% endblock %}

@@ -57,76 +57,107 @@ class __TwigTemplate_09e2c622d1a6e7df3f21e62d8853760c extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/jurnal_memorial_summary/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Branch</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-        <label>JM No</label>
-        <input class=\"form-control\" id=\"no_jm\" name=\"no_jm\" type=\"text\" value=\"";
-        // line 39
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>JM No</label>
+        </div>
+        <div class=\"col-md-3\">
+            <input class=\"form-control\" id=\"no_jm\" name=\"no_jm\" type=\"text\" value=\"";
+        // line 44
         echo twig_escape_filter($this->env, (isset($context["jm_number"]) ? $context["jm_number"] : null), "html", null, true);
         echo "\" />
-      </div>
-    <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all_ccy\"> All Ccy</label>
-            </div>
-    <div class=\"form-group width150\">
-            <div>
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                 <label>From COA</label>
+            </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"from_coa\">
                     
                 </select>
-            </div>    
+            </div>
+        <div class=\"col-md-1\">
+            <input class=\"form-control\" id=\"from_coa\" name=\"from_coa\" type=\"text\" value=\"";
+        // line 57
+        echo twig_escape_filter($this->env, (isset($context["from_coa"]) ? $context["from_coa"] : null), "html", null, true);
+        echo "\" />
         </div>
-    
-    <div class=\"form-group width150\">
-            <div>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
+                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all_ccy\"> All Ccy</label>
+            </div>
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                 <label>To COA</label>
+            </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"to_coa\">
                     
                 </select>
-            </div>    
-        </div>
-     <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"by_date\"> By Date</label>
             </div>
+        <div class=\"col-md-1\">
+            <input class=\"form-control\" id=\"to_coa\" name=\"to_coa\" type=\"text\" value=\"";
+        // line 75
+        echo twig_escape_filter($this->env, (isset($context["to_coa"]) ? $context["to_coa"] : null), "html", null, true);
+        echo "\" />
         </div>
-    <div class=\"form-group\">
-            <div>
+        </div>
+    <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
             </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
+                  <label><input type=\"checkbox\" name=\"v_type\" value=\"invoce_date\"> By Date</label>
+            </div>
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
         </div>
-         <div class=\"form-group width150\">
-            <div>
-                <label>Status</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Status</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"status\">
                     
                 </select>
             </div>    
         </div>
-         <div class=\"form-group width150\">
-            <div>
-                <label>Sort</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Sort</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"sort\">
                     
                 </select>
             </div>    
         </div>
-         <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
+ </div>
+ <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }
 
@@ -142,6 +173,6 @@ class __TwigTemplate_09e2c622d1a6e7df3f21e62d8853760c extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  70 => 39,  55 => 27,  29 => 3,  26 => 2,);
+        return array (  112 => 75,  91 => 57,  75 => 44,  55 => 27,  29 => 3,  26 => 2,);
     }
 }

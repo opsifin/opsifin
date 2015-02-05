@@ -57,7 +57,7 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/list_of_cheque_bg/save\" method=\"post\" name=\"form1\">
     </div>
-<div class=\"form-group\">
+<div class=\"form-group col-lg-12\">
             <div class=\"checkbox-inline\">
                   <label><input type=\"checkbox\" name=\"v_type\" value=\"bg_cheque\"> BG/Cheque</label>
             </div>
@@ -68,83 +68,97 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
                 <label><input type=\"checkbox\"  name=\"v_type\" value=\"transfer_da\"> Transfer DA</label>
             </div>
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Branch</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"by_date\"> By Date</label>
-            </div>
-    </div>
-    <div class=\"form-group\">
-            <div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                <label>From</label>
+            </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
             </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
+        </div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                <label>to</label>
+            </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
+            <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
+                  <label><input type=\"checkbox\" name=\"v_type\" value=\"invoce_date\"> By Date</label>
+            </div>
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Type</label>
+    </div>    
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Type</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"type\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>References</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>References</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"references\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width200\">
-          <label>Transaction </label>
+    <div class=\"form-group col-lg-12\">
+          <div class=\"col-md-2\">
+            <label>Transaction</label>
+        </div>
+        <div class=\"col-md-3\">
           <select class=\"form-control\" name=\"transaction\" id=\"transaction\">
             <option value=\"all_transaction\" ";
-        // line 84
+        // line 97
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "all_transaction")) {
             echo " selected=\"selected\" ";
         }
         echo ">All Transaction</option>
             <option value=\"invoice_trans\" ";
-        // line 85
+        // line 98
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "invoice_trans")) {
             echo " selected=\"selected\" ";
         }
         echo ">Invoice Transaction</option>
             <option value=\"rv_trans\" ";
-        // line 86
+        // line 99
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "rv_trans")) {
             echo " selected=\"selected\" ";
         }
         echo ">RV Transaction</option>
             <option value=\"cash_req_sett\" ";
-        // line 87
+        // line 100
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "cash_req_sett")) {
             echo " selected=\"selected\" ";
         }
         echo ">Cash Req Settlment</option>
             <option value=\"pv_payment\" ";
-        // line 88
+        // line 101
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "pv_payment")) {
             echo " selected=\"selected\" ";
         }
         echo ">PV Payment</option>
           </select>
         </div>
-    <div class=\"form-group\">
+    </div>
+    <div class=\"form-group col-lg-12\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"criteria\"> Select All Transaction</label>
             </div>
@@ -152,47 +166,54 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
                   <label><input type=\"radio\" name=\"v_type\" value=\"criteria\"> Unselect All Transaction</label>
             </div>
         </div>
-    
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Criteria</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"critera\">
+                    
+                </select>
+            </div>
+        <div class=\"col-md-2\">
             <div class=\"checkbox-inline\">
                   <label><input type=\"checkbox\" name=\"v_type\" value=\"all\"> All</label>
             </div>
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Criteria</label>
-                <select class=\"form-control\" id=\"critera\">
-                    
-                </select>
-            </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Bank Name</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Bank Name</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"bank_nama\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>User</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>User</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"user\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Currency</label>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Currency</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select id=\"currency\" name=\"currency\" class=\"form-control\" onchange=\"getRates()\">
                     <option value=\"\">Select</option>
                     ";
-        // line 134
+        // line 155
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["currency"]) ? $context["currency"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["curr"]) {
-            // line 135
+            // line 156
             echo "                    <option value=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["curr"]) ? $context["curr"] : null), "currency"), "html", null, true);
             echo "\" ";
@@ -207,11 +228,10 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['curr'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 137
+        // line 158
         echo "                </select>
             </div>    
         </div>
-
 <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }
@@ -228,6 +248,6 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  209 => 137,  194 => 135,  190 => 134,  139 => 88,  133 => 87,  127 => 86,  121 => 85,  115 => 84,  55 => 27,  29 => 3,  26 => 2,);
+        return array (  230 => 158,  215 => 156,  211 => 155,  152 => 101,  146 => 100,  140 => 99,  134 => 98,  128 => 97,  55 => 27,  29 => 3,  26 => 2,);
     }
 }

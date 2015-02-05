@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            List Of Cheque BG
+            Bank Office Jurnal Summary
         </h1>
 
         <ol class="breadcrumb">
@@ -26,66 +26,91 @@
         <h4>Jurnal Summary Dialog</h4><br>
         <form action="{{ base_url }}index.php/reports/bank_office_jurnal_summary/save" method="post" name="form1">
     </div>
-    <div class="form-group width150">
-            <div>
-                <label>Branch</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Branch</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="branch">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group">
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>Jurnal No</label>
+        </div>
+        <div class="col-md-3">
+            <input class="form-control" id="no_jurnal" name="no_jurnal" type="text" value="{{ no_jurnal}}" />
+        </div>
+        <div class="col-md-2">
             <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="summary"> Summary</label>
+                  <label><input type="checkbox" name="v_type" value="all_ccy"> Summary</label>
             </div>
         </div>
-    <div class="form-group width150">
-        <label>Jurnal No</label>
-        <input class="form-control" id="no_jutnal" name="no_jurnal" type="text" value="{{ jurnal_number }}" />
-      </div>
-    <div class="form-group">
-            <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="all"> All</label>
-            </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Department</label>
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>Department</label>
+            <div class="col-md-3">
                 <select class="form-control" id="department">
                     
                 </select>
-            </div>    
-        </div>
-    <div class="form-group width150">
-        <label>Reference No</label><br>
-        <h6>Invoice or Other</h6>
-        <input class="form-control" id="no_jutnal" name="no_reference" type="text" value="{{ reference_number }}" />
-      </div>
-    <div class="form-group">
+            </div>
+        <div class="col-md-2">
             <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="by_date"> By Date</label>
+                  <label><input type="checkbox" name="v_type" value="all_ccy"> All</label>
             </div>
         </div>
-    <div class="form-group">
+        </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>References No</label>
+        </div>
+        <div class="col-md-3">
+            <input class="form-control" id="no_ref" name="no_ref" type="text" value="{{ no_ref}}" />
+        </div>
+        <div class="col-md-2">
             <div>
+                <h6>Invoice Or Other</h6>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
                <label>From</label>
+       </div>
+       <div class="col-md-3">
                <input type="date" name="from" id="datepicker">
             </div>
-        </div>  
-        <div class="form-group">
-            <div>
-               <label>to</label>
+        <div class="col-md-2">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="invoce_date"> By Date</label>
+            </div>
+        </div>
+    </div>
+        <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>to</label>
+        </div>
+            <div class="col-md-3">
                <input type="date" name="to" id="datepicker">
             </div>
         </div>
-    <div class="form-group">
-        <label>Criteria</label>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>Criteria</label>
+        </div>
             <div class="checkbox-inline">
                   <label><input type="checkbox" name="v_type" value="criteria"> Posted & Unposted</label>
             </div>
         </div>
-    <div class="form-group width200">
-          <label>Criteria</label>
+    <div class="form-group col-lg-12">
+          <div class="col-md-2">
+            <label>Criteria</label>
+        </div>
+        <div class="col-md-3">
           <select class="form-control" name="criteria" id="critera">
             <option value="back_office_jurnal" {% if edit.invoice_type =='back_office_jurnal' %} selected="selected" {% endif %}>Back Office Jurnal</option>
             <option value="cair" {% if edit.invoice_type =='cair' %} selected="selected" {% endif %}>Cair</option>
@@ -94,13 +119,13 @@
             <option value="cash_req_cancel" {% if edit.invoice_type =='cash_req_cancel' %} selected="selected" {% endif %}>Cash Request Payment</option>
           </select>
         </div>
-    
-    <div class="form-group">
+    </div>
+    <div class="form-group col-lg-12">
             <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="criteria"> Select All Criteria</label>
+                  <label><input type="radio" name="v_type" value="criteria"> Select All Transaction</label>
             </div>
         <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="criteria"> Unselect All Criteria</label>
+                  <label><input type="radio" name="v_type" value="criteria"> Unselect All Transaction</label>
             </div>
         </div>
     

@@ -26,7 +26,7 @@
         <h4>List Of BG/Credit Card/Transfer/Debet BCA</h4><br>
         <form action="{{ base_url }}index.php/reports/list_of_cheque_bg/save" method="post" name="form1">
     </div>
-<div class="form-group">
+<div class="form-group col-lg-12">
             <div class="checkbox-inline">
                   <label><input type="checkbox" name="v_type" value="bg_cheque"> BG/Cheque</label>
             </div>
@@ -37,49 +37,62 @@
                 <label><input type="checkbox"  name="v_type" value="transfer_da"> Transfer DA</label>
             </div>
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>Branch</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Branch</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="branch">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group">
-            <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="by_date"> By Date</label>
-            </div>
-    </div>
-    <div class="form-group">
-            <div>
+    <div class="form-group col-lg-12">
+            <div class="col-md-2">
                <label>From</label>
+            </div>
+            <div class="col-md-3">
                <input type="date" name="from" id="datepicker">
             </div>
-        </div>  
-        <div class="form-group">
-            <div>
+        </div>
+    <div class="form-group col-lg-12">
+            <div class="col-md-2">
                <label>to</label>
+            </div>
+            <div class="col-md-3">
                <input type="date" name="to" id="datepicker">
             </div>
+            <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="invoce_date"> By Date</label>
+            </div>
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>Type</label>
+    </div>    
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Type</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="type">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>References</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>References</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="references">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group width200">
-          <label>Transaction </label>
+    <div class="form-group col-lg-12">
+          <div class="col-md-2">
+            <label>Transaction</label>
+        </div>
+        <div class="col-md-3">
           <select class="form-control" name="transaction" id="transaction">
             <option value="all_transaction" {% if edit.invoice_type =='all_transaction' %} selected="selected" {% endif %}>All Transaction</option>
             <option value="invoice_trans" {% if edit.invoice_type =='invoice_trans' %} selected="selected" {% endif %}>Invoice Transaction</option>
@@ -88,7 +101,8 @@
             <option value="pv_payment" {% if edit.invoice_type =='pv_payment' %} selected="selected" {% endif %}>PV Payment</option>
           </select>
         </div>
-    <div class="form-group">
+    </div>
+    <div class="form-group col-lg-12">
             <div class="radio-inline">
                   <label><input type="radio" name="v_type" value="criteria"> Select All Transaction</label>
             </div>
@@ -96,39 +110,46 @@
                   <label><input type="radio" name="v_type" value="criteria"> Unselect All Transaction</label>
             </div>
         </div>
-    
-    <div class="form-group">
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Criteria</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="critera">
+                    
+                </select>
+            </div>
+        <div class="col-md-2">
             <div class="checkbox-inline">
                   <label><input type="checkbox" name="v_type" value="all"> All</label>
             </div>
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>Criteria</label>
-                <select class="form-control" id="critera">
-                    
-                </select>
-            </div>    
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>Bank Name</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Bank Name</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="bank_nama">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>User</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>User</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="user">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>Currency</label>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>Currency</label>
+        </div>
+            <div class="col-md-3">
                 <select id="currency" name="currency" class="form-control" onchange="getRates()">
                     <option value="">Select</option>
                     {% for curr in currency %}
@@ -137,6 +158,5 @@
                 </select>
             </div>    
         </div>
-
 <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
 {% endblock %}

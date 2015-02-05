@@ -57,88 +57,108 @@ class __TwigTemplate_c22ced2102dbc734808f42afc1746907 extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/list_of_invoice/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group\">
-            <div>
-                <label>Branch</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div>
-                <label>Report Type</label>
-                <select class=\"form-control\" id=\"report_type\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Report Type</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div>
-                <label>Department</label>
-                <select class=\"form-control\" id=\"department\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Department</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div>
+    <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
             </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
-               <input type=\"date\" name=\"to\" id=\"datepicker\">
-            </div>
-        </div>
-     <div class=\"form-group\">
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"invoce_date\"> Invoice Date</label>
             </div>
+        </div>
+    </div>
+        <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
+               <input type=\"date\" name=\"to\" id=\"datepicker\">
+            </div>
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
-                <label><input type=\"radio\"  name=\"v_type\" value=\"cute_date\"> Cute Date</label>
+                <label><input type=\"radio\"  name=\"v_type\" value=\"cute_date\"> Cut Date</label>
             </div>      
         </div>
-    <div class=\"form-group\">
-            <div>
-                <label>Printed/Not</label>
-                <select class=\"form-control\" id=\"printed\">
+    </div>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Printed/Not</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div>
-                <label>Status</label>
-                <select class=\"form-control\" id=\"status\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Status</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div>
-                <label>User</label>
-                <select class=\"form-control\" id=\"user\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>User</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div>
-                <label>Costumer</label>
-                <select class=\"form-control\" id=\"costumer\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Costumer</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"without_costumer\"> Without Costumer</label>
             </div>
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"add_invoice\"> Incl. Additional Invoice</label>
             </div>

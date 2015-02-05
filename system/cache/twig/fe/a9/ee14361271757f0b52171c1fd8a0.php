@@ -57,38 +57,58 @@ class __TwigTemplate_fea9ee14361271757f0b52171c1fd8a0 extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/ledger_dialog/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Branch</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all_curency\"> All Curency</label>
-            </div>
-    <div class=\"form-group width150\">
-            <div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                 <label>From COA</label>
+            </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"from_coa\">
                     
                 </select>
-            </div>    
-        </div>
-    <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"post_unpost\"> Posted & Unposted</label>
             </div>
-    <div class=\"form-group width150\">
-            <div>
+        <div class=\"col-md-1\">
+            <input class=\"form-control\" id=\"from_coa\" name=\"from_coa\" type=\"text\" value=\"";
+        // line 49
+        echo twig_escape_filter($this->env, (isset($context["from_coa"]) ? $context["from_coa"] : null), "html", null, true);
+        echo "\" />
+        </div>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
+                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all_ccy\"> All Curency</label>
+            </div>
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                 <label>To COA</label>
+            </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"to_coa\">
                     
                 </select>
-            </div>    
+            </div>
+        <div class=\"col-md-1\">
+            <input class=\"form-control\" id=\"to_coa\" name=\"to_coa\" type=\"text\" value=\"";
+        // line 67
+        echo twig_escape_filter($this->env, (isset($context["to_coa"]) ? $context["to_coa"] : null), "html", null, true);
+        echo "\" />
         </div>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
+                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all_ccy\"> Posted & Unposted</label>
+            </div>
+        </div>
+    </div>
     <div class=\"form-group\">
         <label>Filter By</label>
             <div class=\"radio-inline\">
@@ -156,6 +176,6 @@ class __TwigTemplate_fea9ee14361271757f0b52171c1fd8a0 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  55 => 27,  29 => 3,  26 => 2,);
+        return array (  101 => 67,  80 => 49,  55 => 27,  29 => 3,  26 => 2,);
     }
 }

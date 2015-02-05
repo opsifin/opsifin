@@ -33,7 +33,7 @@ class __TwigTemplate_10d65a75ba93b615ea947f9c4a9b5a4f extends Twig_Template
 <div class=\"row\">
     <div class=\"col-lg-12\">
         <h1 class=\"page-header\">
-            Refund Summary 
+            PPN Summary 
         </h1>
 
         <ol class=\"breadcrumb\">
@@ -57,23 +57,27 @@ class __TwigTemplate_10d65a75ba93b615ea947f9c4a9b5a4f extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/ppn_summary/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Branch</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Department</label>
-                <select class=\"form-control\" id=\"department\">
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Department</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"user\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"invoice_date\"> Invoice Date</label>
             </div>
@@ -81,56 +85,68 @@ class __TwigTemplate_10d65a75ba93b615ea947f9c4a9b5a4f extends Twig_Template
                 <label><input type=\"radio\"  name=\"v_type\" value=\"tax_date\"> Tax Date</label>
             </div>      
         </div>
-    <div class=\"form-group\">
-            <div>
+    <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
             </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
+    </div>
+        <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Status</label>
-                <select class=\"form-control\" id=\"status\">
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Status</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"user\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Type</label>
-                <select class=\"form-control\" id=\"status\">
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Type</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"user\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"original_ccy\"> Original Ccy</label>
             </div>
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"Perodtype\"> By PerodType</label>
             </div>
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Rate</label>
-                <select class=\"form-control\" id=\"rate\">
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Rates</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"user\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Costumer</label>
-                <select class=\"form-control\" id=\"costumer\">
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Costumer</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"user\">
                     
                 </select>
             </div>    

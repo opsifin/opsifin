@@ -23,41 +23,55 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h4>Jurnal Summary Dialog</h4><br>
+        <h4>Ledger Dialog</h4><br>
         <form action="{{ base_url }}index.php/reports/ledger_dialog/save" method="post" name="form1">
     </div>
-    <div class="form-group width150">
-            <div>
-                <label>Branch</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Branch</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="branch">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group">
-            <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="all_curency"> All Curency</label>
-            </div>
-    <div class="form-group width150">
-            <div>
+    <div class="form-group col-lg-12">
+            <div class="col-md-2">
                 <label>From COA</label>
+            </div>
+            <div class="col-md-3">
                 <select class="form-control" id="from_coa">
                     
                 </select>
-            </div>    
-        </div>
-    <div class="form-group">
-            <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="post_unpost"> Posted & Unposted</label>
             </div>
-    <div class="form-group width150">
-            <div>
+        <div class="col-md-1">
+            <input class="form-control" id="from_coa" name="from_coa" type="text" value="{{ from_coa }}" />
+        </div>
+        <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="all_ccy"> All Curency</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+            <div class="col-md-2">
                 <label>To COA</label>
+            </div>
+            <div class="col-md-3">
                 <select class="form-control" id="to_coa">
                     
                 </select>
-            </div>    
+            </div>
+        <div class="col-md-1">
+            <input class="form-control" id="to_coa" name="to_coa" type="text" value="{{ to_coa }}" />
         </div>
+        <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="all_ccy"> Posted & Unposted</label>
+            </div>
+        </div>
+    </div>
     <div class="form-group">
         <label>Filter By</label>
             <div class="radio-inline">

@@ -1,7 +1,7 @@
 <?php
 
-/* refund_summary.html */
-class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
+/* list_voucher.html */
+class __TwigTemplate_e8a5f51127f470be1d56c63ac7a0e2c5 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -33,7 +33,7 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
 <div class=\"row\">
     <div class=\"col-lg-12\">
         <h1 class=\"page-header\">
-            Refund Summary 
+            List Voucher
         </h1>
 
         <ol class=\"breadcrumb\">
@@ -51,11 +51,11 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
 
 <div class=\"row\">
     <div class=\"col-lg-12\">
-        <h4>Refund Summary</h4><br>
+        <h4>Voucher</h4><br>
         <form action=\"";
         // line 27
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
-        echo "index.php/reports/refund_summary/save\" method=\"post\" name=\"form1\">
+        echo "index.php/reports/list_voucher/save\" method=\"post\" name=\"form1\">
     </div>
     <div class=\"form-group col-lg-12\">
          <div class=\"col-md-2\">
@@ -69,34 +69,13 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
         </div>
     <div class=\"form-group col-lg-12\">
          <div class=\"col-md-2\">
-            <label>Department</label>
+            <label>Report Type</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"report_type\">
                     
                 </select>
             </div>    
-        </div>
-    <div class=\"form-group col-lg-12\">
-         <div class=\"col-md-2\">
-            <label>Costumer</label>
-        </div>
-            <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
-                    
-                </select>
-            </div>    
-        </div>
-    <div class=\"form-group col-lg-12\">
-        <div class=\"col-md-2\">
-            <label>By</label>
-        </div>
-            <div class=\"radio-inline\">
-                  <label><input type=\"radio\" name=\"v_type\" value=\"refund\"> Refund Date</label>
-            </div>
-            <div class=\"radio-inline\">
-                <label><input type=\"radio\"  name=\"v_type\" value=\"cs_date\"> Cs Date</label>
-            </div>      
         </div>
     <div class=\"form-group col-lg-12\">
        <div class=\"col-md-2\">
@@ -105,6 +84,11 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
        <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
             </div>
+        <div class=\"col-md-2\">
+            <div class=\"radio-inline\">
+                  <label><input type=\"radio\" name=\"v_type\" value=\"invoce_date\"> Inv. Date</label>
+            </div>
+        </div>
     </div>
         <div class=\"form-group col-lg-12\">
         <div class=\"col-md-2\">
@@ -115,64 +99,42 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
             </div>
         </div>
     <div class=\"form-group col-lg-12\">
-        <h4>View Option</h4><br>
-        <div class=\"col-md-2\">
-            <label>User</label>
+         <div class=\"col-md-2\">
+            <label>Printed/Not</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"user\">
+                <select class=\"form-control\" id=\"printed_not\">
                     
                 </select>
             </div>    
         </div>
     <div class=\"form-group col-lg-12\">
          <div class=\"col-md-2\">
-            <label>View Type</label>
+            <label>Status</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"status\">
                     
                 </select>
             </div>    
         </div>
     <div class=\"form-group col-lg-12\">
          <div class=\"col-md-2\">
-            <label>Report Type</label>
+            <label>Costumer</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"costumer\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group col-lg-12\">
-         <div class=\"col-md-2\">
-            <label>Sort By</label>
-        </div>
-            <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
-                    
-                </select>
-            </div>    
-        </div>
-    <div class=\"form-group col-lg-12\">
-         <div class=\"col-md-2\">
-            <label>Airline</label>
-        </div>
-            <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
-                    
-                </select>
-            </div>    
-        </div>
-    </div>
- <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
+<input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }
 
     public function getTemplateName()
     {
-        return "refund_summary.html";
+        return "list_voucher.html";
     }
 
     public function isTraitable()

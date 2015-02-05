@@ -57,56 +57,70 @@ class __TwigTemplate_358c7430fd1cba9b1f41b7d7c4184829 extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/outstanding_transaction/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Branch</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Type</label>
-                <select class=\"form-control\" id=\"type\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Type</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div>
-               <label>Date</label>
-               <input type=\"date\" name=\"from\" id=\"datepicker\">
-            </div>
-        </div>  
-    <div class=\"form-group width150\">
-            <div>
-                <h4>View Option</h4><br>
-                <label>Department</label>
-                <select class=\"form-control\" id=\"department\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Date</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
+                    
+                </select>
+            </div>    
+        </div> 
+    <div class=\"form-group col-lg-12\">
+        <h4>View Option</h4><br>
+        <div class=\"col-md-2\">
+            <label>Department</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"user\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Status</label>
-                <select class=\"form-control\" id=\"status\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Status</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Currency</label>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Currency</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select id=\"currency\" name=\"currency\" class=\"form-control\" onchange=\"getRates()\">
                     <option value=\"\">Select</option>
                     ";
-        // line 73
+        // line 87
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["currency"]) ? $context["currency"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["curr"]) {
-            // line 74
+            // line 88
             echo "                    <option value=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["curr"]) ? $context["curr"] : null), "currency"), "html", null, true);
             echo "\" ";
@@ -121,45 +135,51 @@ class __TwigTemplate_358c7430fd1cba9b1f41b7d7c4184829 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['curr'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 76
+        // line 90
         echo "                </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>User</label>
-                <select class=\"form-control\" id=\"user\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>User</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Dealer</label>
-                <select class=\"form-control\" id=\"dealer\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Dealer</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Costumer</label>
-                <select class=\"form-control\" id=\"costumer\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Costumer</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Report Type</label>
-                <select class=\"form-control\" id=\"report_type\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Report Type</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-
- <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">  
+    <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">  
 
     ";
     }
@@ -176,6 +196,6 @@ class __TwigTemplate_358c7430fd1cba9b1f41b7d7c4184829 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  123 => 76,  108 => 74,  104 => 73,  55 => 27,  29 => 3,  26 => 2,);
+        return array (  137 => 90,  122 => 88,  118 => 87,  55 => 27,  29 => 3,  26 => 2,);
     }
 }

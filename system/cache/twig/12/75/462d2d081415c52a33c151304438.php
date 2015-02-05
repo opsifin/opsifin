@@ -57,77 +57,89 @@ class __TwigTemplate_1275462d2d081415c52a33c151304438 extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/tur_cost_summary/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>View</label>
+    <div class=\"form-group col-md-12\">
+        <div class=\"col-md-2\">
+            <label>View</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"view\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Type</label>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Type</label>
+        </div>
+        <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"type\">
                     
                 </select>
             </div>    
         </div>  
-    <div class=\"form-group width150\">
-            <div>
-                <label>Category</label>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Category</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"type\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Product Type</label>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Product Type</label>
+            </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"product_type\">
                     
                 </select>
             </div>
-    </div>
-        <div class=\"form-group width150\">
-        <div>
-                <label>Region</label>
+        <div class=\"col-md-2\">
+            <label>Region</label>
+        </div>
+        <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"region\">
                     
                 </select>
             </div>
-        </div> 
-    <div class=\"form-group width150\">
-            <div>
-                <label>Report Type</label>
+    </div>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Report Type</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"report_type\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"tour_code\"> By Tour Code</label>
             </div>
         </div>
-   <div class=\"form-group\">
-            <div>
+   <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
-            </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
+            </div>  
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"periode\"> By Periode</label>
             </div>
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"depature\"> Depature Date</label>
             </div>
@@ -138,19 +150,21 @@ class __TwigTemplate_1275462d2d081415c52a33c151304438 extends Twig_Template
                 <label><input type=\"radio\"  name=\"v_type\" value=\"cosing_date\"> Cosing Date</label>
             </div>
         </div>
-    <div class=\"form-group\">
-            <div>
+    <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
-            </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
+            </div>  
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
         </div>
-    <div class=\"form-group\">
+    <div class=\"form-group col-lg-12\">
         <label>Sort By</label><br>
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"tour_code\"> Tour Code</label>

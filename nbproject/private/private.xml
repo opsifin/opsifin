@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
+        <file>
+            <url>application/modules/reports/views/refund_summary.html</url>
+            <bookmark id="2">
+                <name/>
+                <line>58</line>
+                <key/>
+            </bookmark>
+        </file>
         <file>
             <url>application/modules/main/controllers/coagroup.php</url>
             <bookmark id="1">
@@ -12,7 +20,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/web/trunk/application/modules/reports/views/outstanding_transaction.html</file>
+            <file>file:/D:/web/trunk/application/modules/reports/views/list_of_cheque_bg.html</file>
+            <file>file:/D:/web/trunk/application/modules/reports/views/bank_office_jurnal_summary.html</file>
+            <file>file:/D:/web/trunk/application/modules/reports/views/jurnal_memorial_summary.html</file>
+            <file>file:/D:/web/trunk/application/modules/cashier/views/supplier/formdpsupplier.html</file>
+            <file>file:/D:/web/trunk/application/modules/reports/views/ledger_dialog.html</file>
         </group>
     </open-files>
 </project-private>
