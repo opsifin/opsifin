@@ -15,7 +15,7 @@ class modeldpsupplierdetail extends CI_Model {
 				
 		$query = $this->db->query("select * from dp_supplier_detail $searchBy order by id_dp_supplier_detail desc limit $start, $limit");
 		$result = $query->result();
-		
+		echo $this->db->last_query();
 		return $result;	
 	}
         
@@ -32,7 +32,8 @@ class modeldpsupplierdetail extends CI_Model {
         
         function dataList($page, $find = NULL, $by = NULL, $url)
         {
-                
+                echo $find;
+                echo $by;
                 $config = array();
 		$config["base_url"]     = base_url() . $url;
 		$config["total_rows"]   = $this->totalData($find, $by);

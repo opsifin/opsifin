@@ -124,6 +124,9 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface
             if (is_file($path.'/'.$name)) {
                 return $this->cache[$name] = $path.'/'.$name;
             }
+            elseif (is_file($name)) {
+                return $this->cache[$name] = $name;
+            }
         }
 
         throw new Twig_Error_Loader(sprintf('Unable to find template "%s" (looked into: %s).', $name, implode(', ', $this->paths)));

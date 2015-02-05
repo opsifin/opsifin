@@ -15,7 +15,7 @@ class modeldn extends CI_Model {
 				
 		$query = $this->db->query("select * from dn_transaction $searchBy order by id_dn desc limit $start, $limit");
 		$result = $query->result();
-		
+		echo $this->db->last_query();
 		return $result;	
 	}
         

@@ -26,10 +26,13 @@ class Twig
 		Twig_Autoloader::register();
 
 		$this->_template_dir = $this->CI->config->item('template_dir');
-		$this->_cache_dir = $this->CI->config->item('cache_dir');
-		
-
+                $this->_template_dir_main = $this->CI->config->item('template_dir_main');
+                
+		$this->_cache_dir = $this->CI->config->item('cache_dir');		
+                // remove by dwi wahyudi
 		$loader = new Twig_Loader_Filesystem($this->_template_dir);
+                //add new theme folder by dwi wahyudi
+                //$loader = new Twig_Loader_Filesystem(array($this->_template_dir, $this->_template_dir_main));
 
 		$this->_twig = new Twig_Environment($loader, array(
 			'cache' => $this->_cache_dir,
@@ -46,12 +49,12 @@ class Twig
 	
 	public function display($template, $data = array())
 	{	
-		
-		$template = $this->_twig->loadTemplate($template.".html");	
+                $template = $this->_twig->loadTemplate($template.".html");	
+                
 		/* elapsed_time and memory_usage */
 		$data['elapsed_time'] = $this->CI->benchmark->elapsed_time('total_execution_time_start', 'total_execution_time_end');
 		$memory = (!function_exists('memory_get_usage')) ? '0' : round(memory_get_usage()/1024/1024, 2) . 'MB';
-		$data['memory_usage'] = $memory;
+		$data['memory_usage'] = $memory;                
 		$template->display($data);
 	}
 }

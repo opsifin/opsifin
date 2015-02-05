@@ -5,8 +5,9 @@ class Test extends CI_Controller {
         parent::__construct();
     }
    
-    function index()
+    public function home()
     {
-        echo "test";
+        $content = array();
+        $this->twig->display("test", $content);
     }
 }

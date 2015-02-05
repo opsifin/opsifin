@@ -23,7 +23,7 @@ class Debit_note extends CI_Controller {
 			}	
                         
                         $getRow = $this->modeldn->dataList($page = 0, $find = NULL, $by = NULL, "index.php/accounting/debit_note/form");
-			                      
+			print_r($getRow);                      
 			$content = array (
 				"log" => $log,
 				"base_url" => base_url(),

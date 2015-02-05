@@ -14,7 +14,8 @@ class Test extends CI_Controller {
        {
            //echo "est";
            $content = array();
-           print_r($this->twig);
-           //$this->twig->display("main_layout", $content);
+           //print_r($this->twig);
+           //$this->twig->display();
+           $this->twig->display("home", $content);
        } 
 }        

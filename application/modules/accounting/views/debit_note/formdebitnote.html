@@ -13,58 +13,116 @@
             </li>
 
             <li class="active">
-                        <i class="fa fa-cube"></i> Debit Note
-              </li>
+                <i class="fa fa-cube"></i> Debit Note
+            </li>
         </ol>
     </div>
 </div>
 <!-- /.row -->
 <form action="{{ base_url }}index.php/accounting/debit_note/save" method="post" name="form1">
 <div class="row">    
-    <div class="col-lg-12">
-        <div class="form-group">
-            
+    <div class="col-lg-8">
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>Branch</label>
-                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
-               
-        </div>
-        <div class="form-group">
-            <div>
-                <label>DN Number</label>
-                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
+            </div>
+            <div class="col-md-9">
+                <input class="form-control" id="id_cabang" name="id_cabang" type="text" value="{{ edit.id_cabang }}" required/>                
             </div>    
         </div>
-        <div class="form-group">
-            
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
+                <label>DN Number</label>
+            </div>
+            <div class="col-md-4">    
+                <input class="form-control" id="dn_no" name="dn_no" type="text" value="{{ edit.dn_no }}" required/>                
+            </div>   
+            <div class="col-md-2">
+                <label>Transac No</label>
+            </div>
+            <div class="col-md-3">    
+                <input class="form-control" id="dn_no" name="dn_no" type="text" value="{{ edit.dn_no }}" required/>                
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>Date</label>
+            </div>
+            <div class="col-md-4">   
                 <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="datepicker" name="tanggal_transaksi" type="date" value="{{ edit.tanggal_transaksi }}"  required />               
-               
+            </div>    
         </div>
-        <div class="form-group">
-            
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>Type</label>
-                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
-                
+            </div>
+            <div class="col-md-4">    
+                <input class="form-control" id="transaksi_type" name="transaksi_type" type="text" value="{{ edit.transaksi_type }}" required/>                
+            </div>     
         </div>
-        <div class="form-group">
-           
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>Department</label>
-                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
-                
+            </div>
+            <div class="col-md-4">    
+                <input class="form-control" id="id_dept" name="id_dept" type="text" value="{{ edit.id_dept }}" required/>                
+            </div>     
         </div>
-        <div class="form-group">
-            
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>Supplier</label>
-                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
-            
+            </div>
+            <div class="col-md-4">      
+                <input class="form-control" id="kode_vendor" name="kode_vendor" type="text" value="{{ edit.kode_vendor }}" required/>                
+            </div> 
         </div>
-        <div class="form-group">
-            
+        <div class="form-group col-md-12">
+            <div class="col-md-3">
                 <label>CP</label>
-                <input class="form-control" id="ref_no" name="ref_no" type="text" value="{{ edit.ref_no }}" required/>                
-               
+            </div>
+            <div class="col-md-4">    
+                <input class="form-control" id="cp" name="cp" type="text" value="{{ edit.cp }}" required/>                
+            </div>     
         </div>
-    </div>    
+    </div> 
+    
+    <div class="col-lg-4">
+        <div class="form-group col-md-12">
+            <div class="col-md-6">
+                <label>Used SAP Amt</label>
+            </div>
+            <div class="col-md-6">    
+                <input class="form-control" id="used_sap_amt" name="used_sap_amt" type="text" value="{{ edit.used_sap_amt }}" required/>                
+            </div>     
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-6">
+                <label>Used Amt</label>
+            </div>
+            <div class="col-md-6">    
+                <input class="form-control" id="used_amount" name="used_amount" type="text" value="{{ edit.used_amount }}" required/>                
+            </div>     
+        </div>
+    </div>
+    
+    <div class="col-lg-4">
+        <div class="form-group col-md-12">
+            <div class="col-md-6">
+                <label>Ccy</label>
+            </div>
+            <div class="col-md-6">    
+                <input class="form-control" id="ccy" name="ccy" type="text" value="{{ edit.ccy }}" required/>                
+            </div>     
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-6">
+                <label>Balance</label>
+            </div>
+            <div class="col-md-6">    
+                <input class="form-control" id="balance" name="balance" type="text" value="{{ edit.balance }}" required/>                
+            </div>     
+        </div>
+    </div>
 </div>
 <br>
 <br>
@@ -117,6 +175,21 @@
                        <th nowrap="nowrap">Action</th>
                    </tr>
                </thead>
+               <tbody>
+                   {% for data in data %}
+                   <tr>
+                       <th nowrap="nowrap">{{ data.cabang_nama }}</th>
+                       <th nowrap="nowrap">{{ data.dn_no }}</th>
+                       <th nowrap="nowrap">{{ data.transaksi_no }}</th>                       
+                       <th nowrap="nowrap">{{ data.tanggal_transaksi }}</th>
+                       <th nowrap="nowrap">{{ data.transaksi_type }}</th>
+                       <th nowrap="nowrap">{{ data.dept_nama }}</th>
+                       <th nowrap="nowrap">{{ data.customer_nama}}</th>
+                       <th nowrap="nowrap">{{ data.cp}}</th>
+                       <th nowrap="nowrap"><a href="{{ base_url }}index.php/accounting/debit_note/form/?id={{ data.id_dn|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/accounting/debit_note/delete/?id={{ data.id_dn|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></th>
+                   </tr>
+                   {% endfor %}
+               </tbody>
           </table>
         </div>    
     </div>    
