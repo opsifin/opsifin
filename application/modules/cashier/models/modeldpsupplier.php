@@ -65,26 +65,37 @@ class modeldpsupplier extends CI_Model {
 	{	
 		$log = $this->session->all_userdata();
 		$valid = false;
+                
+                // save header
+                $fields = array(
+                    "ds_number"         => $params->ds_number,
+                    "transaksi_no"      => $params->transaksi_no,
+                    "tanggal_transaksi" => $params->tanggal_transaksi,
+                    "id_dept"           => $params->id_dept,
+                    "kode_vendor"       => $params->kode_vendor,
+                    "cp"                => $params->cp,
+                    "lg_no"             => $params->lg_no,
+                    "currency"          => $params->currency,
+                    "amount"            => $params->amount,
+                    "note"              => $params->note,
+                    "used_amount"       => $params->used_amount,
+                    "clearing_out"      => $params->clearing_out,
+                    "clearing_in"       => $params->clearing_in,
+                    
+                );
+		$this->db->set($fields);
 		
-		$this->db->set("ds_number", $params->ds_number);
-		$this->db->set("transaksi_no", $params->transaksi_no);
-		$this->db->set("tanggal_transaksi", $params->tanggal_transaksi);
-		//$this->db->set("id_dept", $params->id_dept);
-		$this->db->set("kode_vendor", $params->kode_vendor);
-		$this->db->set("cp", $params->cp);
-		$this->db->set("lg_no", $params->lg_no);
-		$this->db->set("currency", $params->currency);
-		$this->db->set("amount", $params->amount);
-		$this->db->set("note", $params->note);
                 //print_r($params);
-		if (!empty($params->id)) {
+		if (!empty($params->id)) {                        
 			$this->db->where("id_dp_supplier", $params->id);
 			$valid = $this->db->update("dp_supplier");
                         //echo $this->db->last_query();
 			$valid = $this->logUpdate->addLog("update", "dp_supplier", $params);
+                        $idkey = $params->id;
 		}
 		else {
 			$valid = $this->db->insert('dp_supplier');
+                        $idkey = $this->db->insert_id();
 			//echo $this->db->last_query();
                         $valid = $this->logUpdate->addLog("insert", "dp_supplier", $params);
                         
@@ -94,6 +105,23 @@ class modeldpsupplier extends CI_Model {
 			//$this->db2->where("id_invoice", $params->id_invoice);
 			//$this->db2->update("trans_ticketinvoice");
 		}
+                
+                $fields_detail = array(
+                    'ref_id'        => $params->detail_ref_id,
+                    'ref_no'        => $parmas->detail_ref_no,
+                    'ccy'           => $params->detail_ccy,
+                    'amount'        => $params->detail_amount,
+                    'detail_name'   => $params->detail_name,
+                    'used_date'     => $params->used_date,
+                );
+                $this->db->set($fields_detail);        
+                if (!empty($params->detail)) { 
+                    $this->db->where("id_dp_supplier_detail", $params->detail);
+                    $valid = $this->db->update("dp_supplier_detail");
+                }
+                else {
+                    $valid = $this->db->insert('dp_supplier_detail');
+                }
 		
 		return true;		
 	}

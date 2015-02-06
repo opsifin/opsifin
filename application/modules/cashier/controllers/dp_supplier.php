@@ -26,7 +26,7 @@ class Dp_supplier extends CI_Controller {
 				$editdetail     = $qdetail->row();
                                 $find_detail    = $idEdit;
                                 $by_detail      = 'id_dp_supplier';
-                                $getRowDetail   = $this->modeldpsupplierdetail->dataList($page = 0, $find_detail = NULL, $by_detail = NULL, "index.php/cashier/dp_supplier/form");
+                                $getRowDetail   = $this->modeldpsupplierdetail->dataList($page = 0, $find_detail, $by_detail, "index.php/cashier/dp_supplier/form");
                                 
                                 $q = $this->db->get_where("dp_supplier", array("id_dp_supplier" => $idEdit));
 				$edit = $q->row();
@@ -51,13 +51,18 @@ class Dp_supplier extends CI_Controller {
     
     function save()
     {
-        $params = (object) $this->input->post();        
+        $params = (object) $this->input->post();
+        print_r($params);
         $valid = $this->modeldpsupplier->save($params);	       
         
-        if (empty($valid))
-            $this->owner->alert("Please complete the form", "../index.php/cashier/dp_supplier/form");
-	else
-            redirect("../index.php/cashier/dp_supplier/form");
+        if (empty($valid)){
+            //$this->owner->alert("Please complete the form", "../index.php/cashier/dp_supplier/form");
+            
+        }
+	else {
+            //redirect("../index.php/cashier/dp_supplier/form");
+            
+        }
     }   
     
     public function delete()
@@ -69,4 +74,16 @@ class Dp_supplier extends CI_Controller {
 		if ($valid)
 			redirect("../index.php/cashier/dp_supplier/form");	
 	}
+        
+    public function delete_detail()
+	{		
+		$valid = false;
+		$id = $this->input->get('id');                
+                $detail = $this->input->get('detail');
+                
+		$valid = $this->modeldpsupplierdetail->delete_detail($id, $detail);
+		
+		if ($valid)
+			redirect("../index.php/cashier/dp_supplier/form/?id=$id");	
+	}    
 }

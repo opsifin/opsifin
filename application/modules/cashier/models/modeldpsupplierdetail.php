@@ -32,8 +32,7 @@ class modeldpsupplierdetail extends CI_Model {
         
         function dataList($page, $find = NULL, $by = NULL, $url)
         {
-                echo $find;
-                echo $by;
+                
                 $config = array();
 		$config["base_url"]     = base_url() . $url;
 		$config["total_rows"]   = $this->totalData($find, $by);
@@ -110,6 +109,20 @@ class modeldpsupplierdetail extends CI_Model {
 			$valid = $this->db->delete('dp_supplier_detail');
 		}
 		
+		return $valid;		
+	}
+        
+        public function delete_detail($id, $detail)
+	{	
+		$log = $this->session->all_userdata();
+		$valid = false;		
+		$valid = $this->logUpdate->addLog("delete", "dp_supplier_detail", array("id_dp_supplier" => $id, "id_dp_supplier_detail" => $detail));	
+		
+		if ($valid){
+                    $this->db->where('id_dp_supplier', $id);
+                    $this->db->where('id_dp_supplier_detail', $detail);
+                    $valid = $this->db->delete('dp_supplier_detail');
+		}		
 		return $valid;		
 	}
 }	
