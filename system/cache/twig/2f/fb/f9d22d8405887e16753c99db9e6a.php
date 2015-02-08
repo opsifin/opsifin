@@ -57,7 +57,7 @@ class __TwigTemplate_2ffbf9d22d8405887e16753c99db9e6a extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/summary_of_sales/save\" method=\"post\" name=\"form1\">
     </div>
-        <div class=\"form-group col-lg-12\">
+    <div class=\"form-group col-lg-12\">
        <div class=\"col-md-2\">
                <label>From</label>
        </div>
@@ -103,10 +103,12 @@ class __TwigTemplate_2ffbf9d22d8405887e16753c99db9e6a extends Twig_Template
         </div>
     <div class=\"form-group col-lg-12\">
         <h4>Report Type</h4>
+        <div class=\"col-md-2\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"without_costumer\"> Daily Sales By Currency</label>
             </div>
         </div>
+    </div>
 <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }

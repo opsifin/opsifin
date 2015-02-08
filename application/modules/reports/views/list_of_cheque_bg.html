@@ -27,9 +27,11 @@
         <form action="{{ base_url }}index.php/reports/list_of_cheque_bg/save" method="post" name="form1">
     </div>
 <div class="form-group col-lg-12">
+    <div class="col-md-2">
             <div class="checkbox-inline">
                   <label><input type="checkbox" name="v_type" value="bg_cheque"> BG/Cheque</label>
             </div>
+    </div>
             <div class="checkbox-inline">
                 <label><input type="checkbox"  name="v_type" value="credit_card"> Credit Card</label>
             </div>
@@ -52,7 +54,7 @@
                <label>From</label>
             </div>
             <div class="col-md-3">
-               <input type="date" name="from" id="datepicker">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>
         </div>
     <div class="form-group col-lg-12">
@@ -60,11 +62,11 @@
                <label>to</label>
             </div>
             <div class="col-md-3">
-               <input type="date" name="to" id="datepicker">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>
             <div class="col-md-2">
             <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="invoce_date"> By Date</label>
+                  <label><input type="checkbox" name="v_type" value="by_date"> By Date</label>
             </div>
         </div>
     </div>    
@@ -103,11 +105,13 @@
         </div>
     </div>
     <div class="form-group col-lg-12">
+        <div class="col-md-2">
             <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="criteria"> Select All Transaction</label>
+                  <label><input type="radio" name="v_type" value="all_transaction"> Select All Transaction</label>
             </div>
+        </div>
         <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="criteria"> Unselect All Transaction</label>
+                  <label><input type="radio" name="v_type" value="un_transaction"> Unselect All Transaction</label>
             </div>
         </div>
     <div class="form-group col-lg-12">

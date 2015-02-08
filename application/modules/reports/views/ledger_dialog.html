@@ -68,56 +68,77 @@
         </div>
         <div class="col-md-2">
             <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="all_ccy"> Posted & Unposted</label>
+                  <label><input type="checkbox" name="v_type" value="post_unpost"> Posted & Unposted</label>
             </div>
         </div>
     </div>
-    <div class="form-group">
-        <label>Filter By</label>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+                <label>Filter By</label>
+            </div>
+        <div class="col-md-2">
             <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="criteria"> Trans Date</label>
+                  <label><input type="radio" name="v_type" value="trans_date"> Trans Date</label>
             </div>
+        </div>
         <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="criteria"> Closing Date</label>
+                  <label><input type="radio" name="v_type" value="closing_date"> Closing Date</label>
             </div>
         </div>
-    <div class="form-group">
-            <div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
                <label>From</label>
-               <input type="date" name="from" id="datepicker">
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>
-        </div>  
-        <div class="form-group">
-            <div>
-               <label>to</label>
-               <input type="date" name="to" id="datepicker">
+    </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>to</label>
+        </div>
+            <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>
         </div>
-    <div class="form-group width150">
-            <div>
-                <label>View Type</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>View Type</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="view_type">
                     
                 </select>
             </div>    
-   <div class="form-group width150">
-            <div>
-                <label>Tour Type</label>
+        </div>   
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Tour Type</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="tour_type">
                     
                 </select>
-            </div>  
-    <div class="form-group width150">
-            <div>
-                <label>Tour Code</label>
+            </div>    
+        </div>  
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Tour Code</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="tour_code">
                     
                 </select>
-            </div>
-     <div class="form-group">
-        <label>Sort By</label>
+            </div>    
+        </div>
+     <div class="form-group col-lg-12">
+         <div class="col-md-2">
+             <label>Sort By</label><br>
+        </div>
+         <div class="col-md-2">
             <div class="radio-inline">
                   <label><input type="radio" name="v_type" value="trans_date"> Trans Date</label>
+            </div>
             </div>
             <div class="radio-inline">
                 <label><input type="radio"  name="v_type" value="department"> Department</label>

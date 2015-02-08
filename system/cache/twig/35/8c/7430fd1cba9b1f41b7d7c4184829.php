@@ -78,15 +78,13 @@ class __TwigTemplate_358c7430fd1cba9b1f41b7d7c4184829 extends Twig_Template
             </div>    
         </div>
     <div class=\"form-group col-lg-12\">
-         <div class=\"col-md-2\">
-            <label>Date</label>
-        </div>
-            <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
-                    
-                </select>
-            </div>    
-        </div> 
+       <div class=\"col-md-2\">
+               <label>Date</label>
+       </div>
+       <div class=\"col-md-3\">
+               <input type=\"date\" name=\"from\" id=\"datepicker\">
+            </div>
+    </div> 
     <div class=\"form-group col-lg-12\">
         <h4>View Option</h4><br>
         <div class=\"col-md-2\">
@@ -116,11 +114,11 @@ class __TwigTemplate_358c7430fd1cba9b1f41b7d7c4184829 extends Twig_Template
                 <select id=\"currency\" name=\"currency\" class=\"form-control\" onchange=\"getRates()\">
                     <option value=\"\">Select</option>
                     ";
-        // line 87
+        // line 85
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["currency"]) ? $context["currency"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["curr"]) {
-            // line 88
+            // line 86
             echo "                    <option value=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["curr"]) ? $context["curr"] : null), "currency"), "html", null, true);
             echo "\" ";
@@ -135,7 +133,7 @@ class __TwigTemplate_358c7430fd1cba9b1f41b7d7c4184829 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['curr'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 90
+        // line 88
         echo "                </select>
             </div>    
         </div>
@@ -196,6 +194,6 @@ class __TwigTemplate_358c7430fd1cba9b1f41b7d7c4184829 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  137 => 90,  122 => 88,  118 => 87,  55 => 27,  29 => 3,  26 => 2,);
+        return array (  135 => 88,  120 => 86,  116 => 85,  55 => 27,  29 => 3,  26 => 2,);
     }
 }

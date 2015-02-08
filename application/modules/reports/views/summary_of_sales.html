@@ -31,13 +31,13 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input type="date" name="from" id="datepicker">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>  
         <div class="col-md-2">
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input type="date" name="to" id="datepicker">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>
         </div>
     <div class="form-group col-lg-12">
@@ -72,9 +72,11 @@
         </div>
     <div class="form-group col-lg-12">
         <h4>Report Type</h4>
+        <div class="col-md-2">
             <div class="checkbox-inline">
-                <label><input type="checkbox" name="v_type" value="without_costumer"> Daily Sales By Currency</label>
+                <label><input type="checkbox" name="v_type" value="daily_sales"> Daily Sales By Currency</label>
             </div>
         </div>
+    </div>
 <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
 {% endblock %}

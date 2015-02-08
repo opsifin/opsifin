@@ -56,44 +56,61 @@ class __TwigTemplate_4af0379949415763e1cf2e33a7fe2d04 extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/trial_balance/save\" method=\"post\" name=\"form1\">
     </div>
-<div class=\"form-group width150\">
-            <div>
-                <label>Branch No</label>
-                <select class=\"form-control\" id=\"branch_no\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch No</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"no_branch\">
                     
                 </select>
             </div>    
         </div>
-<div class=\"form-group width150\">
-        <label>Period</label>
-        <h6>MM/YYYY</h6>
-        <input class=\"form-control\" id=\"period\" name=\"period\" type=\"text\" value=\"";
-        // line 39
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>Period</label>
+        </div>
+        <div class=\"col-md-3\">
+            <input class=\"form-control\" id=\"period\" name=\"period\" type=\"text\" value=\"";
+        // line 43
         echo twig_escape_filter($this->env, (isset($context["period"]) ? $context["period"] : null), "html", null, true);
         echo "\" />
-      </div>
-<div class=\"form-group\">
-        <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"by_agent\"> From Jan</label>
+        </div>
+        <div class=\"col-md-2\">
+            <h6>[MM/YYYY]</h6>
+        </div>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
+                  <label><input type=\"checkbox\" name=\"v_type\" value=\"from_jan\"> From Jan</label>
             </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Type</label>
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Type</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"type\">
                     
                 </select>
             </div>    
         </div>
-    <h4>Report Currency Rate</h4>
-    <div class=\"form-inline\">
-  <div class=\"form-group\">
-    <input type=\"text\" class=\"form-control\" id=\"currency\" placeholder=\"0\">
-  </div>
-  <div class=\"form-group\">
-    <input type=\"email\" class=\"form-control\" id=\"total_currency\" placeholder=\"0.00\">
-  </div>
+    <div class=\"form-group col-lg-12\">
+            <h4>Report Currency Rate</h4>
     </div>
-<input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
+    <div class=\"col-lg-12\">
+        <div class=\"table-responsive\">
+            <table class=\"table table-bordered table-hover table-striped\">
+              <thead>
+                  <tr>
+                  </tr>
+              </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }
 
@@ -109,6 +126,6 @@ class __TwigTemplate_4af0379949415763e1cf2e33a7fe2d04 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  70 => 39,  54 => 26,  29 => 3,  26 => 2,);
+        return array (  74 => 43,  54 => 26,  29 => 3,  26 => 2,);
     }
 }

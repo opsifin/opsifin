@@ -183,9 +183,11 @@ class __TwigTemplate_df294e8df52da8f64f878fe5ffbb5f1e extends Twig_Template
         </div>
     </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"criteria\"> Select All Transaction</label>
             </div>
+        </div>
         <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"criteria\"> Unselect All Transaction</label>
             </div>

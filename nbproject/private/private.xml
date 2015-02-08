@@ -20,11 +20,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/web/trunk/application/modules/reports/views/list_of_cheque_bg.html</file>
-            <file>file:/D:/web/trunk/application/modules/reports/views/bank_office_jurnal_summary.html</file>
-            <file>file:/D:/web/trunk/application/modules/reports/views/jurnal_memorial_summary.html</file>
+            <file>file:/D:/web/trunk/application/modules/main/views/formjurnal.html</file>
+            <file>file:/D:/web/trunk/application/modules/reports/views/list_voucher.html</file>
+            <file>file:/D:/web/trunk/application/modules/accounting/views/receipt_voucher/formrv.html</file>
             <file>file:/D:/web/trunk/application/modules/cashier/views/supplier/formdpsupplier.html</file>
-            <file>file:/D:/web/trunk/application/modules/reports/views/ledger_dialog.html</file>
         </group>
     </open-files>
 </project-private>

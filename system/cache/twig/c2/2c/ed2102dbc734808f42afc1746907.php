@@ -72,7 +72,7 @@ class __TwigTemplate_c22ced2102dbc734808f42afc1746907 extends Twig_Template
             <label>Report Type</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"report_type\">
                     
                 </select>
             </div>    
@@ -82,7 +82,7 @@ class __TwigTemplate_c22ced2102dbc734808f42afc1746907 extends Twig_Template
             <label>Department</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"department\">
                     
                 </select>
             </div>    
@@ -109,7 +109,7 @@ class __TwigTemplate_c22ced2102dbc734808f42afc1746907 extends Twig_Template
             </div>
         <div class=\"col-md-2\">
             <div class=\"radio-inline\">
-                <label><input type=\"radio\"  name=\"v_type\" value=\"cute_date\"> Cut Date</label>
+                <label><input type=\"radio\"  name=\"v_type\" value=\"cute_date\"> Cut. Date</label>
             </div>      
         </div>
     </div>
@@ -118,7 +118,7 @@ class __TwigTemplate_c22ced2102dbc734808f42afc1746907 extends Twig_Template
             <label>Printed/Not</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"printed_not\">
                     
                 </select>
             </div>    
@@ -128,7 +128,7 @@ class __TwigTemplate_c22ced2102dbc734808f42afc1746907 extends Twig_Template
             <label>Status</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"status\">
                     
                 </select>
             </div>    
@@ -138,7 +138,7 @@ class __TwigTemplate_c22ced2102dbc734808f42afc1746907 extends Twig_Template
             <label>User</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"user\">
                     
                 </select>
             </div>    
@@ -148,21 +148,24 @@ class __TwigTemplate_c22ced2102dbc734808f42afc1746907 extends Twig_Template
             <label>Costumer</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"costumer\">
                     
                 </select>
             </div>    
         </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"without_costumer\"> Without Costumer</label>
             </div>
         </div>
-    <div class=\"form-group col-lg-12\">
+    <div class=\"form-group col-md-2\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"add_invoice\"> Incl. Additional Invoice</label>
             </div>
         </div>
+    </div>
+</div>
     <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }

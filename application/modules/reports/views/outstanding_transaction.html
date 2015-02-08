@@ -41,28 +41,26 @@
             <label>Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
+                <select class="form-control" id="type">
                     
                 </select>
             </div>    
         </div>
     <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Date</label>
-        </div>
-            <div class="col-md-3">
-                <select class="form-control" id="branch">
-                    
-                </select>
-            </div>    
-        </div> 
+       <div class="col-md-2">
+               <label>Date</label>
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+    </div> 
     <div class="form-group col-lg-12">
         <h4>View Option</h4><br>
         <div class="col-md-2">
             <label>Department</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="user">
+                <select class="form-control" id="department">
                     
                 </select>
             </div>    
@@ -72,7 +70,7 @@
             <label>Status</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
+                <select class="form-control" id="status">
                     
                 </select>
             </div>    
@@ -95,7 +93,7 @@
             <label>User</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
+                <select class="form-control" id="user">
                     
                 </select>
             </div>    
@@ -105,7 +103,7 @@
             <label>Dealer</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
+                <select class="form-control" id="dealer">
                     
                 </select>
             </div>    
@@ -115,7 +113,7 @@
             <label>Costumer</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
+                <select class="form-control" id="costumer">
                     
                 </select>
             </div>    
@@ -125,7 +123,7 @@
             <label>Report Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
+                <select class="form-control" id="report_type">
                     
                 </select>
             </div>    

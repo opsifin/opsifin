@@ -21,17 +21,16 @@
 </div>
 <!-- /.row -->
 
-<div class="row">
-    <div class="col-lg-12">
-        <h4>Voucher</h4><br>
-        <form action="{{ base_url }}index.php/reports/list_voucher/save" method="post" name="form1">
-    </div>
+<form action="{{ base_url }}index.php/reports/list_voucher/save" method="post" name="form1">
+<input id="id" name="id" type="hidden" value="{{ edit.id_list_voucher }}" />
+<table border="0">
+    <tr>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
+                <select class="form-control" name="branch" id="branch">
                     
                 </select>
             </div>    
@@ -41,7 +40,7 @@
             <label>Report Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="report_type">
+                <select class="form-control" name="report_type" id="report_type">
                     
                 </select>
             </div>    
@@ -51,11 +50,11 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input type="date" name="from" id="datepicker">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="from_date" type="text" value="{{ main.from_date }}" required>
             </div>
         <div class="col-md-2">
             <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="invoce_date"> Inv. Date</label>
+                  <label><input type="radio" name="v_type" value="inv_date"> Inv. Date</label>
             </div>
         </div>
     </div>
@@ -64,7 +63,7 @@
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input type="date" name="to" id="datepicker">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="to_date" type="text" value="{{ main.to_date }}" required>
             </div>
         </div>
     <div class="form-group col-lg-12">
@@ -72,7 +71,7 @@
             <label>Printed/Not</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="printed_not">
+                <select class="form-control" name="printed_not" id="printed_not">
                     
                 </select>
             </div>    
@@ -82,7 +81,7 @@
             <label>Status</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="status">
+                <select class="form-control" name="status" id="status">
                     
                 </select>
             </div>    
@@ -92,10 +91,68 @@
             <label>Costumer</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="costumer">
+                <select class="form-control" name="costumer" id="costumer">
                     
                 </select>
             </div>    
         </div>
-<input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
+        </tr>
+    </table>
+    <br>
+    <br>
+    <div class="row">    
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+              <thead>
+                  <tr>
+                       <th nowrap="nowrap">Invoice No</th>
+                       <th nowrap="nowrap">LG No</th>
+                       <th nowrap="nowrap">Description</th>
+                       <th nowrap="nowrap">Ccy</th>
+                       <th nowrap="nowrap">Amount</th>
+                       <th nowrap="nowrap">Adjustment</th>    
+                       <th nowrap="nowrap">Sell Price</th>
+                       <th nowrap="nowrap">Profit</th>
+                       <th nowrap="nowrap">Cosutamer Name</th>
+                  </tr>
+              </thead>
+            </table>
+        </div>
+        
+        <input type="submit" class="btn btn-default" value="Save">
+    </form>
+            <br>
+            <br>
+        <div class="table-responsive">
+   <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+              	<th nowrap="nowrap">Branch</th>
+                <th nowrap="nowrap">Report Type</th>
+                <th nowrap="nowrap">Form</th>
+                <th nowrap="nowrap">To</th>
+                <th nowrap="nowrap">Printed/Not</th>
+                <th nowrap="nowrap">Status</th>
+                <th nowrap="nowrap">Costumer</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for data in data %}
+            <tr>
+              	<td>{{ data.branch }}</td>
+                <td>{{ data.report_type }}</td>
+                <td>{{ data.form }}</td>
+                <td>{{ data.to }}</td>
+                <td>{{ data.printed_not }}</td>
+                <td>{{ data.status }}</td>
+                <td>{{ data.costumer }}</td>
+                <td><a href="{{ base_url }}index.php/reports/list_voucher/form/?id={{ data.id_list_voucher|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/reports/list_voucher/delete/?id={{ data.id_list_voucher|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+            </tr> 
+            {% endfor %}           
+    </table>
+    
+  {{links|raw}}
+</div>
 {% endblock %}

@@ -51,7 +51,7 @@ class __TwigTemplate_fea9ee14361271757f0b52171c1fd8a0 extends Twig_Template
 
 <div class=\"row\">
     <div class=\"col-lg-12\">
-        <h4>Jurnal Summary Dialog</h4><br>
+        <h4>Ledger Dialog</h4><br>
         <form action=\"";
         // line 27
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
@@ -109,52 +109,73 @@ class __TwigTemplate_fea9ee14361271757f0b52171c1fd8a0 extends Twig_Template
             </div>
         </div>
     </div>
-    <div class=\"form-group\">
-        <label>Filter By</label>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+                <label>Filter By</label>
+            </div>
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"criteria\"> Trans Date</label>
             </div>
+        </div>
         <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"criteria\"> Closing Date</label>
             </div>
         </div>
-    <div class=\"form-group\">
-            <div>
+    <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
             </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
+    </div>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>View Type</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>View Type</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"view_type\">
                     
                 </select>
             </div>    
-   <div class=\"form-group width150\">
-            <div>
-                <label>Tour Type</label>
+        </div>   
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Tour Type</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"tour_type\">
                     
                 </select>
-            </div>  
-    <div class=\"form-group width150\">
-            <div>
-                <label>Tour Code</label>
+            </div>    
+        </div>  
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Tour Code</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"tour_code\">
                     
                 </select>
-            </div>
-     <div class=\"form-group\">
-        <label>Sort By</label>
+            </div>    
+        </div>
+     <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+             <label>Sort By</label><br>
+        </div>
+         <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"trans_date\"> Trans Date</label>
+            </div>
             </div>
             <div class=\"radio-inline\">
                 <label><input type=\"radio\"  name=\"v_type\" value=\"department\"> Department</label>

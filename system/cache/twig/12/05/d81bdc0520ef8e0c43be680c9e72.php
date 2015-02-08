@@ -56,47 +56,70 @@ class __TwigTemplate_1205d81bdc0520ef8e0c43be680c9e72 extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/gain_loss_forex/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Branch</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all_curency\"> All Curency</label>
-            </div>
-    <div class=\"form-group width150\">
-            <div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                 <label>From COA</label>
+            </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"from_coa\">
                     
                 </select>
             </div>
+        <div class=\"col-md-1\">
+            <input class=\"form-control\" id=\"from_coa\" name=\"from_coa\" type=\"text\" value=\"";
+        // line 48
+        echo twig_escape_filter($this->env, (isset($context["from_coa"]) ? $context["from_coa"] : null), "html", null, true);
+        echo "\" />
         </div>
-    <div class=\"form-group width150\">
-            <div>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
+                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all_curency\"> All Curency</label>
+            </div>
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                 <label>To COA</label>
+            </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"to_coa\">
                     
                 </select>
-            </div>    
+            </div>
+        <div class=\"col-md-1\">
+            <input class=\"form-control\" id=\"to_coa\" name=\"to_coa\" type=\"text\" value=\"";
+        // line 66
+        echo twig_escape_filter($this->env, (isset($context["to_coa"]) ? $context["to_coa"] : null), "html", null, true);
+        echo "\" />
         </div>
-        <div class=\"form-group\">
-            <div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
             </div>
-        </div>  
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
+    </div>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
-        </div>
-    
+    </div>
+</div>  
     <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }
@@ -113,6 +136,6 @@ class __TwigTemplate_1205d81bdc0520ef8e0c43be680c9e72 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  54 => 26,  29 => 3,  26 => 2,);
+        return array (  100 => 66,  79 => 48,  54 => 26,  29 => 3,  26 => 2,);
     }
 }

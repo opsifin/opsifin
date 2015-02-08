@@ -72,7 +72,7 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
             <label>Department</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"department\">
                     
                 </select>
             </div>    
@@ -82,7 +82,7 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
             <label>Costumer</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"costumer\">
                     
                 </select>
             </div>    
@@ -91,9 +91,11 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
         <div class=\"col-md-2\">
             <label>By</label>
         </div>
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"refund\"> Refund Date</label>
             </div>
+        </div>
             <div class=\"radio-inline\">
                 <label><input type=\"radio\"  name=\"v_type\" value=\"cs_date\"> Cs Date</label>
             </div>      
@@ -103,7 +105,10 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
                <label>From</label>
        </div>
        <div class=\"col-md-3\">
-               <input type=\"date\" name=\"from\" id=\"datepicker\">
+               <input onfocus=\"gfPop.fPopCalendar(this);\" class=\"form-control\" id=\"trans_date\" name=\"trans_date\" type=\"text\" value=\"";
+        // line 77
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["main"]) ? $context["main"] : null), "trans_date"), "html", null, true);
+        echo "\" required>
             </div>
     </div>
         <div class=\"form-group col-lg-12\">
@@ -111,7 +116,10 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
             <label>to</label>
         </div>
             <div class=\"col-md-3\">
-               <input type=\"date\" name=\"to\" id=\"datepicker\">
+               <input onfocus=\"gfPop.fPopCalendar(this);\" class=\"form-control\" id=\"trans_date\" name=\"trans_date\" type=\"text\" value=\"";
+        // line 85
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["main"]) ? $context["main"] : null), "trans_date"), "html", null, true);
+        echo "\" required>
             </div>
         </div>
     <div class=\"form-group col-lg-12\">
@@ -130,7 +138,7 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
             <label>View Type</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"view_type\">
                     
                 </select>
             </div>    
@@ -140,7 +148,7 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
             <label>Report Type</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"report_type\">
                     
                 </select>
             </div>    
@@ -150,7 +158,7 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
             <label>Sort By</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"sort_by\">
                     
                 </select>
             </div>    
@@ -160,7 +168,7 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
             <label>Airline</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"branch\">
+                <select class=\"form-control\" id=\"airline\">
                     
                 </select>
             </div>    
@@ -182,6 +190,6 @@ class __TwigTemplate_22b248753ae9411933c3a46df7983a66 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  55 => 27,  29 => 3,  26 => 2,);
+        return array (  119 => 85,  108 => 77,  55 => 27,  29 => 3,  26 => 2,);
     }
 }

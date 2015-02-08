@@ -25,46 +25,63 @@
         <h4>Gain Loss Forex Dialog</h4><br>
         <form action="{{ base_url }}index.php/reports/gain_loss_forex/save" method="post" name="form1">
     </div>
-    <div class="form-group width150">
-            <div>
-                <label>Branch</label>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Branch</label>
+        </div>
+            <div class="col-md-3">
                 <select class="form-control" id="branch">
                     
                 </select>
             </div>    
         </div>
-    <div class="form-group">
-            <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="all_curency"> All Curency</label>
-            </div>
-    <div class="form-group width150">
-            <div>
+    <div class="form-group col-lg-12">
+            <div class="col-md-2">
                 <label>From COA</label>
+            </div>
+            <div class="col-md-3">
                 <select class="form-control" id="from_coa">
                     
                 </select>
             </div>
+        <div class="col-md-1">
+            <input class="form-control" id="from_coa" name="from_coa" type="text" value="{{ from_coa }}" />
         </div>
-    <div class="form-group width150">
-            <div>
+        <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="all_curency"> All Curency</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+            <div class="col-md-2">
                 <label>To COA</label>
+            </div>
+            <div class="col-md-3">
                 <select class="form-control" id="to_coa">
                     
                 </select>
-            </div>    
+            </div>
+        <div class="col-md-1">
+            <input class="form-control" id="to_coa" name="to_coa" type="text" value="{{ to_coa }}" />
         </div>
-        <div class="form-group">
-            <div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
                <label>From</label>
-               <input type="date" name="from" id="datepicker">
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>
-        </div>  
-        <div class="form-group">
-            <div>
-               <label>to</label>
-               <input type="date" name="to" id="datepicker">
-            </div>
+    </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>to</label>
         </div>
-    
+            <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+    </div>
+</div>  
     <input type="button" class="btn btn-default" value="Save" onclick="saveAll()">
 {% endblock %}

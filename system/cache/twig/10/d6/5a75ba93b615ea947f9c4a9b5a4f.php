@@ -72,15 +72,17 @@ class __TwigTemplate_10d65a75ba93b615ea947f9c4a9b5a4f extends Twig_Template
             <label>Department</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"user\">
+                <select class=\"form-control\" id=\"department\">
                     
                 </select>
             </div>    
         </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"invoice_date\"> Invoice Date</label>
             </div>
+        </div>
             <div class=\"radio-inline\">
                 <label><input type=\"radio\"  name=\"v_type\" value=\"tax_date\"> Tax Date</label>
             </div>      
@@ -106,7 +108,7 @@ class __TwigTemplate_10d65a75ba93b615ea947f9c4a9b5a4f extends Twig_Template
             <label>Status</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"user\">
+                <select class=\"form-control\" id=\"status\">
                     
                 </select>
             </div>    
@@ -116,27 +118,31 @@ class __TwigTemplate_10d65a75ba93b615ea947f9c4a9b5a4f extends Twig_Template
             <label>Type</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"user\">
+                <select class=\"form-control\" id=\"type\">
                     
                 </select>
             </div>    
         </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"original_ccy\"> Original Ccy</label>
             </div>
         </div>
+    </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\" name=\"v_type\" value=\"Perodtype\"> By PerodType</label>
             </div>
         </div>
+    </div>
     <div class=\"form-group col-lg-12\">
         <div class=\"col-md-2\">
             <label>Rates</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"user\">
+                <select class=\"form-control\" id=\"rates\">
                     
                 </select>
             </div>    
@@ -146,7 +152,7 @@ class __TwigTemplate_10d65a75ba93b615ea947f9c4a9b5a4f extends Twig_Template
             <label>Costumer</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"user\">
+                <select class=\"form-control\" id=\"costumer\">
                     
                 </select>
             </div>    

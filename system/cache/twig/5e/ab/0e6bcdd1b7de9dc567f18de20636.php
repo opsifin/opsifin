@@ -58,9 +58,11 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
         echo "index.php/reports/list_of_cheque_bg/save\" method=\"post\" name=\"form1\">
     </div>
 <div class=\"form-group col-lg-12\">
+    <div class=\"col-md-2\">
             <div class=\"checkbox-inline\">
                   <label><input type=\"checkbox\" name=\"v_type\" value=\"bg_cheque\"> BG/Cheque</label>
             </div>
+    </div>
             <div class=\"checkbox-inline\">
                 <label><input type=\"checkbox\"  name=\"v_type\" value=\"credit_card\"> Credit Card</label>
             </div>
@@ -126,31 +128,31 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
         <div class=\"col-md-3\">
           <select class=\"form-control\" name=\"transaction\" id=\"transaction\">
             <option value=\"all_transaction\" ";
-        // line 97
+        // line 99
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "all_transaction")) {
             echo " selected=\"selected\" ";
         }
         echo ">All Transaction</option>
             <option value=\"invoice_trans\" ";
-        // line 98
+        // line 100
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "invoice_trans")) {
             echo " selected=\"selected\" ";
         }
         echo ">Invoice Transaction</option>
             <option value=\"rv_trans\" ";
-        // line 99
+        // line 101
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "rv_trans")) {
             echo " selected=\"selected\" ";
         }
         echo ">RV Transaction</option>
             <option value=\"cash_req_sett\" ";
-        // line 100
+        // line 102
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "cash_req_sett")) {
             echo " selected=\"selected\" ";
         }
         echo ">Cash Req Settlment</option>
             <option value=\"pv_payment\" ";
-        // line 101
+        // line 103
         if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "invoice_type") == "pv_payment")) {
             echo " selected=\"selected\" ";
         }
@@ -159,9 +161,11 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
         </div>
     </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"criteria\"> Select All Transaction</label>
             </div>
+        </div>
         <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"criteria\"> Unselect All Transaction</label>
             </div>
@@ -209,11 +213,11 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
                 <select id=\"currency\" name=\"currency\" class=\"form-control\" onchange=\"getRates()\">
                     <option value=\"\">Select</option>
                     ";
-        // line 155
+        // line 159
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["currency"]) ? $context["currency"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["curr"]) {
-            // line 156
+            // line 160
             echo "                    <option value=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["curr"]) ? $context["curr"] : null), "currency"), "html", null, true);
             echo "\" ";
@@ -228,7 +232,7 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['curr'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 158
+        // line 162
         echo "                </select>
             </div>    
         </div>
@@ -248,6 +252,6 @@ class __TwigTemplate_5eab0e6bcdd1b7de9dc567f18de20636 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  230 => 158,  215 => 156,  211 => 155,  152 => 101,  146 => 100,  140 => 99,  134 => 98,  128 => 97,  55 => 27,  29 => 3,  26 => 2,);
+        return array (  234 => 162,  219 => 160,  215 => 159,  154 => 103,  148 => 102,  142 => 101,  136 => 100,  130 => 99,  55 => 27,  29 => 3,  26 => 2,);
     }
 }

@@ -82,7 +82,7 @@ class __TwigTemplate_1275462d2d081415c52a33c151304438 extends Twig_Template
             <label>Category</label>
         </div>
             <div class=\"col-md-3\">
-                <select class=\"form-control\" id=\"type\">
+                <select class=\"form-control\" id=\"category\">
                     
                 </select>
             </div>    
@@ -116,10 +116,12 @@ class __TwigTemplate_1275462d2d081415c52a33c151304438 extends Twig_Template
             </div>    
         </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"tour_code\"> By Tour Code</label>
             </div>
         </div>
+    </div>
    <div class=\"form-group col-lg-12\">
        <div class=\"col-md-2\">
                <label>From</label>
@@ -135,21 +137,25 @@ class __TwigTemplate_1275462d2d081415c52a33c151304438 extends Twig_Template
             </div>
         </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"periode\"> By Periode</label>
             </div>
         </div>
+        </div>
     <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"depature\"> Depature Date</label>
             </div>
+        </div>
             <div class=\"radio-inline\">
                 <label><input type=\"radio\"  name=\"v_type\" value=\"invoice_date\"> Invoice Date</label>
             </div>
             <div class=\"radio-inline\">
                 <label><input type=\"radio\"  name=\"v_type\" value=\"cosing_date\"> Cosing Date</label>
             </div>
-        </div>
+    </div>
     <div class=\"form-group col-lg-12\">
        <div class=\"col-md-2\">
                <label>From</label>
@@ -165,17 +171,25 @@ class __TwigTemplate_1275462d2d081415c52a33c151304438 extends Twig_Template
             </div>
         </div>
     <div class=\"form-group col-lg-12\">
-        <label>Sort By</label><br>
+        <div class=\"col-md-2\">
+            <label>Sort By</label><br>
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+    <div class=\"col-md-2\">
             <div class=\"radio-inline\">
                   <label><input type=\"radio\" name=\"v_type\" value=\"tour_code\"> Tour Code</label>
             </div>
+        </div>
+    
             <div class=\"radio-inline\">
                 <label><input type=\"radio\"  name=\"v_type\" value=\"Invoice\"> Invoice No</label>
             </div>
             <div class=\"radio-inline\">
                 <label><input type=\"radio\"  name=\"v_type\" value=\"region\"> Region</label>
             </div>
-        </div>
+    </div>
+</div>
     <input type=\"button\" class=\"btn btn-default\" value=\"Save\" onclick=\"saveAll()\">
 ";
     }

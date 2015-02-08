@@ -51,13 +51,11 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
 
 <form action=\"";
         // line 24
-        if (isset($context["base_url"])) { $_base_url_ = $context["base_url"]; } else { $_base_url_ = null; }
-        echo twig_escape_filter($this->env, $_base_url_, "html", null, true);
+        echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/main/company/save\" method=\"post\" name=\"form1\" data-toggle=\"validator\" role=\"form\">
 <input type=\"hidden\" name=\"id\" id=\"id\" value=\"";
         // line 25
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "id_company"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "id_company"), "html", null, true);
         echo "\" />
 
 
@@ -65,8 +63,7 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
     <label>Company Name</label>
     <input class=\"form-control\" id=\"nama_company\" name=\"nama_company\" type=\"text\" value=\"";
         // line 30
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "nama_company"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "nama_company"), "html", null, true);
         echo "\" required>
 </div>
 
@@ -74,8 +71,7 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
     <label>Address</label>
     <textarea name=\"alamat\" rows=\"5\" class=\"form-control\" id=\"alamat\" type=\"text\" w>";
         // line 35
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "alamat"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "alamat"), "html", null, true);
         echo "</textarea>
 </div>
 
@@ -83,8 +79,7 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
     <label>Post Code</label>
     <input class=\"form-control\" id=\"kode_pos\" name=\"kode_pos\" type=\"text\" value=\"";
         // line 40
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "kode_pos"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "kode_pos"), "html", null, true);
         echo "\" required>
 </div>
 
@@ -92,8 +87,7 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
     <label>City</label>
     <input class=\"form-control\" id=\"kota\" name=\"kota\" type=\"text\" value=\"";
         // line 45
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "kota"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "kota"), "html", null, true);
         echo "\" required>
 </div>
 
@@ -101,8 +95,7 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
     <label>Country</label>
     <input class=\"form-control\" id=\"negara\" name=\"negara\" type=\"text\" value=\"";
         // line 50
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "negara"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "negara"), "html", null, true);
         echo "\" required>
 </div>
 
@@ -110,8 +103,7 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
     <label>Phone</label>
     <input class=\"form-control\" id=\"phone\" name=\"phone\" type=\"text\" value=\"";
         // line 55
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "phone"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "phone"), "html", null, true);
         echo "\" required>
 </div>
 
@@ -119,8 +111,7 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
     <label>Email</label>
     <input class=\"form-control\" id=\"email\" name=\"email\" type=\"text\" value=\"";
         // line 60
-        if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-        echo twig_escape_filter($this->env, $this->getAttribute($_edit_, "email"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "email"), "html", null, true);
         echo "\" required>
 </div>
 
@@ -129,23 +120,18 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
     <select name=\"currency\" class=\"form-control\" id=\"currency\">
     ";
         // line 66
-        if (isset($context["currency"])) { $_currency_ = $context["currency"]; } else { $_currency_ = null; }
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable($_currency_);
+        $context['_seq'] = twig_ensure_traversable((isset($context["currency"]) ? $context["currency"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["count"]) {
             // line 67
             echo "    \t<option value=\"";
-            if (isset($context["count"])) { $_count_ = $context["count"]; } else { $_count_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_count_, "currency"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["count"]) ? $context["count"] : null), "currency"), "html", null, true);
             echo "\" ";
-            if (isset($context["edit"])) { $_edit_ = $context["edit"]; } else { $_edit_ = null; }
-            if (isset($context["count"])) { $_count_ = $context["count"]; } else { $_count_ = null; }
-            if (($this->getAttribute($_edit_, "currency") == $this->getAttribute($_count_, "currency"))) {
+            if (($this->getAttribute((isset($context["edit"]) ? $context["edit"] : null), "currency") == $this->getAttribute((isset($context["count"]) ? $context["count"] : null), "currency"))) {
                 echo " selected=\"selected\" ";
             }
             echo ">";
-            if (isset($context["count"])) { $_count_ = $context["count"]; } else { $_count_ = null; }
-            echo twig_escape_filter($this->env, $this->getAttribute($_count_, "currency"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["count"]) ? $context["count"] : null), "currency"), "html", null, true);
             echo "</option>
     ";
         }
@@ -173,6 +159,6 @@ class __TwigTemplate_e6654a1ea5fd23fffe60ee7a05b862d8 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  154 => 69,  135 => 67,  130 => 66,  120 => 60,  111 => 55,  102 => 50,  93 => 45,  84 => 40,  75 => 35,  66 => 30,  57 => 25,  52 => 24,  29 => 3,  26 => 2,);
+        return array (  140 => 69,  125 => 67,  121 => 66,  112 => 60,  104 => 55,  96 => 50,  88 => 45,  80 => 40,  72 => 35,  64 => 30,  56 => 25,  52 => 24,  29 => 3,  26 => 2,);
     }
 }

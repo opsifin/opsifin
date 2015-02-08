@@ -57,105 +57,138 @@ class __TwigTemplate_49b258ce9f0f1cae79e99caadd57cd92 extends Twig_Template
         echo twig_escape_filter($this->env, (isset($context["base_url"]) ? $context["base_url"] : null), "html", null, true);
         echo "index.php/reports/sub_ledger/save\" method=\"post\" name=\"form1\">
     </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Branch No</label>
-                <select class=\"form-control\" id=\"branch_no\">
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Branch No</label>
+        </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"no_branch\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
+    <div class=\"form-group col-lg-12\">
+            <div class=\"col-md-2\">
                 <label>COA No</label>
-                <select class=\"form-control\" id=\"coa_no\">
+            </div>
+            <div class=\"col-md-3\">
+                <select class=\"form-control\" id=\"no_coa\">
                     
                 </select>
-            </div>    
-        </div>
-    <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"post_unpost\"> Posted & Unposted</label>
             </div>
-    <div class=\"form-group\">
-            <div>
+        <div class=\"col-md-1\">
+            <input class=\"form-control\" id=\"no_coa\" name=\"to_coa\" type=\"text\" value=\"";
+        // line 49
+        echo twig_escape_filter($this->env, (isset($context["no_coa"]) ? $context["no_coa"] : null), "html", null, true);
+        echo "\" />
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+       <div class=\"col-md-2\">
                <label>From</label>
+       </div>
+       <div class=\"col-md-3\">
                <input type=\"date\" name=\"from\" id=\"datepicker\">
             </div>
-        </div>
-        <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"post_unpost\"> Costumer & Supplier</label>
+        <div class=\"col-md-2\">
+            <div class=\"radio-inline\">
+                  <label><input type=\"radio\" name=\"v_type\" value=\"post_unpost\"> Posted & Unposted</label>
             </div>
-        <div class=\"form-group\">
-            <div>
-               <label>to</label>
+        </div>
+    </div>
+    <div class=\"form-group col-lg-12\">
+        <div class=\"col-md-2\">
+            <label>to</label>
+        </div>
+            <div class=\"col-md-3\">
                <input type=\"date\" name=\"to\" id=\"datepicker\">
             </div>
+        <div class=\"col-md-2\">
+            <div class=\"radio-inline\">
+                  <label><input type=\"radio\" name=\"v_type\" value=\"cost_supp\"> Costumer & Supplier</label>
+            </div>
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>By</label>
+    </div>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>By</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"by\">
                     
                 </select>
-            </div>    
-        </div>
-    <div class=\"form-group\">
-        <div class=\"checkbox-inline\">
+            </div>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
                   <label><input type=\"checkbox\" name=\"v_type\" value=\"by_agent\"> By Agent</label>
             </div>
-        <div class=\"checkbox-inline\">
+        </div>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
                   <label><input type=\"checkbox\" name=\"v_type\" value=\"bsp\"> BSP</label>
             </div>
         </div>
-            <div class=\"form-group width150\">
-            <div>
-                <label>Costumer</label>
+    </div>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Costumer</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"costumer\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Supplier</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Supplier</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"supplier\">
                     
                 </select>
             </div>    
         </div>
-    <div class=\"form-group\">
-            <div class=\"checkbox-inline\">
-                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all\"> All</label>
-            </div>
-    <div class=\"form-group width150\">
-            <div>
-                <label>Airline</label>
+    <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Airline</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"airline\">
                     
                 </select>
-            </div>    
+            </div>
+        <div class=\"col-md-2\">
+            <div class=\"checkbox-inline\">
+                  <label><input type=\"checkbox\" name=\"v_type\" value=\"all\"> All</label>
+            </div>
         </div>
-        <div class=\"form-group width150\">
-            <div>
-                <label>Tour Type</label>
+    </div>
+        <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Tour Type</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"tour_type\">
                     
                 </select>
             </div>    
         </div>
-        <div class=\"form-group width150\">
-            <div>
-                <label>Tour Code</label>
+        <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Tour Code</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"tour_code\">
                     
                 </select>
             </div>    
         </div>
-        <div class=\"form-group width150\">
-            <div>
-                <label>Sort By</label>
+        <div class=\"form-group col-lg-12\">
+         <div class=\"col-md-2\">
+            <label>Sort By</label>
+        </div>
+            <div class=\"col-md-3\">
                 <select class=\"form-control\" id=\"sort_by\">
                     
                 </select>
@@ -177,6 +210,6 @@ class __TwigTemplate_49b258ce9f0f1cae79e99caadd57cd92 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  55 => 27,  29 => 3,  26 => 2,);
+        return array (  80 => 49,  55 => 27,  29 => 3,  26 => 2,);
     }
 }
