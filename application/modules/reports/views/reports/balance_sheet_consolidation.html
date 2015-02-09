@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-           Income Statement Balance
+           Balance Sheet Consolidation
         </h1>
 
         <ol class="breadcrumb">
@@ -14,26 +14,22 @@
             </li>
 
             <li class="active">
-                <i class="fa fa-edit"></i> Home
+                <i class="fa fa-edit"></i> Balance Sheet Consolidation
             </li>
         </ol>
     </div>
 </div>
 <!-- /.row -->
 <div class="row">
-    <form action="{{ base_url }}index.php/reports/income_statement_balance_sheet/home" method="post" name="form1">
     <div class="col-lg-12">
-        <h4>Financial Reports</h4><br>
-        
+        <h4>Balance Sheet Consolidation</h4><br>        
     </div>
     <div class="form-group col-lg-12">
-         <div class="col-md-2">
+      <div class="col-md-2">
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -41,9 +37,7 @@
             <label>Report Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="report_type">
-                    
-                </select>
+               
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -51,9 +45,7 @@
             <label>Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="type">
-                    
-                </select>
+               
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -61,9 +53,7 @@
             <label>View</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="view">
-                    
-                </select>
+                
             </div>    
     </div>
     <div class="form-group col-lg-12">
@@ -71,27 +61,11 @@
             <label>Period</label>
         </div>
         <div class="col-md-3">
-            <input class="form-control" id="period" name="period" type="text" value="{{ period }}" />
+            
         </div>
         <div class="col-md-2">
             <h6>[MM/YYYY]</h6>
         </div>
     </div>
-    <div class="form-group col-lg-12">
-        <div class="col-md-2">
-        <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="show_percentage"> Show Percentage</label>
-            </div>
-        </div>
-    </div>
-    <div class="form-group col-lg-12">
-        <div class="col-md-2">
-        <div class="checkbox-inline">
-                  <label><input type="checkbox" name="v_type" value="prev_month"> Show Prev Month</label>
-            </div>
-        </div>
-    </div>
-        <input type="submit" class="btn btn-default" value="Proses">
-    </form>
 </div>
 {% endblock %}

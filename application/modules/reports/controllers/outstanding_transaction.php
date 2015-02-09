@@ -13,14 +13,28 @@ class outstanding_transaction extends CI_Controller {
 		$userLogged = $this->session->userdata('userLogged');
 		
 		if ($userLogged) {
+                    
+                    if (!empty($_POST)){
+                        // apabila tombol proses ditekan
+                        // for ! proses
 			$content = array (
 				"log" => $log,
 				"base_url" => base_url(),
 			);
+			$this->twig->display("reports/outstanding_transaction", $content);
+                 }       
+                else {
+			// for ! proses
+                        $content = array (
+				"log" => $log,
+				"base_url" => base_url(),
+			);
 			$this->twig->display("outstanding_transaction", $content);
-		}
-	}
-	
-		
+                    }
+                }
+                
+            }
+            
 }
+        
 ?>

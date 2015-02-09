@@ -13,11 +13,24 @@ class bank_office_jurnal_summary extends CI_Controller {
 		$userLogged = $this->session->userdata('userLogged');
 		
 		if ($userLogged) {
-			$content = array (
+                    
+                    if (!empty($_POST)){
+                        // apabila tombol proses ditekan
+                        // for ! proses
+                        $content = array (
+				"log" => $log,
+				"base_url" => base_url(),
+			);
+			$this->twig->display("reports/bank_office_jurnal_summary", $content);
+                    }
+                    else {
+			// for ! proses
+                        $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
 			);
 			$this->twig->display("bank_office_jurnal_summary", $content);
+                    }    
 		}
 	}
 	

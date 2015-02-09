@@ -14,14 +14,13 @@
             </li>
 
             <li class="active">
-                <i class="fa fa-edit"></i> Home
+                <i class="fa fa-edit"></i> Gain Loss Forex
             </li>
         </ol>
     </div>
 </div>
 <!-- /.row -->
 <div class="row">
-    <form action="{{ base_url }}index.php/reports/gain_loss_forex/home" method="post" name="form1">
     <div class="col-lg-12">
         <h4>Gain Loss Forex Dialog</h4><br>
         
@@ -31,9 +30,7 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -41,12 +38,10 @@
                 <label>From COA</label>
             </div>
             <div class="col-md-3">
-                <select class="form-control" id="from_coa">
-                    
-                </select>
+                
             </div>
         <div class="col-md-1">
-            <input class="form-control" id="from_coa" name="from_coa" type="text" value="{{ from_coa }}" />
+            
         </div>
         <div class="col-md-2">
             <div class="checkbox-inline">
@@ -59,12 +54,10 @@
                 <label>To COA</label>
             </div>
             <div class="col-md-3">
-                <select class="form-control" id="to_coa">
-                    
-                </select>
+              
             </div>
         <div class="col-md-1">
-            <input class="form-control" id="to_coa" name="to_coa" type="text" value="{{ to_coa }}" />
+            
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -72,7 +65,7 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -80,10 +73,8 @@
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+               
             </div>
     </div>
-        <input type="submit" class="btn btn-default" value="Proses">
-    </form>
-</div>
+</div>  
 {% endblock %}

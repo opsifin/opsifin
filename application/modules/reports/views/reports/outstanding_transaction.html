@@ -14,7 +14,7 @@
             </li>
 
             <li class="active">
-                <i class="fa fa-edit"></i> Home
+                <i class="fa fa-edit"></i> Outstanding Transaction
             </li>
         </ol>
     </div>
@@ -22,7 +22,6 @@
 <!-- /.row -->
 
 <div class="row">
-    <form action="{{ base_url }}index.php/reports/outstanding_transaction/home" method="post" name="form1">
         <div class="col-lg-12">
         <h4>Refund Summary</h4><br>        
     </div>
@@ -31,9 +30,7 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -41,9 +38,7 @@
             <label>Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="type">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -51,7 +46,7 @@
                <label>Date</label>
        </div>
        <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+           
             </div>
     </div> 
     <div class="form-group col-lg-12">
@@ -60,9 +55,7 @@
             <label>Department</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="department">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -70,9 +63,7 @@
             <label>Status</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="status">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -88,9 +79,7 @@
             <label>User</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="user">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -98,9 +87,7 @@
             <label>Dealer</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="dealer">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -108,9 +95,7 @@
             <label>Costumer</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="costumer">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -118,12 +103,8 @@
             <label>Report Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="report_type">
-                    
-                </select>
+                
             </div>    
-        </div>
-    <input type="submit" class="btn btn-default" value="Proses">
-    </form>  
+        </div>  
 </div>
     {% endblock %}

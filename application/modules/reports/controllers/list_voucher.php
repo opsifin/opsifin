@@ -13,11 +13,24 @@ class list_voucher extends CI_Controller {
 		$userLogged = $this->session->userdata('userLogged');
 		
 		if ($userLogged) {
-			$content = array (
+                    
+                    if (!empty($_POST)){
+                        // apabila tombol proses ditekan
+                        // for ! proses
+                        $content = array (
+				"log" => $log,
+				"base_url" => base_url(),
+			);
+			$this->twig->display("reports/list_voucher", $content);
+                    }
+                    else {
+			// for ! proses
+                        $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
 			);
 			$this->twig->display("list_voucher", $content);
+                    }    
 		}
 	}
 	

@@ -14,7 +14,7 @@
             </li>
 
             <li class="active">
-                <i class="fa fa-edit"></i> Home
+                <i class="fa fa-edit"></i> Ledger Dialog
             </li>
         </ol>
     </div>
@@ -22,7 +22,6 @@
 <!-- /.row -->
 
 <div class="row">
-    <form action="{{ base_url }}index.php/reports/ledger_dialog/home" method="post" name="form1">
     <div class="col-lg-12">
         <h4>Ledger Dialog</h4><br>
         
@@ -32,9 +31,7 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
-                    
-                </select>
+                
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -42,12 +39,10 @@
                 <label>From COA</label>
             </div>
             <div class="col-md-3">
-                <select class="form-control" id="from_coa">
-                    
-                </select>
+                
             </div>
         <div class="col-md-1">
-            <input class="form-control" id="from_coa" name="from_coa" type="text" value="{{ from_coa }}" />
+            
         </div>
         <div class="col-md-2">
             <div class="checkbox-inline">
@@ -60,12 +55,10 @@
                 <label>To COA</label>
             </div>
             <div class="col-md-3">
-                <select class="form-control" id="to_coa">
-                    
-                </select>
+                
             </div>
         <div class="col-md-1">
-            <input class="form-control" id="to_coa" name="to_coa" type="text" value="{{ to_coa }}" />
+            
         </div>
         <div class="col-md-2">
             <div class="checkbox-inline">
@@ -91,7 +84,7 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -99,7 +92,7 @@
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+               
             </div>
         </div>
     <div class="form-group col-lg-12">
@@ -107,9 +100,7 @@
             <label>View Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="view_type">
-                    
-                </select>
+                
             </div>    
         </div>   
     <div class="form-group col-lg-12">
@@ -117,9 +108,7 @@
             <label>Tour Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="tour_type">
-                    
-                </select>
+                
             </div>    
         </div>  
     <div class="form-group col-lg-12">
@@ -127,9 +116,7 @@
             <label>Tour Code</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="tour_code">
-                    
-                </select>
+                
             </div>    
         </div>
      <div class="form-group col-lg-12">
@@ -144,8 +131,6 @@
             <div class="radio-inline">
                 <label><input type="radio"  name="v_type" value="department"> Department</label>
             </div>      
-        </div>
-<input type="submit" class="btn btn-default" value="Proses">
-    </form>
-</div>
+    </div>
+
 {% endblock %}
