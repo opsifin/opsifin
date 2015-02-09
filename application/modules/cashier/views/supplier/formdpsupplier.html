@@ -34,7 +34,7 @@
                 <label>Transc No</label>
             </div>
             <div class="col-md-3">    
-                <input class="form-control" id="transaksi_no" name="transaksi_no" type="text" value="{{ edit.transaksi_no }}" required/>
+                <input class="form-control" id="transaksi_no" name="transaksi_no" type="text" value="{{ transaksi_no }}" readonly="readonly"/>
             </div> 
         </div>       
         <div class="clearfix"></div>    
@@ -48,14 +48,23 @@
             <div class="col-md-2">
                 <label>Department</label>
             </div>
+            <div class="col-md-3 input-group">
+                <input class="form-control" id="id_dept" name="id_dept" type="text" value="{{ data.id_dept }}" required/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+            </div>
         </div>
         <div class="clearfix"></div>
         <div class="form-group col-md-12">
             <div class="col-md-3">
                 <label>Supplier</label>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5 input-group">
                 <input class="form-control" id="kode_vendor" name="kode_vendor" type="text" value="{{ edit.kode_vendor }}"  required />  
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>  
         <div class="clearfix"></div>
@@ -72,8 +81,11 @@
             <div class="col-md-3">
                 <label>LG No</label>
             </div>    
-            <div class="col-md-6">
+            <div class="col-md-5 input-group">
                 <input class="form-control" id="lg_no" name="lg_no" type="text" value="{{ edit.lg_no }}"  required /> 
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
         <div class="clearfix"></div>
@@ -81,11 +93,18 @@
             <div class="col-md-3">
                 <label>Amount</label>
             </div>
-            <div class="col-md-2">
-                <input class="form-control" id="currency" name="currency" type="text" value="{{ edit.currency }}" required /> 
-            </div>  
-            <div class="col-md-4">
-                <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.amount }}" required /> 
+            <div class="col-md-9">
+                <div class="col-lg-4">
+                <div class="input-group">
+                    <input class="form-control" id="currency" name="currency" type="text" value="{{ edit.currency }}" required /> 
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                    </span>
+                </div>
+                </div>    
+                <div class="col-lg-4">
+                    <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.amount }}" required />
+                </div>
             </div>    
         </div>
         <div class="clearfix"></div>

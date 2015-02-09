@@ -7,6 +7,7 @@ class Dp_customer extends CI_Controller {
 	$this->load->helper('url');
 	$this->load->library("pagination");
 	$this->load->model('modeldpcustomer');
+        $this->load->model('modelnumtrans');
     }
     
     public function form(){
@@ -14,7 +15,9 @@ class Dp_customer extends CI_Controller {
 		$userLogged = $this->session->userdata('userLogged');
 		
 		if ($userLogged) {
-                        $edit = NULL;			
+                        $edit = NULL;	
+                        $DPCustNumber = $this->modelnumtrans->getPVNumber();
+                        
 			$idEdit = $this->input->get('id');
 			if (!empty($idEdit)) {
 				$q = $this->db->get_where("dp_customer", array("id_dp_customer" => $idEdit));
@@ -25,6 +28,7 @@ class Dp_customer extends CI_Controller {
 			                        
 			$content = array (
 				"log" => $log,
+                                "transaksi_no" => $DPCustNumber,
 				"base_url" => base_url(),
                                 "edit"  => $edit,
 				"data"  => $getRow["data"],
@@ -38,8 +42,10 @@ class Dp_customer extends CI_Controller {
     {
         $params = (object) $this->input->post();   
         
-        $valid = $this->modeldpcustomer->save($params);	       
+        $valid = $this->modeldpcustomer->save($params);
+        echo $this->db->last_query();
         
+        die();
         if (empty($valid))
             $this->owner->alert("Please complete the form", "../index.php/cashier/dp_customer/form");
 	else

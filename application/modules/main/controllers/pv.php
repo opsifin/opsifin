@@ -49,7 +49,7 @@ class Pv extends CI_Controller {
 			$content = array (
 				"log" => $log,
 				"pv_number" => $PVNumber,
-              	"base_url" => base_url(),
+                                "base_url" => base_url(),
 				"currency" => $country,
 				"data" => $getRow["data"],
 				"edit" => $edit,
