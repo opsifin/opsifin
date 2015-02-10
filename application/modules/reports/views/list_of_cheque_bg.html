@@ -45,9 +45,11 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="branch">
-                    
+                <select class="form-control" id="id_branch" name="id_branch">
                 </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -76,9 +78,11 @@
             <label>Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="type">
-                    
+                <select class="form-control" id="id_type">
                 </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -86,9 +90,11 @@
             <label>References</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="references">
-                    
+                <select class="form-control" id="id_references">
                 </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -97,12 +103,10 @@
         </div>
         <div class="col-md-3">
           <select class="form-control" name="transaction" id="transaction">
-            <option value="all_transaction" {% if edit.invoice_type =='all_transaction' %} selected="selected" {% endif %}>All Transaction</option>
-            <option value="invoice_trans" {% if edit.invoice_type =='invoice_trans' %} selected="selected" {% endif %}>Invoice Transaction</option>
-            <option value="rv_trans" {% if edit.invoice_type =='rv_trans' %} selected="selected" {% endif %}>RV Transaction</option>
-            <option value="cash_req_sett" {% if edit.invoice_type =='cash_req_sett' %} selected="selected" {% endif %}>Cash Req Settlment</option>
-            <option value="pv_payment" {% if edit.invoice_type =='pv_payment' %} selected="selected" {% endif %}>PV Payment</option>
           </select>
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -120,9 +124,11 @@
             <label>Criteria</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="critera">
-                    
+                <select class="form-control" id="id_critera">
                 </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
             </div>
         <div class="col-md-2">
             <div class="checkbox-inline">
@@ -135,9 +141,11 @@
             <label>Bank Name</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="bank_nama">
-                    
+                <select class="form-control" id="id_bank">
                 </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -145,9 +153,11 @@
             <label>User</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="user">
-                    
+                <select class="form-control" id="id_user">
                 </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
     <div class="form-group col-lg-12">
