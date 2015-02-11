@@ -1,0 +1,190 @@
+% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Cashier Transaction 
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <form action="{{ base_url }}index.php/reports/cashier_transaction/home" method="post" name="form1">
+        <div class="col-lg-12">
+        <h4>Cashier Transaction</h4><br>        
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Branch</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_branch" name="id_branch">
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+            </div>    
+        </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Department</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_dept" name="id_dept"> 
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+            </div>    
+       </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <div class="checkbox-inline">
+                <label><input type="checkbox" name="v_type" value="view_report"> View Report By Date</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+        <h6>Other Option</h6>
+        </div>
+    </div>    
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+               <label>From</label>
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+        <div class="col-md-2">
+          <div>
+               <label>Validation</label>
+            </div>
+        <div class="col-md-3">
+                <select class="form-control" id="id_validation" name="id_validation">
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+           </div>
+       </div>
+    </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>to</label>
+        </div>
+            <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+        <div class="col-md-2">
+          <div>
+               <label>User</label>
+            </div>
+        <div class="col-md-3">
+                <select class="form-control" id="id_user" name="id_user">
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+           </div>
+         <div class="col-md-2">
+            <div class="checkbox-inline">
+                <label><input type="checkbox" name="v_type" value="show_dp"> Show DP To New DP</label>
+            </div>
+         </div>
+        </div>
+      </div>
+      <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="pay_method"> By Pay Method</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="by_currency"> By Currency</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="no_trans"> By Transaction No</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="by_dc"> By Debit Credit</label>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="by_valuta"> By Valuta</label>
+            </div>
+        </div>
+    </div>
+     <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>Category</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_category">
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+            </div>
+     </div>
+     <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>Cust. Group</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_group">
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+            </div>
+     </div>
+      <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Costumer</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_costumer">
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+            </div>    
+        </div>
+      <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="include"> Include</label>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="exclude"> exclude</label>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <div class="radio-inline">
+                <label><input type="radio" name="v_type" value="balance_only"> No Balance Only</label>
+            </div>
+        </div>
+    </div>
+        
+    </form>
+</div>
