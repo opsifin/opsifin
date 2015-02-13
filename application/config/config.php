@@ -10,7 +10,8 @@
 |	ORM Doctrine Version : 2.2.0
 |
 | Mapping terlokasi pada Directory 'models' dan data processing pada directory 'datalayer'.
-| Template engine menggunakan extension '.html', sudah di set dafault pada settingan, pemanggilan views tanpa harus
+| Template engine menggunakan extension '.html', sudah di set dafault pada settingan, 
+| * pemanggilan views tanpa harus
 | menggunakan extension nya, contoh :
 | $this->twig->display("index",$param); -> itu menggunakan view "index.html"
 |

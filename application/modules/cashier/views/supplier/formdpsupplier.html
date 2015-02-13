@@ -49,9 +49,9 @@
                 <label>Department</label>
             </div>
             <div class="col-md-3 input-group">
-                <input class="form-control" id="id_dept" name="id_dept" type="text" value="{{ data.id_dept }}" required/>
+                <input class="typeahead tt-query form-control" id="id_dept" name="id_dept" type="text" value="{{ data.id_dept }}" required/>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
+                    <button data-toggle="modal" href="#form-dept" class="find-dept btn btn-default" type="button">Find</button>
                 </span>
             </div>
         </div>
@@ -61,9 +61,9 @@
                 <label>Supplier</label>
             </div>
             <div class="col-md-5 input-group">
-                <input class="form-control" id="kode_vendor" name="kode_vendor" type="text" value="{{ edit.kode_vendor }}"  required />  
+                <input class="typeahead tt-query form-control" id="id_vendor" name="kode_vendor" type="text" value="{{ data.id_dept }}" required/>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
+                    <button data-toggle="modal" href="#form-vendor" class="find-vendor btn btn-default" type="button">Find</button>
                 </span>
             </div>    
         </div>  
@@ -82,9 +82,9 @@
                 <label>LG No</label>
             </div>    
             <div class="col-md-5 input-group">
-                <input class="form-control" id="lg_no" name="lg_no" type="text" value="{{ edit.lg_no }}"  required /> 
+                <input class="typeahead tt-query form-control" id="lg_no" name="lg_no" type="text" value="{{ edit.lg_no }}"  autocomplete="off" required /> 
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
+                    <button data-toggle="modal" href="#form-lg" class="find-lg btn btn-default" type="button">Find</button>
                 </span>
             </div>    
         </div>
@@ -96,9 +96,9 @@
             <div class="col-md-9">
                 <div class="col-lg-4">
                 <div class="input-group">
-                    <input class="form-control" id="currency" name="currency" type="text" value="{{ edit.currency }}" required /> 
+                    <input class="typeahead tt-query form-control" id="id_currency" name="currency" type="text" value="{{ edit.currency }}" autocomplete="off" required /> 
                     <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
+                        <button data-toggle="modal" href="#form-currency" class="find-currency btn btn-default" type="button">Find</button>
                     </span>
                 </div>
                 </div>    
@@ -237,5 +237,85 @@
         </div>    
     </div>    
 </div>
+
+
+
+<!-- MODAL for Dept -->
+<div id="form-dept" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Department</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>  
+
+<!-- MODAL for Vendor -->
+<div id="form-vendor" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Vendor</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>  
+
+<!-- MODAL for LG -->
+<div id="form-lg" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>LG</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>
+
+<!-- MODAL for Currency -->
+<div id="form-currency" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Currency</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    // Waiting for the DOM ready...
+    $(document).ready(function(){
+            // currency typeahead
+            $('#currency').typeahead({
+                name: 'currency',
+                prefetch: '{{ base_url }}index.php/cashier/ajax_data/currency',
+                limit: 10
+            });
+            // vendor typeahead
+            $('#kode_vendor').typeahead({
+                name: 'kode_vendor',
+                prefetch: '{{ base_url }}index.php/cashier/ajax_data/vendor',
+                limit: 10
+            })
+             
+            $('body').on('show.bs.modal','.modal', function (e) {
+                    // to change modal event when show
+                    
+            })
+    });
+</script>
 
 {% endblock %}

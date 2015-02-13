@@ -27,8 +27,11 @@
             <div class="col-md-4">
                 <label>Branch</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 input-group">                
                 <input class="form-control" id="id_cabang" name="id_cabang" type="text" value="{{ edit.id_cabang }}" required/>                
+                <span class="input-group-btn">
+                    <button data-toggle="modal" href="#form-branch" class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
         <div class="clearfix"></div>
@@ -39,8 +42,11 @@
             <div class="col-md-3">
                 <input class="form-control" id="bg_prefix" name="bg_prefix" type="text" value="{{ edit.bg_prefix }}" required/>                
             </div> 
-            <div class="col-md-5">
+            <div class="col-md-5 input-group">
                 <input class="form-control" id="bg_no" name="bg_no" type="text" value="{{ edit.bg_no }}" required/>                
+                <span class="input-group-btn">
+                    <button data-toggle="modal" href="#form-cheque" class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
         <div class="clearfix"></div>
@@ -48,8 +54,11 @@
             <div class="col-md-4">
                 <label>Transaction No</label>
             </div>    
-            <div class="col-md-8">
+            <div class="col-md-8 input-group">
                 <input class="form-control" id="transaksi_no" name="transaksi_no" type="text" value="{{ edit.transaksi_no }}" required/>                
+                <span class="input-group-btn">
+                    <button data-toggle="modal" href="#form-transaksi" class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>
         <div class="clearfix"></div>
@@ -75,11 +84,17 @@
             <div class="col-md-4">
                 <label>Reference Type</label>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 input-group">
                 <input class="form-control" id="ref_prefix" name="ref_prefix" type="text" value="{{ edit.ref_prefix }}" required/>                
+                <span class="input-group-btn">
+                    <button data-toggle="modal" href="#form-dept" class="btn btn-default" type="button">Find</button>
+                </span>
             </div> 
-            <div class="col-md-5">
+            <div class="col-md-5 input-group">
                 <input class="form-control" id="ref_type" name="ref_type" type="text" value="{{ edit.ref_type }}" required/>                
+                <span class="input-group-btn">
+                    <button data-toggle="modal" href="#form-dept" class="btn btn-default" type="button">Find</button>
+                </span>
             </div>    
         </div>        
         <div class="clearfix"></div>
@@ -105,10 +120,13 @@
             <div class="col-md-4">
                 <label>Amount</label>
             </div>
-            <div class="col-md-3">    
-                <input class="form-control" id="currency" name="currency" type="text" value="{{ edit.currency }}" required/>                
+            <div class="col-md-3 input-group">    
+                <input class="form-control" id="id_currency" name="currency" type="text" value="{{ edit.currency }}" required/>                
+                <span class="input-group-btn">
+                    <button data-toggle="modal" href="#form-dept" class="btn btn-default" type="button">Find</button>
+                </span>
             </div>
-            <div class="col-md-5">    
+            <div class="col-md-3">    
                 <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.amount }}" required/>                
             </div>    
         </div>      
@@ -239,5 +257,87 @@
         </div>    
     </div>    
 </div>
+
+
+
+<!-- MODAL for Dept -->
+<div id="form-branch" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Branch</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>  
+
+<!-- MODAL for Vendor -->
+<div id="form-cheque" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Cheque BG</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>  
+
+
+<!-- MODAL for Currency -->
+<div id="form-transaksi" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Transaksi</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>
+
+<!-- MODAL for Currency -->
+<div id="form-currency" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Currency</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    // Waiting for the DOM ready...
+    $(document).ready(function(){
+            // currency typeahead
+            $('#currency').typeahead({
+                name: 'currency',
+                prefetch: '{{ base_url }}index.php/cashier/ajax_data/currency',
+                limit: 10
+            });
+            // vendor typeahead
+            $('#kode_customer').typeahead({
+                name: 'kode_customer',
+                prefetch: '{{ base_url }}index.php/cashier/ajax_data/customer',
+                limit: 10
+            })
+             
+            $('body').on('show.bs.modal','.modal', function (e) {
+                    // to change modal event when show
+                    
+            })
+    });
+</script>
+
 
 {% endblock %}

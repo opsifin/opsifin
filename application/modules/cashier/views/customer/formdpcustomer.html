@@ -50,9 +50,9 @@
                 <label>Department</label>
             </div>
             <div class="col-md-4 input-group">    
-                <input class="form-control" id="id_dept" name="id_dept" type="text" value="{{ edit.id_dept }}" required/> 
+                <input class="typeahead tt-query form-control" autocomplete="off" id="id_dept" name="id_dept" type="text" value="{{ edit.id_dept }}" required/> 
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
+                    <button data-toggle="modal" href="#form-dept" class="btn btn-default" type="button">Find</button>
                 </span>
             </div>    
         </div>
@@ -61,9 +61,9 @@
                 <label>Customer</label>
             </div>
             <div class="col-md-4  input-group">    
-                <input class="form-control" id="id_customer" name="id_customer" type="text" value="{{ edit.id_customer }}" required/>                
+                <input class="typeahead tt-query form-control" autocomplete="off" id="id_customer" name="id_customer" type="text" value="{{ edit.id_customer }}" required/>                
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
+                    <button data-toggle="modal" href="#form-customer" class="btn btn-default" type="button">Find</button>
                 </span>
             </div>    
         </div>
@@ -81,12 +81,12 @@
             </div>
             <div class="col-md-9">
                 <div class="col-lg-4">
-                <div class="input-group">
-                    <input class="form-control" id="currency" name="currency" type="text" value="{{ edit.currency }}" required /> 
-                    <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                    </span>
-                </div>
+                    <div class="input-group">
+                        <input class="typeahead tt-query form-control" autocomplete="off" id="id_currency" name="currency" type="text" value="{{ edit.currency }}" required /> 
+                        <span class="input-group-btn">
+                            <button data-toggle="modal" href="#form-currency" class="btn btn-default" type="button">Find</button>
+                        </span>
+                    </div>
                 </div>    
                 <div class="col-lg-4">
                     <input class="form-control" id="amount" name="amount" type="text" value="{{ edit.amount }}" required />
@@ -186,5 +186,72 @@
         </div>    
     </div>    
 </div>
+
+
+<!-- MODAL for Dept -->
+<div id="form-dept" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Department</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>  
+
+<!-- MODAL for Vendor -->
+<div id="form-customer" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Customer</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>  
+
+
+<!-- MODAL for Currency -->
+<div id="form-currency" class="modal fade in" >
+    <div class="container modal-window">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">×</a>
+            <h3>Currency</h3>
+        </div>
+        <div class="modal-body">
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    // Waiting for the DOM ready...
+    $(document).ready(function(){
+            // currency typeahead
+            $('#currency').typeahead({
+                name: 'currency',
+                prefetch: '{{ base_url }}index.php/cashier/ajax_data/currency',
+                limit: 10
+            });
+            // vendor typeahead
+            $('#kode_customer').typeahead({
+                name: 'kode_customer',
+                prefetch: '{{ base_url }}index.php/cashier/ajax_data/customer',
+                limit: 10
+            })
+             
+            $('body').on('show.bs.modal','.modal', function (e) {
+                    // to change modal event when show
+                    
+            })
+    });
+</script>
 
 {% endblock %}
