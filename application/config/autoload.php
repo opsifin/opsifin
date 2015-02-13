@@ -64,7 +64,7 @@ $autoload['libraries'] = array("database", "Twig","session","owner","export");
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','json','file','twig');
+$autoload['helper'] = array('url','json','file','twig', 'form');
 
 
 /*

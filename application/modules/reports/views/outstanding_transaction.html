@@ -31,12 +31,16 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_branch" name="id_branch">
+                <select class="form-control" id="id_branch">
+                    <option value=""></option>
+                     {% for data in branchlist %}
+                    <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
+                     {% endfor %}
                 </select>
+            </div>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
                 </span>
-            </div>    
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -45,10 +49,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_type">
                 </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+            </div>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>
     <div class="form-group col-lg-12">
        <div class="col-md-2">
@@ -64,12 +68,16 @@
             <label>Department</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_dept" name="id_dept"> 
+                <select class="form-control" id="id_dept"> 
+                 <option value=""></option>
+                     {% for data in deptlist %}
+                    <option value="{{ data.id_dept }}">{{ data.nama_dept }}</option>
+                     {% endfor %}
                 </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+            </div>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -78,10 +86,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_status">
                 </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
             </div>    
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>
     <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -89,7 +97,9 @@
         </div>
             <div class="col-md-3">
                 <select class="form-control" id="id_curreny">
-                    
+                    {% for data in currencylist %}
+                    <option value="{{ data.id_currency }}">{{ data.currency }}</option>
+                     {% endfor %}
                 </select>
             </div>    
         </div>
@@ -100,10 +110,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_user">
                 </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
             </div>    
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -112,10 +122,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_dealer">
                 </select>
-                <span class="input-group-btn">
+            </div>
+            <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+            </span>
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -123,11 +133,15 @@
         </div>
             <div class="col-md-3">
                 <select class="form-control" id="id_costumer">
+                    <option value=""></option>
+                     {% for data in complist %}
+                    <option value="{{ data.id_company }}">{{ data.nama_company }}</option>
+                     {% endfor %}
                 </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+            </div>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -136,10 +150,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_report_type">
                 </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
             </div>    
+            <span class="input-group-btn">
+                 <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>
     <input type="submit" class="btn btn-default" value="Proses">
     </form>  

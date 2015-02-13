@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            List Voucher
+            Cash Flow
         </h1>
 
         <ol class="breadcrumb">
@@ -14,13 +14,18 @@
             </li>
 
             <li class="active">
-                <i class="fa fa-edit"></i> List Voucher
+                <i class="fa fa-edit"></i> Cash Flow
             </li>
         </ol>
     </div>
 </div>
 <!-- /.row -->
+
 <div class="row">
+    <form action="{{ base_url }}index.php/reports/cash_flow/home" method="post" name="form1">
+    <div class="col-lg-12">
+        <h4>Cash Flow</h4><br>        
+    </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>Branch</label>
@@ -28,6 +33,30 @@
             <div class="col-md-3">
                 
             </div>    
+        </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+               <label>Begin Date</label>
+       </div>
+       <div class="col-md-3">
+               
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+               <label>Previous Date</label>
+       </div>
+       <div class="col-md-3">
+               
+            </div>
+    </div>
+        <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>Report Date</label>
+        </div>
+            <div class="col-md-3">
+               
+            </div>
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -38,63 +67,46 @@
             </div>    
         </div>
     <div class="form-group col-lg-12">
-       <div class="col-md-2">
-               <label>From</label>
-       </div>
-       <div class="col-md-3">
-               
-            </div>
+         <div class="col-md-2">
+            <label>Ccy</label>
+        </div>
+            <div class="col-md-3">
+                
+            </div>    
+        </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Pay Method</label>
+        </div>
+            <div class="col-md-3">
+                
+            </div>    
+        </div>
+    <div class="form-group col-lg-12">
         <div class="col-md-2">
-            <div class="radio-inline">
-                  <label><input type="radio" name="v_type" value="inv_date"> Inv. Date</label>
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="cash_flow"> Cash Flow</label>
             </div>
+        </div>
+            <div class="col-md-3">
+            <div class="checkbox-inline">
+                <label><input type="checkbox"  name="v_type" value="detail_range"> Detail Range</label>
+            </div>      
         </div>
     </div>
-        <div class="form-group col-lg-12">
-        <div class="col-md-2">
-            <label>to</label>
-        </div>
-            <div class="col-md-3">
-               
-            </div>
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Printed/Not</label>
-        </div>
-            <div class="col-md-3">
-                
-            </div>    
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Status</label>
-        </div>
-            <div class="col-md-3">
-                
-            </div>    
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Costumer</label>
-        </div>
-            <div class="col-md-3">
-                
-            </div>    
-        </div>
+    </form>
 </div>
-
 <div class="table-responsive">
     <table class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
               	<th>Branch</th>
-              	<th>Report Type</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Printed/Not</th>
-                <th>Status</th>
-                <th>Costumer</th>
+              	<th>Begin Date</th>
+                <th>Previous Date</th>
+                <th>Report Date</th>
+                <th>Report Type</th>
+                <th>Ccy</th>
+                <th>Pay Method</th>
             </tr>
         </thead>
         

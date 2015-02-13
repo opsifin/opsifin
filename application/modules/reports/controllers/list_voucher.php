@@ -9,9 +9,13 @@ class list_voucher extends CI_Controller {
 	public function home(){
 		
 
+                $this->load->model('modelbranch_all');
+                $this->load->model('modelcompany_all');
 		$log = $this->session->all_userdata();
 		$userLogged = $this->session->userdata('userLogged');
-		
+		$branchlist = $this->modelbranch_all->getoption();
+                $complist = $this->modelcompany_all->getoption();
+                
 		if ($userLogged) {
                     
                     if (!empty($_POST)){
@@ -20,6 +24,8 @@ class list_voucher extends CI_Controller {
                         $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
+                                'complist'    => $complist,
 			);
 			$this->twig->display("reports/list_voucher", $content);
                     }
@@ -28,6 +34,8 @@ class list_voucher extends CI_Controller {
                         $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
+                                'complist'    => $complist,
 			);
 			$this->twig->display("list_voucher", $content);
                     }    

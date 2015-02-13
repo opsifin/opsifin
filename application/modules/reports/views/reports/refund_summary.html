@@ -42,25 +42,25 @@
             </div>    
         </div>
     <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>By</label>
+        </div>
+        <div class="col-md-2">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="refund"> Refund Date</label>
+            </div>
+        </div>
+            <div class="radio-inline">
+                <label><input type="radio"  name="v_type" value="cs_date"> Cs Date</label>
+            </div>      
+        </div>
+    <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>Costumer</label>
         </div>
             <div class="col-md-3">
                 
             </div>    
-        </div>
-    <div class="form-group col-lg-12">
-        <div class="col-md-2">
-            <label>By</label>
-        </div>
-        <div class="col-md-2">
-            <div class="radio-inline">
-                  <label></label>
-            </div>
-        </div>
-            <div class="radio-inline">
-                <label></label>
-            </div>      
         </div>
     <div class="form-group col-lg-12">
        <div class="col-md-2">
@@ -117,6 +117,29 @@
                
             </div>    
         </div>
+    </div>
+    
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+              	<th>Branch</th>
+              	<th>Department</th>
+                <th>Costumer</th>
+                <th>From</th>
+                <th>to</th>
+ <!--           <th>User</th>
+                <th>View Type</th>
+                <th>Report Type</th>
+                <th>Sort By</th>
+                <th>Airline</th>
+ -->
+            </tr>
+        </thead>
+
+    </table>
+    
+    {{links|raw}}
     </div>
     
 {% endblock %}

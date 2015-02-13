@@ -8,9 +8,10 @@ class gain_loss_forex extends CI_Controller {
 	
 	public function home(){
 		
-
+                $this->load->model('modelbranch_all');
 		$log = $this->session->all_userdata();
 		$userLogged = $this->session->userdata('userLogged');
+                $branchlist = $this->modelbranch_all->getoption();
 		
 		if ($userLogged) {
                     
@@ -20,6 +21,7 @@ class gain_loss_forex extends CI_Controller {
                         $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
 			);
 			$this->twig->display("reports/gain_loss_forex", $content);
                     }
@@ -28,6 +30,7 @@ class gain_loss_forex extends CI_Controller {
                         $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
 			);
 			$this->twig->display("gain_loss_forex", $content);
                     }    

@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Summary Of Sales 
+            Cash Flow
         </h1>
 
         <ol class="breadcrumb">
@@ -14,7 +14,7 @@
             </li>
 
             <li class="active">
-                <i class="fa fa-edit"></i> Home
+                <i class="fa fa-edit"></i> Cash Flow
             </li>
         </ol>
     </div>
@@ -22,24 +22,10 @@
 <!-- /.row -->
 
 <div class="row">
-    <form action="{{ base_url }}index.php/reports/summary_of_sales/home" method="post" name="form1">
+    <form action="{{ base_url }}index.php/reports/cash_flow/home" method="post" name="form1">
     <div class="col-lg-12">
-        <h4>Sale Summary</h4><br>
+        <h4>Cash Flow</h4><br>        
     </div>
-    <div class="form-group col-lg-12">
-       <div class="col-md-2">
-               <label>From</label>
-       </div>
-       <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
-            </div>  
-        <div class="col-md-2">
-            <label>to</label>
-        </div>
-            <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
-            </div>
-        </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>Branch</label>
@@ -57,15 +43,35 @@
                 </span>    
         </div>
     <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Department</label>
+       <div class="col-md-2">
+               <label>Begin Date</label>
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+               <label>Previous Date</label>
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+    </div>
+        <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>Report Date</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_dept" name="id_dept">
-                    <option value=""></option>
-                     {% for data in deptlist %}
-                    <option value="{{ data.id_dept }}">{{ data.nama_dept }}</option>
-                     {% endfor %}
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+        </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Report Type</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_report_type" name="id_report_type">
                 </select>
             </div>
                 <span class="input-group-btn">
@@ -74,10 +80,10 @@
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
-            <label>Product Code</label>
+            <label>Ccy</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_product_code">
+                <select class="form-control" id="id_ccy" name="id_ccy">
                 </select>
             </div>
                 <span class="input-group-btn">
@@ -85,14 +91,30 @@
                 </span>    
         </div>
     <div class="form-group col-lg-12">
-        <h4>Report Type</h4>
+         <div class="col-md-2">
+            <label>Pay Method</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_pay_method" name="id_paymethod">
+                </select>
+            </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>    
+        </div>
+    <div class="form-group col-lg-12">
         <div class="col-md-2">
             <div class="checkbox-inline">
-                <label><input type="checkbox" name="v_type" value="daily_sales"> Daily Sales By Currency</label>
+                  <label><input type="checkbox" name="v_type" value="cash_flow"> Cash Flow</label>
             </div>
         </div>
+            <div class="col-md-3">
+            <div class="checkbox-inline">
+                <label><input type="checkbox"  name="v_type" value="detail_range"> Detail Range</label>
+            </div>      
+        </div>
     </div>
-    <input type="submit" class="btn btn-default" value="Proses">
+        <input type="submit" class="btn btn-default" value="Proses">
     </form>
- </div>
+</div>
 {% endblock %}

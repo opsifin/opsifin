@@ -32,11 +32,15 @@
         </div>
             <div class="col-md-3">
                 <select class="form-control" id="id_view">
-                </select>
+                    <option value=""></option>
+                     {% for data in branchlist %}
+                    <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
+                     {% endfor %}
+                </select>  
+        </div>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
-                </span>  
-        </div>
+                </span>
     </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -45,22 +49,26 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_report_type">
                 </select>
+            </div>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
                 </span>
-            </div>    
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>Department</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_dept" name="id_dept"> 
+                <select class="form-control" id="id_dept" name="id_dept">
+                    <option value=""></option>
+                     {% for data in deptlist %}
+                    <option value="{{ data.id_dept }}">{{ data.nama_dept }}</option>
+                     {% endfor %}
                 </select>
+            </div>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+                </span>    
         </div>
     <div class="form-group col-lg-12">
        <div class="col-md-2">
@@ -95,10 +103,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_printed_not">
                 </select>
+            </div>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+                </span>    
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -107,10 +115,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_status">
                 </select>
+            </div>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+                </span>    
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -119,10 +127,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_user">
                 </select>
+            </div>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+                </span>    
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -130,11 +138,15 @@
         </div>
             <div class="col-md-3">
                 <select class="form-control" id="id_costumer">
+                    <option value=""></option>
+                     {% for data in complist %}
+                    <option value="{{ data.id_company }}">{{ data.nama_company }}</option>
+                     {% endfor %}
                 </select>
+            </div>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
                 </span>
-            </div>    
         </div>
     <div class="form-group col-lg-12">
         <div class="col-md-2">

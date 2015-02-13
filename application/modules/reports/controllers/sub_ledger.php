@@ -8,9 +8,12 @@ class sub_ledger extends CI_Controller {
 	
 	public function home(){
 		
-
+                $this->load->model('modelbranch_all');
+                $this->load->model('modelcompany_all');
 		$log = $this->session->all_userdata();
 		$userLogged = $this->session->userdata('userLogged');
+                $branchlist = $this->modelbranch_all->getoption();
+                $complist = $this->modelcompany_all->getoption();
 		
 		if ($userLogged) {
                     
@@ -20,6 +23,8 @@ class sub_ledger extends CI_Controller {
                         $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
+                                'complist'    => $complist,
 			);
 			$this->twig->display("reports/sub_ledger", $content);
                     }
@@ -28,6 +33,8 @@ class sub_ledger extends CI_Controller {
                         $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
+                                'complist'    => $complist,
 			);
 			$this->twig->display("sub_ledger", $content);
                     }    

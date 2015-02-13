@@ -33,10 +33,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_view">
                 </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+            </div>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>
     <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -45,10 +45,10 @@
         <div class="col-md-3">
                 <select class="form-control" id="id_type">
                 </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
-            </div>    
+            </div>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Find</button>
+            </span>
         </div>  
     <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -57,10 +57,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_category">
                 </select>
-                <span class="input-group-btn">
+            </div>
+            <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
                 </span>
-            </div>    
         </div>
     <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -79,10 +79,10 @@
         <div class="col-md-3">
                 <select class="form-control" id="id_region">
                 </select>
-                <span class="input-group-btn">
+            </div>
+        <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
                 </span>
-            </div>
     </div>
     <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -91,10 +91,10 @@
             <div class="col-md-3">
                 <select class="form-control" id="id_report_type">
                 </select>
-                <span class="input-group-btn">
+            </div>
+            <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Find</button>
                 </span>
-            </div>    
         </div>
     <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -108,13 +108,13 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input type="date" name="from" id="datepicker">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>  
         <div class="col-md-2">
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input type="date" name="to" id="datepicker">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
             </div>
         </div>
     <div class="form-group col-lg-12">

@@ -9,8 +9,14 @@ class list_of_cheque_bg extends CI_Controller {
 	public function home(){
 		
 
+                $this->load->model('modelbranch_all');
+                $this->load->model('modelcurrency_all');
+                $this->load->model('modeluser_all');
 		$log = $this->session->all_userdata();
 		$userLogged = $this->session->userdata('userLogged');
+                $branchlist = $this->modelbranch_all->getoption();
+                $currencylist = $this->modelcurrency_all->getoption();
+                $userlist = $this->modeluser_all->getoption();
 		
 		if ($userLogged) {
                     
@@ -20,6 +26,9 @@ class list_of_cheque_bg extends CI_Controller {
                         $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
+                                'currencylist'  => $currencylist,
+                                'userlist'      => $userlist
 			);
 			$this->twig->display("reports/list_of_cheque_bg", $content);
                     }
@@ -28,6 +37,9 @@ class list_of_cheque_bg extends CI_Controller {
                         $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
+                                'currencylist'  => $currencylist,
+                                'userlist'      => $userlist
 			);
 			$this->twig->display("list_of_cheque_bg", $content);
                     }    
