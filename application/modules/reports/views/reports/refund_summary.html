@@ -30,7 +30,7 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                
+              {{ data_filter.nama_branch}}   
             </div>    
         </div>
     <div class="form-group col-lg-12">
@@ -76,49 +76,7 @@
             <div class="col-md-3">
             </div>
         </div>
-    <div class="form-group col-lg-12">
-        <h4>View Option</h4><br>
-        <div class="col-md-2">
-            <label>User</label>
-        </div>
-            <div class="col-md-3">
-                
-            </div>    
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>View Type</label>
-        </div>
-            <div class="col-md-3">
-                
-            </div>    
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Report Type</label>
-        </div>
-            <div class="col-md-3">
-                
-            </div>    
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Sort By</label>
-        </div>
-            <div class="col-md-3">
-                
-            </div>    
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Airline</label>
-        </div>
-            <div class="col-md-3">
-               
-            </div>    
-        </div>
-    </div>
-    
+ </div>   
     <div class="table-responsive">
     <table class="table table-bordered table-hover table-striped">
         <thead>
@@ -136,7 +94,21 @@
  -->
             </tr>
         </thead>
-
+            <tbody>
+        	{% for data in data %}
+            <tr>
+              	<td>{{ data.nama_branch }}</td>
+              	<td>{{ data.nama_dept }}</td>
+                <td>{{ data.nama_company }}</td>
+                <td>{{ main.trans_date_from }}</td>
+                <td>{{ main.trans_date_to }}</td>
+ <!--
+                <td><a href="{{ base_url }}index.php/main/coagroup/form/?id={{ data.id_levelacc|trim }}"><i class="fa fa-fw fa-pencil"></i> Edit</a> <a href="javascript:void();" onclick="deleteThis('{{ base_url }}index.php/main/coagroup/delete/?id={{ data.id_levelacc|trim }}')"><i class="fa fa-fw fa-trash-o"></i> Delete</a></td>
+ -->           
+            </tr> 
+            {% endfor %}
+                  
+        </tbody>
     </table>
     
     {{links|raw}}

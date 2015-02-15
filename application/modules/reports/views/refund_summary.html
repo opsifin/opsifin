@@ -31,7 +31,7 @@
             <label>Branch</label>
         </div>
             <div class="col-md-2">
-                <select class="form-control" id="id_branch">
+                <select class="form-control" name="nama_branch" id="nama_branch" >
                     <option value=""></option>
                      {% for data in branchlist %}
                     <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
@@ -47,7 +47,7 @@
             <label>Department</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_dept"> 
+                <select class="form-control" name="nama_department" id="nama_dept"> 
                     <option value=""></option>
                      {% for data in deptlist %}
                     <option value="{{ data.id_dept }}">{{ data.nama_dept }}</option>
@@ -63,7 +63,7 @@
             <label>Costumer</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_customer">
+                <select class="form-control" name="nama_costumer" id="nama_customer">
                      <option value=""></option>
                      {% for data in complist %}
                     <option value="{{ data.id_company }}">{{ data.nama_company }}</option>
@@ -92,7 +92,7 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date_from" type="text" value="{{ main.trans_date_from }}" required>
             </div>
     </div>
         <div class="form-group col-lg-12">
@@ -100,72 +100,11 @@
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date_to" type="text" value="{{ main.trans_date_to }}" required>
             </div>
         </div>
- <!--   <div class="form-group col-lg-12">
-        <h4>View Option</h4><br>
-        <div class="col-md-2">
-            <label>User</label>
-        </div>
-            <div class="col-md-3">
-                <select class="form-control" id="id_user"> 
-                </select>
-            </div>    
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Find</button>
-        </span>
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>View Type</label>
-        </div>
-            <div class="col-md-3">
-                <select class="form-control" id="id_view_type">
-                </select>
-            </div>
-        <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Find</button>
-        </span>
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Report Type</label>
-        </div>
-            <div class="col-md-3">
-                <select class="form-control" id="id_report_type">
-                </select>
-            </div>
-        <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Find</button>
-        </span>
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Sort By</label>
-        </div>
-            <div class="col-md-3">
-                <select class="form-control" id="id_sort_by">
-                </select>
-            </div>
-        <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Find</button>
-        </span>
-        </div>
-    <div class="form-group col-lg-12">
-         <div class="col-md-2">
-            <label>Airline</label>
-        </div>
-            <div class="col-md-3">
-                <select class="form-control" id="id_airline">
-                </select>
-            </div>    
-        <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Find</button>
-        </span>
-        </div>
- -->
+
         <input type="submit" class="btn btn-default" value="Proses">
-    </form>
+    </form>   
 </div>
 {% endblock %}

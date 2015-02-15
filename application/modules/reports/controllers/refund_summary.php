@@ -20,14 +20,18 @@ class refund_summary extends CI_Controller {
 		if ($userLogged) {
                     
                     if (!empty($_POST)){
+                        print_r($_POST);
                         // apabila tombol proses ditekan
                         // for ! proses
+                        
                         $content = array (
+                                "data_filter"  => $_POST,
 				"log" => $log,
 				"base_url" => base_url(),
                                 'deptlist'    => $deptlist,
                                 'branchlist'  => $branchlist,
                                 'complist'    => $complist,
+                                
 			);
 			$this->twig->display("reports/refund_summary", $content);
                     }
