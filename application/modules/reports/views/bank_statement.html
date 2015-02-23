@@ -1,0 +1,133 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Cashier Transaction Detail
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <form action="{{ base_url }}index.php/reports/cashier_transaction_detail/home" method="post" name="form1">
+    <div class="col-lg-12">
+        <h4>Cashier Transaction Detail</h4><br>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Branch</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_branch">
+                <!--    <option value=""></option>
+                     {% for data in branchlist %}
+                    <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
+                     {% endfor %}-->
+                </select>  
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+               <label>Begin Date</label>
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_begin" name="trans_date_begin" type="text" value="{{ main.trans_date_begin }}" required>
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+               <label>From</label>
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_from" name="trans_date_from" type="text" value="{{ main.trans_date_from }}" required>
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>to</label>
+        </div>
+            <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_to" name="trans_date_to" type="text" value="{{ main.trans_date_to }}" required>
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Report Type</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="report_type">
+                </select>  
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>BANK NAME</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="bank_nama">
+                </select>  
+        </div>
+    </div>
+     <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Currency</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="currency">
+                </select>  
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Transaction</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="transction">
+                </select>  
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Trans ID</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="trans_id">
+                </select>  
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="amount_idr"> View Amount IDR</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="cust_type"> Sort By Customer Type</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+       <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="sort_currency"> Sort By Currency</label>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}

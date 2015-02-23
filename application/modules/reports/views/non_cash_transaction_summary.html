@@ -1,0 +1,187 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Non Cash Transaction Summary
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <form action="{{ base_url }}index.php/reports/non_cash_transaction_summary/home" method="post" name="form1">
+    <div class="col-lg-12">
+        <h4>List Of BG/Credit Card/Transfer/Debet BCA</h4><br>
+        
+    </div>
+<div class="form-group col-lg-12">
+    <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="bg_cheque"> BG/Cheque</label>
+            </div>
+    </div>
+            <div class="checkbox-inline">
+                <label><input type="checkbox"  name="v_type" value="credit_card"> Credit Card</label>
+            </div>
+            <div class="checkbox-inline">
+                <label><input type="checkbox"  name="v_type" value="transfer_da"> Transfer DA</label>
+            </div>
+        </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Branch</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_branch" name="id_branch">
+            <!--    <option value=""></option>
+                     {% for data in branchlist %}
+                    <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
+                     {% endfor %}-->
+                </select>
+            </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>    
+        </div>
+    <div class="form-group col-lg-12">
+            <div class="col-md-2">
+               <label>From</label>
+            </div>
+            <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+        </div>
+    <div class="form-group col-lg-12">
+            <div class="col-md-2">
+               <label>to</label>
+            </div>
+            <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+            </div>
+            <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="by_date"> By Date</label>
+            </div>
+        </div>
+    </div>    
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Type</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_type">
+                </select>
+            </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>    
+        </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>References</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_references">
+                </select>
+            </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>    
+        </div>
+    <div class="form-group col-lg-12">
+          <div class="col-md-2">
+            <label>Transaction</label>
+        </div>
+        <div class="col-md-3">
+          <select class="form-control" name="transaction" id="transaction">
+          </select>
+        </div>
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Find</button>
+            </span>
+    </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="all_transaction"> Select All Transaction</label>
+            </div>
+        </div>
+        <div class="radio-inline">
+                  <label><input type="radio" name="v_type" value="un_transaction"> Unselect All Transaction</label>
+            </div>
+        </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Criteria</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_critera">
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>
+            </div>
+        <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="all"> All</label>
+            </div>
+        </div>
+        </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Bank Name</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_bank">
+                </select>
+            </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>    
+        </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>User</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="id_user">
+             <!--       <option value=""></option>
+                     {% for data in userlist %}
+                    <option value="{{ data.id_user }}">{{ data.username }}</option>
+                     {% endfor %}-->
+                </select>
+            </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Find</button>
+                </span>    
+        </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>Currency</label>
+        </div>
+            <div class="col-md-3">
+                <select id="currency" name="currency" class="form-control" onchange="getRates()">
+               <!--     <option value=""></option>
+                     {% for data in currencylist %}
+                    <option value="{{ data.id_currency }}">{{ data.currency }}</option>
+                     {% endfor %}-->
+                </select>
+            </div>    
+        </div>
+<input type="submit" class="btn btn-default" value="Proses">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "header.html" %}
+{% block content %}
+
+ <!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Request Summary
+        </h1>
+
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-dashboard"></i><a href="#"> Dashboard</a>
+            </li>
+
+            <li class="active">
+                <i class="fa fa-edit"></i> Home
+            </li>
+        </ol>
+    </div>
+</div>
+<!-- /.row -->
+<div class="row">
+    <form action="{{ base_url }}index.php/reports/request_summary/home" method="post" name="form1">
+    <div class="col-lg-12">
+        <h4>Request Summary</h4><br>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+               <label>From</label>
+       </div>
+       <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_from" name="trans_date_from" type="text" value="{{ main.trans_date_from }}" required>
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <label>to</label>
+        </div>
+            <div class="col-md-3">
+               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_to" name="trans_date_to" type="text" value="{{ main.trans_date_to }}" required>
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Status</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="status">
+                </select>  
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Approved</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="approved">
+                </select>  
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Inv Status</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="inv_status">
+                </select>  
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>User</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="user">
+                </select>  
+            </div>
+    </div>
+    <div class="form-group col-lg-12">
+        <div class="col-md-2">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="by_date"> By Date</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-lg-12">
+         <div class="col-md-2">
+            <label>Dealer</label>
+        </div>
+            <div class="col-md-3">
+                <select class="form-control" id="dealer">
+                </select>  
+            </div>
+    </div>
+    </form>
+</div>
+{% endblock %}
