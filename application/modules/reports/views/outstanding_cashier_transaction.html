@@ -31,11 +31,11 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_branch">
-                <!--    <option value=""></option>
+                <select class="form-control" name="id_branch" id="id_branch">
+                    <option value=""></option>
                      {% for data in branchlist %}
                     <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
-                     {% endfor %}-->
+                     {% endfor %}
                 </select>  
         </div>
     </div>
@@ -69,5 +69,7 @@
                 </select>  
         </div>
     </div>
+    <input type="submit" class="btn btn-default" value="Proses">
+ 
 </div>
 {% endblock %}

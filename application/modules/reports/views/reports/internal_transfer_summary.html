@@ -30,12 +30,7 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_branch">
-                    <option value=""></option>
-                     {% for data in branchlist %}
-                    <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
-                     {% endfor %}
-                </select>  
+                
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -43,8 +38,7 @@
             <label>Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="type">
-                </select>  
+                
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -52,7 +46,7 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_from" name="trans_date_from" type="text" value="{{ main.trans_date_from }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -60,7 +54,7 @@
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_to" name="trans_date_to" type="text" value="{{ main.trans_date_to }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -68,11 +62,10 @@
             <label>Status</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="status">
-                </select>  
+                
         </div>
     </div>
-    <input type="submit" class="btn btn-default" value="Proses">
+    
     </form>
 </div>
 {% endblock %}

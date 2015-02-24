@@ -30,7 +30,7 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_from" name="trans_date_from" type="text" value="{{ main.trans_date_from }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -38,7 +38,7 @@
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_to" name="trans_date_to" type="text" value="{{ main.trans_date_to }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -46,8 +46,7 @@
             <label>Status</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="status">
-                </select>  
+                
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -55,8 +54,7 @@
             <label>Approved</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="approved">
-                </select>  
+                
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -64,8 +62,7 @@
             <label>Inv Status</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="inv_status">
-                </select>  
+                
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -73,12 +70,7 @@
             <label>User</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="user">
-                    <option value=""></option>
-                     {% for data in userlist %}
-                    <option value="{{ data.id_user }}">{{ data.username }}</option>
-                     {% endfor %}
-                </select>  
+                
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -93,11 +85,10 @@
             <label>Dealer</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="dealer">
-                </select>  
+                
             </div>
     </div>
-    <input type="submit" class="btn btn-default" value="Proses"> 
+    
     </form>
 </div>
 {% endblock %}

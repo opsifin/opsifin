@@ -45,23 +45,15 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_branch" name="id_branch">
-                    <option value=""></option>
-                     {% for data in branchlist %}
-                    <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
-                     {% endfor %}
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>    
+                
+            </div>   
         </div>
     <div class="form-group col-lg-12">
             <div class="col-md-2">
                <label>From</label>
             </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+               
             </div>
         </div>
     <div class="form-group col-lg-12">
@@ -69,7 +61,7 @@
                <label>to</label>
             </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date" type="text" value="{{ main.trans_date }}" required>
+               
             </div>
             <div class="col-md-2">
             <div class="checkbox-inline">
@@ -82,36 +74,24 @@
             <label>Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_type">
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>    
+                
+            </div>  
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>References</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_references">
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>    
+                
+            </div>   
         </div>
     <div class="form-group col-lg-12">
           <div class="col-md-2">
             <label>Transaction</label>
         </div>
         <div class="col-md-3">
-          <select class="form-control" name="transaction" id="transaction">
-          </select>
+            
         </div>
-            <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Find</button>
-            </span>
     </div>
     <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -128,11 +108,7 @@
             <label>Criteria</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_critera">
-                </select>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
+                
             </div>
         <div class="col-md-2">
             <div class="checkbox-inline">
@@ -145,43 +121,22 @@
             <label>Bank Name</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_bank">
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>    
+                
         </div>
     <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>User</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="id_user">
-                    <option value=""></option>
-                     {% for data in userlist %}
-                    <option value="{{ data.id_user }}">{{ data.username }}</option>
-                     {% endfor %}
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>    
+                
         </div>
     <div class="form-group col-lg-12">
         <div class="col-md-2">
             <label>Currency</label>
         </div>
             <div class="col-md-3">
-                <select id="currency" name="currency" class="form-control" onchange="getRates()">
-                    <option value=""></option>
-                     {% for data in currencylist %}
-                    <option value="{{ data.id_currency }}">{{ data.currency }}</option>
-                     {% endfor %}
-                </select>
-            </div>    
+                
         </div>
-<input type="submit" class="btn btn-default" value="Proses">
     </form>
 </div>
 {% endblock %}

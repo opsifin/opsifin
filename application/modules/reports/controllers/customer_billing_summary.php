@@ -8,16 +8,36 @@ class customer_billing_summary extends CI_Controller {
 	
 	public function home(){
 		
-
+                $this->load->model('modelcompany_all');
+                $this->load->model('modelbranch_all');
 		$log = $this->session->all_userdata();
 		$userLogged = $this->session->userdata('userLogged');
+                $complist = $this->modelcompany_all->getoption();
+                $branchlist = $this->modelbranch_all->getoption();
 		
 		if ($userLogged) {
-			$content = array (
+                    
+                    if (!empty($_POST)){
+                        // apabila tombol proses ditekan
+                        // for ! proses
+                        $content = array (
 				"log" => $log,
 				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
+                                'complist'  => $complist
+			);
+			$this->twig->display("reports/customer_billing_summary", $content);
+                    }
+                    else {
+			// for ! proses
+                        $content = array (
+				"log" => $log,
+				"base_url" => base_url(),
+                                'branchlist'  => $branchlist,
+                                'complist'  => $complist
 			);
 			$this->twig->display("customer_billing_summary", $content);
+                    }    
 		}
 	}
 }

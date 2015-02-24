@@ -31,32 +31,16 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" name="id_branch" id="id_branch">
-                <option value=""></option>
-                    {% for data in branchlist %}
-                    <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
-                     {% endfor %}
-                </select>
+                
             </div>
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Find</button>
-            </span>
         </div>
         <div class="form-group col-lg-12">
         <div class="col-md-2">
             <label>Department</label>
         </div>
             <div class="col-md-3">
-                 <select class="form-control" id="id_dept" name="id_dept">
-                    <option value=""></option>
-                     {% for data in deptlist %}
-                    <option value="{{ data.id_dept }}">{{ data.nama_dept }}</option>
-                     {% endfor %}
-                </select>
-            </div>
-            <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
+                
+        </div>
         </div>
         <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -73,40 +57,34 @@
                <label>From</label>
             </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_from" name="trans_date_from" type="text" value="{{ main.trans_date_from }}" required>
+               
             </div>
          <div class="col-md-2">
             <label>Validation</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="validation">
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>
+                
+        </div>
         </div>
         <div class="form-group col-lg-12">
         <div class="col-md-2">
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date" name="trans_date_to" type="text" value="{{ main.trans_date_to }}" required>
+               
             </div>
             <div class="col-md-2">
             <label>User</label>
             </div>
             <div class="col-md-3">
-                <select class="form-control" id="user">
-                    <option value=""></option>
-                     {% for data in userlist %}
-                    <option value="{{ data.id_user }}">{{ data.username }}</option>
-                     {% endfor %} 
-                </select>
+       <!--    <div class="form-group col-lg-12">
+            <div class="col-md-3">
+            <div class="checkbox-inline">
+                  <label><input type="checkbox" name="v_type" value="show_dp"> Show DP To New DP</label>
             </div>
-            <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-            </span>
+            </div>
+        </div>-->
+        </div>
         </div>
         <div class="form-group col-lg-12">
         <div class="col-md-2">
@@ -148,40 +126,24 @@
             <label>Category</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="category">
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>    
+                
+        </div>
         </div>
         <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>Cust. Group</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="cust_group">
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>    
+                
+        </div>
         </div>
         <div class="form-group col-lg-12">
          <div class="col-md-2">
             <label>Customer</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" name="nama_customer" id="customer" >
-                    <option value=""></option>
-                     {% for data in complist %}
-                    <option value="{{ data.id_company }}">{{ data.nama_company }}</option>
-                     {% endfor %}
-                </select>
-            </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Find</button>
-                </span>    
+                
+        </div>
         </div>
         <div class="form-group col-lg-12">
          <div class="col-md-2">
@@ -205,7 +167,7 @@
             </div>
            </div>
         </div>
-    <input type="submit" class="btn btn-default" value="Proses">     
+         
     </form>
 </div>
         

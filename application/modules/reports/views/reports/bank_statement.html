@@ -30,12 +30,7 @@
             <label>Branch</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" name="id_branch" id="id_branch">
-                    <option value=""></option>
-                     {% for data in branchlist %}
-                    <option value="{{ data.id_branch }}">{{ data.nama_branch }}</option>
-                     {% endfor %}
-                </select>  
+                
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -43,7 +38,7 @@
                <label>Begin Date</label>
        </div>
        <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_begin" name="trans_date_begin" type="text" value="{{ main.trans_date_begin }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -51,7 +46,7 @@
                <label>From</label>
        </div>
        <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_from" name="trans_date_from" type="text" value="{{ main.trans_date_from }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -59,7 +54,7 @@
             <label>to</label>
         </div>
             <div class="col-md-3">
-               <input onfocus="gfPop.fPopCalendar(this);" class="form-control" id="trans_date_to" name="trans_date_to" type="text" value="{{ main.trans_date_to }}" required>
+               
             </div>
     </div>
     <div class="form-group col-lg-12">
@@ -67,8 +62,7 @@
             <label>Report Type</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="report_type">
-                </select>  
+                
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -76,8 +70,7 @@
             <label>BANK NAME</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="bank_nama">
-                </select>  
+                
         </div>
     </div>
      <div class="form-group col-lg-12">
@@ -85,12 +78,7 @@
             <label>Currency</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="currency">
-                    <option value=""></option>
-                     {% for data in currencylist %}
-                    <option value="{{ data.id_currency }}">{{ data.currency }}</option>
-                     {% endfor %}
-                </select>  
+                
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -98,8 +86,7 @@
             <label>Transaction</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="transction">
-                </select>  
+                
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -107,8 +94,7 @@
             <label>Trans ID</label>
         </div>
             <div class="col-md-3">
-                <select class="form-control" id="trans_id">
-                </select>  
+                
         </div>
     </div>
     <div class="form-group col-lg-12">
@@ -132,7 +118,7 @@
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-default" value="Proses"> 
+     
     </form>
 </div>
 {% endblock %}
